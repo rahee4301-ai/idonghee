@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동희산기 DONGHEE INDUSTRIES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0D1F3C; --steel:#1E3A5F; --accent:#C8860A;
+      --light:#F5F7FA; --gray:#6B7280; --white:#FFFFFF; --border:#E2E8F0;
+      --green:#16a34a;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: var(--white); }
+
+    /* ══ 헤더 ══ */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 64px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Oswald', sans-serif; font-size: 1.15rem; font-weight: 600;
+      color: var(--white); letter-spacing: 0.05em; text-decoration: none; cursor: pointer;
+    }
+    .logo img { height: 36px; width: 36px; border-radius: 4px; }
+    .logo span { color: var(--accent); }
+    nav { display: flex; gap: 0; }
+    nav a {
+      color: rgba(255,255,255,0.8); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; padding: 0 1rem;
+      transition: color .2s; cursor: pointer; line-height: 64px;
+    }
+    nav a:hover, nav a.active { color: var(--accent); }
+    .nav-eng {
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 12px; border-radius: 2px; font-size: 0.78rem; line-height: normal;
+      display: flex; align-items: center;
+    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 201; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all .3s; }
+
+    /* 모바일 메뉴 */
+    .mobile-menu {
+      display: none; position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+      background: var(--navy); z-index: 199; flex-direction: column;
+      padding: 2rem 5%;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 1.1rem; font-weight: 500; padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08); cursor: pointer;
+    }
+    .mobile-menu a:hover { color: var(--accent); }
+
+    /* ══ 페이지 시스템 ══ */
+    .page { display: none; margin-top: 64px; }
+    .page.active { display: block; }
+
+    /* ══ 공통 ══ */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 100%);
+      padding: 60px 8% 50px;
+    }
+    .page-hero.green { background: linear-gradient(135deg, #0a2e1a 0%, #1a4a2a 60%, #0D1F3C 100%); }
+    .breadcrumb { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+    .breadcrumb span { color: var(--accent); }
+    .breadcrumb span.green { color: #4ade80; }
+    .page-hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(1.8rem,3vw,2.6rem); color: var(--white); font-weight: 600; }
+    .page-hero p { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-top: 0.8rem; line-height: 1.8; }
+
+    .sub-nav {
+      background: var(--white); border-bottom: 2px solid var(--border);
+      padding: 0 8%; display: flex; overflow-x: auto;
+      position: sticky; top: 64px; z-index: 90;
+    }
+    .sub-nav a {
+      display: block; padding: 16px 22px; font-size: 0.85rem; font-weight: 500;
+      color: var(--gray); text-decoration: none; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -2px;
+      white-space: nowrap; transition: color .2s, border-color .2s;
+    }
+    .sub-nav a:hover { color: var(--navy); }
+    .sub-nav a.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
+    .sub-nav a.active-green { color: var(--green); border-bottom-color: var(--green); font-weight: 700; }
+
+    .section { padding: 80px 8%; }
+    .section.bg-light { background: var(--light); }
+    .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .section-tag.green { color: var(--green); }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(1.5rem,2.5vw,2.2rem); font-weight: 600; color: var(--navy); margin-bottom: 1rem; }
+    .section-desc { font-size: 0.93rem; color: var(--gray); line-height: 1.9; margin-bottom: 2.5rem; max-width: 640px; }
+
+    /* ══ 홈 ══ */
+    .hero {
+      height: calc(100vh - 64px); min-height: 500px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 60%, #2a5080 100%);
+      display: flex; align-items: center; padding: 0 8%;
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
+      background: url('http://www.idonghee.com/images/main/mainvisual.jpg') center/cover no-repeat;
+      opacity: 0.18;
+    }
+    .hero-text { position: relative; z-index: 1; max-width: 600px; }
+    .hero-tag { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; border-bottom: 1px solid var(--accent); padding-bottom: 4px; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem,5vw,3.6rem); font-weight: 600; line-height: 1.15; color: var(--white); margin-bottom: 1.2rem; }
+    .hero h1 em { color: var(--accent); font-style: normal; }
+    .hero p { font-size: clamp(0.9rem,1.5vw,1rem); color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 2rem; max-width: 480px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: var(--white); padding: 12px 28px; font-size: 0.85rem; font-weight: 600; text-decoration: none; letter-spacing: 0.05em; cursor: pointer; border: none; transition: background .2s; }
+    .btn-primary:hover { background: #b07408; }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.5); color: var(--white); padding: 12px 28px; font-size: 0.85rem; cursor: pointer; text-decoration: none; letter-spacing: 0.05em; transition: border-color .2s; background: transparent; }
+    .btn-outline:hover { border-color: var(--white); }
+
+    /* 홈 섹션들 */
+    .biz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .biz-card { background: var(--white); border-top: 3px solid var(--accent); padding: 2rem 1.8rem; transition: box-shadow .25s, transform .25s; }
+    .biz-card:hover { box-shadow: 0 8px 32px rgba(13,31,60,.1); transform: translateY(-4px); }
+    .biz-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .biz-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .biz-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.7; }
+
+    .products-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 1rem; }
+    .product-item { border: 1px solid var(--border); padding: 1.4rem 1.2rem; text-align: center; cursor: pointer; text-decoration: none; transition: border-color .2s, background .2s; }
+    .product-item:hover { border-color: var(--accent); background: #fdf8f0; }
+    .product-item .prod-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+    .product-item span { display: block; font-size: 0.82rem; font-weight: 500; color: var(--navy); }
+    .view-all { font-size: 0.82rem; color: var(--accent); font-weight: 600; text-decoration: none; cursor: pointer; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
+    .news-list { margin-top: 2rem; }
+    .news-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: padding-left .2s; }
+    .news-item:hover { padding-left: 6px; }
+    .news-badge { flex-shrink: 0; font-size: 0.7rem; font-weight: 700; padding: 3px 8px; letter-spacing: 0.05em; }
+    .badge-notice { background: var(--navy); color: white; }
+    .badge-esg { background: var(--green); color: white; }
+    .news-title { font-size: 0.9rem; color: #1a1a1a; flex: 1; }
+    .news-date { font-size: 0.78rem; color: var(--gray); flex-shrink: 0; }
+
+    .esg-banner { background: var(--navy); padding: 60px 8%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+    .esg-banner h2 { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem,2.5vw,2rem); color: var(--white); font-weight: 600; }
+    .esg-banner h2 span { color: var(--accent); }
+    .esg-banner p { font-size: 0.88rem; color: rgba(255,255,255,0.65); margin-top: 0.5rem; line-height: 1.7; }
+    .esg-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+    .esg-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; border: 1px solid rgba(200,134,10,0.5); color: var(--accent); padding: 4px 10px; }
+
+    .clients-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-top: 2.5rem; }
+    .client-logo { display: flex; align-items: center; justify-content: center; width: 130px; height: 52px; border: 1px solid var(--border); font-size: 0.78rem; font-weight: 700; color: var(--gray); transition: border-color .2s, color .2s; }
+    .client-logo:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* ══ 회사소개 ══ */
+    .ceo-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .ceo-quote { font-size: clamp(1.2rem,2vw,1.7rem); font-weight: 700; color: var(--navy); line-height: 1.5; margin-bottom: 1.5rem; }
+    .ceo-quote em { color: var(--accent); font-style: normal; }
+    .ceo-body { font-size: 0.92rem; color: #444; line-height: 2; margin-bottom: 1.2rem; }
+    .ceo-sig { text-align: right; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .ceo-sig .title { font-size: 0.8rem; color: var(--gray); margin-bottom: 0.3rem; }
+    .ceo-sig .name { font-family: 'Oswald', sans-serif; font-size: 1.3rem; color: var(--navy); }
+    .motto-box { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+    .motto-label-top { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.3rem; }
+    .motto-item { display: flex; align-items: center; gap: 1.2rem; background: var(--navy); padding: 1.2rem 1.6rem; }
+    .motto-label { font-family: 'Oswald', sans-serif; font-size: 1rem; color: var(--accent); font-weight: 600; flex-shrink: 0; width: 48px; text-align: center; }
+    .motto-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.15); }
+    .motto-text { font-size: 0.88rem; color: rgba(255,255,255,0.85); line-height: 1.6; }
+
+    /* 연혁 */
+    .history-intro { font-size: 1rem; color: var(--gray); line-height: 1.9; margin-bottom: 3rem; max-width: 600px; }
+    .history-intro strong { color: var(--accent); }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .timeline-group { margin-bottom: 2.5rem; }
+    .timeline-year { display: inline-flex; align-items: center; background: var(--navy); color: var(--white); font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; padding: 6px 18px; margin-bottom: 1rem; position: relative; }
+    .timeline-year::before { content: ''; position: absolute; left: -2.5rem; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; background: var(--accent); border-radius: 50%; border: 2px solid white; box-shadow: 0 0 0 2px var(--accent); }
+    .timeline-items { display: flex; flex-direction: column; gap: 0.6rem; }
+    .timeline-item { display: flex; gap: 1.5rem; align-items: baseline; }
+    .t-date { font-size: 0.78rem; font-weight: 700; color: var(--accent); flex-shrink: 0; width: 48px; }
+    .t-content { font-size: 0.87rem; color: #444; line-height: 1.7; }
+
+    /* 조직도 */
+    .org-tree { overflow-x: auto; }
+    .org-inner { min-width: 700px; }
+    .org-top { display: flex; flex-direction: column; align-items: center; }
+    .org-box-top { background: var(--navy); color: white; padding: 10px 32px; font-size: 0.85rem; font-weight: 600; min-width: 200px; text-align: center; }
+    .org-box-mid { border: 2px solid var(--navy); color: var(--navy); padding: 10px 32px; font-size: 0.85rem; font-weight: 600; min-width: 200px; text-align: center; background: white; }
+    .org-vline { width: 2px; height: 24px; background: var(--border); }
+    .org-hline { width: 80%; height: 2px; background: var(--border); }
+    .org-depts { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; }
+    .org-dept { display: flex; flex-direction: column; align-items: center; }
+    .org-dept-title { background: var(--navy); color: white; padding: 8px 0; width: 100%; text-align: center; font-size: 0.85rem; font-weight: 700; }
+    .org-dept-title.accent { background: var(--accent); }
+    .org-dept-body { width: 100%; padding: 1rem; font-size: 0.8rem; color: #444; line-height: 2.1; border: 1px solid var(--border); border-top: none; background: white; }
+    .org-sub { border-left: 2px solid var(--border); padding-left: 8px; }
+    .org-sub.accent-border { border-left-color: var(--accent); }
+    .contact-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 2rem; }
+    .contact-table td { padding: 12px 20px; border-bottom: 1px solid var(--border); }
+    .contact-table .td-label { background: var(--navy); color: white; font-weight: 600; width: 12%; }
+    .contact-table .td-val { background: white; }
+
+    /* 인증현황 */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.5rem; }
+    .cert-card { border: 1px solid var(--border); padding: 2rem; text-align: center; }
+    .cert-card .cert-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+    .cert-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+    .cert-card p { font-size: 0.8rem; color: var(--gray); line-height: 1.7; }
+
+    /* 오시는길 */
+    .map-iframe { width: 100%; height: 380px; border: 1px solid var(--border); margin-bottom: 2rem; }
+    .location-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; }
+    .loc-card { background: white; padding: 2rem; }
+    .loc-card.accent-left { border-left: 4px solid var(--accent); }
+    .loc-card.navy-left { border-left: 4px solid var(--navy); }
+    .loc-card.steel-left { border-left: 4px solid var(--steel); }
+    .loc-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.8rem; }
+    .loc-tag.navy { color: var(--navy); }
+    .loc-tag.steel { color: var(--steel); }
+    .loc-addr { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; }
+    .loc-sub { font-size: 0.85rem; color: var(--gray); }
+    .loc-info { font-size: 0.88rem; color: #444; line-height: 2; }
+
+    /* ══ 사업영역 ══ */
+    .biz-detail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; }
+    .biz-detail-card { background: white; border-top: 3px solid var(--accent); padding: 2rem 1.8rem; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: transform .25s, box-shadow .25s; }
+    .biz-detail-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(13,31,60,.1); }
+    .biz-detail-card ul { padding-left: 1rem; margin-top: 0.8rem; }
+    .biz-detail-card ul li { font-size: 0.82rem; color: var(--gray); line-height: 2; }
+    .table-wrap { overflow-x: auto; margin-bottom: 3rem; }
+    .table-title { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 1rem; padding-left: 0.8rem; border-left: 3px solid var(--accent); }
+    table.perf { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 580px; }
+    table.perf thead tr { background: var(--navy); color: white; }
+    table.perf thead th { padding: 10px 14px; text-align: left; font-weight: 600; }
+    table.perf tbody tr { border-bottom: 1px solid var(--border); }
+    table.perf tbody tr:nth-child(even) { background: var(--light); }
+    table.perf tbody td { padding: 10px 14px; color: #333; line-height: 1.6; }
+    table.perf tbody td:first-child { font-weight: 600; color: var(--navy); }
+
+    /* ══ 제품소개 ══ */
+    .prod-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .prod-img-box { background: var(--light); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 5rem; border: 1px solid var(--border); }
+    .prod-specs { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1.5rem; }
+    .spec-row { display: flex; gap: 1rem; font-size: 0.85rem; border-bottom: 1px solid var(--border); padding-bottom: 0.6rem; }
+    .spec-label { font-weight: 700; color: var(--navy); flex-shrink: 0; width: 120px; }
+    .spec-val { color: #444; line-height: 1.6; }
+    .prod-features { margin-top: 1.5rem; }
+    .prod-features h4 { font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 0.8rem; }
+    .prod-features ul { padding-left: 1rem; }
+    .prod-features ul li { font-size: 0.83rem; color: #444; line-height: 2; }
+    hr.divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ══ ESG ══ */
+    .esg-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 3rem; }
+    .pillar { padding: 2rem; text-align: center; }
+    .pillar.e { background: #f0fdf4; border-top: 3px solid #16a34a; }
+    .pillar.s { background: #eff6ff; border-top: 3px solid #2563eb; }
+    .pillar.g { background: #fefce8; border-top: 3px solid #ca8a04; }
+    .pillar-letter { font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .pillar.e .pillar-letter { color: #16a34a; }
+    .pillar.s .pillar-letter { color: #2563eb; }
+    .pillar.g .pillar-letter { color: #ca8a04; }
+    .pillar h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .pillar p { font-size: 0.82rem; color: var(--gray); line-height: 1.8; }
+    .policy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem; }
+    .policy-card { border: 1px solid var(--border); padding: 1.8rem; background: white; transition: box-shadow .2s, transform .2s; }
+    .policy-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.08); transform: translateY(-3px); }
+    .policy-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .policy-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .policy-card p { font-size: 0.83rem; color: var(--gray); line-height: 1.8; }
+    .policy-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; padding: 3px 8px; margin-bottom: 0.8rem; }
+    .badge-e { background: #dcfce7; color: #15803d; }
+    .badge-s { background: #dbeafe; color: #1d4ed8; }
+    .badge-g { background: #fef9c3; color: #854d0e; }
+    .esg-declaration { background: var(--navy); padding: 60px 8%; text-align: center; }
+    .esg-declaration h2 { font-family: 'Oswald', sans-serif; font-size: clamp(1.4rem,2.5vw,2rem); color: white; font-weight: 600; margin-bottom: 1.5rem; }
+    .esg-declaration h2 span { color: #4ade80; }
+    .esg-declaration p { font-size: 0.9rem; color: rgba(255,255,255,0.7); line-height: 2; max-width: 600px; margin: 0 auto; }
+
+    /* ══ 고객지원 ══ */
+    .notice-list-wrap { border-top: 2px solid var(--navy); }
+    .notice-row { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: padding-left .15s, background .15s; }
+    .notice-row:hover { background: var(--light); padding-left: 8px; }
+    .notice-num { font-size: 0.78rem; color: var(--gray); width: 40px; text-align: center; flex-shrink: 0; }
+    .notice-ttl { flex: 1; font-size: 0.9rem; color: #1a1a1a; }
+    .notice-dt { font-size: 0.78rem; color: var(--gray); flex-shrink: 0; }
+    .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; }
+    .contact-card-item { padding: 2rem; border: 1px solid var(--border); }
+    .contact-card-item .ci { font-size: 2rem; margin-bottom: 1rem; }
+    .contact-card-item h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .contact-card-item p { font-size: 0.83rem; color: var(--gray); line-height: 1.9; }
+    .contact-val { font-size: 0.93rem; font-weight: 600; color: var(--navy); margin-top: 0.3rem; }
+
+    /* ══ 그룹사 ══ */
+    .group-tree-wrap { text-align: center; margin-bottom: 4rem; }
+    .g-top { display: inline-block; background: var(--navy); color: white; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; padding: 14px 40px; letter-spacing: 0.1em; }
+    .g-vline { width: 2px; height: 28px; background: var(--border); margin: 0 auto; }
+    .g-hline { width: 70%; height: 2px; background: var(--border); margin: 0 auto; }
+    .g-children { display: flex; justify-content: center; flex-wrap: wrap; }
+    .g-child { display: flex; flex-direction: column; align-items: center; flex: 1; min-width: 130px; max-width: 190px; }
+    .g-child-vline { width: 2px; height: 22px; background: var(--border); }
+    .g-child-box { background: var(--light); border: 1px solid var(--border); border-top: 2px solid var(--accent); padding: 10px 14px; font-size: 0.82rem; font-weight: 600; color: var(--navy); text-align: center; width: 100%; }
+    .group-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px,1fr)); gap: 2rem; }
+    .g-card { border: 1px solid var(--border); overflow: hidden; transition: box-shadow .25s, transform .25s; }
+    .g-card:hover { box-shadow: 0 8px 32px rgba(13,31,60,.1); transform: translateY(-4px); }
+    .g-card-head { background: var(--navy); padding: 1.5rem 2rem; }
+    .g-card-head .badge { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); margin-bottom: 0.4rem; }
+    .g-card-head h3 { font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 600; color: white; }
+    .g-card-head .en { font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+    .g-card-body { padding: 1.8rem 2rem; background: white; }
+    .g-card-body p { font-size: 0.85rem; color: var(--gray); line-height: 1.9; margin-bottom: 1rem; }
+    .g-card-body ul { padding-left: 1rem; margin-bottom: 1.5rem; }
+    .g-card-body ul li { font-size: 0.82rem; color: #444; line-height: 2; }
+    .g-link { font-size: 0.78rem; color: var(--accent); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 1px; }
+    .assoc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 1rem; }
+    .assoc-item { border: 1px solid var(--border); padding: 1.2rem 1.5rem; font-size: 0.85rem; color: var(--navy); font-weight: 500; transition: border-color .2s; }
+    .assoc-item:hover { border-color: var(--accent); }
+    .assoc-item a { color: inherit; text-decoration: none; }
+
+    /* ══ 푸터 ══ */
+    footer { background: #0a1628; padding: 48px 8% 32px; color: rgba(255,255,255,0.5); }
+    .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; font-family: 'Oswald', sans-serif; font-size: 1.2rem; color: var(--white); font-weight: 600; margin-bottom: 0.8rem; cursor: pointer; }
+    .footer-logo img { height: 30px; width: 30px; border-radius: 3px; }
+    .footer-logo span { color: var(--accent); }
+    .footer-info { font-size: 0.78rem; line-height: 2.2; }
+    .footer-links { display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-decoration: none; cursor: pointer; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-bottom { font-size: 0.72rem; text-align: center; }
+
+    /* ══ 반응형 ══ */
+    @media(max-width:900px) {
+      .ceo-wrap { grid-template-columns:1fr; gap:2.5rem; }
+      .prod-wrap { grid-template-columns:1fr; gap:2rem; }
+    }
+    @media(max-width:768px) {
+      nav { display:none; }
+      .hamburger { display:flex; }
+      .section { padding:60px 5%; }
+      .sub-nav { padding:0 5%; }
+      .esg-pillars { grid-template-columns:1fr; }
+      .esg-banner { padding:48px 5%; }
+      .esg-declaration { padding:48px 5%; }
+      .hero { padding:0 5%; }
+      .org-depts { grid-template-columns:repeat(2,1fr); }
+      .g-hline { width:90%; }
+    }
+    @media(max-width:480px) {
+      .products-grid { grid-template-columns:repeat(2,1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ 헤더 ══ -->
+<header>
+  <div class="logo" onclick="showPage('home')">
+    <img src="images/logo.png" alt="동희산기 로고">
+    DONGHEE <span>INDUSTRIES</span>
+  </div>
+  <nav>
+    <a onclick="showPage('home')">홈</a>
+    <a onclick="showPage('company')">회사소개</a>
+    <a onclick="showPage('business')">사업영역</a>
+    <a onclick="showPage('products')">제품소개</a>
+    <a onclick="showPage('esg')">ESG</a>
+    <a onclick="showPage('notice')">고객지원</a>
+    <a onclick="showPage('group')">그룹사</a>
+    <span class="nav-eng">ENG</span>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</header>
+
+<!-- 모바일 메뉴 -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');toggleMenu()">홈</a>
+  <a onclick="showPage('company');toggleMenu()">회사소개</a>
+  <a onclick="showPage('business');toggleMenu()">사업영역</a>
+  <a onclick="showPage('products');toggleMenu()">제품소개</a>
+  <a onclick="showPage('esg');toggleMenu()">ESG 경영</a>
+  <a onclick="showPage('notice');toggleMenu()">고객지원</a>
+  <a onclick="showPage('group');toggleMenu()">그룹사소개</a>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- 홈 -->
+<!-- ══════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
+      <h1>자동화의 흐름을<br>설계합니다<br><em>동희산기</em></h1>
+      <p>현대·기아·GM 등 글로벌 완성차 메이커에 납품하는 컨베이어 시스템 전문기업입니다.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('products')">제품 보기</button>
+        <button class="btn-outline" onclick="showPage('company')">회사 소개</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="section bg-light">
+    <div class="section-tag">Business Area</div>
+    <div class="section-title">핵심 사업영역</div>
+    <p class="section-desc">자동차 생산라인에 최적화된 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
+    <div class="biz-grid">
+      <div class="biz-card"><div class="biz-icon">🏭</div><h3>컨베이어 시스템 제조</h3><p>Roller Bar, Power & Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작</p></div>
+      <div class="biz-card"><div class="biz-icon">🔬</div><h3>기술 연구개발</h3><p>현장 최적화를 위한 지속적인 R&D로 생산성과 안전성 향상</p></div>
+      <div class="biz-card"><div class="biz-icon">🌍</div><h3>납품 및 설치</h3><p>국내외 완성차 공장 및 자동차 부품사 생산라인 납품·시공</p></div>
+      <div class="biz-card"><div class="biz-icon">🛡️</div><h3>유지보수 서비스</h3><p>설치 후 체계적인 A/S 및 정기점검으로 안정적인 생산라인 운영 지원</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="products-header">
+      <div><div class="section-tag">Products</div><div class="section-title">제품 라인업</div></div>
+      <span class="view-all" onclick="showPage('products')">전체 보기 →</span>
+    </div>
+    <div class="products-grid">
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🔩</div><span>Roller Bar Type</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">⛓️</div><span>Power &amp; Free</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🚊</div><span>EMS</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">📦</div><span>F.C.S</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">♻️</div><span>Scrap Conveyor</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🤖</div><span>AGV</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🔗</div><span>Slat Conveyor</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🌊</div><span>Free Flow</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🧱</div><span>Plastic Conveyor</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">📡</div><span>Belt Conveyor</span></div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="section-tag">Notice</div><div class="section-title">공지사항</div>
+    <div class="news-list">
+      <div class="news-item" onclick="showPage('notice')"><span class="news-badge badge-notice">공지</span><span class="news-title">회사 공지사항</span><span class="news-date">2025.06</span></div>
+      <div class="news-item" onclick="showPage('notice')"><span class="news-badge badge-esg">ESG</span><span class="news-title">ESG 경영 선언</span><span class="news-date">2025.05</span></div>
+      <div class="news-item" onclick="showPage('notice')"><span class="news-badge badge-notice">공지</span><span class="news-title">CEO 환경경영 방침 공표</span><span class="news-date">2025.04</span></div>
+      <div class="news-item" onclick="showPage('notice')"><span class="news-badge badge-notice">공지</span><span class="news-title">녹색경영 선언</span><span class="news-date">2025.03</span></div>
+    </div>
+  </section>
+
+  <div class="esg-banner">
+    <div>
+      <h2>지속가능한 미래를 위한<br><span>ESG 경영</span></h2>
+      <p>환경·사회·지배구조 전 영역에서 책임있는 기업으로 성장합니다.</p>
+      <div class="esg-tags">
+        <span class="esg-tag">온실가스 관리</span><span class="esg-tag">인권경영</span>
+        <span class="esg-tag">협력사 상생</span><span class="esg-tag">윤리경영</span>
+      </div>
+    </div>
+    <button class="btn-primary" onclick="showPage('esg')">ESG 자료 보기</button>
+  </div>
+
+  <section class="section" style="text-align:center;">
+    <div class="section-tag">Clients</div><div class="section-title">주요 고객사</div>
+    <div class="clients-row">
+      <div class="client-logo">현대자동차</div><div class="client-logo">기아</div>
+      <div class="client-logo">GM Korea</div><div class="client-logo">르노코리아</div>
+      <div class="client-logo">쌍용자동차</div><div class="client-logo">Ford</div>
+      <div class="client-logo">Volkswagen</div><div class="client-logo">Audi</div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- 회사소개 -->
+<!-- ══════════════════════════════════ -->
+<div class="page" id="page-company">
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>회사소개</span></div><h1>회사소개</h1></div>
+  <div class="sub-nav">
+    <a onclick="scrollToSection('ceo')" class="active">CEO 인사말</a>
+    <a onclick="scrollToSection('history')">회사연혁</a>
+    <a onclick="scrollToSection('org')">조직도</a>
+    <a onclick="scrollToSection('cert')">인증현황</a>
+    <a onclick="scrollToSection('location')">오시는길</a>
+  </div>
+
+  <section class="section" id="ceo">
+    <div class="section-tag">CEO Message</div>
+    <div class="ceo-wrap">
+      <div>
+        <div class="ceo-quote">최고를 위한 도전, 고객을 생각하는 마음<br><em>㈜동희산기가 만들면 다릅니다.</em></div>
+        <p class="ceo-body">저희 ㈜동희산기는 우수한 인력과 기술력을 바탕으로 세계 자동차 공장의 자동차 생산설비 전문 업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질, 최고의 제품을 생산하기 위해 끊임없이 노력하고 있습니다.</p>
+        <p class="ceo-body">㈜동희산기는 타사에서 갖지 못하는 <strong>노하우와 우수한 인재</strong>를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, <strong>국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업</strong>으로 성장할 것입니다.</p>
+        <div class="ceo-sig"><div class="title">부회장</div><div class="name">강 동 우</div></div>
+      </div>
+      <div class="motto-box">
+        <div class="motto-label-top">사훈 · 사시</div>
+        <div class="motto-item"><div class="motto-label">社訓</div><div class="motto-divider"></div><div class="motto-text">恒常 生覺하고 恒常 挑戰하며 恒常 變身하자</div></div>
+        <div class="motto-item"><div class="motto-label">社是</div><div class="motto-divider"></div><div class="motto-text">健康하고 自主的인 理想追進</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="history">
+    <div class="section-tag">History</div><div class="section-title">회사연혁</div>
+    <p class="history-intro">우수한 인력과 기술력을 갖춘 자동차 생산설비 전문업체 <strong>㈜동희산기</strong>의 연혁을 소개합니다.</p>
+    <div class="timeline">
+      <div class="timeline-group"><div class="timeline-year">2012</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">10.17</span><span class="t-content">㈜동희로파에서 ㈜동희산기로 회사상호 변경</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">2005</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">07.01</span><span class="t-content">부곡공단 이전 – 충청남도 당진군 한진리 408</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">2004</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">10.01</span><span class="t-content">독일ROFA와 주식 매매계약서 체결 [자본금 55억]</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">2003</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">08.</span><span class="t-content">독일 ROFA사와 양해각서 체결</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">2001</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">09.29</span><span class="t-content">독일 ROFA사 기술협력계약체결</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">2000</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">05.01</span><span class="t-content">일본증서금속공업㈱ 와 상호기술협력계약 체결(국내 독점 계약 체결)</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">1997</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">12.23</span><span class="t-content">자본금 2억원 증자 [자본금 7억5천만원]</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">1994</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">01.10</span><span class="t-content">시화공단 대지 21150MM를 구입 공장신축 — 경기도 시흥시 정왕동 1279</span></div></div></div>
+      <div class="timeline-group"><div class="timeline-year">1990</div><div class="timeline-items">
+        <div class="timeline-item"><span class="t-date">12.12</span><span class="t-content">자본금 3억 5천만원 증자 [자본금 5억 5천만원]</span></div>
+        <div class="timeline-item"><span class="t-date">11.26</span><span class="t-content">일본 ㈱DAIKISA와 기술제휴계약</span></div>
+      </div></div>
+      <div class="timeline-group"><div class="timeline-year">1987</div><div class="timeline-items">
+        <div class="timeline-item"><span class="t-date">12.01</span><span class="t-content">공장 이전 완료</span></div>
+        <div class="timeline-item"><span class="t-date">10.20</span><span class="t-content">일본 증서금속공업㈱ 와 상호기술협력계약 체결, 기아자동차 자동차 설비 / 일본 ㈜平松機械製作所와 기술협력계약 체결</span></div>
+        <div class="timeline-item"><span class="t-date">08.15</span><span class="t-content">반월공단에 대지 7050MM를 매입 공장신축, 경기도 안산시 반월공단 B604-31호</span></div>
+        <div class="timeline-item"><span class="t-date">08.13</span><span class="t-content">자본금 1억 5천만원 증설 [자본금 이억원]</span></div>
+        <div class="timeline-item"><span class="t-date">07.18</span><span class="t-content">주식회사 동희산기 설립, 대표이사 강만희, 설립자본금 오천만원</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="section" id="org">
+    <div class="section-tag">Organization</div><div class="section-title">조직도 / 부서안내</div>
+    <p class="section-desc">우수한 인력과 기술력을 겸비한 <strong style="color:var(--accent)">㈜동희산기</strong>는 탄탄하고 체계적인 조직력으로 한발 더 앞서가겠습니다.</p>
+    <div class="org-tree"><div class="org-inner">
+      <div class="org-top">
+        <div class="org-box-top">Representative Director</div>
+        <div class="org-vline"></div>
+        <div class="org-box-mid">Executive President</div>
+        <div class="org-vline"></div>
+        <div class="org-box-mid">Executive Vice President</div>
+        <div class="org-vline"></div>
+      </div>
+      <div class="org-hline"></div>
+      <div class="org-depts">
+        <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">관리부</div><div class="org-dept-body"><div class="org-sub">경리부</div><div class="org-sub">구매부</div><div class="org-sub">총무부</div></div></div>
+        <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">영업부</div><div class="org-dept-body"><div class="org-sub">국내영업부</div><div class="org-sub">해외영업부</div></div></div>
+        <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title accent">기술부</div><div class="org-dept-body"><div class="org-sub accent-border">시스템 R&D</div><div class="org-sub accent-border">기술 및 설계부</div><div style="padding-left:20px;font-size:0.75rem;color:var(--gray);">· 공장 자동화<br>· 자동차 생산설비 운용</div></div></div>
+        <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">생산부</div><div class="org-dept-body"><div class="org-sub">생산부</div><div class="org-sub">품질관리부</div><div class="org-sub">설치관리부</div><div class="org-sub">A/S</div></div></div>
+        <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">해외사업부</div><div class="org-dept-body"><div class="org-sub">해외 프로젝트<br>엔지니어링 & 관리</div><div style="padding-left:12px;font-size:0.75rem;color:var(--gray);">· 도장공장<br>· 의장 공장<br>· 부품국산화</div></div></div>
+      </div>
+      <table class="contact-table" style="margin-top:2.5rem;">
+        <tr><td class="td-label">영업부</td><td class="td-val">sales@dhrofa.co.kr</td><td class="td-label">기술부</td><td class="td-val">engineer@dhrofa.co.kr</td></tr>
+        <tr><td class="td-label">전기부</td><td class="td-val">elec@dhrofa.co.kr</td><td class="td-label">총무부</td><td class="td-val">gaffair@dhrofa.co.kr</td></tr>
+        <tr><td class="td-label">생산부</td><td class="td-val">manufac@dhrofa.co.kr</td><td class="td-label">구매부</td><td class="td-val">purchase@dhrofa.co.kr</td></tr>
+        <tr><td class="td-label">경리부</td><td class="td-val" colspan="3">account@dhrofa.co.kr</td></tr>
+      </table>
+    </div></div>
+  </section>
+
+  <section class="section bg-light" id="cert">
+    <div class="section-tag">Certification</div><div class="section-title">인증현황</div>
+    <div class="cert-grid">
+      <div class="cert-card"><div class="cert-emoji">🏅</div><h3>ISO 45001:2018</h3><p>안전보건경영시스템<br>Occupational Health &amp; Safety</p></div>
+      <div class="cert-card"><div class="cert-emoji">🏅</div><h3>ISO 9001:2008</h3><p>품질경영시스템<br>Quality Management System</p></div>
+      <div class="cert-card"><div class="cert-emoji">🏅</div><h3>ISO 9001:2008</h3><p>품질경영시스템<br>Quality Management System</p></div>
+    </div>
+    <p style="font-size:0.78rem;color:var(--gray);margin-top:1.5rem;">※ 인증서 이미지는 추후 업데이트 예정입니다.</p>
+  </section>
+
+  <section class="section" id="location">
+    <div class="section-tag">Location</div><div class="section-title">오시는길</div>
+    <iframe class="map-iframe" src="https://map.kakao.com/link/map/동희산기,36.963359469657526,126.76955727306752" allowfullscreen loading="lazy"></iframe>
+    <div class="location-grid">
+      <div class="loc-card accent-left"><div class="loc-tag">ADDRESS</div><div class="loc-addr">충청남도 당진시 송악읍 한진리 408번지</div><div class="loc-sub">(부곡공단로 453)</div></div>
+      <div class="loc-card navy-left"><div class="loc-tag navy">CONTACT</div><div class="loc-info">Tel. 000-0000-0000<br>Fax. 000-0000-0000<br>E-mail. info@idonghee.com</div></div>
+      <div class="loc-card steel-left"><div class="loc-tag steel">DIRECTIONS</div><div class="loc-info">🚗 서해안고속도로 송악IC → 부곡공단 방면<br>🚌 당진버스터미널 → 부곡공단 버스 이용</div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- 사업영역 -->
+<!-- ══════════════════════════════════ -->
+<div class="page" id="page-business">
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>사업영역</span></div><h1>사업영역</h1></div>
+  <div class="sub-nav">
+    <a onclick="scrollToSection('biz-overview')" class="active">사업개요</a>
+    <a onclick="scrollToSection('biz-rd')">기술연구</a>
+    <a onclick="scrollToSection('biz-record')">납품현황</a>
+  </div>
+
+  <section class="section bg-light" id="biz-overview">
+    <div class="section-tag">Business Overview</div><div class="section-title">사업개요</div>
+    <p class="section-desc">㈜동희산기는 자동차 생산설비 전문기업으로 컨베이어 시스템의 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
+    <div class="biz-detail-grid">
+      <div class="biz-detail-card"><div class="biz-icon">🏭</div><h3>차체공장 (Body Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">자동차 차체 조립 라인에 최적화된 컨베이어 시스템 설계 및 설치</p><ul><li>EMS (Electrified Monorail System)</li><li>Roller Bed &amp; SKID 방식</li><li>Floor / Side / Roof 라인</li></ul></div>
+      <div class="biz-detail-card"><div class="biz-icon">🎨</div><h3>도장공장 (Paint Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">도장 공정 특화 컨베이어 시스템 — 전처리부터 오븐까지</p><ul><li>PT/ED : OHC Power &amp; Free</li><li>BOOTH : CPC 방식</li><li>OVEN : Trolley Chain</li></ul></div>
+      <div class="biz-detail-card"><div class="biz-icon">🔧</div><h3>의장공장 (Assembly Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">최종 조립 공정 Turn-Key 납품</p><ul><li>Trim : Friction / Single Slat</li><li>Chassis : OHC Power &amp; Free</li><li>Final : Double Slat / Skillet</li></ul></div>
+      <div class="biz-detail-card"><div class="biz-icon">⚙️</div><h3>엔진라인 (Engine Line)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">엔진·트랜스미션 조립 라인 컨베이어 설계·제작</p><ul><li>Cylinder Head 반송 LINE</li><li>E/G + T/M SUB 이송 LINE</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section" id="biz-rd">
+    <div class="section-tag">R&D</div><div class="section-title">기술연구</div>
+    <div class="biz-detail-grid">
+      <div class="biz-detail-card"><div class="biz-icon">🔬</div><h3>시스템 R&D</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">차세대 컨베이어 시스템 연구 및 공장 자동화 기술 개발</p></div>
+      <div class="biz-detail-card"><div class="biz-icon">📐</div><h3>기술 및 설계</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">고객 맞춤형 설계 서비스. 공장 레이아웃부터 개별 컨베이어 사양까지</p></div>
+      <div class="biz-detail-card"><div class="biz-icon">🤝</div><h3>해외 기술협력</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">독일 ROFA사, 일본 증서금속공업㈱ 등 글로벌 기업과 기술협력</p></div>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="biz-record">
+    <div class="section-tag">Delivery Record</div><div class="section-title">납품현황</div>
+    <div class="table-wrap"><div class="table-title">차체공장 (Body Shop)</div>
+      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th>Line</th></tr></thead>
+      <tbody>
+        <tr><td>HMC 인도</td><td>2007년</td><td>클릭</td><td>60</td><td>EMS : Contact</td><td>Floor, Side, BR/BC, CR, Roof</td></tr>
+        <tr><td>HMC 체코</td><td>2008년</td><td>I-30</td><td>60</td><td>EMS : Contact</td><td>Floor, Side, BR/BC, CR, Roof</td></tr>
+        <tr><td>폭스바겐 인도</td><td>2009년</td><td>—</td><td>30</td><td>Roller Bed &amp; SKID</td><td>Floor, Side, BR/BC, CR, Roof</td></tr>
+      </tbody></table></div>
+    <div class="table-wrap"><div class="table-title">도장공장 (Paint Shop)</div>
+      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td>KMC SP-2</td><td>2005년</td><td>카니발</td><td>40</td><td>OHC P/F, CPC, Trolley Chain</td><td>광주공장</td></tr>
+        <tr><td>KMC UN</td><td>2007년</td><td>카렌스</td><td>30</td><td>OHC P/F, IVA, Friction</td><td>소하리</td></tr>
+        <tr><td>HMC No5</td><td>2008년</td><td>그랜져시스</td><td>30</td><td>OHC P/F, IVA, Friction</td><td>아산</td></tr>
+        <tr><td>KMC 조지아</td><td>2010년</td><td>RV Car</td><td>60</td><td>—</td><td>미국</td></tr>
+        <tr><td>HMC 앨라배마</td><td>2011년</td><td>New Model</td><td>33</td><td>—</td><td>앨라배마</td></tr>
+      </tbody></table></div>
+    <div class="table-wrap"><div class="table-title">의장공장 Turn-Key</div>
+      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor &amp; Equipment</th></tr></thead>
+      <tbody>
+        <tr><td>HMC 남양연구소</td><td>2005년</td><td>—</td><td>5</td><td>Trim, Chassis, Final : OH EMS / AGV</td></tr>
+        <tr><td>Izh-Avto 러시아</td><td>2006년</td><td>라다</td><td>12</td><td>Trim : Single Slat / Chassis : OHC P/F / Final : Double Slat</td></tr>
+        <tr><td>HMMI 인도</td><td>2007년</td><td>클릭</td><td>60</td><td>Trim : Friction / Chassis : OHC P/F / Final : Friction, Double Slat</td></tr>
+        <tr><td>BHMC No2 (중국)</td><td>2008년</td><td>YF</td><td>60</td><td>OK EMS, Chassis</td></tr>
+        <tr><td>KMC 화성 No3</td><td>2009년</td><td>K-9</td><td>50</td><td>FINAL : SKILLET</td></tr>
+        <tr><td>BHMC No3 (중국)</td><td>2012년</td><td>CM</td><td>60</td><td>Water test, OK, PDI : SLAT</td></tr>
+      </tbody></table></div>
+    <div class="table-wrap"><div class="table-title">엔진라인</div>
+      <table class="perf"><thead><tr><th>업체명</th><th>착공년도</th><th>공장</th><th>납품금액</th><th>납품내용</th></tr></thead>
+      <tbody>
+        <tr><td>KIA</td><td>2000년</td><td>화성</td><td>3억</td><td>CYLINDER HEAD 반송 LINE</td></tr>
+        <tr><td>KIA</td><td>2001년</td><td>화성</td><td>1.56억</td><td>ENGINE LINE 설치</td></tr>
+        <tr><td>KIA</td><td>2005년</td><td>화성</td><td>31.8억</td><td>모타라인 설치LINE</td></tr>
+        <tr><td>HMC</td><td>2001년</td><td>아산</td><td>6.89억</td><td>#1 FRONT SUSPENSION SUB 이송 CONVEYOR</td></tr>
+      </tbody></table></div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- 제품소개 -->
+<!-- ══════════════════════════════════ -->
+<div class="page" id="page-products">
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>제품소개</span></div><h1>제품소개</h1></div>
+  <div class="sub-nav">
+    <a onclick="scrollToSection('p01')" class="active">Roller Bar</a>
+    <a onclick="scrollToSection('p02')">Power &amp; Free</a>
+    <a onclick="scrollToSection('p03')">EMS</a>
+    <a onclick="scrollToSection('p04')">F.C.S</a>
+    <a onclick="scrollToSection('p05')">Scrap</a>
+    <a onclick="scrollToSection('p06')">AGV</a>
+    <a onclick="scrollToSection('p07')">Slat</a>
+    <a onclick="scrollToSection('p08')">Free Flow</a>
+    <a onclick="scrollToSection('p09')">Plastic</a>
+    <a onclick="scrollToSection('p10')">Belt</a>
+  </div>
+
+  <section class="section" id="p01"><div class="section-tag">Product 01</div><div class="section-title">Roller Bar Type Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🔩</div><div><p class="section-desc">롤러 바 타입 컨베이어는 자동차 차체 이송에 최적화된 시스템으로, 안정적인 지지력과 정밀한 위치 제어가 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">차체공장 (Body Shop) 조립 라인</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC, KMC, 폭스바겐 인도 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>차체 하중 분산으로 변형 방지</li><li>유지보수 용이한 모듈식 설계</li><li>다양한 차종 대응 가능한 유연한 구조</li><li>저소음·저진동 운전</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p02"><div class="section-tag">Product 02</div><div class="section-title">Power &amp; Free Conveyor</div><div class="prod-wrap"><div class="prod-img-box">⛓️</div><div><p class="section-desc">구동 체인(Power)과 반송 트롤리(Free)를 분리하여 자유로운 속도 제어와 축적이 가능한 오버헤드 컨베이어입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">도장공장, 의장공장 (OHC P/F)</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">KMC SP-2, HMC No5, KMC UN 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>공정 간 버퍼링(축적) 기능으로 라인 유연성 확보</li><li>다양한 분기·합류 장치 구성 가능</li><li>도장 오븐 등 고온 환경에서도 안정적 운전</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p03"><div class="section-tag">Product 03</div><div class="section-title">EMS (Electrified Monorail System)</div><div class="prod-wrap"><div class="prod-img-box">🚊</div><div><p class="section-desc">전기를 통해 각 대차가 독립적으로 움직이는 지능형 오버헤드 컨베이어로, 유연한 반송 경로 구성이 가능합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">차체·의장공장, 연구소 시험 라인</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC 인도·체코, HMMI, BHMC 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>대차별 독립 속도·위치 제어</li><li>복잡한 분기·합류·루프 구성 자유로움</li><li>글로벌 완성차 공장 다수 납품 실적</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p04"><div class="section-tag">Product 04</div><div class="section-title">F.C.S (Friction Conveyor System)</div><div class="prod-wrap"><div class="prod-img-box">📦</div><div><p class="section-desc">마찰 구동 방식의 컨베이어 시스템으로, 팔레트나 행거를 마찰력으로 이송하며 축적 기능과 부드러운 이송이 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">도장공장 Storage, 의장공장 Trim/Final</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>부드러운 기동·정지로 차체 손상 방지</li><li>축적 구간에서 자동 완충 제어</li><li>다양한 라인 레이아웃에 유연하게 대응</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p05"><div class="section-tag">Product 05</div><div class="section-title">Scrap Conveyor</div><div class="prod-wrap"><div class="prod-img-box">♻️</div><div><p class="section-desc">자동차 생산 공정에서 발생하는 금속 스크랩, 절삭칩 등 폐기물을 자동으로 수거·이송하는 컨베이어 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">이송 대상</span><span class="spec-val">금속 스크랩, 절삭칩, 폐기 부품</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>금속 스크랩의 자동 수집 및 집적</li><li>내마모성 소재 적용으로 장수명 구현</li><li>쿨런트(냉각수) 분리 기능 탑재 가능</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p06"><div class="section-tag">Product 06</div><div class="section-title">AGV (Automated Guided Vehicle)</div><div class="prod-wrap"><div class="prod-img-box">🤖</div><div><p class="section-desc">무인 자동 반송 차량(AGV)은 유도선 또는 레이저 유도 방식으로 공장 내를 자율 주행하며 부품·차체를 이송하는 스마트 물류 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC 남양연구소 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>유연한 경로 변경으로 라인 개편 대응</li><li>장애물 감지 센서로 안전 운행</li><li>상위 MES/PLC 시스템과 통신 연동</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p07"><div class="section-tag">Product 07</div><div class="section-title">Slat Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🔗</div><div><p class="section-desc">금속 슬랫(판)을 체인으로 연결한 견고한 이송 시스템으로, 의장 공정 최종 라인(Final Line)에 주로 사용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">BHMC, Izh-Avto 러시아 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>완성차 전체 하중을 균일하게 지지</li><li>Single/Double 슬랫 방식 선택 가능</li><li>내구성 높은 스틸 슬랫 소재 적용</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p08"><div class="section-tag">Product 08</div><div class="section-title">Free Flow Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🌊</div><div><p class="section-desc">팔레트가 독립적으로 이동·정지할 수 있는 프리 플로우 컨베이어는 소형 부품 조립 라인에서 유연한 공정 운영을 가능하게 합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">FEM, C/P, Seat 조립 라인</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>각 스테이션별 독립 정지 제어</li><li>공정 불균형 시 자동 축적·완충</li><li>소음·진동이 적어 정밀 조립에 적합</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p09"><div class="section-tag">Product 09</div><div class="section-title">Plastic Modular Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🧱</div><div><p class="section-desc">플라스틱 모듈 벨트를 사용한 컨베이어로, 경량 부품 이송과 세척 라인 등에 폭넓게 적용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">벨트 소재</span><span class="spec-val">내화학성 플라스틱 모듈 벨트</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>모듈식 구조로 부분 교체 용이</li><li>내화학성·내마모성 우수</li><li>곡선 구간 자유롭게 설계 가능</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p10"><div class="section-tag">Product 10</div><div class="section-title">Belt Conveyor</div><div class="prod-wrap"><div class="prod-img-box">📡</div><div><p class="section-desc">가장 범용적인 이송 시스템으로, 고무 또는 PVC 벨트를 사용하여 다양한 형태의 부품·완제품을 연속적으로 이송합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">벨트 종류</span><span class="spec-val">고무, PVC, 우레탄, 스틸 메시 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>단순한 구조로 유지보수 비용 최소화</li><li>인버터 제어로 속도 무단 조절</li><li>벨트 소재 다양화로 환경별 대응</li></ul></div></div></div></section>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- ESG -->
+<!-- ══════════════════════════════════ -->
+<div class="page" id="page-esg">
+  <div class="page-hero green"><div class="breadcrumb">홈 &gt; <span class="green">ESG 경영</span></div><h1>ESG 경영</h1><p>환경(E) · 사회(S) · 지배구조(G) 전 영역에서 책임 있는 기업으로 성장합니다.</p></div>
+  <div class="sub-nav">
+    <a onclick="scrollToSection('esg-overview')" class="active-green">ESG 개요</a>
+    <a onclick="scrollToSection('esg-env')">환경</a>
+    <a onclick="scrollToSection('esg-social')">사회</a>
+    <a onclick="scrollToSection('esg-gov')">지배구조</a>
+  </div>
+
+  <section class="section" id="esg-overview">
+    <div class="section-tag green">ESG Overview</div><div class="section-title">ESG 경영 방침</div>
+    <p class="section-desc">㈜동희산기는 지속가능한 성장을 위해 환경 보호, 사회적 책임, 투명한 지배구조를 핵심 가치로 삼고 ESG 경영을 실천합니다.</p>
+    <div class="esg-pillars">
+      <div class="pillar e"><div class="pillar-letter">E</div><h3>환경 (Environment)</h3><p>온실가스 감축, 에너지 절약, 폐기물 관리를 통해 환경 영향을 최소화합니다.</p></div>
+      <div class="pillar s"><div class="pillar-letter">S</div><h3>사회 (Social)</h3><p>임직원 안전·인권 보호, 협력사 상생, 지역사회 기여를 통해 사회적 책임을 다합니다.</p></div>
+      <div class="pillar g"><div class="pillar-letter">G</div><h3>지배구조 (Governance)</h3><p>투명한 경영, 윤리 준수, 반부패 정책으로 신뢰받는 기업을 만들어갑니다.</p></div>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="esg-env">
+    <div class="section-tag green">Environment</div><div class="section-title">환경 경영</div>
+    <div class="policy-grid">
+      <div class="policy-card"><span class="policy-badge badge-e">환경</span><div class="policy-icon">🌱</div><h3>온실가스 관리</h3><p>사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-e">환경</span><div class="policy-icon">⚡</div><h3>에너지 절약</h3><p>에너지 효율 개선 설비 도입, 재생에너지 활용 검토, 에너지 사용량 정기 점검 실시.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-e">환경</span><div class="policy-icon">♻️</div><h3>폐기물·화학물질 관리</h3><p>폐기물 발생 최소화 및 재활용 확대. 유해 화학물질 사용 저감 및 대체 추진.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-e">환경</span><div class="policy-icon">🌿</div><h3>생물다양성 보호</h3><p>사업장 주변 생태계 영향 평가 실시. 자연환경 훼손 방지 및 녹지 보전 노력.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="esg-social">
+    <div class="section-tag green">Social</div><div class="section-title">사회 책임</div>
+    <div class="policy-grid">
+      <div class="policy-card"><span class="policy-badge badge-s">사회</span><div class="policy-icon">🦺</div><h3>안전보건 경영</h3><p>ISO 45001 인증 기반 안전보건 경영 시스템 운영. 무재해 사업장 실현을 목표로 정기 안전 교육 실시.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-s">사회</span><div class="policy-icon">🤝</div><h3>인권 경영</h3><p>인권경영 헌장 제정 및 인권 실사 실시. 강제노동·아동노동 금지, 차별 없는 근무환경 조성.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-s">사회</span><div class="policy-icon">🏭</div><h3>협력사 상생</h3><p>공급망 행동규범(Code of Conduct) 운영. 협력사 ESG 역량 강화 지원 및 공정거래 실천.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-s">사회</span><div class="policy-icon">👩‍💼</div><h3>임직원 역량 개발</h3><p>직무교육, 안전교육, ESG 교육 등 체계적 교육 프로그램 운영으로 임직원 성장 지원.</p></div>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="esg-gov">
+    <div class="section-tag green">Governance</div><div class="section-title">지배구조 · 윤리 경영</div>
+    <div class="policy-grid">
+      <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">📋</div><h3>윤리경영 헌장</h3><p>윤리경영 헌장 제정 및 공표. 임직원 대상 윤리 교육 실시, 부패·비위 행위 엄격 금지.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">🔍</div><h3>반부패 정책</h3><p>청탁금지 및 이해충돌 방지 정책 운영. 내부 제보 채널 운영을 통한 투명한 경영환경 조성.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">📊</div><h3>ESG 정보 공시</h3><p>주요 고객사(현대·기아) ESG 자가진단 성실 이행. ESG 경영 현황 정기적 공개 및 개선 추진.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">🛡️</div><h3>정보보안 관리</h3><p>고객사 기술정보 및 개인정보 보호 체계 운영. 정보보안 교육 및 접근 권한 관리 강화.</p></div>
+    </div>
+  </section>
+
+  <div class="esg-declaration">
+    <h2>지속가능한 미래를 위한<br><span>㈜동희산기의 ESG 약속</span></h2>
+    <p>저희 동희산기는 자동차 생산설비 전문기업으로서 환경과 사회에 미치는 영향을 인식하고,<br>책임 있는 기업 시민으로서 ESG 경영을 성실히 이행할 것을 약속합니다.<br><br>대표이사 함명규</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- 고객지원 -->
+<!-- ══════════════════════════════════ -->
+<div class="page" id="page-notice">
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>고객지원</span></div><h1>고객지원</h1></div>
+  <div class="sub-nav">
+    <a onclick="scrollToSection('notice-list')" class="active">공지사항</a>
+    <a onclick="scrollToSection('contact-us')">문의하기</a>
+  </div>
+
+  <section class="section" id="notice-list">
+    <div class="section-tag">Notice</div><div class="section-title">공지사항</div>
+    <div class="notice-list-wrap">
+      <div class="notice-row"><span class="notice-num">5</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">회사 공지사항</span><span class="notice-dt">2025.06</span></div>
+      <div class="notice-row"><span class="notice-num">4</span><span class="news-badge badge-esg">ESG</span><span class="notice-ttl">ESG 경영 선언</span><span class="notice-dt">2025.05</span></div>
+      <div class="notice-row"><span class="notice-num">3</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">CEO 환경경영 방침 공표</span><span class="notice-dt">2025.04</span></div>
+      <div class="notice-row"><span class="notice-num">2</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">녹색경영 선언</span><span class="notice-dt">2025.03</span></div>
+      <div class="notice-row"><span class="notice-num">1</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">홈페이지 오픈 안내</span><span class="notice-dt">2025.01</span></div>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="contact-us">
+    <div class="section-tag">Contact Us</div><div class="section-title">문의하기</div>
+    <div class="contact-cards">
+      <div class="contact-card-item"><div class="ci">📞</div><h3>전화 문의</h3><p>영업일 오전 9시 ~ 오후 6시</p><div class="contact-val">Tel. 000-0000-0000</div><div class="contact-val">Fax. 000-0000-0000</div></div>
+      <div class="contact-card-item"><div class="ci">✉️</div><h3>이메일 문의</h3><p>영업 문의</p><div class="contact-val">sales@dhrofa.co.kr</div><p style="margin-top:0.8rem;">기술 문의</p><div class="contact-val">engineer@dhrofa.co.kr</div></div>
+      <div class="contact-card-item"><div class="ci">🏭</div><h3>방문 문의</h3><p>충청남도 당진시 송악읍<br>한진리 408번지<br>(부곡공단로 453)</p></div>
+      <div class="contact-card-item"><div class="ci">🌐</div><h3>부서별 연락처</h3><p>영업부: sales@dhrofa.co.kr<br>기술부: engineer@dhrofa.co.kr<br>총무부: gaffair@dhrofa.co.kr<br>구매부: purchase@dhrofa.co.kr</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- 그룹사 -->
+<!-- ══════════════════════════════════ -->
+<div class="page" id="page-group">
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>그룹사소개</span></div><h1>그룹사소개</h1></div>
+
+  <section class="section">
+    <div class="section-tag">Group</div><div class="section-title">동서알텍그룹</div>
+    <p class="section-desc">동서알텍그룹은 자동차 생산설비, 부품 제조, 소재 분야의 전문 계열사들로 구성된 산업 그룹입니다.</p>
+    <div class="group-tree-wrap">
+      <div class="g-top">동서알텍그룹</div>
+      <div class="g-vline"></div>
+      <div class="g-hline"></div>
+      <div class="g-children">
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">㈜동희산기</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">㈜동서모터스</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">㈜알텍크리스탈</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">산동동희(중국)</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">D.GNAK</div></div>
+      </div>
+    </div>
+    <div class="group-cards">
+      <div class="g-card"><div class="g-card-head"><div class="badge">DONGHEE INDUSTRIES</div><h3>㈜동희산기</h3><div class="en">Donghee Sangi Co., Ltd.</div></div><div class="g-card-body"><p>자동차 생산설비 전문기업. 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공하며 현대·기아·GM 등 글로벌 완성차 메이커에 납품합니다.</p><ul><li>차체·도장·의장 컨베이어 시스템</li><li>AGV, EMS, Power &amp; Free 등</li></ul><span class="g-link" onclick="showPage('home')">홈페이지 →</span></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">DONGSEI MOTORS</div><h3>㈜동서모터스</h3><div class="en">Dongsei Motors Co., Ltd.</div></div><div class="g-card-body"><p>동서알텍그룹의 계열사로 자동차 관련 부품 및 설비 사업을 영위하고 있습니다.</p><ul><li>자동차 부품 제조 및 공급</li></ul><a href="http://www.dsmt.co.kr" target="_blank" class="g-link">www.dsmt.co.kr →</a></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">ALTECHNO CRYSTAL</div><h3>㈜알텍크리스탈</h3><div class="en">Altechno Crystal Co., Ltd.</div></div><div class="g-card-body"><p>동서알텍그룹 계열사로 소재·부품 분야의 전문 기업입니다.</p><ul><li>소재 및 부품 제조</li></ul><a href="http://www.altechno.co.kr" target="_blank" class="g-link">www.altechno.co.kr →</a></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">CHINA SUBSIDIARY</div><h3>산동동희(중국)</h3><div class="en">Shandong Donghee (China)</div></div><div class="g-card-body"><p>중국 현지 법인으로 중국 자동차 시장을 대상으로 생산설비 사업을 운영합니다.</p><ul><li>중국 완성차 메이커 납품</li></ul><a href="http://www.dsmt.co.kr/chin" target="_blank" class="g-link">사이트 바로가기 →</a></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">D.GNAK</div><h3>D.GNAK</h3><div class="en">D.GNAK Co., Ltd.</div></div><div class="g-card-body"><p>동서알텍그룹 계열사.</p><a href="http://www.dgnak.co.kr" target="_blank" class="g-link">www.dgnak.co.kr →</a></div></div>
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="section-tag">Association</div><div class="section-title">소속 협회</div>
+    <div class="assoc-grid">
+      <div class="assoc-item"><a href="http://www.kama.or.kr" target="_blank">한국자동차산업협회 →</a></div>
+      <div class="assoc-item"><a href="http://www.kaica.or.kr" target="_blank">한국자동차 산업협동조합 →</a></div>
+      <div class="assoc-item"><a href="http://www.kaidnet.co.kr" target="_blank">한국자동차산업연구개발협회 →</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════════════════════════ -->
+<!-- 공통 푸터 — 여기만 수정하면 전체 반영! -->
+<!-- ══════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo" onclick="showPage('home')">
+        <img src="images/logo.png" alt="로고">
+        DONGHEE <span>INDUSTRIES</span>
+      </div>
+      <div class="footer-info">
+        ㈜동희산기 | 부회장 강동우<br>
+        충청남도 당진시 송악읍 한진리 408번지 (부곡공단로 453)<br>
+        Tel. 000-0000-0000 | Fax. 000-0000-0000<br>
+        E-mail. info@idonghee.com
+      </div>
+    </div>
+    <div class="footer-links">
+      <a onclick="showPage('home')">홈</a>
+      <a onclick="showPage('company')">회사소개</a>
+      <a onclick="showPage('business')">사업영역</a>
+      <a onclick="showPage('products')">제품소개</a>
+      <a onclick="showPage('esg')">ESG 경영</a>
+      <a onclick="showPage('notice')">고객지원</a>
+    </div>
+    <div class="footer-links">
+      <a href="http://www.dsmt.co.kr" target="_blank">㈜동서모터스</a>
+      <a href="http://www.altechno.co.kr" target="_blank">㈜알텍크리스탈</a>
+      <a onclick="showPage('group')">그룹사 소개</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 ㈜동희산기 DONGHEE INDUSTRIES. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    const navMap = { home:'홈', company:'회사소개', business:'사업영역', products:'제품소개', esg:'ESG', notice:'고객지원', group:'그룹사' };
+    document.querySelectorAll('nav a').forEach(a => { if(a.textContent.trim() === navMap[id]) a.classList.add('active'); });
+    window.scrollTo(0, 0);
+  }
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if(el) { const top = el.getBoundingClientRect().top + window.scrollY - 120; window.scrollTo({ top, behavior:'smooth' }); }
+    document.querySelectorAll('.sub-nav a').forEach(a => { a.classList.remove('active','active-green'); });
+    event.target.classList.add(event.target.closest('#page-esg') ? 'active-green' : 'active');
+  }
+
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // 초기 active 설정
+  document.querySelectorAll('nav a').forEach(a => { if(a.textContent.trim()==='홈') a.classList.add('active'); });
+</script>
+</body>
+</html>

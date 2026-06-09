@@ -989,17 +989,22 @@
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
     setTimeout(updateSubNavTop, 50);
-    // 애니메이션 초기화 - visible 제거 후 재관찰
+    // 애니메이션 초기화
     setTimeout(function() {
       const activePage = document.querySelector('.page.active');
       if(activePage) {
         activePage.querySelectorAll('.fade-up, .fade-left, .fade-in').forEach(el => {
           el.classList.remove('visible');
-          observer.unobserve(el);
-          observer.observe(el);
         });
+        // 잠시 후 다시 관찰 시작 (DOM 렌더링 후)
+        setTimeout(function() {
+          activePage.querySelectorAll('.fade-up, .fade-left, .fade-in').forEach(el => {
+            scrollObserver.unobserve(el);
+            scrollObserver.observe(el);
+          });
+        }, 50);
       }
-    }, 50);
+    }, 30);
   }
 
   function scrollToSection(id) {

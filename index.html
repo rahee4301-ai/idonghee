@@ -129,10 +129,11 @@
 
     .products-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
     .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 1rem; }
-    .product-item { border: 1px solid var(--border); padding: 1.4rem 1.2rem; text-align: center; cursor: pointer; text-decoration: none; transition: border-color .2s, background .2s; }
-    .product-item:hover { border-color: var(--accent); background: #fdf8f0; }
-    .product-item .prod-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
-    .product-item span { display: block; font-size: 0.82rem; font-weight: 500; color: var(--navy); }
+    .product-item { border: 1px solid var(--border); text-align: center; cursor: pointer; text-decoration: none; transition: border-color .2s, box-shadow .2s; overflow: hidden; }
+    .product-item:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+    .product-item .prod-img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+    .product-item .prod-icon { font-size: 4rem; margin-bottom: 0.4rem; display:block; padding-top:1.2rem; }
+    .product-item .prod-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--navy); padding: 0.6rem 0.8rem 0.8rem; background: white; }
     .view-all { font-size: 0.82rem; color: var(--accent); font-weight: 600; text-decoration: none; cursor: pointer; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
 
     .news-list { margin-top: 2rem; }
@@ -433,16 +434,16 @@
       <span class="view-all" onclick="showPage('products')">전체 보기 →</span>
     </div>
     <div class="products-grid">
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🔩</div><span>Roller Bar Type</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">⛓️</div><span>Power &amp; Free</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🚊</div><span>EMS</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">📦</div><span>F.C.S</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">♻️</div><span>Scrap Conveyor</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🤖</div><span>AGV</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🔗</div><span>Slat Conveyor</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🌊</div><span>Free Flow</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">🧱</div><span>Plastic Conveyor</span></div>
-      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">📡</div><span>Belt Conveyor</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/roller.png" alt="Roller Bar"><span class="prod-label">Roller Bar Type</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/power.png" alt="Power & Free"><span class="prod-label">Power &amp; Free</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/ems.png" alt="EMS"><span class="prod-label">EMS</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/fcs.png" alt="FCS"><span class="prod-label">F.C.S</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/scrap.png" alt="Scrap Conveyor"><span class="prod-label">Scrap Conveyor</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/agv.png" alt="AGV"><span class="prod-label">AGV</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/slat.png" alt="Slat Conveyor"><span class="prod-label">Slat Conveyor</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/freeflow.png" alt="Free Flow"><span class="prod-label">Free Flow</span></div>
+      <div class="product-item" onclick="showPage('products')"><img class="prod-img" src="images/plastic.png" alt="Plastic Conveyor"><span class="prod-label">Plastic Conveyor</span></div>
+      <div class="product-item" onclick="showPage('products')"><div class="prod-icon">📡</div><span class="prod-label">Belt Conveyor</span></div>
     </div>
   </section>
 
@@ -549,29 +550,60 @@
       </div>
       <div class="org-hline"></div>
       <div class="org-depts">
-        <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">관리부</div><div class="org-dept-body"><div class="org-sub">경리부</div><div class="org-sub">구매부</div><div class="org-sub">총무부</div></div></div>
+        <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">관리부</div><div class="org-dept-body"><div class="org-sub">경리팀</div><div class="org-sub">구매팀</div><div class="org-sub">인사총무팀</div></div></div>
         <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">영업부</div><div class="org-dept-body"><div class="org-sub">국내영업부</div><div class="org-sub">해외영업부</div></div></div>
         <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title accent">기술부</div><div class="org-dept-body"><div class="org-sub accent-border">시스템 R&D</div><div class="org-sub accent-border">기술 및 설계부</div><div style="padding-left:20px;font-size:0.75rem;color:var(--gray);">· 공장 자동화<br>· 자동차 생산설비 운용</div></div></div>
         <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">생산부</div><div class="org-dept-body"><div class="org-sub">생산부</div><div class="org-sub">품질관리부</div><div class="org-sub">설치관리부</div><div class="org-sub">A/S</div></div></div>
         <div class="org-dept"><div class="org-vline"></div><div class="org-dept-title">해외사업부</div><div class="org-dept-body"><div class="org-sub">해외 프로젝트<br>엔지니어링 & 관리</div><div style="padding-left:12px;font-size:0.75rem;color:var(--gray);">· 도장공장<br>· 의장 공장<br>· 부품국산화</div></div></div>
       </div>
       <table class="contact-table" style="margin-top:2.5rem;">
-        <tr><td class="td-label">영업부</td><td class="td-val">sales@dhrofa.co.kr</td><td class="td-label">기술부</td><td class="td-val">engineer@dhrofa.co.kr</td></tr>
-        <tr><td class="td-label">전기부</td><td class="td-val">elec@dhrofa.co.kr</td><td class="td-label">총무부</td><td class="td-val">gaffair@dhrofa.co.kr</td></tr>
-        <tr><td class="td-label">생산부</td><td class="td-val">manufac@dhrofa.co.kr</td><td class="td-label">구매부</td><td class="td-val">purchase@dhrofa.co.kr</td></tr>
-        <tr><td class="td-label">경리부</td><td class="td-val" colspan="3">account@dhrofa.co.kr</td></tr>
+        <tr><td class="td-label">영업부</td><td class="td-val">sales@kbdh.co.kr</td><td class="td-label">기술부</td><td class="td-val">pm@kbdh.co.kr</td></tr>
+        <tr><td class="td-label">전기부</td><td class="td-val">pm@kbdh.co.kr</td><td class="td-label">총무부</td><td class="td-val">affair@kbdh.co.kr</td></tr>
+        <tr><td class="td-label">생산부</td><td class="td-val">pm@kbdh.co.kr</td><td class="td-label">구매부</td><td class="td-val">purchase@kbdh.co.kr</td></tr>
+        <tr><td class="td-label">경리부</td><td class="td-val" colspan="3">account@kbdh.co.kr</td></tr>
       </table>
     </div></div>
   </section>
 
   <section class="section bg-light" id="cert">
     <div class="section-tag">Certification</div><div class="section-title">인증현황</div>
-    <div class="cert-grid">
-      <div class="cert-card"><div class="cert-emoji">🏅</div><h3>ISO 45001:2018</h3><p>안전보건경영시스템<br>Occupational Health &amp; Safety</p></div>
-      <div class="cert-card"><div class="cert-emoji">🏅</div><h3>ISO 9001:2008</h3><p>품질경영시스템<br>Quality Management System</p></div>
-      <div class="cert-card"><div class="cert-emoji">🏅</div><h3>ISO 9001:2008</h3><p>품질경영시스템<br>Quality Management System</p></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:1rem;">
+      <div style="background:white;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='none'">
+        <div style="padding:1.2rem 1.5rem;background:var(--navy);display:flex;justify-content:space-between;align-items:center;">
+          <div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;color:var(--accent);">GERMAN CERT</div><div style="font-family:'Oswald',sans-serif;font-size:1.1rem;color:white;font-weight:600;margin-top:2px;">ISO 45001:2018</div></div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);text-align:right;">안전보건경영시스템<br>만료: 2026.11.19</div>
+        </div>
+        <div style="cursor:pointer;" onclick="document.getElementById('certModal1').style.display='flex'">
+          <img src="images/cert_iso45001.png" alt="ISO 45001:2018 인증서" style="width:100%;display:block;">
+          <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);">🔍 클릭하여 인증서 확대</div>
+        </div>
+      </div>
+      <div style="background:white;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='none'">
+        <div style="padding:1.2rem 1.5rem;background:var(--navy);display:flex;justify-content:space-between;align-items:center;">
+          <div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.12em;color:var(--accent);">GERMAN CERT</div><div style="font-family:'Oswald',sans-serif;font-size:1.1rem;color:white;font-weight:600;margin-top:2px;">ISO 9001:2015</div></div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);text-align:right;">품질경영시스템<br>만료: 2026.10.23</div>
+        </div>
+        <div style="cursor:pointer;" onclick="document.getElementById('certModal2').style.display='flex'">
+          <img src="images/cert_iso9001.png" alt="ISO 9001:2015 인증서" style="width:100%;display:block;">
+          <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);">🔍 클릭하여 인증서 확대</div>
+        </div>
+      </div>
     </div>
-    <p style="font-size:0.78rem;color:var(--gray);margin-top:1.5rem;">※ 인증서 이미지는 추후 업데이트 예정입니다.</p>
+
+    <!-- 인증서 확대 모달 1 -->
+    <div id="certModal1" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
+      <div style="max-width:700px;width:100%;position:relative;" onclick="event.stopPropagation()">
+        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <img src="images/cert_iso45001.png" style="width:100%;border-radius:4px;">
+      </div>
+    </div>
+    <!-- 인증서 확대 모달 2 -->
+    <div id="certModal2" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
+      <div style="max-width:700px;width:100%;position:relative;" onclick="event.stopPropagation()">
+        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <img src="images/cert_iso9001.png" style="width:100%;border-radius:4px;">
+      </div>
+    </div>
   </section>
 
   <section class="section" id="location">
@@ -673,16 +705,16 @@
     <a onclick="scrollToSection('p10')">Belt</a>
   </div>
 
-  <section class="section" id="p01"><div class="section-tag">Product 01</div><div class="section-title">Roller Bar Type Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🔩</div><div><p class="section-desc">롤러 바 타입 컨베이어는 자동차 차체 이송에 최적화된 시스템으로, 안정적인 지지력과 정밀한 위치 제어가 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">차체공장 (Body Shop) 조립 라인</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC, KMC, 폭스바겐 인도 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>차체 하중 분산으로 변형 방지</li><li>유지보수 용이한 모듈식 설계</li><li>다양한 차종 대응 가능한 유연한 구조</li><li>저소음·저진동 운전</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p02"><div class="section-tag">Product 02</div><div class="section-title">Power &amp; Free Conveyor</div><div class="prod-wrap"><div class="prod-img-box">⛓️</div><div><p class="section-desc">구동 체인(Power)과 반송 트롤리(Free)를 분리하여 자유로운 속도 제어와 축적이 가능한 오버헤드 컨베이어입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">도장공장, 의장공장 (OHC P/F)</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">KMC SP-2, HMC No5, KMC UN 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>공정 간 버퍼링(축적) 기능으로 라인 유연성 확보</li><li>다양한 분기·합류 장치 구성 가능</li><li>도장 오븐 등 고온 환경에서도 안정적 운전</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p03"><div class="section-tag">Product 03</div><div class="section-title">EMS (Electrified Monorail System)</div><div class="prod-wrap"><div class="prod-img-box">🚊</div><div><p class="section-desc">전기를 통해 각 대차가 독립적으로 움직이는 지능형 오버헤드 컨베이어로, 유연한 반송 경로 구성이 가능합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">차체·의장공장, 연구소 시험 라인</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC 인도·체코, HMMI, BHMC 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>대차별 독립 속도·위치 제어</li><li>복잡한 분기·합류·루프 구성 자유로움</li><li>글로벌 완성차 공장 다수 납품 실적</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p04"><div class="section-tag">Product 04</div><div class="section-title">F.C.S (Friction Conveyor System)</div><div class="prod-wrap"><div class="prod-img-box">📦</div><div><p class="section-desc">마찰 구동 방식의 컨베이어 시스템으로, 팔레트나 행거를 마찰력으로 이송하며 축적 기능과 부드러운 이송이 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">도장공장 Storage, 의장공장 Trim/Final</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>부드러운 기동·정지로 차체 손상 방지</li><li>축적 구간에서 자동 완충 제어</li><li>다양한 라인 레이아웃에 유연하게 대응</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p05"><div class="section-tag">Product 05</div><div class="section-title">Scrap Conveyor</div><div class="prod-wrap"><div class="prod-img-box">♻️</div><div><p class="section-desc">자동차 생산 공정에서 발생하는 금속 스크랩, 절삭칩 등 폐기물을 자동으로 수거·이송하는 컨베이어 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">이송 대상</span><span class="spec-val">금속 스크랩, 절삭칩, 폐기 부품</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>금속 스크랩의 자동 수집 및 집적</li><li>내마모성 소재 적용으로 장수명 구현</li><li>쿨런트(냉각수) 분리 기능 탑재 가능</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p06"><div class="section-tag">Product 06</div><div class="section-title">AGV (Automated Guided Vehicle)</div><div class="prod-wrap"><div class="prod-img-box">🤖</div><div><p class="section-desc">무인 자동 반송 차량(AGV)은 유도선 또는 레이저 유도 방식으로 공장 내를 자율 주행하며 부품·차체를 이송하는 스마트 물류 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC 남양연구소 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>유연한 경로 변경으로 라인 개편 대응</li><li>장애물 감지 센서로 안전 운행</li><li>상위 MES/PLC 시스템과 통신 연동</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p07"><div class="section-tag">Product 07</div><div class="section-title">Slat Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🔗</div><div><p class="section-desc">금속 슬랫(판)을 체인으로 연결한 견고한 이송 시스템으로, 의장 공정 최종 라인(Final Line)에 주로 사용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">BHMC, Izh-Avto 러시아 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>완성차 전체 하중을 균일하게 지지</li><li>Single/Double 슬랫 방식 선택 가능</li><li>내구성 높은 스틸 슬랫 소재 적용</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p08"><div class="section-tag">Product 08</div><div class="section-title">Free Flow Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🌊</div><div><p class="section-desc">팔레트가 독립적으로 이동·정지할 수 있는 프리 플로우 컨베이어는 소형 부품 조립 라인에서 유연한 공정 운영을 가능하게 합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">FEM, C/P, Seat 조립 라인</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>각 스테이션별 독립 정지 제어</li><li>공정 불균형 시 자동 축적·완충</li><li>소음·진동이 적어 정밀 조립에 적합</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p09"><div class="section-tag">Product 09</div><div class="section-title">Plastic Modular Conveyor</div><div class="prod-wrap"><div class="prod-img-box">🧱</div><div><p class="section-desc">플라스틱 모듈 벨트를 사용한 컨베이어로, 경량 부품 이송과 세척 라인 등에 폭넓게 적용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">벨트 소재</span><span class="spec-val">내화학성 플라스틱 모듈 벨트</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>모듈식 구조로 부분 교체 용이</li><li>내화학성·내마모성 우수</li><li>곡선 구간 자유롭게 설계 가능</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p10"><div class="section-tag">Product 10</div><div class="section-title">Belt Conveyor</div><div class="prod-wrap"><div class="prod-img-box">📡</div><div><p class="section-desc">가장 범용적인 이송 시스템으로, 고무 또는 PVC 벨트를 사용하여 다양한 형태의 부품·완제품을 연속적으로 이송합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">벨트 종류</span><span class="spec-val">고무, PVC, 우레탄, 스틸 메시 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>단순한 구조로 유지보수 비용 최소화</li><li>인버터 제어로 속도 무단 조절</li><li>벨트 소재 다양화로 환경별 대응</li></ul></div></div></div></section>
+  <section class="section" id="p01"><div class="section-tag">Product 01</div><div class="section-title">Roller Bar Type Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/roller.png" alt="Roller Bar" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">롤러 바 타입 컨베이어는 자동차 차체 이송에 최적화된 시스템으로, 안정적인 지지력과 정밀한 위치 제어가 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">차체공장 (Body Shop) 조립 라인</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC, KMC, 폭스바겐 인도 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>차체 하중 분산으로 변형 방지</li><li>유지보수 용이한 모듈식 설계</li><li>다양한 차종 대응 가능한 유연한 구조</li><li>저소음·저진동 운전</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p02"><div class="section-tag">Product 02</div><div class="section-title">Power &amp; Free Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/power.png" alt="Power & Free" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">구동 체인(Power)과 반송 트롤리(Free)를 분리하여 자유로운 속도 제어와 축적이 가능한 오버헤드 컨베이어입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">도장공장, 의장공장 (OHC P/F)</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">KMC SP-2, HMC No5, KMC UN 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>공정 간 버퍼링(축적) 기능으로 라인 유연성 확보</li><li>다양한 분기·합류 장치 구성 가능</li><li>도장 오븐 등 고온 환경에서도 안정적 운전</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p03"><div class="section-tag">Product 03</div><div class="section-title">EMS (Electrified Monorail System)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/ems.png" alt="EMS" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">전기를 통해 각 대차가 독립적으로 움직이는 지능형 오버헤드 컨베이어로, 유연한 반송 경로 구성이 가능합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">차체·의장공장, 연구소 시험 라인</span></div><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC 인도·체코, HMMI, BHMC 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>대차별 독립 속도·위치 제어</li><li>복잡한 분기·합류·루프 구성 자유로움</li><li>글로벌 완성차 공장 다수 납품 실적</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p04"><div class="section-tag">Product 04</div><div class="section-title">F.C.S (Friction Conveyor System)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/fcs.png" alt="FCS" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">마찰 구동 방식의 컨베이어 시스템으로, 팔레트나 행거를 마찰력으로 이송하며 축적 기능과 부드러운 이송이 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">도장공장 Storage, 의장공장 Trim/Final</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>부드러운 기동·정지로 차체 손상 방지</li><li>축적 구간에서 자동 완충 제어</li><li>다양한 라인 레이아웃에 유연하게 대응</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p05"><div class="section-tag">Product 05</div><div class="section-title">Scrap Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/scrap.png" alt="Scrap" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">자동차 생산 공정에서 발생하는 금속 스크랩, 절삭칩 등 폐기물을 자동으로 수거·이송하는 컨베이어 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">이송 대상</span><span class="spec-val">금속 스크랩, 절삭칩, 폐기 부품</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>금속 스크랩의 자동 수집 및 집적</li><li>내마모성 소재 적용으로 장수명 구현</li><li>쿨런트(냉각수) 분리 기능 탑재 가능</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p06"><div class="section-tag">Product 06</div><div class="section-title">AGV (Automated Guided Vehicle)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/agv.png" alt="AGV" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">무인 자동 반송 차량(AGV)은 유도선 또는 레이저 유도 방식으로 공장 내를 자율 주행하며 부품·차체를 이송하는 스마트 물류 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">HMC 남양연구소 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>유연한 경로 변경으로 라인 개편 대응</li><li>장애물 감지 센서로 안전 운행</li><li>상위 MES/PLC 시스템과 통신 연동</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p07"><div class="section-tag">Product 07</div><div class="section-title">Slat Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/slat.png" alt="Slat" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">금속 슬랫(판)을 체인으로 연결한 견고한 이송 시스템으로, 의장 공정 최종 라인(Final Line)에 주로 사용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">납품 실적</span><span class="spec-val">BHMC, Izh-Avto 러시아 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>완성차 전체 하중을 균일하게 지지</li><li>Single/Double 슬랫 방식 선택 가능</li><li>내구성 높은 스틸 슬랫 소재 적용</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p08"><div class="section-tag">Product 08</div><div class="section-title">Free Flow Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/freeflow.png" alt="Free Flow" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">팔레트가 독립적으로 이동·정지할 수 있는 프리 플로우 컨베이어는 소형 부품 조립 라인에서 유연한 공정 운영을 가능하게 합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">적용 공정</span><span class="spec-val">FEM, C/P, Seat 조립 라인</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>각 스테이션별 독립 정지 제어</li><li>공정 불균형 시 자동 축적·완충</li><li>소음·진동이 적어 정밀 조립에 적합</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p09"><div class="section-tag">Product 09</div><div class="section-title">Plastic Modular Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/plastic.png" alt="Plastic" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc">플라스틱 모듈 벨트를 사용한 컨베이어로, 경량 부품 이송과 세척 라인 등에 폭넓게 적용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">벨트 소재</span><span class="spec-val">내화학성 플라스틱 모듈 벨트</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>모듈식 구조로 부분 교체 용이</li><li>내화학성·내마모성 우수</li><li>곡선 구간 자유롭게 설계 가능</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p10"><div class="section-tag">Product 10</div><div class="section-title">Belt Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="font-size:8rem;">📡</div><div><p class="section-desc">가장 범용적인 이송 시스템으로, 고무 또는 PVC 벨트를 사용하여 다양한 형태의 부품·완제품을 연속적으로 이송합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label">벨트 종류</span><span class="spec-val">고무, PVC, 우레탄, 스틸 메시 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li>단순한 구조로 유지보수 비용 최소화</li><li>인버터 제어로 속도 무단 조절</li><li>벨트 소재 다양화로 환경별 대응</li></ul></div></div></div></section>
 </div>
 
 <!-- ══════════════════════════════════ -->
@@ -720,7 +752,7 @@
   <section class="section" id="esg-social">
     <div class="section-tag green">Social</div><div class="section-title">사회 책임</div>
     <div class="policy-grid">
-      <div class="policy-card"><span class="policy-badge badge-s">사회</span><div class="policy-icon">🦺</div><h3>안전보건 경영</h3><p>ISO 45001 인증 기반 안전보건 경영 시스템 운영. 무재해 사업장 실현을 목표로 정기 안전 교육 실시.</p></div>
+      <div class="policy-card" style="cursor:pointer;" onclick="document.getElementById('certModal1').style.display='flex'"><span class="policy-badge badge-s">사회</span><div class="policy-icon">🦺</div><h3>안전보건 경영</h3><p>ISO 45001 인증 기반 안전보건 경영 시스템 운영. 무재해 사업장 실현을 목표로 정기 안전 교육 실시.</p><div style="margin-top:1rem;"><span style="display:inline-flex;align-items:center;gap:6px;background:#2563eb;color:white;font-size:0.78rem;font-weight:600;padding:8px 14px;letter-spacing:0.05em;">🏅 ISO 45001:2018 인증서 보기</span></div></div>
       <div class="policy-card" style="cursor:pointer;" onclick="openNotice('notice3')"><span class="policy-badge badge-s">사회</span><div class="policy-icon">🤝</div><h3>인권 경영</h3><p>인권경영 헌장 제정 및 인권 실사 실시. 강제노동·아동노동 금지, 차별 없는 근무환경 조성.</p><div style="margin-top:1rem;"><span style="display:inline-flex;align-items:center;gap:6px;background:#2563eb;color:white;font-size:0.78rem;font-weight:600;padding:8px 14px;letter-spacing:0.05em;">📄 인권경영 헌장 보기</span></div></div>
       <div class="policy-card"><span class="policy-badge badge-s">사회</span><div class="policy-icon">🏭</div><h3>협력사 상생</h3><p>공급망 행동규범(Code of Conduct) 운영. 협력사 ESG 역량 강화 지원 및 공정거래 실천.</p></div>
       <div class="policy-card"><span class="policy-badge badge-s">사회</span><div class="policy-icon">👩‍💼</div><h3>임직원 역량 개발</h3><p>직무교육, 안전교육, ESG 교육 등 체계적 교육 프로그램 운영으로 임직원 성장 지원.</p></div>
@@ -1043,7 +1075,7 @@ const noticeContents = {
             <tr>
               <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
                 2026년 &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일<br>
-                주식회사 동희산기 대표이사 &nbsp;함명규&nbsp; (인)
+                주식회사 동희산기 대표이사 &nbsp;함명규&nbsp; 
               </td>
 
             </tr>
@@ -1166,7 +1198,7 @@ const noticeContents = {
             <tr>
               <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
                 2026 년 &nbsp;&nbsp;2 월&nbsp; &nbsp; 20 일<br>
-                주식회사 동희산기 대표이사 &nbsp;함명규 &nbsp;(인)
+                주식회사 동희산기 대표이사 &nbsp;함명규 &nbsp;
               </td>
             </tr>
           </tbody>
@@ -1329,7 +1361,7 @@ const noticeContents = {
             <tr>
               <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
                 시행일: 2026 년 &nbsp;&nbsp;2 월&nbsp; &nbsp; 20 일<br>
-                주식회사 동희산기 대표이사 &nbsp;함명규 &nbsp;(인)
+                주식회사 동희산기 대표이사 &nbsp;함명규 &nbsp;
               </td>
             </tr>
           </tbody>

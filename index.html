@@ -79,9 +79,11 @@
     /* ══ 공통 ══ */
     .page-hero {
       background: linear-gradient(to right, #EEF3FA, #F8FAFB);
-      padding: 48px 8% 36px;
+      padding: 28px 8% 22px;
       border-bottom: 1px solid #DDE6F0;
-      position: relative;
+      position: sticky;
+      top: 68px;
+      z-index: 140;
     }
     .page-hero::before {
       content: '';
@@ -92,7 +94,7 @@
       height: 4px;
       background: var(--accent);
     }
-    .page-hero.green { background: linear-gradient(135deg, #14532d 0%, #166534 60%, #15803d 100%); border-bottom: none; }
+    .page-hero.green { background: linear-gradient(135deg, #14532d 0%, #166534 60%, #15803d 100%); border-bottom: none; position: sticky; top: 68px; z-index: 140; }
     .breadcrumb { font-size: 0.78rem; color: #94A3B8; margin-bottom: 0.8rem; }
     .breadcrumb span { color: var(--navy); font-weight: 600; }
     .breadcrumb span.green { color: #166534; font-weight: 600; }

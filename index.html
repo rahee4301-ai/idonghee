@@ -15,7 +15,7 @@
       --green:#16a34a;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: #ffffff; }
+    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: #ffffff; overflow-y: auto !important; }
 
     /* ══ 헤더 ══ */
     header {
@@ -74,8 +74,7 @@
 
     /* ══ 페이지 시스템 ══ */
     .page { display: none; margin-top: 68px; background: var(--white); }
-    .page.active { display: block; min-height: calc(100vh - 68px); }
-    .page.active { display: block; }
+    .page.active { display: block; min-height: 100%; overflow-y: auto; }
 
     /* ══ 공통 ══ */
     .page-hero {
@@ -931,6 +930,7 @@
     document.querySelectorAll('nav a').forEach(a => { if(a.textContent.trim() === navMap[id]) a.classList.add('active'); });
     window.scrollTo(0, 0);
     document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
   }
 
   function scrollToSection(id) {
@@ -940,7 +940,14 @@
     event.target.classList.add(event.target.closest('#page-esg') ? 'active-green' : 'active');
   }
 
-  function toggleMenu() {
+  document.addEventListener('keydown', function(e) {
+  if(e.key === 'Escape') {
+    document.getElementById('noticeModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
@@ -952,7 +959,7 @@
 <div class="modal-overlay" id="noticeModal" onclick="closeModal(event)">
   <div class="modal-box">
     <div class="modal-header">
-      <button class="modal-close" onclick="document.getElementById('noticeModal').classList.remove('open')">✕</button>
+      <button class="modal-close" onclick="document.getElementById('noticeModal').classList.remove('open');document.body.style.overflow='';">✕</button>
     </div>
     <div class="modal-body" id="modalBody"></div>
   </div>

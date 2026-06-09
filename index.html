@@ -71,11 +71,12 @@
 
     /* ══ 페이지 시스템 ══ */
     .page { display: none; margin-top: 68px; background: var(--white); }
+    .page.active { display: block; min-height: calc(100vh - 68px); }
     .page.active { display: block; }
 
     /* ══ 공통 ══ */
     .page-hero {
-      background: linear-gradient(135deg, #0B1D3A 0%, #1a3a6b 60%, #1e4d8c 100%);
+      background: linear-gradient(135deg, #1a3a6b 0%, #2d6aaa 50%, #4a90d4 80%, #6aaee0 100%);
       padding: 52px 8% 44px;
     }
     .page-hero.green { background: linear-gradient(135deg, #0a2e1a 0%, #1a4a2a 60%, #0D1F3C 100%); }
@@ -217,7 +218,7 @@
     .contact-table .td-val { background: white; }
 
     /* 인증현황 */
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1.5rem; }
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1.5rem; }
     .cert-card { border: 1px solid var(--border); padding: 2rem; text-align: center; }
     .cert-card .cert-emoji { font-size: 2.8rem; margin-bottom: 1rem; }
     .cert-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.4rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
@@ -589,7 +590,7 @@
           <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);text-align:right;">안전보건경영시스템<br>만료: 2026.11.19</div>
         </div>
         <div style="cursor:pointer;" onclick="document.getElementById('certModal1').style.display='flex'">
-          <img src="images/cert_iso45001.png" alt="ISO 45001:2018 인증서" style="width:100%;display:block;">
+          <img src="images/cert_iso45001.png" alt="ISO 45001:2018 인증서" style="width:100%;display:block;max-height:320px;object-fit:contain;background:#f8f9fa;padding:8px;">
           <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);">🔍 클릭하여 인증서 확대</div>
         </div>
       </div>
@@ -599,26 +600,16 @@
           <div style="font-size:0.75rem;color:rgba(255,255,255,0.6);text-align:right;">품질경영시스템<br>만료: 2026.10.23</div>
         </div>
         <div style="cursor:pointer;" onclick="document.getElementById('certModal2').style.display='flex'">
-          <img src="images/cert_iso9001.png" alt="ISO 9001:2015 인증서" style="width:100%;display:block;">
+          <img src="images/cert_iso9001.png" alt="ISO 9001:2015 인증서" style="width:100%;display:block;max-height:320px;object-fit:contain;background:#f8f9fa;padding:8px;">
           <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);">🔍 클릭하여 인증서 확대</div>
         </div>
       </div>
     </div>
 
     <!-- 인증서 확대 모달 1 -->
-    <div id="certModal1" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
-      <div style="max-width:700px;width:100%;position:relative;" onclick="event.stopPropagation()">
-        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
-        <img src="images/cert_iso45001.png" style="width:100%;border-radius:4px;">
-      </div>
-    </div>
+    
     <!-- 인증서 확대 모달 2 -->
-    <div id="certModal2" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
-      <div style="max-width:700px;width:100%;position:relative;" onclick="event.stopPropagation()">
-        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
-        <img src="images/cert_iso9001.png" style="width:100%;border-radius:4px;">
-      </div>
-    </div>
+    
   </section>
 
   <section class="section" id="location">
@@ -923,6 +914,7 @@
     const navMap = { home:'홈', company:'회사소개', business:'사업영역', products:'제품소개', esg:'ESG', notice:'고객지원', group:'그룹사' };
     document.querySelectorAll('nav a').forEach(a => { if(a.textContent.trim() === navMap[id]) a.classList.add('active'); });
     window.scrollTo(0, 0);
+    document.body.style.overflow = '';
   }
 
   function scrollToSection(id) {
@@ -1107,6 +1099,18 @@ const noticeContents = {
   </tbody>
 </table>
 
+<div id="certModal1" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
+      <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
+        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <img src="images/cert_iso45001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
+      </div>
+    </div>
+<div id="certModal2" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
+      <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
+        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <img src="images/cert_iso9001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
+      </div>
+    </div>
 </body>
 </html>
 `,
@@ -1414,5 +1418,17 @@ function closeModal(e) {
 }
 </script>
 
+<div id="certModal1" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
+      <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
+        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <img src="images/cert_iso45001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
+      </div>
+    </div>
+<div id="certModal2" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
+      <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
+        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <img src="images/cert_iso9001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
+      </div>
+    </div>
 </body>
 </html>

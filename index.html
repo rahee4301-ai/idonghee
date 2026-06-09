@@ -6,7 +6,8 @@
   <title>동희산기 DONGHEE INDUSTRIES</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="shortcut icon" href="images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -15,7 +16,7 @@
       --green:#16a34a;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans KR', sans-serif; color: #1a1a1a; background: #ffffff; overflow-y: auto !important; }
+    body { font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif; color: #1a1a1a; background: #ffffff; overflow-y: auto !important; }
 
     /* ══ 헤더 ══ */
     header {
@@ -55,8 +56,8 @@
       padding: 4px 12px; border-radius: 2px; font-size: 0.82rem; line-height: normal;
       display: flex; align-items: center;
     }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 201; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all .3s; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 201; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #0B1D3A; border-radius: 2px; transition: all .3s; }
 
     /* 모바일 메뉴 */
     .mobile-menu {

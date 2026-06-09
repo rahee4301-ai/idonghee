@@ -989,7 +989,17 @@
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
     setTimeout(updateSubNavTop, 50);
-    setTimeout(initAnimations, 100);
+    // 애니메이션 초기화 - visible 제거 후 재관찰
+    setTimeout(function() {
+      const activePage = document.querySelector('.page.active');
+      if(activePage) {
+        activePage.querySelectorAll('.fade-up, .fade-left, .fade-in').forEach(el => {
+          el.classList.remove('visible');
+          observer.unobserve(el);
+          observer.observe(el);
+        });
+      }
+    }, 50);
   }
 
   function scrollToSection(id) {
@@ -1032,7 +1042,13 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 function initAnimations() {
-  document.querySelectorAll('.fade-up, .fade-left, .fade-in').forEach(el => {
+  const activePage = document.querySelector('.page.active');
+  const els = activePage 
+    ? activePage.querySelectorAll('.fade-up, .fade-left, .fade-in')
+    : document.querySelectorAll('.fade-up, .fade-left, .fade-in');
+  els.forEach(el => {
+    el.classList.remove('visible');
+    observer.unobserve(el);
     observer.observe(el);
   });
 }

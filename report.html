@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>내·외부 부정행위 신고센터 - 동희산기</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --navy:#0D1F3C; --accent:#C8860A; --green:#16a34a; --light:#F5F7FA; --gray:#6B7280; --border:#E2E8F0; }
+    body { font-family: 'Noto Sans KR', sans-serif; background: var(--light); color: #1a1a1a; min-height: 100vh; }
+
+    /* 헤더 */
+    .top-bar { background: var(--navy); padding: 14px 5%; display: flex; align-items: center; justify-content: space-between; }
+    .top-logo { display: flex; align-items: center; gap: 10px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 600; color: white; text-decoration: none; }
+    .top-logo img { height: 32px; width: 32px; border-radius: 3px; }
+    .top-logo span { color: var(--accent); }
+    .top-back { font-size: 0.82rem; color: rgba(255,255,255,0.7); text-decoration: none; }
+    .top-back:hover { color: var(--accent); }
+
+    /* 히어로 */
+    .hero { background: linear-gradient(135deg, #0a2e1a 0%, #1a4a2a 60%, var(--navy) 100%); padding: 48px 5%; text-align: center; }
+    .hero-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; color: #4ade80; border: 1px solid #4ade80; padding: 4px 12px; margin-bottom: 1rem; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(1.6rem, 3vw, 2.2rem); color: white; font-weight: 600; margin-bottom: 0.8rem; }
+    .hero p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.8; }
+
+    /* 본문 */
+    .container { max-width: 760px; margin: 0 auto; padding: 40px 20px 60px; }
+
+    /* 안내 박스 */
+    .info-box { background: white; border-left: 4px solid var(--green); padding: 1.5rem 2rem; margin-bottom: 2rem; }
+    .info-box p { font-size: 0.9rem; line-height: 1.9; color: #333; }
+    .info-box strong { color: var(--navy); }
+    .info-box .protect { color: #d32f2f; font-weight: 700; }
+
+    /* 처리절차 */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .step { background: white; padding: 1.2rem; text-align: center; border-top: 3px solid var(--navy); }
+    .step-num { font-family: 'Oswald', sans-serif; font-size: 1.5rem; color: var(--accent); font-weight: 600; }
+    .step-title { font-size: 0.82rem; font-weight: 700; color: var(--navy); margin-top: 0.3rem; }
+    .step-desc { font-size: 0.75rem; color: var(--gray); margin-top: 0.3rem; line-height: 1.6; }
+
+    /* 결과처리 */
+    .result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .result-card { background: white; padding: 1.2rem 1.5rem; border-radius: 2px; }
+    .result-card.confirm { border-left: 3px solid #2e7d32; }
+    .result-card.deny { border-left: 3px solid #ef6c00; }
+    .result-card.false { border-left: 3px solid #c62828; }
+    .result-card h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .result-card.confirm h4 { color: #2e7d32; }
+    .result-card.deny h4 { color: #ef6c00; }
+    .result-card.false h4 { color: #c62828; }
+    .result-card p { font-size: 0.8rem; color: var(--gray); line-height: 1.7; }
+
+    /* 제보방법 */
+    .contact-info { background: var(--navy); color: white; padding: 1.5rem 2rem; margin-bottom: 2rem; }
+    .contact-info h3 { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .contact-info p { font-size: 0.85rem; line-height: 2.2; color: rgba(255,255,255,0.85); }
+    .contact-info a { color: #4ade80; text-decoration: none; }
+
+    /* 섹션 제목 */
+    .sec-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; color: var(--green); text-transform: uppercase; margin-bottom: 0.8rem; }
+
+    /* 폼 */
+    .form-box { background: white; padding: 2rem; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .form-group select, .form-group textarea, .form-group input[type="text"] {
+      width: 100%; padding: 10px 14px; border: 1px solid var(--border);
+      font-family: 'Noto Sans KR', sans-serif; font-size: 0.88rem; color: #1a1a1a;
+      transition: border-color .2s; background: white;
+    }
+    .form-group select:focus, .form-group textarea:focus, .form-group input:focus {
+      outline: none; border-color: var(--navy);
+    }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+    .form-group .hint { font-size: 0.75rem; color: var(--gray); margin-top: 0.4rem; }
+    .form-group input[type="file"] { width: 100%; padding: 10px; border: 1px solid var(--border); font-size: 0.85rem; background: var(--light); }
+    .submit-btn {
+      width: 100%; padding: 15px; background: var(--navy); color: white;
+      border: none; font-family: 'Noto Sans KR', sans-serif;
+      font-size: 1rem; font-weight: 700; cursor: pointer; letter-spacing: 0.05em;
+      transition: background .2s;
+    }
+    .submit-btn:hover { background: var(--accent); }
+    .anon-notice { text-align: center; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
+
+    /* 푸터 */
+    .footer { background: #0a1628; padding: 24px 5%; text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <a href="index.html" class="top-logo">
+    <img src="images/logo.png" alt="로고">
+    DONGHEE <span>INDUSTRIES</span>
+  </a>
+  <a href="index.html" class="top-back">← 홈으로 돌아가기</a>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">WHISTLEBLOWING SYSTEM</div>
+  <h1>내·외부 부정행위 신고센터</h1>
+  <p>윤리경영 실천 및 투명한 조직문화 정착을 위한 익명 제보 시스템<br>신고자의 신원은 관련 법령 및 내부 규정에 따라 철저히 보호됩니다.</p>
+</div>
+
+<div class="container">
+
+  <!-- 안내 -->
+  <div class="info-box">
+    <p>당사는 윤리경영 실천 및 투명한 조직문화 정착을 위하여 <strong>내·외부 부정행위 신고 제도</strong>를 운영하고 있습니다.<br>
+    신고된 내용은 내부 규정에 따라 <strong>철저히 검토 및 조사</strong>되며,<br>
+    신고자의 신원은 관련 법령 및 내부 규정에 따라 <span class="protect">철저히 보호</span>됩니다.</p>
+  </div>
+
+  <!-- 처리절차 -->
+  <div class="sec-title">처리 절차</div>
+  <div class="steps">
+    <div class="step"><div class="step-num">01</div><div class="step-title">제보 등록</div><div class="step-desc">홈페이지 또는 이메일로 제보 내용 등록</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title">내용 검토</div><div class="step-desc">사실관계 확인 및 조사 필요 여부 판단</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title">조사 착수</div><div class="step-desc">필요 시 추가 자료 요청 및 사실 확인</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-title">조사 완료</div><div class="step-desc">경영진 보고 또는 징계위원회 회부</div></div>
+  </div>
+
+  <!-- 결과처리 -->
+  <div class="sec-title">조사 결과 처리 기준</div>
+  <div class="result-grid" style="margin-bottom:2rem;">
+    <div class="result-card confirm"><h4>✔ 사실 확인 시</h4><p>경영진 보고 및 징계 또는 시정조치 진행</p></div>
+    <div class="result-card deny"><h4>✔ 사실이 아닌 경우</h4><p>제보자 및 관련자에게 결과 안내 후 종결 처리</p></div>
+    <div class="result-card false"><h4>✔ 악의적 허위 제보 시</h4><p>내부 규정에 따라 별도 조치 가능</p></div>
+  </div>
+
+  <!-- 제보방법 -->
+  <div class="contact-info">
+    <h3>🔷 제보 방법</h3>
+    <p>
+      - 홈페이지 신고 시스템 이용 (아래 양식)<br>
+      - 이메일: <a href="mailto:affair@kbdh.co.kr">affair@kbdh.co.kr</a><br>
+      - 담당부서: ㈜동희산기 인사총무팀 김형태 차장 &nbsp;<strong>☎ 041-351-2211</strong>
+    </p>
+  </div>
+
+  <!-- 신고 폼 -->
+  <div class="sec-title">신고 접수</div>
+  <div class="form-box">
+    <form action="http://168.107.38.162:5001/report" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+      <div class="form-group">
+        <label>신고 유형 <span style="color:red">*</span></label>
+        <select name="type" required>
+          <option value="">선택하세요</option>
+          <option>부패행위</option>
+          <option>인권침해</option>
+          <option>안전</option>
+          <option>환경</option>
+          <option>정보보안</option>
+          <option>윤리경영</option>
+          <option>조직문화저해</option>
+          <option>제품품질</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>신고 내용 <span style="color:red">*</span></label>
+        <textarea name="content" required placeholder="육하원칙(누가·언제·어디서·무엇을·어떻게·왜)에 따라 구체적으로 작성해 주세요."></textarea>
+        <p class="hint">허위 또는 악의적인 비방 목적의 신고는 제한됩니다.</p>
+      </div>
+      <div class="form-group">
+        <label>연락처 <span style="color:var(--gray);font-weight:400;">(선택 — 미기재 시 완전 익명 처리)</span></label>
+        <input type="text" name="contact" placeholder="답변 원하시면 연락처 또는 이메일 입력">
+      </div>
+      <div class="form-group">
+        <label>증빙자료 첨부 <span style="color:var(--gray);font-weight:400;">(선택)</span></label>
+        <input type="file" name="file">
+        <p class="hint">사진, 녹취, 문자, 이메일, 문서 등 첨부 가능</p>
+      </div>
+      <button type="submit" class="submit-btn">🔒 신고 접수하기</button>
+    </form>
+    <p class="anon-notice">🛡️ 모든 제보자 및 협조자의 신원은 철저히 보호되며 신고로 인한 어떠한 불이익도 발생하지 않도록 관리됩니다.</p>
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2025 ㈜동희산기 DONGHEE INDUSTRIES. All rights reserved.
+</div>
+
+</body>
+</html>

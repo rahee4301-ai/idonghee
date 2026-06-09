@@ -320,6 +320,17 @@
     .assoc-item:hover { border-color: var(--accent); }
     .assoc-item a { color: inherit; text-decoration: none; }
 
+
+    /* ══ 공지 모달 ══ */
+    .modal-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); z-index:1000; align-items:center; justify-content:center; padding:20px; }
+    .modal-overlay.open { display:flex; }
+    .modal-box { background:white; width:100%; max-width:740px; max-height:85vh; overflow-y:auto; border-radius:4px; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+    .modal-header { display:flex; justify-content:flex-end; padding:12px 16px; border-bottom:1px solid var(--border); position:sticky; top:0; background:white; z-index:1; }
+    .modal-close { background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--gray); padding:4px 8px; }
+    .modal-close:hover { color:var(--navy); }
+    .modal-body { padding:0; }
+    .modal-body table { width:100% !important; }
+
     /* ══ 푸터 ══ */
     footer { background: #0a1628; padding: 48px 8% 32px; color: rgba(255,255,255,0.5); }
     .footer-top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -720,11 +731,21 @@
     <div class="section-tag green">Governance</div><div class="section-title">지배구조 · 윤리 경영</div>
     <div class="policy-grid">
       <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">📋</div><h3>윤리경영 헌장</h3><p>윤리경영 헌장 제정 및 공표. 임직원 대상 윤리 교육 실시, 부패·비위 행위 엄격 금지.</p></div>
-      <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">🔍</div><h3>반부패 정책</h3><p>청탁금지 및 이해충돌 방지 정책 운영. 내부 제보 채널 운영을 통한 투명한 경영환경 조성.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">🔍</div><h3>반부패 정책</h3><p>청탁금지 및 이해충돌 방지 정책 운영. 내부 제보 채널 운영을 통한 투명한 경영환경 조성.</p><div style="margin-top:1rem;"><a href="report.html" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:white;font-size:0.78rem;font-weight:600;padding:8px 16px;text-decoration:none;letter-spacing:0.05em;transition:background .2s;" onmouseover="this.style.background='#C8860A'" onmouseout="this.style.background='var(--navy)'">🔒 내·외부 부정행위 신고(익명제보)</a></div></div>
       <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">📊</div><h3>ESG 정보 공시</h3><p>주요 고객사(현대·기아) ESG 자가진단 성실 이행. ESG 경영 현황 정기적 공개 및 개선 추진.</p></div>
       <div class="policy-card"><span class="policy-badge badge-g">지배구조</span><div class="policy-icon">🛡️</div><h3>정보보안 관리</h3><p>고객사 기술정보 및 개인정보 보호 체계 운영. 정보보안 교육 및 접근 권한 관리 강화.</p></div>
     </div>
   </section>
+
+  <!-- 익명제보 배너 -->
+  <div style="background:#1a2e1a;padding:40px 8%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:2rem;">
+    <div>
+      <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.15em;color:#4ade80;margin-bottom:0.6rem;">WHISTLEBLOWING</div>
+      <div style="font-family:'Oswald',sans-serif;font-size:clamp(1.2rem,2vw,1.6rem);color:white;font-weight:600;margin-bottom:0.5rem;">내·외부 부정행위 신고센터</div>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.65);line-height:1.7;margin:0;">윤리경영 실천을 위한 익명 제보 시스템 · 신고자 신원 철저 보호</p>
+    </div>
+    <a href="report.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#16a34a;color:white;padding:14px 28px;font-size:0.85rem;font-weight:600;text-decoration:none;letter-spacing:0.05em;white-space:nowrap;transition:background .2s;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'">🔒 익명으로 신고하기</a>
+  </div>
 
   <div class="esg-declaration">
     <h2>지속가능한 미래를 위한<br><span>㈜동희산기의 ESG 약속</span></h2>
@@ -745,12 +766,12 @@
   <section class="section" id="notice-list">
     <div class="section-tag">Notice</div><div class="section-title">공지사항</div>
     <div class="notice-list-wrap">
-      <div class="notice-row"><span class="notice-num">6</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">CEO 환경경영 방침 공표</span><span class="notice-dt">2026.04.09</span></div>
-      <div class="notice-row"><span class="notice-num">5</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">인권경영 헌장</span><span class="notice-dt">2026.04.03</span></div>
-      <div class="notice-row"><span class="notice-num">4</span><span class="news-badge badge-esg">ESG</span><span class="notice-ttl">ESG 헌장</span><span class="notice-dt">2026.02.24</span></div>
-      <div class="notice-row"><span class="notice-num">3</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">윤리강령</span><span class="notice-dt">2026.02.24</span></div>
-      <div class="notice-row"><span class="notice-num">2</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">윤리경영 헌장</span><span class="notice-dt">2025.09.09</span></div>
-      <div class="notice-row"><span class="notice-num">1</span><span class="news-badge badge-notice">공지</span><a href="http://168.107.38.162:5001" target="_blank" style="flex:1;font-size:0.9rem;color:#1a1a1a;text-decoration:none;">내·외부 부정행위 신고(익명제보) 🔗</a><span class="notice-dt">2025.08.25</span></div>
+      <div class="notice-row" onclick="openNotice('notice6')" style="cursor:pointer;"><span class="notice-num">6</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">CEO 환경경영 방침 공표</span><span class="notice-dt">2026.04.09</span></div>
+      <div class="notice-row" onclick="openNotice('notice3')" style="cursor:pointer;"><span class="notice-num">5</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">인권경영 헌장</span><span class="notice-dt">2026.04.03</span></div>
+      <div class="notice-row" onclick="openNotice('notice5')" style="cursor:pointer;"><span class="notice-num">4</span><span class="news-badge badge-esg">ESG</span><span class="notice-ttl">ESG 헌장</span><span class="notice-dt">2026.02.24</span></div>
+      <div class="notice-row" onclick="openNotice('notice4')" style="cursor:pointer;"><span class="notice-num">3</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">윤리강령</span><span class="notice-dt">2026.02.24</span></div>
+      <div class="notice-row" onclick="openNotice('notice2')" style="cursor:pointer;"><span class="notice-num">2</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">윤리경영 헌장</span><span class="notice-dt">2025.09.09</span></div>
+      <div class="notice-row" onclick="openNotice('notice1')" style="cursor:pointer;"><span class="notice-num">1</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">내·외부 부정행위 신고(익명제보) 🔗</span><span class="notice-dt">2025.08.25</span></div>
     </div>
   </section>
 
@@ -865,5 +886,480 @@
   // 초기 active 설정
   document.querySelectorAll('nav a').forEach(a => { if(a.textContent.trim()==='홈') a.classList.add('active'); });
 </script>
+
+<!-- 공지 모달 -->
+<div class="modal-overlay" id="noticeModal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <div class="modal-header">
+      <button class="modal-close" onclick="document.getElementById('noticeModal').classList.remove('open')">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const noticeContents = {
+  notice1: null,
+  notice2: `<table width="100%" cellpadding="0" cellspacing="0" style="border-top:4px solid #03179E;font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:14px;line-height:1.8;color:#1a1a1a;">
+  <tr>
+    <td style="padding:20px 16px 14px 16px;border-bottom:2px solid #03179E;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-size:22px;font-weight:700;color:#03179E;letter-spacing:2px;vertical-align:middle;">윤리 경영 헌장</td>
+          <td align="right" style="vertical-align:middle;width:50px;">
+            <img src="images/logo.png" alt="동희산기" width="44" height="44" style="display:block;">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:16px 16px 10px 16px;color:#222;font-size:13px;line-height:1.9;word-break:keep-all;">
+      &nbsp;당사는 윤리를 바탕으로 공정하고 투명한 윤리문화 정착이 필수요건임을 인식하고 모든 임직원이 지켜야 할 올바른 행동과 가치판단의 기준으로 윤리헌장을 제정하고 실천할 것을 약속한다.
+    </td>
+  </tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">1.</span>우리는 공정하고 투명한 거래를 유지하기 위해 관련 법령을 준수하며, 성실과 최선으로 주어진 책임을 다한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">2.</span>우리는 시장에서 정정당당하게 경쟁하며, 고객 및 협력사와 공정하게 거래한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">3.</span>우리는 고객가치 실현을 위해 안전한 제품과 최상의 서비스를 제공하고, 상생협력을 통한 동반 성장을 도모한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">4.</span>우리는 구성원 개개인을 독립된 인격체로서 존중하고, 상호신뢰와 이해를 바탕으로 성숙한 조직문화를 이룩한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">5.</span>우리는 기업시민으로서 사회적 책임 이행을 통해 다양한 이해관계자가 함께 번영할 수 있는 지속가능한 발전을 구현하는데 기여한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">6.</span>우리는 기후변화 대응과 환경보호를 위해 온실가스 배출 저감 및 자원의 효율적 사용에 앞장서며, 지속가능한 환경경영을 실천한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">7.</span>우리는 업무상 취득한 정보와 개인정보를 소중히 보호하고, 보안 규정을 철저히 준수하며 정보자산을 올바르게 관리한다.</td></tr>
+  <tr><td style="padding:5px 16px 14px 16px;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">8.</span>우리는 구성원의 안전과 건강을 최우선으로 여기며, 안전한 작업환경 조성을 위해 지속적으로 노력한다.</td></tr>
+  <tr>
+    <td style="padding:12px 16px 20px 16px;border-top:1px solid #ddd;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
+            2025년 6월 1일<br>주식회사 동희산기 임직원 일동
+          </td>
+          <td align="right" style="vertical-align:middle;width:90px;">
+            <img src="images/logo.png" alt="직인" width="80" height="80" style="display:block;margin-left:auto;">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>`,
+  notice3: `<table width="100%" cellpadding="0" cellspacing="0" style="border-top:4px solid #03179E;font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:14px;line-height:1.8;color:#1a1a1a;">
+  <tr>
+    <td style="padding:20px 16px 14px 16px;border-bottom:2px solid #03179E;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-size:22px;font-weight:700;color:#03179E;letter-spacing:2px;vertical-align:middle;">인권 경영 헌장</td>
+          <td align="right" style="vertical-align:middle;width:50px;">
+            <img src="images/logo.png" alt="동희산기" width="44" height="44" style="display:block;">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:16px 16px 10px 16px;color:#222;font-size:13px;line-height:1.9;word-break:keep-all;">
+      &nbsp;당사는 인권에 관한 대한민국헌법 및 국제 규범을 지지하고 준수할 것이며, 인권 침해를 사전에 예방하여, 발생한 인권침해에 대해 신속하고 적극적으로 대응할 것을 약속한다.
+    </td>
+  </tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">1.</span>우리는 고용에 있어 성별, 연령, 인종, 장애, 종교, 정치적 성향과 출신지역에 따른 일체의 차별을 금지하며, 다양성을 존중한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">2.</span>우리는 결사 및 단체교섭의 자유를 보장한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">3.</span>우리는 강제노동, 아동노동을 금지하며, 보건, 안전, 근무시간 등과 관련하여 국제노동기구가 권고하고 국가가 비준한 모든 노동원칙을 준수한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">4.</span>우리는 안전하고 건강한 근무여건을 조성하며, 업무상 발생한 재해에 대하여 관련법에 따라 조치를 취할 것이다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">5.</span>우리는 사업장이 위치한 지역주민과 이해관계자 및 유관기관들의 인권 보호와 가치 증진을 추진할 수 있도록 지지하며, 국내외 환경관련 법규를 준수하고, 환경보호와 오염방지를 위하여 노력한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">6.</span>우리는 업무상 수집한 개인정보를 보호하며, 국민의 정보 접근권을 보장한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">7.</span>우리는 직장 내 괴롭힘, 성희롱 및 모든 형태의 폭력을 엄격히 금지하며, 피해자 보호와 재발 방지를 위한 체계를 구축하고 운영한다.</td></tr>
+  <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">8.</span>우리는 협력사를 포함한 공급망 전반에 걸쳐 인권 실사를 실시하고, 인권 위험 요소를 사전에 파악하여 개선하도록 지원한다.</td></tr>
+  <tr><td style="padding:5px 16px 14px 16px;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">9.</span>우리는 인권 침해 신고 및 구제 절차를 마련하고, 신고자의 신원 보호와 불이익 방지를 보장하며, 접수된 사안에 대해 신속하고 공정하게 처리한다.</td></tr>
+  <tr>
+    <td style="padding:12px 16px 20px 16px;border-top:1px solid #ddd;">
+      <table width="100%" cellpadding="0" cellspacing="0">
+        <tr>
+          <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
+            2026년 4월 1일<br>주식회사 동희산기 임직원 일동
+          </td>
+          <td align="right" style="vertical-align:middle;width:90px;">
+            <img src="images/logo.png" alt="직인" width="80" height="80" style="display:block;margin-left:auto;">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>`,
+  notice4: `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>환경경영 방침 선언</title>
+</head>
+<body style="margin:0;padding:20px;background:#f5f5f5;display:flex;justify-content:center;">
+
+<table width="680" cellpadding="0" cellspacing="0" style="border-top:4px solid #03179E;font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:14px;line-height:1.8;color:#1a1a1a;background:#fff;">
+  <tbody>
+    <tr>
+      <td style="padding:20px 16px 14px 16px;border-bottom:2px solid #03179E;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="font-size:22px;font-weight:700;color:#03179E;letter-spacing:2px;vertical-align:middle;">환경경영 방침 선언</td>
+              <td align="right" style="vertical-align:middle;width:50px;">
+                <img src="images/logo.png" alt="동희산기" width="44" height="44" style="display:block;">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+
+    <!-- 슬로건 -->
+    <tr>
+      <td style="padding:14px 16px 4px 16px;color:#03179E;font-size:13px;font-weight:700;font-style:italic;letter-spacing:0.5px;">
+        "친환경 기술 혁신을 통해 미래 세대에게 깨끗한 지구를 약속합니다."
+      </td>
+    </tr>
+
+    <!-- 서문 -->
+    <tr>
+      <td style="padding:8px 16px 14px 16px;color:#222;font-size:13px;line-height:1.9;word-break:keep-all;border-bottom:1px solid #ddd;">
+        안녕하십니까, 주식회사 동희산기 대표이사 함명규입니다.<br>
+        당사는 금속소재 산업의 한 구성원으로서 국가 산업 발전에 기여해 왔으며, 앞으로도 기후변화 대응과 자원 효율 향상을 통해 지속가능한 성장을 추구하고자 합니다.<br>
+        회사는 단순한 법규준수를 넘어, 제품의 설계·생산·사용·폐기 전 과정(Life Cycle)에서 환경 부하를 최소화하는 공정 혁신을 추진하겠습니다. 또한, 에너지 효율 개선과 온실가스 감축을 체계적으로 관리하고, 투명한 정보 공개와 책임 있는 공급망 관리, 분쟁광물 관리 등 윤리적 자원 조달을 통해 이해관계자의 신뢰를 확보하겠습니다.
+      </td>
+    </tr>
+
+    <!-- 방침 항목 -->
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">1.</span>우리는 국내외 환경 관련 법규 및 규정을 준수하고, 이를 경영 활동의 기본 원칙으로 삼는다.</td></tr>
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">2.</span>우리는 제품의 설계·생산·사용·폐기에 이르는 전 과정(Life Cycle)에서 환경 부하를 최소화하기 위해 지속적으로 노력한다.</td></tr>
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">3.</span>우리는 에너지 효율 향상과 온실가스 감축 목표를 설정하고, 이를 체계적으로 관리·이행한다.</td></tr>
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">4.</span>우리는 대기, 수질, 토양 오염 방지를 위한 적절한 조치를 시행하며, 환경오염 사고 예방에 최선을 다한다.</td></tr>
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">5.</span>우리는 폐기물 발생을 최소화하고, 재활용 및 자원 순환을 촉진하여 순환경제 실현에 기여한다.</td></tr>
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">6.</span>우리는 분쟁광물 관리 등 윤리적 자원 조달을 실천하고, 공급망 전반에 걸쳐 환경 책임을 요구한다.</td></tr>
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">7.</span>우리는 환경경영 성과 및 정보를 투명하게 공개하고, 이해관계자와의 신뢰를 구축한다.</td></tr>
+    <tr><td style="padding:5px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">8.</span>우리는 임직원 및 협력사에 대한 환경 교육을 강화하고, 환경 의식 향상을 위해 지속적으로 노력한다.</td></tr>
+    <tr><td style="padding:5px 16px 14px 16px;word-break:keep-all;font-size:13px;"><span style="color:#03179E;font-weight:700;padding-right:6px;">9.</span>본 「환경경영 방침」은 임직원 및 협력사가 준수하여야 할 회사의 공식 정책이며, 정기적으로 검토하여 지속적으로 개선한다.</td></tr>
+
+    <!-- 서명란 -->
+    <tr>
+      <td style="padding:12px 16px 20px 16px;border-top:1px solid #ddd;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
+                2026년 &nbsp;&nbsp;&nbsp;&nbsp;월 &nbsp;&nbsp;&nbsp;&nbsp;일<br>
+                주식회사 동희산기 대표이사 &nbsp;함명규&nbsp; (인)
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
+`,
+  notice5: `<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>㈜동희산기 ESG 헌장</title>
+</head>
+<body>
+
+<table width="680" cellpadding="0" cellspacing="0" style="border-top:4px solid #03179E;font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:14px;line-height:1.8;color:#1a1a1a;background:#fff;">
+  <tbody>
+    <!-- 헤더 -->
+    <tr>
+      <td style="padding:20px 16px 14px 16px;border-bottom:2px solid #03179E;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="font-size:22px;font-weight:700;color:#03179E;letter-spacing:2px;vertical-align:middle;">㈜동희산기 ESG 헌장</td>
+              <td align="right" style="vertical-align:middle;width:50px;">
+                <img src="images/logo.png" alt="동희산기" width="44" height="44" style="display:block;">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+
+    <!-- 슬로건 -->
+    <tr>
+      <td style="padding:14px 16px 4px 16px;color:#03179E;font-size:13px;font-weight:700;font-style:italic;letter-spacing:0.5px;">
+        "지속가능한 미래를 위해 환경을 보호하고, 사회적 책임을 다하며, 투명하고 책임 있는 거버넌스를 실천합니다."
+      </td>
+    </tr>
+
+    <!-- 전문 -->
+    <tr>
+      <td style="padding:8px 16px 14px 16px;color:#222;font-size:13px;line-height:1.9;word-break:keep-all;border-bottom:1px solid #ddd;">
+        ㈜동희산기는 지속가능한 미래를 위해 환경을 보호하고, 사회적 책임을 다하며, 투명하고 책임 있는 거버넌스를 실천하는 것을 경영의 핵심 원칙으로 삼는다. 우리는 단기 성과에 머무르지 않고, 미래 세대와 이해관계자를 함께 고려하는 ESG 경영을 통해 기업의 장기적 가치를 높이고자 한다.
+      </td>
+    </tr>
+
+    <!-- 1. ESG 경영 비전 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">1. ESG 경영 비전</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        ㈜동희산기는 기타 기계 및 장비 제조기업으로서 생산 과정 전체에서 환경 부담을 줄이고, 근로자와 지역사회의 안전과 권리를 보호하며, 투명한 의사결정과 책임 있는 경영을 통해 이해관계자의 신뢰를 받는 기업을 지향한다. 우리는 ESG를 별도의 활동이 아니라 모든 경영 의사결정의 기준으로 삼는다.
+      </td>
+    </tr>
+
+    <!-- 2. 환경 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">2. 환경(Environment)</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        우리는 온실가스 배출량을 줄이고 에너지 효율을 지속적으로 개선하며, 원자재와 자원을 효율적으로 사용하기 위해 노력한다. 관련 환경법규와 국제 기준을 성실히 준수하고, 오염물질 배출 관리, 폐기물 감축, 자원순환 활동을 통해 사업장의 환경 영향을 최소화한다. 또한, 기후변화 리스크를 경영 리스크로 인식하고, 중장기 감축 목표와 실행 계획을 수립·이행한다.
+      </td>
+    </tr>
+
+    <!-- 3. 사회 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">3. 사회(Social)</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        우리는 모든 임직원의 인권을 존중하고, 고용·승진·보상 등에서 어떠한 차별도 허용하지 않는다. 안전하고 건강한 근무환경을 조성하기 위해 관련 법규와 안전보건 기준을 준수하고, 재해 예방과 근로 환경 개선을 위한 투자를 지속한다. 협력사와의 공정한 거래를 추구하며, 지역사회와의 소통과 협력을 통해 함께 성장하는 생태계를 만들어 간다.
+      </td>
+    </tr>
+
+    <!-- 4. 거버넌스 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">4. 거버넌스(Governance)</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        우리는 이사회와 경영진의 역할을 명확히 하고, 주요 의사결정 과정을 투명하게 관리한다. 부패와 비리를 용납하지 않으며, 임직원 행동강령과 윤리규범을 제정·운영하여 공정하고 책임 있는 업무 수행을 요구한다. 내부통제와 위험관리체계를 통해 법규 위반과 이해상충을 예방하고, 주주와 이해관계자의 정당한 권익을 보호한다.
+      </td>
+    </tr>
+
+    <!-- 5. 이해관계자 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">5. 이해관계자에 대한 책임</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 14px 16px;border-bottom:1px solid #ddd;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        우리는 주주, 임직원, 고객, 협력사, 지역사회 등 다양한 이해관계자의 의견을 경청하고 성실히 소통한다. ESG 관련 성과와 과제를 투명하게 공개하고, 합리적인 수준에서 이해관계자의 요구를 경영에 반영한다. ㈜동희산기는 이해관계자와 함께 지속가능한 가치사슬을 구축하는 것을 중요한 책무로 인식한다.<br><br>
+        본 ESG 헌장은 ㈜동희산기의 모든 임직원과 협력사가 따라야 할 기본 원칙이며, 구체적인 ESG 정책과 절차, 세부 실행 기준은 본 헌장을 바탕으로 단계적으로 수립·개선해 나간다.
+      </td>
+    </tr>
+
+    <!-- 서명란 -->
+    <tr>
+      <td style="padding:12px 16px 20px 16px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
+                2026 년 &nbsp;&nbsp;2 월&nbsp; &nbsp; 20 일<br>
+                주식회사 동희산기 대표이사 &nbsp;함명규 &nbsp;(인)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+`,
+  notice6: `<meta charset="UTF-8">
+<title>(주)동희산기 윤리강령</title>
+
+<table width="680" cellpadding="0" cellspacing="0" style="border-top:4px solid #03179E;font-family:'맑은 고딕','Apple SD Gothic Neo',sans-serif;font-size:14px;line-height:1.8;color:#1a1a1a;background:#fff;">
+  <tbody>
+    <tr>
+      <td style="padding:20px 16px 14px 16px;border-bottom:2px solid #03179E;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="font-size:22px;font-weight:700;color:#03179E;letter-spacing:2px;vertical-align:middle;">(주)동희산기 윤리강령</td>
+              <td align="right" style="vertical-align:middle;width:50px;">
+                <img src="images/logo.png" alt="동희산기" width="44" height="44" style="display:block;">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+
+    <!-- 슬로건 -->
+    <tr>
+      <td style="padding:14px 16px 4px 16px;color:#03179E;font-size:13px;font-weight:700;font-style:italic;letter-spacing:0.5px;">
+        "정직, 공정, 책임의 가치를 바탕으로 모든 경영 활동에서 윤리적 행동 기준을 확립하고 이를 성실히 이행합니다."
+      </td>
+    </tr>
+
+    <!-- 전문 -->
+    <tr>
+      <td style="padding:8px 16px 14px 16px;color:#222;font-size:13px;line-height:1.9;word-break:keep-all;border-bottom:1px solid #ddd;">
+        (주)동희산기는 UN Global Compact(UNGC) 10대 원칙과 ISO 26000:2010 책임경영 원칙을 준수하고, GRI Standards 등 국제 지속가능경영 기준을 참고하여 윤리경영을 실천한다. 회사는 정직, 공정, 책임의 가치를 바탕으로 모든 경영 활동에서 윤리적 행동 기준을 확립하고 이를 성실히 이행한다.
+      </td>
+    </tr>
+
+    <!-- 제1조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제1조 법규 및 윤리 준수</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기의 모든 임직원은 국내외 모든 법규를 준수하고 국제 윤리 및 지속가능경영 기준을 참고하여 정직하고 공정하며 책임 있는 자세로 업무를 수행한다.
+      </td>
+    </tr>
+
+    <!-- 제2조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제2조 부패 방지</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기는 금품, 향응, 뇌물, 공금 유용, 리베이트, 부정청탁, 정치자금 제공 등 모든 형태의 부패행위를 엄격히 금지한다. 또한, 고객, 협력사, 공공기관 등 이해관계자로부터 금전, 선물 또는 접대를 받지 않는다. 임직원은 부패행위를 인지한 경우 내부고발 제도를 통해 익명으로 신고할 수 있다.
+      </td>
+    </tr>
+
+    <!-- 제3조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제3조 공정경쟁 및 반독점</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기는 담합, 가격 조작, 허위 입찰 등 모든 불공정경쟁 행위를 금지하며, 공정한 시장 질서를 존중한다. 협력사 선정 과정에서는 기술, 품질, 가격, 납기 등 투명한 평가 기준을 적용하며, 경쟁사 정보는 법적이고 윤리적인 방법을 통해서만 수집한다.
+      </td>
+    </tr>
+
+    <!-- 제4조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제4조 이해상충 방지</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        임직원은 개인 또는 가족의 이익이 회사의 이익과 충돌할 가능성이 있는 경우 이를 사전에 신고해야 한다. 친인척이 관련된 기업과 거래가 발생할 경우 윤리위원회의 승인을 받아야 하며, 회사의 미공개 정보를 이용하여 개인적인 이익을 추구하는 행위를 금지한다.
+      </td>
+    </tr>
+
+    <!-- 제5조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제5조 인권 및 노동권</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기는 모든 임직원의 인권을 존중하며 성별, 연령, 출신, 장애 등을 이유로 한 차별을 금지한다. 또한, 강제노동과 아동노동을 금지하며, 직장 내 괴롭힘과 성희롱을 허용하지 않는다. 임직원은 안전수칙을 준수하여 안전하고 건강한 근로 환경을 유지하도록 노력한다.
+      </td>
+    </tr>
+
+    <!-- 제6조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제6조 환경 책임</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기는 환경 보호를 기업의 중요한 책임으로 인식하고 자원 절약과 폐기물 최소화를 위해 노력한다. 또한, 온실가스 감축과 에너지 효율 개선을 지속적으로 추진하며, ESG 헌장과 환경 관련 법규를 준수한다.
+      </td>
+    </tr>
+
+    <!-- 제7조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제7조 정보 보호</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기는 고객 정보, 생산 공정 정보 및 영업비밀을 보호하며 관련 법령을 준수한다. 특히 개인정보보호법을 준수하고 모든 정보의 무단 유출을 금지한다.
+      </td>
+    </tr>
+
+    <!-- 제8조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제8조 준수체계</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 12px 16px;border-bottom:1px solid #eee;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기는 윤리경영의 실천을 위해 모든 임직원을 대상으로 연 1회 윤리교육을 실시하고 윤리 실천 서약을 진행한다. 또한, 내부고발자 보호 제도를 운영하여 익명 신고를 보장하고 신고자에게 불이익이 발생하지 않도록 하며 신원을 철저히 보호한다. 윤리강령을 위반한 경우 회사 규정에 따라 징계하거나 관련 법령에 따라 법적 조치를 취할 수 있다.<br>
+        본 윤리강령은 (주)동희산기의 모든 임직원에게 적용된다.
+      </td>
+    </tr>
+
+    <!-- 제9조 -->
+    <tr>
+      <td style="padding:10px 16px 4px 16px;word-break:keep-all;font-size:13px;">
+        <span style="color:#03179E;font-weight:700;">제9조 공급망 행동강령</span>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:2px 16px 14px 16px;border-bottom:1px solid #ddd;word-break:keep-all;font-size:13px;line-height:1.9;color:#222;">
+        (주)동희산기와 거래하는 모든 협력사는 본 윤리강령과 동등한 수준의 법규준수, 인권 보호, 환경 보호, 반부패 기준을 준수해야 한다. 협력사가 이를 위반할 경우 회사는 개선을 요구할 수 있으며, 이행되지 않을 경우 거래조건 조정 또는 거래 중단을 포함한 조치를 취할 수 있다. 회사는 협력사에 부당한 요구를 하지 않으며, 상호 대등한 관계를 바탕으로 상생협력을 추구한다. 협력사 선정 및 평가는 기술, 품질, 가격, 납기 등 객관적이고 투명한 기준에 따라 이루어지며, 회사는 협력사의 ESG 역량 강화를 위해 필요한 경우 교육 및 정보를 지원할 수 있다.<br><br>
+        본 윤리강령은 (주)동희산기의 모든 임직원, 협력사 및 회사와 거래하는 이해관계자에게 적용된다.
+      </td>
+    </tr>
+
+    <!-- 서명란 -->
+    <tr>
+      <td style="padding:12px 16px 20px 16px;">
+        <table width="100%" cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td style="font-size:13px;font-weight:600;color:#1a1a1a;line-height:1.8;white-space:nowrap;vertical-align:middle;">
+                시행일: 2026 년 &nbsp;&nbsp;2 월&nbsp; &nbsp; 20 일<br>
+                주식회사 동희산기 대표이사 &nbsp;함명규 &nbsp;(인)
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`
+};
+
+function openNotice(id) {
+  if(id === 'notice1') {
+    window.open('report.html', '_blank');
+    return;
+  }
+  const content = noticeContents[id];
+  if(!content) return;
+  document.getElementById('modalBody').innerHTML = content;
+  document.getElementById('noticeModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if(e.target === document.getElementById('noticeModal')) {
+    document.getElementById('noticeModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+</script>
+
 </body>
 </html>

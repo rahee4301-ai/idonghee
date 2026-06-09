@@ -74,7 +74,7 @@
 
     /* ══ 페이지 시스템 ══ */
     .page { display: none; margin-top: 68px; background: var(--white); }
-    .page.active { display: block; min-height: 100%; overflow-y: auto; }
+    .page.active { display: block; min-height: calc(100vh - 68px); }
 
     /* ══ 공통 ══ */
     .page-hero {
@@ -102,7 +102,8 @@
     .sub-nav {
       background: var(--white); border-bottom: 2px solid var(--border);
       padding: 0 8%; display: flex; overflow-x: auto;
-      position: sticky; top: 68px; z-index: 90;
+      position: sticky; top: 68px; z-index: 150;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .sub-nav a {
       display: block; padding: 16px 22px; font-size: 1.15rem; font-weight: 500;
@@ -112,7 +113,6 @@
     }
     .sub-nav a:hover { color: var(--navy); }
     .sub-nav a.active { color: var(--navy); border-bottom-color: var(--accent); font-weight: 700; }
-    .sub-nav { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
     .sub-nav a.active-green { color: var(--green); border-bottom-color: var(--green); font-weight: 700; }
 
     .section { padding: 96px 8%; }

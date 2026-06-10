@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>동희산기 DONGHEE INDUSTRIES</title>
+  <title id="page-title">동희산기 DONGHEE INDUSTRIES</title>
   <meta name="description" content="㈜동희산기는 자동차 생산라인 컨베이어 시스템 전문기업입니다. Roller Bar, Power & Free, EMS, AGV 등 자동화 설비를 현대·기아 등 글로벌 완성차 메이커에 납품합니다.">
   <meta name="keywords" content="동희산기, 컨베이어, 자동화설비, 자동차생산라인, Roller Bar, EMS, AGV, Power Free, 당진">
   <meta property="og:title" content="동희산기 DONGHEE INDUSTRIES">
@@ -490,7 +490,7 @@
   <a onclick="showPage('products');toggleMenu()" data-ko="제품소개" data-en="Products" data-ko="제품소개" data-en="Products">제품소개</a>
   <a onclick="showPage('esg');toggleMenu()" data-ko="ESG 경영" data-en="ESG" data-ko="ESG 경영" data-en="ESG">ESG 경영</a>
   <a onclick="showPage('notice');toggleMenu()" data-ko="고객지원" data-en="Support" data-ko="고객지원" data-en="Support">고객지원</a>
-  <a onclick="showPage('group');toggleMenu()" data-ko="그룹사소개" data-en="Group">그룹사소개</a>
+  <a onclick="showPage('group');toggleMenu()" data-ko="그룹사소개" data-en="Group" data-ko="그룹사소개" data-en="Group">그룹사소개</a>
 </div>
 
 <!-- ══════════════════════════════════ -->
@@ -511,8 +511,8 @@
 
   <section class="section" style="background:#F5F7FA;">
     <div class="section-tag">Business Area</div>
-    <div class="section-title">핵심 사업영역</div>
-    <p class="section-desc">자동차 생산라인에 최적화된 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
+    <div class="section-title" data-ko="핵심 사업영역" data-en="Core Business">핵심 사업영역</div>
+    <p class="section-desc" data-ko="자동차 생산라인에 최적화된 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공합니다." data-en="Integrated conveyor system design, manufacturing, installation and maintenance for automotive production lines.">자동차 생산라인에 최적화된 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
     <div class="biz-grid">
       <div class="biz-card anim anim-d1"><div class="biz-icon">🏭</div><h3 data-ko="컨베이어 시스템 제조" data-en="Conveyor System Mfg.">컨베이어 시스템 제조</h3><p data-ko="Roller Bar, Power &amp; Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작" data-en="Design and manufacturing of automated conveyors including Roller Bar, Power &amp; Free, and EMS">Roller Bar, Power & Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작</p></div>
       <div class="biz-card anim anim-d2"><div class="biz-icon">🔬</div><h3 data-ko="기술 연구개발" data-en="R&amp;D">기술 연구개발</h3><p data-ko="현장 최적화를 위한 지속적인 R&amp;D로 생산성과 안전성 향상" data-en="Continuous R&amp;D for on-site optimization to improve productivity and safety">현장 최적화를 위한 지속적인 R&D로 생산성과 안전성 향상</p></div>
@@ -523,8 +523,8 @@
 
   <section class="section">
     <div class="products-header">
-      <div><div class="section-tag" style="margin-top:0;">Products</div><div class="section-title">제품 라인업</div></div>
-      <span class="view-all" onclick="showPage('products')">전체 보기 →</span>
+      <div><div class="section-tag" style="margin-top:0;">Products</div><div class="section-title" data-ko="제품 라인업" data-en="Product Lineup">제품 라인업</div></div>
+      <span class="view-all" onclick="showPage('products')" data-ko="전체 보기 →" data-en="View All →">전체 보기 →</span>
     </div>
     <div class="products-grid">
       <div class="product-item anim anim-d1" onclick="showPage('products');setTimeout(function(){scrollToSection('p01')},100)"><img class="prod-img" src="images/roller.jpg" alt="Roller Bar"><span class="prod-label">Roller Bar Type</span></div>
@@ -566,7 +566,7 @@
   </div>
 
   <section class="section" style="text-align:center;background:#F5F7FA;">
-    <div class="section-tag">Clients</div><div class="section-title">주요 고객사</div>
+    <div class="section-tag">Clients</div><div class="section-title" data-ko="주요 고객사" data-en="Key Clients">주요 고객사</div>
     <div class="clients-row">
       <div class="client-logo anim anim-d1" data-ko="현대자동차" data-en="Hyundai Motor">현대자동차</div><div class="client-logo anim anim-d2" data-ko="기아" data-en="Kia">기아</div>
       <div class="client-logo anim anim-d3" data-ko="GM Korea" data-en="GM Korea">GM Korea</div><div class="client-logo anim anim-d4" data-ko="르노코리아" data-en="Renault Korea">르노코리아</div>
@@ -593,15 +593,15 @@
     <div class="section-tag">CEO Message</div>
     <div class="ceo-wrap">
       <div>
-        <div class="ceo-quote"><span data-ko="최고를 위한 도전, 고객을 생각하는 마음<br>㈜동희산기가 만들면 다릅니다." data-en="Challenging for Excellence, Caring for Customers<br>Donghee Industries makes the difference.">최고를 위한 도전, 고객을 생각하는 마음<br><span>㈜동희산기가 만들면 다릅니다.</em></span></div>
+        <div class="ceo-quote"><span data-ko="최고를 위한 도전, 고객을 생각하는 마음<br>㈜동희산기가 만들면 다릅니다." data-en="Challenging for Excellence, Caring for Customers<br>Donghee Industries makes the difference.">최고를 위한 도전, 고객을 생각하는 마음<br><span data-ko="㈜동희산기가 만들면 다릅니다." data-en="Donghee Industries makes the difference.">㈜동희산기가 만들면 다릅니다.</em></span></div>
         <p class="ceo-body" data-ko="저희 ㈜동희산기는 우수한 인력과 기술력을 바탕으로 세계 자동차 공장의 자동차 생산설비 전문 업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질, 최고의 제품을 생산하기 위해 끊임없이 노력하고 있습니다." data-en="Donghee Industries is a specialized manufacturer of automotive production equipment with precision machining, automation facilities, and inspection systems, constantly striving to produce the highest quality products.">저희 ㈜동희산기는 우수한 인력과 기술력을 바탕으로 세계 자동차 공장의 자동차 생산설비 전문 업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질, 최고의 제품을 생산하기 위해 끊임없이 노력하고 있습니다.</p>
-        <p class="ceo-body" data-ko="㈜동희산기는 타사에서 갖지 못하는 노하우와 우수한 인재를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, 국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업으로 성장할 것입니다." data-en="With unmatched know-how and talented professionals, Donghee Industries delivers on time to domestic and overseas automotive markets, and will grow as a company that respects people and fulfills its responsibilities to society.">㈜동희산기는 타사에서 갖지 못하는 <strong>노하우와 우수한 인재</strong>를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, <strong>국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업</strong>으로 성장할 것입니다.</p>
+        <p class="ceo-body" data-ko="㈜동희산기는 타사에서 갖지 못하는 노하우와 우수한 인재를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, 국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업으로 성장할 것입니다." data-en="With unmatched know-how and talented professionals, Donghee Industries delivers on time to domestic and overseas automotive markets, and will grow as a company that respects people and fulfills its responsibilities to society.">㈜동희산기는 타사에서 갖지 못하는 <strong data-ko="노하우와 우수한 인재" data-en="unmatched know-how and talented professionals">노하우와 우수한 인재</strong>를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, <strong data-ko="국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업" data-en="a company that respects people and fulfills responsibilities to society">국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업</strong>으로 성장할 것입니다.</p>
         <div class="ceo-sig"><div class="title" data-ko="대표이사" data-en="CEO">대표이사</div><div class="name" data-ko="강 동 우" data-en="Kang Dong-woo">강 동 우</div></div>
       </div>
       <div class="motto-box">
         <div class="motto-label-top" data-ko="사훈 · 사시" data-en="Mission · Vision">사훈 · 사시</div>
-        <div class="motto-item"><div class="motto-label">社訓</div><div class="motto-divider"></div><div class="motto-text">恒常 生覺하고 恒常 挑戰하며 恒常 變身하자</div></div>
-        <div class="motto-item"><div class="motto-label">社是</div><div class="motto-divider"></div><div class="motto-text">健康하고 自主的인 理想追進</div></div>
+        <div class="motto-item"><div class="motto-label">社訓</div><div class="motto-divider"></div><div class="motto-text" data-ko="恒常 生覺하고 恒常 挑戰하며 恒常 變身하자" data-en="Always Think, Always Challenge, Always Transform">恒常 生覺하고 恒常 挑戰하며 恒常 變身하자</div></div>
+        <div class="motto-item"><div class="motto-label">社是</div><div class="motto-divider"></div><div class="motto-text" data-ko="健康하고 自主的인 理想追進" data-en="Healthy and Autonomous Pursuit of Ideals">健康하고 自主的인 理想追進</div></div>
       </div>
     </div>
   </section>
@@ -624,9 +624,9 @@
       </div></div>
       <div class="timeline-group"><div class="timeline-year">1987</div><div class="timeline-items">
         <div class="timeline-item"><span class="t-date">12.01</span><span class="t-content" data-ko="공장 이전 완료" data-en="Factory relocation completed">공장 이전 완료</span></div>
-        <div class="timeline-item"><span class="t-date">10.20</span><span class="t-content">일본 증서금속공업㈱ 와 상호기술협력계약 체결, 기아자동차 자동차 설비 / 일본 ㈜平松機械製作所와 기술협력계약 체결</span></div>
-        <div class="timeline-item"><span class="t-date">08.15</span><span class="t-content">반월공단에 대지 7050MM를 매입 공장신축, 경기도 안산시 반월공단 B604-31호</span></div>
-        <div class="timeline-item"><span class="t-date">08.13</span><span class="t-content">자본금 1억 5천만원 증설 [자본금 이억원]</span></div>
+        <div class="timeline-item"><span class="t-date">10.20</span><span class="t-content" data-ko="일본 증서금속공업㈱ 와 상호기술협력계약 체결, 기아자동차 자동차 설비 / 일본 ㈜平松機械製作所와 기술협력계약 체결" data-en="Technical cooperation agreement with Japan Shosho Metal Industry &amp; Kia / Japan Hiramatsu Kikai">일본 증서금속공업㈱ 와 상호기술협력계약 체결, 기아자동차 자동차 설비 / 일본 ㈜平松機械製作所와 기술협력계약 체결</span></div>
+        <div class="timeline-item"><span class="t-date">08.15</span><span class="t-content" data-ko="반월공단에 대지 7050MM를 매입 공장신축" data-en="Purchased land in Banwol Industrial Complex and built factory, Ansan, Gyeonggi-do">반월공단에 대지 7050MM를 매입 공장신축, 경기도 안산시 반월공단 B604-31호</span></div>
+        <div class="timeline-item"><span class="t-date">08.13</span><span class="t-content" data-ko="자본금 1억 5천만원 증설 [자본금 이억원]" data-en="Capital increase of KRW 150M [Total KRW 200M]">자본금 1억 5천만원 증설 [자본금 이억원]</span></div>
         <div class="timeline-item"><span class="t-date">07.18</span><span class="t-content" data-ko="주식회사 동희산기 설립, 대표이사 강만희, 설립자본금 오천만원" data-en="Donghee Industries Co., Ltd. established, CEO Kang Man-hee, founding capital KRW 50M">주식회사 동희산기 설립, 대표이사 강만희, 설립자본금 오천만원</span></div>
       </div></div>
     </div>
@@ -671,7 +671,7 @@
         </div>
         <div style="cursor:pointer;" onclick="document.getElementById('certModal1').style.display='flex'">
           <img src="images/cert_iso45001.png" alt="ISO 45001:2018 인증서" style="width:100%;display:block;max-height:320px;object-fit:contain;background:#f8f9fa;padding:8px;">
-          <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);">🔍 클릭하여 인증서 확대</div>
+          <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);" data-ko="🔍 클릭하여 인증서 확대" data-en="🔍 Click to enlarge">🔍 클릭하여 인증서 확대</div>
         </div>
       </div>
       <div style="background:white;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='none'">
@@ -681,7 +681,7 @@
         </div>
         <div style="cursor:pointer;" onclick="document.getElementById('certModal2').style.display='flex'">
           <img src="images/cert_iso9001.png" alt="ISO 9001:2015 인증서" style="width:100%;display:block;max-height:320px;object-fit:contain;background:#f8f9fa;padding:8px;">
-          <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);">🔍 클릭하여 인증서 확대</div>
+          <div style="padding:10px;text-align:center;font-size:0.78rem;color:var(--gray);background:var(--light);" data-ko="🔍 클릭하여 인증서 확대" data-en="🔍 Click to enlarge">🔍 클릭하여 인증서 확대</div>
         </div>
       </div>
     </div>
@@ -740,45 +740,45 @@
       <div style="background:var(--navy);color:white;padding:1.2rem 1.5rem;border-radius:2px;text-align:center;">
         <div style="font-size:1.6rem;margin-bottom:0.5rem;">🏆</div>
         <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--accent);font-weight:600;margin-bottom:0.3rem;">Excellent Quality</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);">최고 품질</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" data-ko="최고 품질" data-en="Excellent Quality">최고 품질</div>
       </div>
       <div style="background:var(--navy);color:white;padding:1.2rem 1.5rem;border-radius:2px;text-align:center;">
         <div style="font-size:1.6rem;margin-bottom:0.5rem;">⏱️</div>
         <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--accent);font-weight:600;margin-bottom:0.3rem;">On Time Delivery</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);">정시 납기</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" data-ko="정시 납기" data-en="On-Time Delivery">정시 납기</div>
       </div>
       <div style="background:var(--navy);color:white;padding:1.2rem 1.5rem;border-radius:2px;text-align:center;">
         <div style="font-size:1.6rem;margin-bottom:0.5rem;">⚙️</div>
         <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--accent);font-weight:600;margin-bottom:0.3rem;">Customized Engineering</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);">맞춤형 엔지니어링</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" data-ko="맞춤형 엔지니어링" data-en="Customized Engineering">맞춤형 엔지니어링</div>
       </div>
       <div style="background:var(--navy);color:white;padding:1.2rem 1.5rem;border-radius:2px;text-align:center;">
         <div style="font-size:1.6rem;margin-bottom:0.5rem;">💰</div>
         <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--accent);font-weight:600;margin-bottom:0.3rem;">Price Competitiveness</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);">가격 경쟁력</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" data-ko="가격 경쟁력" data-en="Price Competitiveness">가격 경쟁력</div>
       </div>
       <div style="background:var(--navy);color:white;padding:1.2rem 1.5rem;border-radius:2px;text-align:center;">
         <div style="font-size:1.6rem;margin-bottom:0.5rem;">🛠️</div>
         <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--accent);font-weight:600;margin-bottom:0.3rem;">After-Sale Service</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);">24시간 A/S</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" data-ko="24시간 A/S" data-en="24hr After-Service">24시간 A/S</div>
       </div>
       <div style="background:var(--navy);color:white;padding:1.2rem 1.5rem;border-radius:2px;text-align:center;">
         <div style="font-size:1.6rem;margin-bottom:0.5rem;">🌐</div>
         <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--accent);font-weight:600;margin-bottom:0.3rem;">Global Network</div>
-        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);">글로벌 영업망</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.7);" data-ko="글로벌 영업망" data-en="Global Network">글로벌 영업망</div>
       </div>
     </div>
 
     <div class="biz-detail-grid">
-      <div class="biz-detail-card"><div class="biz-icon">🏭</div><h3 data-ko="차체공장 (Body Shop)" data-en="Body Shop">차체공장 (Body Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="자동차 차체 조립 라인에 최적화된 컨베이어 시스템 설계 및 설치" data-en="Conveyor system design and installation optimized for automotive body assembly lines">자동차 차체 조립 라인에 최적화된 컨베이어 시스템 설계 및 설치</p><ul><li>EMS (Electrified Monorail System)</li><li>Roller Bed &amp; SKID 방식</li><li>Floor / Side / Roof 라인</li></ul></div>
-      <div class="biz-detail-card"><div class="biz-icon">🎨</div><h3 data-ko="도장공장 (Paint Shop)" data-en="Paint Shop">도장공장 (Paint Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="도장 공정 특화 컨베이어 시스템 — 전처리부터 오븐까지" data-en="Paint shop specialized conveyor system — from pre-treatment to oven">도장 공정 특화 컨베이어 시스템 — 전처리부터 오븐까지</p><ul><li>PT/ED : OHC Power &amp; Free</li><li>BOOTH : CPC 방식</li><li>OVEN : Trolley Chain</li></ul></div>
+      <div class="biz-detail-card"><div class="biz-icon">🏭</div><h3 data-ko="차체공장 (Body Shop)" data-en="Body Shop">차체공장 (Body Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="자동차 차체 조립 라인에 최적화된 컨베이어 시스템 설계 및 설치" data-en="Conveyor system design and installation optimized for automotive body assembly lines">자동차 차체 조립 라인에 최적화된 컨베이어 시스템 설계 및 설치</p><ul><li>EMS (Electrified Monorail System)</li><li data-ko="Roller Bed &amp; SKID 방식" data-en="Roller Bed &amp; SKID Type">Roller Bed &amp; SKID 방식</li><li data-ko="Floor / Side / Roof 라인" data-en="Floor / Side / Roof Line">Floor / Side / Roof 라인</li></ul></div>
+      <div class="biz-detail-card"><div class="biz-icon">🎨</div><h3 data-ko="도장공장 (Paint Shop)" data-en="Paint Shop">도장공장 (Paint Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="도장 공정 특화 컨베이어 시스템 — 전처리부터 오븐까지" data-en="Paint shop specialized conveyor system — from pre-treatment to oven">도장 공정 특화 컨베이어 시스템 — 전처리부터 오븐까지</p><ul><li>PT/ED : OHC Power &amp; Free</li><li data-ko="BOOTH : CPC 방식" data-en="BOOTH : CPC Type">BOOTH : CPC 방식</li><li>OVEN : Trolley Chain</li></ul></div>
       <div class="biz-detail-card"><div class="biz-icon">🔧</div><h3 data-ko="의장공장 (Assembly Shop)" data-en="Assembly Shop">의장공장 (Assembly Shop)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="최종 조립 공정 Turn-Key 납품" data-en="Turn-Key delivery for final assembly process">최종 조립 공정 Turn-Key 납품</p><ul><li>Trim : Friction / Single Slat</li><li>Chassis : OHC Power &amp; Free</li><li>Final : Double Slat / Skillet</li></ul></div>
-      <div class="biz-detail-card"><div class="biz-icon">⚙️</div><h3 data-ko="엔진라인 (Engine Line)" data-en="Engine Line">엔진라인 (Engine Line)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="엔진·트랜스미션 조립 라인 컨베이어 설계·제작" data-en="Conveyor design and manufacturing for engine and transmission assembly lines">엔진·트랜스미션 조립 라인 컨베이어 설계·제작</p><ul><li>Cylinder Head 반송 LINE</li><li>E/G + T/M SUB 이송 LINE</li></ul></div>
+      <div class="biz-detail-card"><div class="biz-icon">⚙️</div><h3 data-ko="엔진라인 (Engine Line)" data-en="Engine Line">엔진라인 (Engine Line)</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="엔진·트랜스미션 조립 라인 컨베이어 설계·제작" data-en="Conveyor design and manufacturing for engine and transmission assembly lines">엔진·트랜스미션 조립 라인 컨베이어 설계·제작</p><ul><li data-ko="Cylinder Head 반송 LINE" data-en="Cylinder Head Transfer Line">Cylinder Head 반송 LINE</li><li data-ko="E/G + T/M SUB 이송 LINE" data-en="E/G + T/M SUB Transfer Line">E/G + T/M SUB 이송 LINE</li></ul></div>
     </div>
   </section>
 
   <section class="section bg-light" id="biz-global">
-    <div class="section-tag">Global Network</div><div class="section-title">글로벌 납품 현황</div>
+    <div class="section-tag">Global Network</div><div class="section-title" data-ko="글로벌 납품 현황" data-en="Global Delivery">글로벌 납품 현황</div>
     <p class="section-desc" data-ko="1987년 창립 이래 세계 16개국 이상 현대·기아·폭스바겐·GM 등 글로벌 완성차 메이커에 납품한 실적을 보유하고 있습니다." data-en="Since our founding in 1987, we have delivered to global automakers including Hyundai, Kia, Volkswagen, and GM in over 16 countries worldwide.">1987년 창립 이래 세계 16개국 이상 현대·기아·폭스바겐·GM 등 글로벌 완성차 메이커에 납품한 실적을 보유하고 있습니다.</p>
 
     <!-- 통계 카드 -->
@@ -792,7 +792,7 @@
         <div style="font-size:0.85rem;color:var(--gray);margin-top:0.3rem;" data-ko="프로젝트 수행" data-en="Projects">프로젝트 수행</div>
       </div>
       <div style="background:white;border:1px solid var(--border);border-top:3px solid #0d9488;padding:1.2rem;text-align:center;">
-        <div style="font-size:2.2rem;font-weight:700;color:var(--navy);font-family:'Oswald',sans-serif;">37<span style="font-size:1.2rem;">년</span></div>
+        <div style="font-size:2.2rem;font-weight:700;color:var(--navy);font-family:'Oswald',sans-serif;">37<span style="font-size:1.2rem;" data-ko="년" data-en="yrs">년</span></div>
         <div style="font-size:0.85rem;color:var(--gray);margin-top:0.3rem;" data-ko="업력" data-en="Years">업력</div>
       </div>
     </div>
@@ -821,31 +821,31 @@
       <div style="display:flex;flex-direction:column;gap:0.6rem;height:100%;">
 
         <div style="background:white;border:1px solid var(--border);padding:0.9rem 1rem;border-top:3px solid #0B1D3A;flex:1;">
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:#0d9488;margin-bottom:0.5rem;">🌏 아시아</div>
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:#0d9488;margin-bottom:0.5rem;" data-ko="🌏 아시아" data-en="🌏 Asia">🌏 아시아</div>
           <ul style="list-style:none;padding:0;font-size:0.78rem;color:#444;line-height:1.75;">
-            <li>🇰🇷 <strong>한국</strong> — HMC·KMC·KG Mobility</li>
-            <li>🇮🇳 <strong>인도</strong> — Hyundai·Kia·VW</li>
-            <li>🇨🇳 <strong>중국</strong> — Beijing Hyundai·Dongfeng Kia</li>
-            <li>🇮🇩 <strong>인도네시아</strong> — Hyundai Indonesia</li>
+            <li>🇰🇷 <strong data-ko="한국" data-en="Korea">한국</strong> — HMC·KMC·KG Mobility</li>
+            <li>🇮🇳 <strong data-ko="인도" data-en="India">인도</strong> — Hyundai·Kia·VW</li>
+            <li>🇨🇳 <strong data-ko="중국" data-en="China">중국</strong> — Beijing Hyundai·Dongfeng Kia</li>
+            <li>🇮🇩 <strong data-ko="인도네시아" data-en="Indonesia">인도네시아</strong> — Hyundai Indonesia</li>
           </ul>
         </div>
 
         <div style="background:white;border:1px solid var(--border);padding:0.9rem 1rem;border-top:3px solid #0B1D3A;flex:1;">
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:#0d9488;margin-bottom:0.5rem;">🌍 유럽·중앙아시아</div>
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:#0d9488;margin-bottom:0.5rem;" data-ko="🌍 유럽·중앙아시아" data-en="🌍 Europe·C.Asia">🌍 유럽·중앙아시아</div>
           <ul style="list-style:none;padding:0;font-size:0.78rem;color:#444;line-height:1.75;">
-            <li>🇷🇺 <strong>러시아</strong> — Hyundai·Izh-Avto·Renault</li>
-            <li>🇨🇿 <strong>체코</strong> — Hyundai Czech</li>
-            <li>🇹🇷 <strong>터키</strong> — Hyundai Turkey</li>
-            <li>🇺🇿 <strong>우즈베키스탄</strong> — GM Uzbekistan</li>
+            <li>🇷🇺 <strong data-ko="러시아" data-en="Russia">러시아</strong> — Hyundai·Izh-Avto·Renault</li>
+            <li>🇨🇿 <strong data-ko="체코" data-en="Czech">체코</strong> — Hyundai Czech</li>
+            <li>🇹🇷 <strong data-ko="터키" data-en="Turkey">터키</strong> — Hyundai Turkey</li>
+            <li>🇺🇿 <strong data-ko="우즈베키스탄" data-en="Uzbekistan">우즈베키스탄</strong> — GM Uzbekistan</li>
           </ul>
         </div>
 
         <div style="background:white;border:1px solid var(--border);padding:0.9rem 1rem;border-top:3px solid #0B1D3A;flex:1;">
-          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:#0d9488;margin-bottom:0.5rem;">🌎 아메리카</div>
+          <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;color:#0d9488;margin-bottom:0.5rem;" data-ko="🌎 아메리카" data-en="🌎 Americas">🌎 아메리카</div>
           <ul style="list-style:none;padding:0;font-size:0.78rem;color:#444;line-height:1.75;">
-            <li>🇺🇸 <strong>미국</strong> — Kia Georgia·Hyundai Alabama</li>
-            <li>🇲🇽 <strong>멕시코</strong> — Kia Monterrey</li>
-            <li>🇧🇷 <strong>브라질</strong> — Hyundai Brazil</li>
+            <li>🇺🇸 <strong data-ko="미국" data-en="USA">미국</strong> — Kia Georgia·Hyundai Alabama</li>
+            <li>🇲🇽 <strong data-ko="멕시코" data-en="Mexico">멕시코</strong> — Kia Monterrey</li>
+            <li>🇧🇷 <strong data-ko="브라질" data-en="Brazil">브라질</strong> — Hyundai Brazil</li>
           </ul>
         </div>
 
@@ -857,8 +857,8 @@
     <div class="section-tag">R&D</div><div class="section-title" data-ko="기술연구" data-en="R&amp;D">기술연구</div>
     <div class="biz-detail-grid">
       <div class="biz-detail-card"><div class="biz-icon">🔬</div><h3 data-ko="시스템 R&D" data-en="System R&D">시스템 R&D</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="차세대 컨베이어 시스템 연구 및 공장 자동화 기술 개발" data-en="Research on next-generation conveyor systems and factory automation technology development">차세대 컨베이어 시스템 연구 및 공장 자동화 기술 개발</p></div>
-      <div class="biz-detail-card"><div class="biz-icon">📐</div><h3>기술 및 설계</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="고객 맞춤형 설계 서비스. 공장 레이아웃부터 개별 컨베이어 사양까지" data-en="Customized design services. From factory layout to individual conveyor specifications">고객 맞춤형 설계 서비스. 공장 레이아웃부터 개별 컨베이어 사양까지</p></div>
-      <div class="biz-detail-card"><div class="biz-icon">🤝</div><h3>해외 기술협력</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="독일 ROFA사, 일본 증서금속공업㈱ 등 글로벌 기업과 기술협력" data-en="Technical cooperation with global companies including Germany's ROFA and Japan's Shosho Metal Industries">독일 ROFA사, 일본 증서금속공업㈱ 등 글로벌 기업과 기술협력</p></div>
+      <div class="biz-detail-card"><div class="biz-icon">📐</div><h3 data-ko="기술 및 설계" data-en="Engineering &amp; Design">기술 및 설계</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="고객 맞춤형 설계 서비스. 공장 레이아웃부터 개별 컨베이어 사양까지" data-en="Customized design services. From factory layout to individual conveyor specifications">고객 맞춤형 설계 서비스. 공장 레이아웃부터 개별 컨베이어 사양까지</p></div>
+      <div class="biz-detail-card"><div class="biz-icon">🤝</div><h3 data-ko="해외 기술협력" data-en="Global Tech Partners">해외 기술협력</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;" data-ko="독일 ROFA사, 일본 증서금속공업㈱ 등 글로벌 기업과 기술협력" data-en="Technical cooperation with global companies including Germany's ROFA and Japan's Shosho Metal Industries">독일 ROFA사, 일본 증서금속공업㈱ 등 글로벌 기업과 기술협력</p></div>
     </div>
   </section>
 
@@ -866,7 +866,7 @@
     <div class="section-tag">Delivery Record</div><div class="section-title" data-ko="납품현황" data-en="Delivery Record">납품현황</div>
 
     <!-- 의장공장 Turn-Key -->
-    <div class="table-wrap"><div class="table-title">의장공장 (Assembly Shop) — Turn-Key (2005~2025)</div>
+    <div class="table-wrap"><div class="table-title" data-ko="의장공장 (Assembly Shop) — Turn-Key (2005~2025)" data-en="Assembly Shop — Turn-Key (2005~2025)">의장공장 (Assembly Shop) — Turn-Key (2005~2025)</div>
       <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor &amp; Equipment</th></tr></thead>
       <tbody>
         <tr><td>Izh-Avto (Russia)</td><td>2006</td><td>Sephia</td><td>12</td><td>Trim: Single Slat / Chassis: OHC P/F / Final: Double Slat / Engine Sub, Sus Decking / Test: W.A·H.T·R&amp;Brake·Emission</td></tr>
@@ -875,9 +875,9 @@
         <tr><td>BHMC No.2 (China)</td><td>2008</td><td>YF</td><td>60</td><td>OK EMS, Chassis</td></tr>
         <tr><td>BHMC No.3 (China)</td><td>2012</td><td>CM</td><td>60</td><td>Water Test, OK, PDI: Slat</td></tr>
         <tr><td>Renault Nissan (Russia)</td><td>2014</td><td>Lada</td><td>33</td><td>Water Test: Slat</td></tr>
-        <tr><td>HMC 남양연구소 PDI</td><td>2016</td><td>—</td><td>5</td><td>PBS: Roller Bed / Trim·Final: FCS / Chassis: EMS / OK·Water Test: Double Plastic Chain / Door Sub: EMS / Chassis Sub: F/F / Chassis Marriage: AGV</td></tr>
-        <tr><td>HMC Ulsan 교육센터</td><td>2016</td><td>i30</td><td>10</td><td>Trim·Chassis: FCS / Final: Slat</td></tr>
-        <tr><td>KMC Sohari 교육센터</td><td>2016</td><td>—</td><td>10</td><td>Chassis: EMS / Chassis Marriage: AGV</td></tr>
+        <tr><td data-ko="HMC 남양연구소 PDI" data-en="HMC Namyang R&amp;D PDI">HMC 남양연구소 PDI</td><td>2016</td><td>—</td><td>5</td><td>PBS: Roller Bed / Trim·Final: FCS / Chassis: EMS / OK·Water Test: Double Plastic Chain / Door Sub: EMS / Chassis Sub: F/F / Chassis Marriage: AGV</td></tr>
+        <tr><td data-ko="HMC Ulsan 교육센터" data-en="HMC Ulsan Training Center">HMC Ulsan 교육센터</td><td>2016</td><td>i30</td><td>10</td><td>Trim·Chassis: FCS / Final: Slat</td></tr>
+        <tr><td data-ko="KMC Sohari 교육센터" data-en="KMC Sohari Training Center">KMC Sohari 교육센터</td><td>2016</td><td>—</td><td>10</td><td>Chassis: EMS / Chassis Marriage: AGV</td></tr>
         <tr><td>KMC No.1</td><td>2017</td><td>UB, KH</td><td>60</td><td>Trim, Chassis Main Line</td></tr>
         <tr><td>HMC No.2</td><td>2017</td><td>Santafe</td><td>60</td><td>Main Line</td></tr>
         <tr><td>HMC Indonesia</td><td>2021</td><td>SU2id</td><td>50</td><td>Main &amp; SUB</td></tr>
@@ -885,8 +885,8 @@
       </tbody></table></div>
 
     <!-- 의장공장 Modification -->
-    <div class="table-wrap"><div class="table-title">의장공장 (Assembly Shop) — Line Modification</div>
-      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th>비고</th></tr></thead>
+    <div class="table-wrap"><div class="table-title" data-ko="의장공장 (Assembly Shop) — Line Modification" data-en="Assembly Shop — Line Modification">의장공장 (Assembly Shop) — Line Modification</div>
+      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th data-ko="비고" data-en="Remarks">비고</th></tr></thead>
       <tbody>
         <tr><td>HMC Jeonju</td><td>2012</td><td>H-Truck</td><td>30</td><td>Trim·Chassis: OHC P/F</td><td>Line Modification</td></tr>
         <tr><td>HMC Beijing No.1</td><td>2012</td><td>Avante</td><td>40</td><td>OHC</td><td>Line Modification</td></tr>
@@ -906,26 +906,26 @@
       </tbody></table></div>
 
     <!-- 도장공장 Turn-Key -->
-    <div class="table-wrap"><div class="table-title">도장공장 (Paint Shop) — Turn-Key (2005~2025)</div>
-      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th>비고</th></tr></thead>
+    <div class="table-wrap"><div class="table-title" data-ko="도장공장 (Paint Shop) — Turn-Key (2005~2025)" data-en="Paint Shop — Turn-Key (2005~2025)">도장공장 (Paint Shop) — Turn-Key (2005~2025)</div>
+      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th data-ko="비고" data-en="Remarks">비고</th></tr></thead>
       <tbody>
-        <tr><td>KMC SP-2</td><td>2005</td><td>Carnival</td><td>40</td><td>PT/ED: OHC P/F / BOOTH: CPC / OVEN: IVA / Storage·Transfer: Floor Friction / UBS: OHC Friction</td><td>광주</td></tr>
-        <tr><td>KMC UN</td><td>2007</td><td>Sportage</td><td>30</td><td>OHC P/F, IVA, Friction</td><td>소하리</td></tr>
-        <tr><td>HMC No.5</td><td>2008</td><td>Genesis</td><td>30</td><td>OHC P/F, IVA, Friction</td><td>울산</td></tr>
-        <tr><td>KMC Georgia</td><td>2010</td><td>RV Car</td><td>60</td><td>—</td><td>미국</td></tr>
-        <tr><td>HMC Russia</td><td>2011</td><td>Accent</td><td>40</td><td>—</td><td>러시아</td></tr>
-        <tr><td>HMC Brazil</td><td>2012</td><td>HV20</td><td>33</td><td>—</td><td>브라질</td></tr>
-        <tr><td>KMC No.2</td><td>2012</td><td>Sportage</td><td>50</td><td>—</td><td>광주</td></tr>
-        <tr><td>KMC China No.3</td><td>2014</td><td>K-2, K-3</td><td>92</td><td>—</td><td>중국</td></tr>
-        <tr><td>KMC Mexico</td><td>2016</td><td>—</td><td>92</td><td>—</td><td>멕시코</td></tr>
-        <tr><td>KMC India</td><td>2019</td><td>—</td><td>55</td><td>—</td><td>인도</td></tr>
-        <tr><td>HMC Indonesia</td><td>2021</td><td>SU2id</td><td>35</td><td>—</td><td>인도네시아</td></tr>
-        <tr><td>HMC Ulsan</td><td>2024</td><td>GP EV</td><td>69</td><td>—</td><td>울산</td></tr>
+        <tr><td>KMC SP-2</td><td>2005</td><td>Carnival</td><td>40</td><td>PT/ED: OHC P/F / BOOTH: CPC / OVEN: IVA / Storage·Transfer: Floor Friction / UBS: OHC Friction</td><td data-ko="광주" data-en="Gwangju">광주</td></tr>
+        <tr><td>KMC UN</td><td>2007</td><td>Sportage</td><td>30</td><td>OHC P/F, IVA, Friction</td><td data-ko="소하리" data-en="Sohari">소하리</td></tr>
+        <tr><td>HMC No.5</td><td>2008</td><td>Genesis</td><td>30</td><td>OHC P/F, IVA, Friction</td><td data-ko="울산" data-en="Ulsan">울산</td></tr>
+        <tr><td>KMC Georgia</td><td>2010</td><td>RV Car</td><td>60</td><td>—</td><td data-ko="미국" data-en="USA">미국</td></tr>
+        <tr><td>HMC Russia</td><td>2011</td><td>Accent</td><td>40</td><td>—</td><td data-ko="러시아" data-en="Russia">러시아</td></tr>
+        <tr><td>HMC Brazil</td><td>2012</td><td>HV20</td><td>33</td><td>—</td><td data-ko="브라질" data-en="Brazil">브라질</td></tr>
+        <tr><td>KMC No.2</td><td>2012</td><td>Sportage</td><td>50</td><td>—</td><td data-ko="광주" data-en="Gwangju">광주</td></tr>
+        <tr><td>KMC China No.3</td><td>2014</td><td>K-2, K-3</td><td>92</td><td>—</td><td data-ko="중국" data-en="China">중국</td></tr>
+        <tr><td>KMC Mexico</td><td>2016</td><td>—</td><td>92</td><td>—</td><td data-ko="멕시코" data-en="Mexico">멕시코</td></tr>
+        <tr><td>KMC India</td><td>2019</td><td>—</td><td>55</td><td>—</td><td data-ko="인도" data-en="India">인도</td></tr>
+        <tr><td>HMC Indonesia</td><td>2021</td><td>SU2id</td><td>35</td><td>—</td><td data-ko="인도네시아" data-en="Indonesia">인도네시아</td></tr>
+        <tr><td>HMC Ulsan</td><td>2024</td><td>GP EV</td><td>69</td><td>—</td><td data-ko="울산" data-en="Ulsan">울산</td></tr>
       </tbody></table></div>
 
     <!-- 도장공장 Modification -->
-    <div class="table-wrap"><div class="table-title">도장공장 (Paint Shop) — Volume-up &amp; Modification</div>
-      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th>비고</th></tr></thead>
+    <div class="table-wrap"><div class="table-title" data-ko="도장공장 (Paint Shop) — Volume-up &amp; Modification" data-en="Paint Shop — Volume-up &amp; Modification">도장공장 (Paint Shop) — Volume-up &amp; Modification</div>
+      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th data-ko="비고" data-en="Remarks">비고</th></tr></thead>
       <tbody>
         <tr><td>HMC Czech</td><td>2009</td><td>YN</td><td>60</td><td>EMS: Contact</td><td>New Model</td></tr>
         <tr><td>VW India</td><td>2010</td><td>Golf</td><td>30</td><td>Roller Bed &amp; SKID</td><td>Buffer Volume Up</td></tr>
@@ -965,15 +965,15 @@
       </tbody></table></div>
 
     <!-- 차체공장 -->
-    <div class="table-wrap"><div class="table-title">차체공장 (Body Shop) — Turn-Key (2005~2025)</div>
+    <div class="table-wrap"><div class="table-title" data-ko="차체공장 (Body Shop) — Turn-Key (2005~2025)" data-en="Body Shop — Turn-Key (2005~2025)">차체공장 (Body Shop) — Turn-Key (2005~2025)</div>
       <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th>Line</th></tr></thead>
       <tbody>
         <tr><td>HMC India</td><td>2007</td><td>Click</td><td>60</td><td>EMS: Contact</td><td>Floor, Side, BR/BC, CR, Roof</td></tr>
         <tr><td>HMC Czech</td><td>2008</td><td>i-30</td><td>60</td><td>EMS: Contact</td><td>Floor, Side, BR/BC, CR, Roof</td></tr>
         <tr><td>VW India</td><td>2009</td><td>Golf</td><td>30</td><td>Roller Bed &amp; SKID</td><td>Floor, Side, BR/BC, CR, Roof</td></tr>
       </tbody></table></div>
-    <div class="table-wrap"><div class="table-title">차체공장 (Body Shop) — Volume-up &amp; Modification</div>
-      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th>비고</th></tr></thead>
+    <div class="table-wrap"><div class="table-title" data-ko="차체공장 (Body Shop) — Volume-up &amp; Modification" data-en="Body Shop — Volume-up &amp; Modification">차체공장 (Body Shop) — Volume-up &amp; Modification</div>
+      <table class="perf"><thead><tr><th>Customer</th><th>S.O.P</th><th>Model</th><th>UPH</th><th>Conveyor Type</th><th data-ko="비고" data-en="Remarks">비고</th></tr></thead>
       <tbody>
         <tr><td>KMC Georgia</td><td>2008</td><td>—</td><td>35</td><td>OHC(PT/ED)</td><td>Hanger Modification</td></tr>
         <tr><td>IZH-AVTO</td><td>2008</td><td>CKD</td><td>—</td><td>—</td><td>New Model</td></tr>
@@ -985,12 +985,12 @@
 
     <!-- 엔진라인 -->
     <div class="table-wrap"><div class="table-title" data-ko="엔진라인 (Engine Line)" data-en="Engine Line">엔진라인 (Engine Line)</div>
-      <table class="perf"><thead><tr><th>업체명</th><th>착공년도</th><th>공장</th><th>납품금액</th><th>납품내용</th></tr></thead>
+      <table class="perf"><thead><tr><th data-ko="업체명" data-en="Client">업체명</th><th data-ko="착공년도" data-en="Year">착공년도</th><th data-ko="공장" data-en="Plant">공장</th><th data-ko="납품금액" data-en="Amount">납품금액</th><th data-ko="납품내용" data-en="Description">납품내용</th></tr></thead>
       <tbody>
-        <tr><td>KIA</td><td>2000</td><td>화성</td><td>3억</td><td>Cylinder Head 반송 LINE</td></tr>
-        <tr><td>KIA</td><td>2001</td><td>화성</td><td>1.56억</td><td>Engine Line 설치</td></tr>
-        <tr><td>KIA</td><td>2005</td><td>화성</td><td>31.8억</td><td>모타라인 설치 LINE</td></tr>
-        <tr><td>HMC</td><td>2001</td><td>아산</td><td>6.89억</td><td>#1 Front Suspension SUB 이송 Conveyor</td></tr>
+        <tr><td>KIA</td><td>2000</td><td data-ko="화성" data-en="Hwasung">화성</td><td data-ko="3억" data-en="KRW 300M">3억</td><td data-ko="Cylinder Head 반송 LINE" data-en="Cylinder Head Transfer Line">Cylinder Head 반송 LINE</td></tr>
+        <tr><td>KIA</td><td>2001</td><td data-ko="화성" data-en="Hwasung">화성</td><td data-ko="1.56억" data-en="KRW 156M">1.56억</td><td data-ko="Engine Line 설치" data-en="Engine Line Installation">Engine Line 설치</td></tr>
+        <tr><td>KIA</td><td>2005</td><td data-ko="화성" data-en="Hwasung">화성</td><td data-ko="31.8억" data-en="KRW 3.18B">31.8억</td><td data-ko="모타라인 설치 LINE" data-en="Motor Line Installation">모타라인 설치 LINE</td></tr>
+        <tr><td>HMC</td><td>2001</td><td data-ko="아산" data-en="Asan">아산</td><td data-ko="6.89억" data-en="KRW 689M">6.89억</td><td data-ko="#1 Front Suspension SUB 이송 Conveyor" data-en="#1 Front Suspension SUB Transfer Conveyor">#1 Front Suspension SUB 이송 Conveyor</td></tr>
       </tbody></table></div>
 
   </section>
@@ -1014,16 +1014,16 @@
     <a onclick="scrollToSection('p10')">Belt</a>
   </div>
 
-  <section class="section" id="p01"><div class="section-tag">Product 01</div><div class="section-title">Roller Bar Type Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/roller.jpg" alt="Roller Bar" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="롤러 바 타입 컨베이어는 자동차 차체 이송에 최적화된 시스템으로, 안정적인 지지력과 정밀한 위치 제어가 특징입니다." data-en="The roller bar type conveyor is optimized for automotive body transfer, featuring stable support and precise position control.">롤러 바 타입 컨베이어는 자동차 차체 이송에 최적화된 시스템으로, 안정적인 지지력과 정밀한 위치 제어가 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val">차체공장 (Body Shop) 조립 라인</span></div><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val">HMC, KMC, 폭스바겐 인도 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="차체 하중 분산으로 변형 방지" data-en="Prevents deformation by distributing body load">차체 하중 분산으로 변형 방지</li><li data-ko="유지보수 용이한 모듈식 설계" data-en="Modular design for easy maintenance">유지보수 용이한 모듈식 설계</li><li data-ko="다양한 차종 대응 가능한 유연한 구조" data-en="Flexible structure adaptable to various vehicle models">다양한 차종 대응 가능한 유연한 구조</li><li data-ko="저소음·저진동 운전" data-en="Low noise and low vibration operation">저소음·저진동 운전</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p02"><div class="section-tag">Product 02</div><div class="section-title">Power &amp; Free Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/power.jpg" alt="Power & Free" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="구동 체인(Power)과 반송 트롤리(Free)를 분리하여 자유로운 속도 제어와 축적이 가능한 오버헤드 컨베이어입니다." data-en="An overhead conveyor that separates the drive chain (Power) and transport trolley (Free) for flexible speed control and accumulation.">구동 체인(Power)과 반송 트롤리(Free)를 분리하여 자유로운 속도 제어와 축적이 가능한 오버헤드 컨베이어입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val">도장공장, 의장공장 (OHC P/F)</span></div><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val">KMC SP-2, HMC No5, KMC UN 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="공정 간 버퍼링(축적) 기능으로 라인 유연성 확보" data-en="Line flexibility through inter-process buffering">공정 간 버퍼링(축적) 기능으로 라인 유연성 확보</li><li data-ko="다양한 분기·합류 장치 구성 가능" data-en="Various branching and merging configurations possible">다양한 분기·합류 장치 구성 가능</li><li data-ko="도장 오븐 등 고온 환경에서도 안정적 운전" data-en="Stable operation even in high-temperature environments like paint ovens">도장 오븐 등 고온 환경에서도 안정적 운전</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p03"><div class="section-tag">Product 03</div><div class="section-title">EMS (Electrified Monorail System)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/ems.jpg" alt="EMS" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="전기를 통해 각 대차가 독립적으로 움직이는 지능형 오버헤드 컨베이어로, 유연한 반송 경로 구성이 가능합니다." data-en="An intelligent overhead conveyor where each carrier moves independently via electricity, enabling flexible transport path configurations.">전기를 통해 각 대차가 독립적으로 움직이는 지능형 오버헤드 컨베이어로, 유연한 반송 경로 구성이 가능합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val">차체·의장공장, 연구소 시험 라인</span></div><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val">HMC 인도·체코, HMMI, BHMC 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="대차별 독립 속도·위치 제어" data-en="Independent speed and position control per carrier">대차별 독립 속도·위치 제어</li><li data-ko="복잡한 분기·합류·루프 구성 자유로움" data-en="Freedom in complex branch, merge, and loop configurations">복잡한 분기·합류·루프 구성 자유로움</li><li data-ko="글로벌 완성차 공장 다수 납품 실적" data-en="Proven delivery record at global automaker plants">글로벌 완성차 공장 다수 납품 실적</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p04"><div class="section-tag">Product 04</div><div class="section-title">F.C.S (Friction Conveyor System)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/fcs.jpg" alt="FCS" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="마찰 구동 방식의 컨베이어 시스템으로, 팔레트나 행거를 마찰력으로 이송하며 축적 기능과 부드러운 이송이 특징입니다." data-en="A friction-driven conveyor system that transports pallets or hangers using friction force, featuring accumulation and smooth transfer.">마찰 구동 방식의 컨베이어 시스템으로, 팔레트나 행거를 마찰력으로 이송하며 축적 기능과 부드러운 이송이 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val">도장공장 Storage, 의장공장 Trim/Final</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="부드러운 기동·정지로 차체 손상 방지" data-en="Prevents body damage through smooth start and stop">부드러운 기동·정지로 차체 손상 방지</li><li data-ko="축적 구간에서 자동 완충 제어" data-en="Automatic buffer control in accumulation zones">축적 구간에서 자동 완충 제어</li><li data-ko="다양한 라인 레이아웃에 유연하게 대응" data-en="Flexible adaptation to various line layouts">다양한 라인 레이아웃에 유연하게 대응</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p05"><div class="section-tag">Product 05</div><div class="section-title">Scrap Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/scrap.jpg" alt="Scrap" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="자동차 생산 공정에서 발생하는 금속 스크랩, 절삭칩 등 폐기물을 자동으로 수거·이송하는 컨베이어 시스템입니다." data-en="A conveyor system that automatically collects and transfers waste such as metal scrap and cutting chips generated in automotive production.">자동차 생산 공정에서 발생하는 금속 스크랩, 절삭칩 등 폐기물을 자동으로 수거·이송하는 컨베이어 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="이송 대상" data-en="Transfer Target">이송 대상</span><span class="spec-val">금속 스크랩, 절삭칩, 폐기 부품</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="금속 스크랩의 자동 수집 및 집적" data-en="Automatic collection and accumulation of metal scrap">금속 스크랩의 자동 수집 및 집적</li><li data-ko="내마모성 소재 적용으로 장수명 구현" data-en="Long service life with wear-resistant materials">내마모성 소재 적용으로 장수명 구현</li><li data-ko="쿨런트(냉각수) 분리 기능 탑재 가능" data-en="Optional coolant separation function available">쿨런트(냉각수) 분리 기능 탑재 가능</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p06"><div class="section-tag">Product 06</div><div class="section-title">AGV (Automated Guided Vehicle)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/agv.jpg" alt="AGV" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="무인 자동 반송 차량(AGV)은 유도선 또는 레이저 유도 방식으로 공장 내를 자율 주행하며 부품·차체를 이송하는 스마트 물류 시스템입니다." data-en="AGV is a smart logistics system that autonomously navigates factories via guide wire or laser guidance to transport parts and bodies.">무인 자동 반송 차량(AGV)은 유도선 또는 레이저 유도 방식으로 공장 내를 자율 주행하며 부품·차체를 이송하는 스마트 물류 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val">HMC 남양연구소 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="유연한 경로 변경으로 라인 개편 대응" data-en="Adapts to line changes with flexible path modification">유연한 경로 변경으로 라인 개편 대응</li><li data-ko="장애물 감지 센서로 안전 운행" data-en="Safe operation with obstacle detection sensors">장애물 감지 센서로 안전 운행</li><li data-ko="상위 MES/PLC 시스템과 통신 연동" data-en="Communication integration with MES/PLC systems">상위 MES/PLC 시스템과 통신 연동</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p07"><div class="section-tag">Product 07</div><div class="section-title">Slat Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/slat.jpg" alt="Slat" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="금속 슬랫(판)을 체인으로 연결한 견고한 이송 시스템으로, 의장 공정 최종 라인(Final Line)에 주로 사용됩니다." data-en="A robust transfer system connecting metal slats with chains, mainly used in the Final Line of assembly processes.">금속 슬랫(판)을 체인으로 연결한 견고한 이송 시스템으로, 의장 공정 최종 라인(Final Line)에 주로 사용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val">BHMC, Izh-Avto 러시아 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="완성차 전체 하중을 균일하게 지지" data-en="Uniformly supports the full weight of completed vehicles">완성차 전체 하중을 균일하게 지지</li><li data-ko="Single/Double 슬랫 방식 선택 가능" data-en="Single/Double slat type selectable">Single/Double 슬랫 방식 선택 가능</li><li data-ko="내구성 높은 스틸 슬랫 소재 적용" data-en="High-durability steel slat material applied">내구성 높은 스틸 슬랫 소재 적용</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p08"><div class="section-tag">Product 08</div><div class="section-title">Free Flow Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/freeflow.jpg" alt="Free Flow" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="팔레트가 독립적으로 이동·정지할 수 있는 프리 플로우 컨베이어는 소형 부품 조립 라인에서 유연한 공정 운영을 가능하게 합니다." data-en="The free flow conveyor allows pallets to move and stop independently, enabling flexible process operation in small parts assembly lines.">팔레트가 독립적으로 이동·정지할 수 있는 프리 플로우 컨베이어는 소형 부품 조립 라인에서 유연한 공정 운영을 가능하게 합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val">FEM, C/P, Seat 조립 라인</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="각 스테이션별 독립 정지 제어" data-en="Independent stop control per station">각 스테이션별 독립 정지 제어</li><li data-ko="공정 불균형 시 자동 축적·완충" data-en="Automatic accumulation and buffering during process imbalance">공정 불균형 시 자동 축적·완충</li><li data-ko="소음·진동이 적어 정밀 조립에 적합" data-en="Suitable for precision assembly with low noise and vibration">소음·진동이 적어 정밀 조립에 적합</li></ul></div></div></div></section><hr class="divider">
-  <section class="section" id="p09"><div class="section-tag">Product 09</div><div class="section-title">Plastic Modular Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/plastic.jpg" alt="Plastic" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="플라스틱 모듈 벨트를 사용한 컨베이어로, 경량 부품 이송과 세척 라인 등에 폭넓게 적용됩니다." data-en="A conveyor using plastic modular belts, widely applied in lightweight parts transfer and washing lines.">플라스틱 모듈 벨트를 사용한 컨베이어로, 경량 부품 이송과 세척 라인 등에 폭넓게 적용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="벨트 소재" data-en="Belt Material">벨트 소재</span><span class="spec-val">내화학성 플라스틱 모듈 벨트</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="모듈식 구조로 부분 교체 용이" data-en="Easy partial replacement with modular structure">모듈식 구조로 부분 교체 용이</li><li data-ko="내화학성·내마모성 우수" data-en="Excellent chemical and wear resistance">내화학성·내마모성 우수</li><li data-ko="곡선 구간 자유롭게 설계 가능" data-en="Freely designable curved sections">곡선 구간 자유롭게 설계 가능</li></ul></div></div></div></section><hr class="divider">
-  <section class="section bg-light" id="p10"><div class="section-tag">Product 10</div><div class="section-title">Belt Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="font-size:8rem;">📡</div><div><p class="section-desc" data-ko="가장 범용적인 이송 시스템으로, 고무 또는 PVC 벨트를 사용하여 다양한 형태의 부품·완제품을 연속적으로 이송합니다." data-en="The most versatile transfer system, using rubber or PVC belts to continuously transport various types of parts and finished products.">가장 범용적인 이송 시스템으로, 고무 또는 PVC 벨트를 사용하여 다양한 형태의 부품·완제품을 연속적으로 이송합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="벨트 종류" data-en="Belt Type">벨트 종류</span><span class="spec-val">고무, PVC, 우레탄, 스틸 메시 등</span></div></div><div class="prod-features"><h4>주요 특징</h4><ul><li data-ko="단순한 구조로 유지보수 비용 최소화" data-en="Minimized maintenance costs with simple structure">단순한 구조로 유지보수 비용 최소화</li><li data-ko="인버터 제어로 속도 무단 조절" data-en="Stepless speed adjustment with inverter control">인버터 제어로 속도 무단 조절</li><li data-ko="벨트 소재 다양화로 환경별 대응" data-en="Adaptable to various environments with diverse belt materials">벨트 소재 다양화로 환경별 대응</li></ul></div></div></div></section>
+  <section class="section" id="p01"><div class="section-tag">Product 01</div><div class="section-title">Roller Bar Type Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/roller.jpg" alt="Roller Bar" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="롤러 바 타입 컨베이어는 자동차 차체 이송에 최적화된 시스템으로, 안정적인 지지력과 정밀한 위치 제어가 특징입니다." data-en="The roller bar type conveyor is optimized for automotive body transfer, featuring stable support and precise position control.">롤러 바 타입 컨베이어는 자동차 차체 이송에 최적화된 시스템으로, 안정적인 지지력과 정밀한 위치 제어가 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val" data-ko="차체공장 (Body Shop) 조립 라인" data-en="Body Shop Assembly Line">차체공장 (Body Shop) 조립 라인</span></div><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val" data-ko="HMC, KMC, 폭스바겐 인도 등" data-en="HMC, KMC, VW India, etc.">HMC, KMC, 폭스바겐 인도 등</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="차체 하중 분산으로 변형 방지" data-en="Prevents deformation by distributing body load">차체 하중 분산으로 변형 방지</li><li data-ko="유지보수 용이한 모듈식 설계" data-en="Modular design for easy maintenance">유지보수 용이한 모듈식 설계</li><li data-ko="다양한 차종 대응 가능한 유연한 구조" data-en="Flexible structure adaptable to various vehicle models">다양한 차종 대응 가능한 유연한 구조</li><li data-ko="저소음·저진동 운전" data-en="Low noise and low vibration operation">저소음·저진동 운전</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p02"><div class="section-tag">Product 02</div><div class="section-title">Power &amp; Free Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/power.jpg" alt="Power & Free" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="구동 체인(Power)과 반송 트롤리(Free)를 분리하여 자유로운 속도 제어와 축적이 가능한 오버헤드 컨베이어입니다." data-en="An overhead conveyor that separates the drive chain (Power) and transport trolley (Free) for flexible speed control and accumulation.">구동 체인(Power)과 반송 트롤리(Free)를 분리하여 자유로운 속도 제어와 축적이 가능한 오버헤드 컨베이어입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val" data-ko="도장공장, 의장공장 (OHC P/F)" data-en="Paint Shop, Assembly Shop (OHC P/F)">도장공장, 의장공장 (OHC P/F)</span></div><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val" data-ko="KMC SP-2, HMC No5, KMC UN 등" data-en="KMC SP-2, HMC No.5, KMC UN, etc.">KMC SP-2, HMC No5, KMC UN 등</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="공정 간 버퍼링(축적) 기능으로 라인 유연성 확보" data-en="Line flexibility through inter-process buffering">공정 간 버퍼링(축적) 기능으로 라인 유연성 확보</li><li data-ko="다양한 분기·합류 장치 구성 가능" data-en="Various branching and merging configurations possible">다양한 분기·합류 장치 구성 가능</li><li data-ko="도장 오븐 등 고온 환경에서도 안정적 운전" data-en="Stable operation even in high-temperature environments like paint ovens">도장 오븐 등 고온 환경에서도 안정적 운전</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p03"><div class="section-tag">Product 03</div><div class="section-title">EMS (Electrified Monorail System)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/ems.jpg" alt="EMS" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="전기를 통해 각 대차가 독립적으로 움직이는 지능형 오버헤드 컨베이어로, 유연한 반송 경로 구성이 가능합니다." data-en="An intelligent overhead conveyor where each carrier moves independently via electricity, enabling flexible transport path configurations.">전기를 통해 각 대차가 독립적으로 움직이는 지능형 오버헤드 컨베이어로, 유연한 반송 경로 구성이 가능합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val" data-ko="차체·의장공장, 연구소 시험 라인" data-en="Body/Assembly Shop, R&amp;D Test Line">차체·의장공장, 연구소 시험 라인</span></div><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val" data-ko="HMC 인도·체코, HMMI, BHMC 등" data-en="HMC India/Czech, HMMI, BHMC, etc.">HMC 인도·체코, HMMI, BHMC 등</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="대차별 독립 속도·위치 제어" data-en="Independent speed and position control per carrier">대차별 독립 속도·위치 제어</li><li data-ko="복잡한 분기·합류·루프 구성 자유로움" data-en="Freedom in complex branch, merge, and loop configurations">복잡한 분기·합류·루프 구성 자유로움</li><li data-ko="글로벌 완성차 공장 다수 납품 실적" data-en="Proven delivery record at global automaker plants">글로벌 완성차 공장 다수 납품 실적</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p04"><div class="section-tag">Product 04</div><div class="section-title">F.C.S (Friction Conveyor System)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/fcs.jpg" alt="FCS" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="마찰 구동 방식의 컨베이어 시스템으로, 팔레트나 행거를 마찰력으로 이송하며 축적 기능과 부드러운 이송이 특징입니다." data-en="A friction-driven conveyor system that transports pallets or hangers using friction force, featuring accumulation and smooth transfer.">마찰 구동 방식의 컨베이어 시스템으로, 팔레트나 행거를 마찰력으로 이송하며 축적 기능과 부드러운 이송이 특징입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val" data-ko="도장공장 Storage, 의장공장 Trim/Final" data-en="Paint Shop Storage, Assembly Trim/Final">도장공장 Storage, 의장공장 Trim/Final</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="부드러운 기동·정지로 차체 손상 방지" data-en="Prevents body damage through smooth start and stop">부드러운 기동·정지로 차체 손상 방지</li><li data-ko="축적 구간에서 자동 완충 제어" data-en="Automatic buffer control in accumulation zones">축적 구간에서 자동 완충 제어</li><li data-ko="다양한 라인 레이아웃에 유연하게 대응" data-en="Flexible adaptation to various line layouts">다양한 라인 레이아웃에 유연하게 대응</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p05"><div class="section-tag">Product 05</div><div class="section-title">Scrap Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/scrap.jpg" alt="Scrap" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="자동차 생산 공정에서 발생하는 금속 스크랩, 절삭칩 등 폐기물을 자동으로 수거·이송하는 컨베이어 시스템입니다." data-en="A conveyor system that automatically collects and transfers waste such as metal scrap and cutting chips generated in automotive production.">자동차 생산 공정에서 발생하는 금속 스크랩, 절삭칩 등 폐기물을 자동으로 수거·이송하는 컨베이어 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="이송 대상" data-en="Transfer Target">이송 대상</span><span class="spec-val" data-ko="금속 스크랩, 절삭칩, 폐기 부품" data-en="Metal Scrap, Cutting Chips, Waste Parts">금속 스크랩, 절삭칩, 폐기 부품</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="금속 스크랩의 자동 수집 및 집적" data-en="Automatic collection and accumulation of metal scrap">금속 스크랩의 자동 수집 및 집적</li><li data-ko="내마모성 소재 적용으로 장수명 구현" data-en="Long service life with wear-resistant materials">내마모성 소재 적용으로 장수명 구현</li><li data-ko="쿨런트(냉각수) 분리 기능 탑재 가능" data-en="Optional coolant separation function available">쿨런트(냉각수) 분리 기능 탑재 가능</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p06"><div class="section-tag">Product 06</div><div class="section-title">AGV (Automated Guided Vehicle)</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/agv.jpg" alt="AGV" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="무인 자동 반송 차량(AGV)은 유도선 또는 레이저 유도 방식으로 공장 내를 자율 주행하며 부품·차체를 이송하는 스마트 물류 시스템입니다." data-en="AGV is a smart logistics system that autonomously navigates factories via guide wire or laser guidance to transport parts and bodies.">무인 자동 반송 차량(AGV)은 유도선 또는 레이저 유도 방식으로 공장 내를 자율 주행하며 부품·차체를 이송하는 스마트 물류 시스템입니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val" data-ko="HMC 남양연구소 등" data-en="HMC Namyang R&amp;D, etc.">HMC 남양연구소 등</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="유연한 경로 변경으로 라인 개편 대응" data-en="Adapts to line changes with flexible path modification">유연한 경로 변경으로 라인 개편 대응</li><li data-ko="장애물 감지 센서로 안전 운행" data-en="Safe operation with obstacle detection sensors">장애물 감지 센서로 안전 운행</li><li data-ko="상위 MES/PLC 시스템과 통신 연동" data-en="Communication integration with MES/PLC systems">상위 MES/PLC 시스템과 통신 연동</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p07"><div class="section-tag">Product 07</div><div class="section-title">Slat Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/slat.jpg" alt="Slat" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="금속 슬랫(판)을 체인으로 연결한 견고한 이송 시스템으로, 의장 공정 최종 라인(Final Line)에 주로 사용됩니다." data-en="A robust transfer system connecting metal slats with chains, mainly used in the Final Line of assembly processes.">금속 슬랫(판)을 체인으로 연결한 견고한 이송 시스템으로, 의장 공정 최종 라인(Final Line)에 주로 사용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="납품 실적" data-en="Delivery Record">납품 실적</span><span class="spec-val" data-ko="BHMC, Izh-Avto 러시아 등" data-en="BHMC, Izh-Avto Russia, etc.">BHMC, Izh-Avto 러시아 등</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="완성차 전체 하중을 균일하게 지지" data-en="Uniformly supports the full weight of completed vehicles">완성차 전체 하중을 균일하게 지지</li><li data-ko="Single/Double 슬랫 방식 선택 가능" data-en="Single/Double slat type selectable">Single/Double 슬랫 방식 선택 가능</li><li data-ko="내구성 높은 스틸 슬랫 소재 적용" data-en="High-durability steel slat material applied">내구성 높은 스틸 슬랫 소재 적용</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p08"><div class="section-tag">Product 08</div><div class="section-title">Free Flow Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/freeflow.jpg" alt="Free Flow" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="팔레트가 독립적으로 이동·정지할 수 있는 프리 플로우 컨베이어는 소형 부품 조립 라인에서 유연한 공정 운영을 가능하게 합니다." data-en="The free flow conveyor allows pallets to move and stop independently, enabling flexible process operation in small parts assembly lines.">팔레트가 독립적으로 이동·정지할 수 있는 프리 플로우 컨베이어는 소형 부품 조립 라인에서 유연한 공정 운영을 가능하게 합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="적용 공정" data-en="Process">적용 공정</span><span class="spec-val" data-ko="FEM, C/P, Seat 조립 라인" data-en="FEM, C/P, Seat Assembly Line">FEM, C/P, Seat 조립 라인</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="각 스테이션별 독립 정지 제어" data-en="Independent stop control per station">각 스테이션별 독립 정지 제어</li><li data-ko="공정 불균형 시 자동 축적·완충" data-en="Automatic accumulation and buffering during process imbalance">공정 불균형 시 자동 축적·완충</li><li data-ko="소음·진동이 적어 정밀 조립에 적합" data-en="Suitable for precision assembly with low noise and vibration">소음·진동이 적어 정밀 조립에 적합</li></ul></div></div></div></section><hr class="divider">
+  <section class="section" id="p09"><div class="section-tag">Product 09</div><div class="section-title">Plastic Modular Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="padding:0;overflow:hidden;"><img src="images/plastic.jpg" alt="Plastic" style="width:100%;height:100%;object-fit:cover;"></div><div><p class="section-desc" data-ko="플라스틱 모듈 벨트를 사용한 컨베이어로, 경량 부품 이송과 세척 라인 등에 폭넓게 적용됩니다." data-en="A conveyor using plastic modular belts, widely applied in lightweight parts transfer and washing lines.">플라스틱 모듈 벨트를 사용한 컨베이어로, 경량 부품 이송과 세척 라인 등에 폭넓게 적용됩니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="벨트 소재" data-en="Belt Material">벨트 소재</span><span class="spec-val" data-ko="내화학성 플라스틱 모듈 벨트" data-en="Chemical-resistant Plastic Modular Belt">내화학성 플라스틱 모듈 벨트</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="모듈식 구조로 부분 교체 용이" data-en="Easy partial replacement with modular structure">모듈식 구조로 부분 교체 용이</li><li data-ko="내화학성·내마모성 우수" data-en="Excellent chemical and wear resistance">내화학성·내마모성 우수</li><li data-ko="곡선 구간 자유롭게 설계 가능" data-en="Freely designable curved sections">곡선 구간 자유롭게 설계 가능</li></ul></div></div></div></section><hr class="divider">
+  <section class="section bg-light" id="p10"><div class="section-tag">Product 10</div><div class="section-title">Belt Conveyor</div><div class="prod-wrap"><div class="prod-img-box" style="font-size:8rem;">📡</div><div><p class="section-desc" data-ko="가장 범용적인 이송 시스템으로, 고무 또는 PVC 벨트를 사용하여 다양한 형태의 부품·완제품을 연속적으로 이송합니다." data-en="The most versatile transfer system, using rubber or PVC belts to continuously transport various types of parts and finished products.">가장 범용적인 이송 시스템으로, 고무 또는 PVC 벨트를 사용하여 다양한 형태의 부품·완제품을 연속적으로 이송합니다.</p><div class="prod-specs"><div class="spec-row"><span class="spec-label" data-ko="벨트 종류" data-en="Belt Type">벨트 종류</span><span class="spec-val" data-ko="고무, PVC, 우레탄, 스틸 메시 등" data-en="Rubber, PVC, Urethane, Steel Mesh, etc.">고무, PVC, 우레탄, 스틸 메시 등</span></div></div><div class="prod-features"><h4 data-ko="주요 특징" data-en="Key Features">주요 특징</h4><ul><li data-ko="단순한 구조로 유지보수 비용 최소화" data-en="Minimized maintenance costs with simple structure">단순한 구조로 유지보수 비용 최소화</li><li data-ko="인버터 제어로 속도 무단 조절" data-en="Stepless speed adjustment with inverter control">인버터 제어로 속도 무단 조절</li><li data-ko="벨트 소재 다양화로 환경별 대응" data-en="Adaptable to various environments with diverse belt materials">벨트 소재 다양화로 환경별 대응</li></ul></div></div></div></section>
 </div>
 
 <!-- ══════════════════════════════════ -->
@@ -1032,7 +1032,7 @@
 <div class="page" id="page-esg">
   <div class="page-hero green"><div class="breadcrumb" style="color:rgba(255,255,255,0.6);">홈 &gt; <span style="color:#4ade80;font-weight:600;" data-ko="ESG 경영" data-en="ESG">ESG 경영</span></div><h1 style="color:white;" data-ko="ESG 경영" data-en="ESG">ESG 경영</h1><p style="color:rgba(255,255,255,0.85);font-weight:500;">Growing as a responsible company across all areas of Environment (E), Social (S), and Governance (G).</p></div>
   <div class="sub-nav">
-    <a onclick="scrollToSection('esg-overview')" class="active-green">ESG 개요</a>
+    <a onclick="scrollToSection('esg-overview')" class="active-green" data-ko="ESG 개요" data-en="ESG Overview">ESG 개요</a>
     <a onclick="scrollToSection('esg-env')" data-ko="환경" data-en="Environment">환경</a>
     <a onclick="scrollToSection('esg-social')" data-ko="사회" data-en="Social">사회</a>
     <a onclick="scrollToSection('esg-gov')" data-ko="지배구조" data-en="Governance">지배구조</a>
@@ -1051,7 +1051,7 @@
   <section class="section bg-light" id="esg-env">
     <div class="section-tag green">Environment</div><div class="section-title" data-ko="환경 경영" data-en="Environmental Management">환경 경영</div>
     <div class="policy-grid">
-      <div class="policy-card"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">🌱</div><h3 data-ko="온실가스 관리" data-en="GHG Management">온실가스 관리</h3><p>사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리.</p></div>
+      <div class="policy-card"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">🌱</div><h3 data-ko="온실가스 관리" data-en="GHG Management">온실가스 관리</h3><p data-ko="사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리." data-en="Monitoring GHG emissions and setting reduction targets. Systematic management of Scope 1·2 emissions.">사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리.</p></div>
       <div class="policy-card"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">⚡</div><h3 data-ko="에너지 절약" data-en="Energy Saving">에너지 절약</h3><p data-ko="에너지 효율 개선 설비 도입, 재생에너지 활용 검토, 에너지 사용량 정기 점검 실시." data-en="Introduction of energy efficiency equipment, review of renewable energy utilization, regular energy usage inspections.">에너지 효율 개선 설비 도입, 재생에너지 활용 검토, 에너지 사용량 정기 점검 실시.</p></div>
       <div class="policy-card"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">♻️</div><h3 data-ko="폐기물·화학물질 관리" data-en="Waste & Chemical Mgmt.">폐기물·화학물질 관리</h3><p data-ko="폐기물 발생 최소화 및 재활용 확대. 유해 화학물질 사용 저감 및 대체 추진." data-en="Minimizing waste generation and expanding recycling. Reducing and substituting hazardous chemical use.">폐기물 발생 최소화 및 재활용 확대. 유해 화학물질 사용 저감 및 대체 추진.</p></div>
       <div class="policy-card" style="cursor:pointer;" onclick="openNotice('notice6')"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">🌿</div><h3 data-ko="환경경영 방침" data-en="Environmental Policy">환경경영 방침</h3><p data-ko="사업장 주변 생태계 영향 평가 실시. 자연환경 훼손 방지 및 녹지 보전 노력." data-en="Conducting ecosystem impact assessments around business sites. Efforts to prevent environmental damage and preserve green spaces.">사업장 주변 생태계 영향 평가 실시. 자연환경 훼손 방지 및 녹지 보전 노력.</p><div style="margin-top:1rem;"><span style="display:inline-flex;align-items:center;gap:6px;background:#16a34a;color:white;font-size:0.78rem;font-weight:600;padding:8px 14px;letter-spacing:0.05em;" data-ko="📄 환경경영 방침 보기" data-en="📄 View Environmental Policy">📄 환경경영 방침 보기</span></div></div>
@@ -1131,7 +1131,7 @@
 <!-- 그룹사 -->
 <!-- ══════════════════════════════════ -->
 <div class="page" id="page-group">
-  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>그룹사소개</span></div><h1 data-ko="그룹사소개" data-en="Group Companies">그룹사소개</h1></div>
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span data-ko="그룹사소개" data-en="Group">그룹사소개</span></div><h1 data-ko="그룹사소개" data-en="Group Companies" data-ko="그룹사소개" data-en="Group">그룹사소개</h1></div>
 
   <section class="section">
     <div class="section-tag">Group</div><div class="section-title" data-ko="동서알텍그룹" data-en="Dongseо Altech Group">동서알텍그룹</div>
@@ -1142,23 +1142,23 @@
       <div class="g-hline"></div>
       <div class="g-children">
         <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box" data-ko="㈜동희산기" data-en="Donghee Industries">㈜동희산기</div></div>
-        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">㈜동서기공</div></div>
-        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">㈜알테크노메탈</div></div>
-        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">㈜강소동서(중국)</div></div>
-        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box">㈜인니동서(인니)</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box" data-ko="㈜동서기공" data-en="Dongseo Gigong">㈜동서기공</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box" data-ko="㈜알테크노메탈" data-en="Al Techno Metal" data-ko="㈜알테크노메탈" data-en="Al Techno Metal">㈜알테크노메탈</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box" data-ko="㈜강소동서(중국)" data-en="Jiangsu Dongseo (China)" data-ko="㈜강소동서(중국)" data-en="Jiangsu Dongseo (China)">㈜강소동서(중국)</div></div>
+        <div class="g-child"><div class="g-child-vline"></div><div class="g-child-box" data-ko="㈜인니동서(인니)" data-en="Indonesia Dongseo">㈜인니동서(인니)</div></div>
       </div>
     </div>
     <div class="group-cards">
 
-      <div class="g-card"><div class="g-card-head"><div class="badge">DONGHEE INDUSTRIES</div><h3 data-ko="㈜동희산기" data-en="Donghee Industries">㈜동희산기</h3><div class="en">Donghee Industries Co., Ltd.</div></div><div class="g-card-body"><p data-ko="독일 ROFA-GmbH의 선진 기술을 바탕으로 세계 자동차 공장의 자동화 생산설비 전문업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질을 생산합니다." data-en="Based on German ROFA-GmbH technology, we are a specialized automotive production equipment manufacturer with precision machining, automation, and inspection facilities producing the highest quality.">독일 ROFA-GmbH의 선진 기술을 바탕으로 세계 자동차 공장의 자동화 생산설비 전문업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질을 생산합니다.</p><ul><li data-ko="차체·도장·의장 컨베이어 시스템" data-en="Body·Paint·Assembly Conveyor Systems">차체·도장·의장 컨베이어 시스템</li><li data-ko="AGV, EMS, Power &amp; Free 등" data-en="AGV, EMS, Power &amp; Free etc.">AGV, EMS, Power &amp; Free 등</li><li data-ko="충남 당진시 송악읍 부곡공단4길 53-33" data-en="53-33 Bugokgongdan 4-gil, Songak-eup, Dangjin, Chungnam">충남 당진시 송악읍 부곡공단4길 53-33</li></ul><span class="g-link" onclick="showPage('home')">홈페이지 →</span></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">DONGHEE INDUSTRIES</div><h3 data-ko="㈜동희산기" data-en="Donghee Industries">㈜동희산기</h3><div class="en">Donghee Industries Co., Ltd.</div></div><div class="g-card-body"><p data-ko="독일 ROFA-GmbH의 선진 기술을 바탕으로 세계 자동차 공장의 자동화 생산설비 전문업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질을 생산합니다." data-en="Based on German ROFA-GmbH technology, we are a specialized automotive production equipment manufacturer with precision machining, automation, and inspection facilities producing the highest quality.">독일 ROFA-GmbH의 선진 기술을 바탕으로 세계 자동차 공장의 자동화 생산설비 전문업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질을 생산합니다.</p><ul><li data-ko="차체·도장·의장 컨베이어 시스템" data-en="Body·Paint·Assembly Conveyor Systems">차체·도장·의장 컨베이어 시스템</li><li data-ko="AGV, EMS, Power &amp; Free 등" data-en="AGV, EMS, Power &amp; Free etc.">AGV, EMS, Power &amp; Free 등</li><li data-ko="충남 당진시 송악읍 부곡공단4길 53-33" data-en="53-33 Bugokgongdan 4-gil, Songak-eup, Dangjin, Chungnam">충남 당진시 송악읍 부곡공단4길 53-33</li></ul><span class="g-link" onclick="showPage('home')" data-ko="홈페이지 →" data-en="Website →">홈페이지 →</span></div></div>
 
-      <div class="g-card"><div class="g-card-head"><div class="badge">DONGSEO MACHINE &amp; TOOL</div><h3>㈜동서기공</h3><div class="en">Dongseo Machine &amp; Tool Co., Ltd.</div></div><div class="g-card-body"><p data-ko="자동차 엔진부품의 정밀가공 및 AL신소재 개발, 첨단 자동화 시설과 검사시설을 갖추고 최고품질·최저원가·최고의 제품을 생산하기 위해 끊임없이 도전합니다." data-en="Specializing in precision machining of automotive engine parts and AL new material development, constantly challenging to produce the highest quality at the lowest cost.">자동차 엔진부품의 정밀가공 및 AL신소재 개발, 첨단 자동화 시설과 검사시설을 갖추고 최고품질·최저원가·최고의 제품을 생산하기 위해 끊임없이 도전합니다.</p><ul><li data-ko="전기차 부품 · 샤시 부품" data-en="EV Parts · Chassis Parts">전기차 부품 · 샤시 부품</li><li data-ko="엔진 부품 · 변속기 부품" data-en="Engine Parts · Transmission Parts">엔진 부품 · 변속기 부품</li><li data-ko="2022년 월드클래스 선정 · K-스마트 등대기업" data-en="2022 World Class Company · K-Smart Lighthouse">2022년 월드클래스 선정 · K-스마트 등대기업</li><li data-ko="시화공장 / 당진 1·2·3공장 / 안산 R&amp;D센터" data-en="Siheung Plant / Dangjin 1·2·3 Plants / Ansan R&amp;D Center">시화공장 / 당진 1·2·3공장 / 안산 R&amp;D센터</li></ul><a href="https://www.dsmt.co.kr" target="_blank" class="g-link">www.dsmt.co.kr →</a></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">DONGSEO MACHINE &amp; TOOL</div><h3 data-ko="㈜동서기공" data-en="Dongseo Gigong">㈜동서기공</h3><div class="en">Dongseo Machine &amp; Tool Co., Ltd.</div></div><div class="g-card-body"><p data-ko="자동차 엔진부품의 정밀가공 및 AL신소재 개발, 첨단 자동화 시설과 검사시설을 갖추고 최고품질·최저원가·최고의 제품을 생산하기 위해 끊임없이 도전합니다." data-en="Specializing in precision machining of automotive engine parts and AL new material development, constantly challenging to produce the highest quality at the lowest cost.">자동차 엔진부품의 정밀가공 및 AL신소재 개발, 첨단 자동화 시설과 검사시설을 갖추고 최고품질·최저원가·최고의 제품을 생산하기 위해 끊임없이 도전합니다.</p><ul><li data-ko="전기차 부품 · 샤시 부품" data-en="EV Parts · Chassis Parts">전기차 부품 · 샤시 부품</li><li data-ko="엔진 부품 · 변속기 부품" data-en="Engine Parts · Transmission Parts">엔진 부품 · 변속기 부품</li><li data-ko="2022년 월드클래스 선정 · K-스마트 등대기업" data-en="2022 World Class Company · K-Smart Lighthouse">2022년 월드클래스 선정 · K-스마트 등대기업</li><li data-ko="시화공장 / 당진 1·2·3공장 / 안산 R&amp;D센터" data-en="Siheung Plant / Dangjin 1·2·3 Plants / Ansan R&amp;D Center">시화공장 / 당진 1·2·3공장 / 안산 R&amp;D센터</li></ul><a href="https://www.dsmt.co.kr" target="_blank" class="g-link">www.dsmt.co.kr →</a></div></div>
 
-      <div class="g-card"><div class="g-card-head"><div class="badge">ALTECHNO METAL</div><h3>㈜알테크노메탈</h3><div class="en">Altechno Metal Co., Ltd.</div></div><div class="g-card-body"><p data-ko="자동차 산업에 알루미늄 엔진 부품을 생산한 축적된 경험을 토대로 Al-Ingot 사업분야에 참여하여 지속적인 기술개발로 고부가가치 제품을 생산합니다." data-en="Based on accumulated experience in producing aluminum engine parts for the automotive industry, participating in Al-Ingot business and producing high-value products through continuous technology development.">자동차 산업에 알루미늄 엔진 부품을 생산한 축적된 경험을 토대로 Al-Ingot 사업분야에 참여하여 지속적인 기술개발로 고부가가치 제품을 생산합니다.</p><ul><li data-ko="알루미늄 엔진 부품 · Al-Ingot" data-en="Aluminum Engine Parts · Al-Ingot">알루미늄 엔진 부품 · Al-Ingot</li><li data-ko="자동차 및 경량화 기기공업 소재" data-en="Automotive &amp; Lightweight Equipment Materials">자동차 및 경량화 기기공업 소재</li><li data-ko="충남 당진시 송악읍 부곡공단4길 28-304" data-en="28-304 Bugokgongdan 4-gil, Songak-eup, Dangjin">충남 당진시 송악읍 부곡공단4길 28-304</li></ul><a href="http://www.altechno.co.kr" target="_blank" class="g-link">www.altechno.co.kr →</a></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">ALTECHNO METAL</div><h3 data-ko="㈜알테크노메탈" data-en="Al Techno Metal" data-ko="㈜알테크노메탈" data-en="Al Techno Metal">㈜알테크노메탈</h3><div class="en">Altechno Metal Co., Ltd.</div></div><div class="g-card-body"><p data-ko="자동차 산업에 알루미늄 엔진 부품을 생산한 축적된 경험을 토대로 Al-Ingot 사업분야에 참여하여 지속적인 기술개발로 고부가가치 제품을 생산합니다." data-en="Based on accumulated experience in producing aluminum engine parts for the automotive industry, participating in Al-Ingot business and producing high-value products through continuous technology development.">자동차 산업에 알루미늄 엔진 부품을 생산한 축적된 경험을 토대로 Al-Ingot 사업분야에 참여하여 지속적인 기술개발로 고부가가치 제품을 생산합니다.</p><ul><li data-ko="알루미늄 엔진 부품 · Al-Ingot" data-en="Aluminum Engine Parts · Al-Ingot">알루미늄 엔진 부품 · Al-Ingot</li><li data-ko="자동차 및 경량화 기기공업 소재" data-en="Automotive &amp; Lightweight Equipment Materials">자동차 및 경량화 기기공업 소재</li><li data-ko="충남 당진시 송악읍 부곡공단4길 28-304" data-en="28-304 Bugokgongdan 4-gil, Songak-eup, Dangjin">충남 당진시 송악읍 부곡공단4길 28-304</li></ul><a href="http://www.altechno.co.kr" target="_blank" class="g-link">www.altechno.co.kr →</a></div></div>
 
-      <div class="g-card"><div class="g-card-head"><div class="badge">CHINA SUBSIDIARY</div><h3>㈜강소동서</h3><div class="en">Jiangsu Dongseo (China)</div></div><div class="g-card-body"><p data-ko="중국 강소성 현지 법인으로 자동차 부품 생산 기지 역할을 담당합니다." data-en="A local subsidiary in Jiangsu Province, China, serving as an automotive parts production base.">중국 강소성 현지 법인으로 자동차 부품 생산 기지 역할을 담당합니다.</p><ul><li data-ko="중국 강소성 염성시 건호현 상강산업원" data-en="Shanggang Industrial Park, Jianhu County, Yancheng, Jiangsu, China">중국 강소성 염성시 건호현 상강산업원</li></ul></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">CHINA SUBSIDIARY</div><h3 data-ko="㈜강소동서" data-en="Jiangsu Dongseo">㈜강소동서</h3><div class="en">Jiangsu Dongseo (China)</div></div><div class="g-card-body"><p data-ko="중국 강소성 현지 법인으로 자동차 부품 생산 기지 역할을 담당합니다." data-en="A local subsidiary in Jiangsu Province, China, serving as an automotive parts production base.">중국 강소성 현지 법인으로 자동차 부품 생산 기지 역할을 담당합니다.</p><ul><li data-ko="중국 강소성 염성시 건호현 상강산업원" data-en="Shanggang Industrial Park, Jianhu County, Yancheng, Jiangsu, China">중국 강소성 염성시 건호현 상강산업원</li></ul></div></div>
 
-      <div class="g-card"><div class="g-card-head"><div class="badge">INDONESIA SUBSIDIARY</div><h3>㈜인니동서</h3><div class="en">PT. Dongseo Indonesia</div></div><div class="g-card-body"><p data-ko="자동차 엔진부품 생산 기지로서 세계적인 선진기술 도입과 최신식 설비 시설 및 고도의 축전된 기술을 바탕으로 인도네시아 및 해외 시장에 우수한 제품을 공급합니다." data-en="As an automotive engine parts production base, supplying excellent products to Indonesia and overseas markets based on world-class technology and state-of-the-art facilities.">자동차 엔진부품 생산 기지로서 세계적인 선진기술 도입과 최신식 설비 시설 및 고도의 축전된 기술을 바탕으로 인도네시아 및 해외 시장에 우수한 제품을 공급합니다.</p><ul><li data-ko="인도네시아 서부자와주 카라왕 KIIC MM-32길" data-en="KIIC MM-32, Karawang, West Java, Indonesia">인도네시아 서부자와주 카라왕 KIIC MM-32길</li><li data-ko="자동차 엔진부품 제조" data-en="Automotive Engine Parts Manufacturing">자동차 엔진부품 제조</li></ul></div></div>
+      <div class="g-card"><div class="g-card-head"><div class="badge">INDONESIA SUBSIDIARY</div><h3 data-ko="㈜인니동서" data-en="Indonesia Dongseo">㈜인니동서</h3><div class="en">PT. Dongseo Indonesia</div></div><div class="g-card-body"><p data-ko="자동차 엔진부품 생산 기지로서 세계적인 선진기술 도입과 최신식 설비 시설 및 고도의 축전된 기술을 바탕으로 인도네시아 및 해외 시장에 우수한 제품을 공급합니다." data-en="As an automotive engine parts production base, supplying excellent products to Indonesia and overseas markets based on world-class technology and state-of-the-art facilities.">자동차 엔진부품 생산 기지로서 세계적인 선진기술 도입과 최신식 설비 시설 및 고도의 축전된 기술을 바탕으로 인도네시아 및 해외 시장에 우수한 제품을 공급합니다.</p><ul><li data-ko="인도네시아 서부자와주 카라왕 KIIC MM-32길" data-en="KIIC MM-32, Karawang, West Java, Indonesia">인도네시아 서부자와주 카라왕 KIIC MM-32길</li><li data-ko="자동차 엔진부품 제조" data-en="Automotive Engine Parts Manufacturing">자동차 엔진부품 제조</li></ul></div></div>
 
     </div>
   </section>
@@ -1199,10 +1199,10 @@
       <a onclick="showPage('notice')" data-ko="고객지원" data-en="Support" data-ko="고객지원" data-en="Support">고객지원</a>
     </div>
     <div class="footer-links">
-      <a href="https://www.dsmt.co.kr" target="_blank">㈜동서기공</a>
-      <a href="http://www.altechno.co.kr" target="_blank">㈜알테크노메탈</a>
-      <a href="https://www.dsmt.co.kr/chin" target="_blank">㈜강소동서(중국)</a>
-      <a href="#" target="_blank">㈜인니동서(인도네시아)</a>
+      <a href="https://www.dsmt.co.kr" target="_blank" data-ko="㈜동서기공" data-en="Dongseo Gigong">㈜동서기공</a>
+      <a href="http://www.altechno.co.kr" target="_blank" data-ko="㈜알테크노메탈" data-en="Al Techno Metal" data-ko="㈜알테크노메탈" data-en="Al Techno Metal">㈜알테크노메탈</a>
+      <a href="https://www.dsmt.co.kr/chin" target="_blank" data-ko="㈜강소동서(중국)" data-en="Jiangsu Dongseo (China)" data-ko="㈜강소동서(중국)" data-en="Jiangsu Dongseo (China)">㈜강소동서(중국)</a>
+      <a href="#" target="_blank" data-ko="㈜인니동서(인도네시아)" data-en="Indonesia Dongseo">㈜인니동서(인도네시아)</a>
       <a onclick="showPage('group')" data-ko="그룹사 소개" data-en="Group Companies">그룹사 소개</a>
     </div>
   </div>
@@ -1344,6 +1344,9 @@ function setLang(lang) {
 
   // html lang 속성
   document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
+  // 페이지 타이틀 전환
+  var titleEl = document.getElementById('page-title');
+  if (titleEl) titleEl.textContent = lang === 'en' ? 'Donghee Industries' : '동희산기 DONGHEE INDUSTRIES';
 }
 
 function toggleMenu() {
@@ -1904,13 +1907,13 @@ const noticeContents = {
 
 <div id="certModal1" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
       <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
-        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;" data-ko="✕ 닫기" data-en="✕ Close">✕ 닫기</button>
         <img src="images/cert_iso45001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
       </div>
     </div>
 <div id="certModal2" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
       <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
-        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;" data-ko="✕ 닫기" data-en="✕ Close">✕ 닫기</button>
         <img src="images/cert_iso9001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
       </div>
     </div>
@@ -1964,13 +1967,13 @@ function closeModal(e) {
 
 <div id="certModal1" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
       <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
-        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <button onclick="document.getElementById('certModal1').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;" data-ko="✕ 닫기" data-en="✕ Close">✕ 닫기</button>
         <img src="images/cert_iso45001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
       </div>
     </div>
 <div id="certModal2" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:2000;align-items:center;justify-content:center;padding:20px;" onclick="this.style.display='none'">
       <div style="max-width:480px;width:100%;position:relative;" onclick="event.stopPropagation()">
-        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;">✕ 닫기</button>
+        <button onclick="document.getElementById('certModal2').style.display='none'" style="position:absolute;top:-40px;right:0;background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;" data-ko="✕ 닫기" data-en="✕ Close">✕ 닫기</button>
         <img src="images/cert_iso9001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
       </div>
     </div>

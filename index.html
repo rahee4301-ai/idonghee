@@ -787,66 +787,67 @@
       <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;color:#0d9488;margin-bottom:1rem;">GLOBAL DELIVERY MAP</div>
       <div style="position:relative;width:100%;max-width:1000px;margin:0 auto;">
         <img src="images/world_map.png" style="width:100%;height:auto;display:block;" alt="글로벌 납품 현황 지도">
-        <!-- 핀 오버레이 — 이미지 대비 % 좌표 -->
-        <!-- 한국 (본사) -->
-        <div style="position:absolute;left:85.5%;top:29.6%;transform:translate(-50%,-100%);">
-          <div style="width:14px;height:14px;background:#0B1D3A;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0B1D3A;color:white;font-size:9px;font-weight:700;padding:2px 5px;white-space:nowrap;margin-top:2px;text-align:center;">🇰🇷 한국(본사)</div>
+
+        <!-- 핀 스타일 공통 -->
+        <style>
+          .map-pin { position:absolute; transform:translate(-50%,-100%); text-align:center; }
+          .map-pin .dot { width:13px; height:13px; border:2.5px solid white; border-radius:50%; box-shadow:0 2px 6px rgba(0,0,0,0.35); margin:0 auto; }
+          .map-pin .label { color:white; font-size:10px; font-weight:700; padding:2px 6px; white-space:nowrap; margin-top:3px; display:inline-block; font-family:'Pretendard',sans-serif; }
+          .map-pin.hq .dot { width:16px; height:16px; background:#0B1D3A; }
+          .map-pin.hq .label { background:#0B1D3A; font-size:11px; }
+          .map-pin.delivery .dot { background:#0d9488; }
+          .map-pin.delivery .label { background:#0d9488; }
+        </style>
+
+        <!-- 한국(본사) -->
+        <div class="map-pin hq" style="left:85.5%;top:32%;">
+          <div class="dot"></div><div class="label">🇰🇷 한국(본사)</div>
         </div>
         <!-- 중국 -->
-        <div style="position:absolute;left:82.3%;top:27.7%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇨🇳 중국</div>
+        <div class="map-pin delivery" style="left:81%;top:29%;">
+          <div class="dot"></div><div class="label">🇨🇳 중국</div>
         </div>
         <!-- 인도 -->
-        <div style="position:absolute;left:71.9%;top:38.4%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇮🇳 인도</div>
+        <div class="map-pin delivery" style="left:72%;top:42%;">
+          <div class="dot"></div><div class="label">🇮🇳 인도</div>
         </div>
         <!-- 인도네시아 -->
-        <div style="position:absolute;left:79.9%;top:53.8%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇮🇩 인도네시아</div>
+        <div class="map-pin delivery" style="left:80%;top:57%;">
+          <div class="dot"></div><div class="label">🇮🇩 인도네시아</div>
         </div>
         <!-- 러시아 -->
-        <div style="position:absolute;left:60.5%;top:19.0%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇷🇺 러시아</div>
+        <div class="map-pin delivery" style="left:62%;top:19%;">
+          <div class="dot"></div><div class="label">🇷🇺 러시아</div>
         </div>
         <!-- 체코 -->
-        <div style="position:absolute;left:54.0%;top:22.2%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇨🇿 체코</div>
+        <div class="map-pin delivery" style="left:53%;top:24%;">
+          <div class="dot"></div><div class="label">🇨🇿 체코</div>
         </div>
         <!-- 터키 -->
-        <div style="position:absolute;left:59.2%;top:27.7%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇹🇷 터키</div>
+        <div class="map-pin delivery" style="left:57%;top:31%;">
+          <div class="dot"></div><div class="label">🇹🇷 터키</div>
         </div>
         <!-- 우즈베키스탄 -->
-        <div style="position:absolute;left:67.9%;top:26.9%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇺🇿 우즈베키스탄</div>
+        <div class="map-pin delivery" style="left:66%;top:27%;">
+          <div class="dot"></div><div class="label">🇺🇿 우즈베키스탄</div>
         </div>
         <!-- 미국 -->
-        <div style="position:absolute;left:26.6%;top:31.2%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇺🇸 미국</div>
+        <div class="map-pin delivery" style="left:23%;top:30%;">
+          <div class="dot"></div><div class="label">🇺🇸 미국</div>
         </div>
         <!-- 멕시코 -->
-        <div style="position:absolute;left:22.1%;top:35.6%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇲🇽 멕시코</div>
+        <div class="map-pin delivery" style="left:19%;top:38%;">
+          <div class="dot"></div><div class="label">🇲🇽 멕시코</div>
         </div>
         <!-- 브라질 -->
-        <div style="position:absolute;left:36.7%;top:58.6%;transform:translate(-50%,-100%);">
-          <div style="width:11px;height:11px;background:#0d9488;border:2px solid white;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.4);margin:0 auto;"></div>
-          <div style="background:#0d9488;color:white;font-size:8px;padding:1px 4px;white-space:nowrap;margin-top:2px;text-align:center;">🇧🇷 브라질</div>
+        <div class="map-pin delivery" style="left:30%;top:60%;">
+          <div class="dot"></div><div class="label">🇧🇷 브라질</div>
         </div>
+
         <!-- 범례 -->
-        <div style="position:absolute;bottom:8px;left:8px;background:rgba(255,255,255,0.92);padding:6px 10px;font-size:9px;display:flex;gap:12px;align-items:center;border:1px solid #E2E8F0;">
-          <span><span style="display:inline-block;width:10px;height:10px;background:#0B1D3A;border-radius:50%;vertical-align:middle;margin-right:3px;"></span>본사</span>
-          <span><span style="display:inline-block;width:10px;height:10px;background:#0d9488;border-radius:50%;vertical-align:middle;margin-right:3px;"></span>납품국가</span>
+        <div style="position:absolute;bottom:8px;left:8px;background:rgba(255,255,255,0.95);padding:6px 12px;font-size:10px;display:flex;gap:14px;align-items:center;border:1px solid #E2E8F0;border-radius:2px;">
+          <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;background:#0B1D3A;border-radius:50%;display:inline-block;"></span>본사</span>
+          <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;background:#0d9488;border-radius:50%;display:inline-block;"></span>납품국가</span>
         </div>
       </div>
     </div>

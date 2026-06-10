@@ -64,6 +64,11 @@
       display: flex; align-items: center;
     }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 201; padding: 4px; }
+    .lang-toggle { display:flex; align-items:center; gap:6px; margin-left:1rem; }
+    .lang-btn { background:none; border:none; cursor:pointer; font-size:0.82rem; font-weight:600; color:#94A3B8; padding:4px 6px; transition:color .2s; font-family:'Oswald',sans-serif; letter-spacing:0.05em; }
+    .lang-btn.active { color:#0B1D3A; border-bottom:2px solid #0d9488; }
+    .lang-btn:hover { color:#0B1D3A; }
+    [data-en] { }
     .hamburger span { display: block; width: 24px; height: 2px; background: #0B1D3A; border-radius: 2px; transition: all .3s; }
 
     /* 모바일 메뉴 */
@@ -454,14 +459,18 @@
     DONGHEE <span>INDUSTRIES</span>
   </div>
   <nav>
-    <a onclick="showPage('home')">홈</a>
-    <a onclick="showPage('company')">회사소개</a>
-    <a onclick="showPage('business')">사업영역</a>
-    <a onclick="showPage('products')">제품소개</a>
-    <a onclick="showPage('esg')">ESG</a>
-    <a onclick="showPage('notice')">고객지원</a>
-    <a onclick="showPage('group')">그룹사</a>
-    <span class="nav-eng">ENG</span>
+    <a onclick="showPage('home')" data-ko="홈" data-en="Home">홈</a>
+    <a onclick="showPage('company')" data-ko="회사소개" data-en="About Us">회사소개</a>
+    <a onclick="showPage('business')" data-ko="사업영역" data-en="Business">사업영역</a>
+    <a onclick="showPage('products')" data-ko="제품소개" data-en="Products">제품소개</a>
+    <a onclick="showPage('esg')" data-ko="ESG" data-en="ESG">ESG</a>
+    <a onclick="showPage('notice')" data-ko="고객지원" data-en="Support">고객지원</a>
+    <a onclick="showPage('group')" data-ko="그룹사" data-en="Group">그룹사</a>
+    <div class="lang-toggle">
+      <button onclick="setLang('ko')" id="btn-ko" class="lang-btn active">KOR</button>
+      <span style="color:#CBD5E0;font-size:0.8rem;">|</span>
+      <button onclick="setLang('en')" id="btn-en" class="lang-btn">ENG</button>
+    </div>
   </nav>
   <div class="hamburger" onclick="toggleMenu()" id="hamburger">
     <span></span><span></span><span></span>
@@ -470,13 +479,13 @@
 
 <!-- 모바일 메뉴 -->
 <div class="mobile-menu" id="mobileMenu">
-  <a onclick="showPage('home');toggleMenu()">홈</a>
-  <a onclick="showPage('company');toggleMenu()">회사소개</a>
-  <a onclick="showPage('business');toggleMenu()">사업영역</a>
-  <a onclick="showPage('products');toggleMenu()">제품소개</a>
-  <a onclick="showPage('esg');toggleMenu()">ESG 경영</a>
-  <a onclick="showPage('notice');toggleMenu()">고객지원</a>
-  <a onclick="showPage('group');toggleMenu()">그룹사소개</a>
+  <a onclick="showPage('home');toggleMenu()" data-ko="홈" data-en="Home">홈</a>
+  <a onclick="showPage('company');toggleMenu()" data-ko="회사소개" data-en="About Us">회사소개</a>
+  <a onclick="showPage('business');toggleMenu()" data-ko="사업영역" data-en="Business">사업영역</a>
+  <a onclick="showPage('products');toggleMenu()" data-ko="제품소개" data-en="Products">제품소개</a>
+  <a onclick="showPage('esg');toggleMenu()" data-ko="ESG 경영" data-en="ESG">ESG 경영</a>
+  <a onclick="showPage('notice');toggleMenu()" data-ko="고객지원" data-en="Support">고객지원</a>
+  <a onclick="showPage('group');toggleMenu()" data-ko="그룹사소개" data-en="Group">그룹사소개</a>
 </div>
 
 <!-- ══════════════════════════════════ -->
@@ -486,11 +495,11 @@
   <div class="hero">
     <div class="hero-text">
       <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
-      <h1>자동화의 흐름을<br>설계합니다<br><span>㈜동희산기</em></h1>
-      <p>현대·기아·GM 등 글로벌 완성차 메이커에 납품하는 컨베이어 시스템 전문기업입니다.</p>
+      <h1 data-ko="자동화의 흐름을<br>설계합니다<br>㈜동희산기" data-en="Designing the Flow<br>of Automation<br>Donghee Industries">자동화의 흐름을<br>설계합니다<br><span>㈜동희산기</em></h1>
+      <p data-ko="현대·기아·GM 등 글로벌 완성차 메이커에 납품하는 컨베이어 시스템 전문기업입니다." data-en="A specialized conveyor system manufacturer supplying to global automakers including Hyundai, Kia, and GM.">현대·기아·GM 등 글로벌 완성차 메이커에 납품하는 컨베이어 시스템 전문기업입니다.</p>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="showPage('products')">제품 보기</button>
-        <button class="btn-outline" onclick="showPage('company')">회사 소개</button>
+        <button class="btn-primary" onclick="showPage('products')" data-ko="제품 보기" data-en="View Products">제품 보기</button>
+        <button class="btn-outline" onclick="showPage('company')" data-ko="회사 소개" data-en="About Us">회사 소개</button>
       </div>
     </div>
   </div>
@@ -500,10 +509,10 @@
     <div class="section-title">핵심 사업영역</div>
     <p class="section-desc">자동차 생산라인에 최적화된 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
     <div class="biz-grid">
-      <div class="biz-card anim anim-d1"><div class="biz-icon">🏭</div><h3>컨베이어 시스템 제조</h3><p>Roller Bar, Power & Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작</p></div>
-      <div class="biz-card anim anim-d2"><div class="biz-icon">🔬</div><h3>기술 연구개발</h3><p>현장 최적화를 위한 지속적인 R&D로 생산성과 안전성 향상</p></div>
-      <div class="biz-card anim anim-d3"><div class="biz-icon">🌍</div><h3>납품 및 설치</h3><p>국내외 완성차 공장 및 자동차 부품사 생산라인 납품·시공</p></div>
-      <div class="biz-card anim anim-d4"><div class="biz-icon">🛡️</div><h3>유지보수 서비스</h3><p>설치 후 체계적인 A/S 및 정기점검으로 안정적인 생산라인 운영 지원</p></div>
+      <div class="biz-card anim anim-d1"><div class="biz-icon">🏭</div><h3 data-ko="컨베이어 시스템 제조" data-en="Conveyor System Mfg.">컨베이어 시스템 제조</h3><p>Roller Bar, Power & Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작</p></div>
+      <div class="biz-card anim anim-d2"><div class="biz-icon">🔬</div><h3 data-ko="기술 연구개발" data-en="R&amp;D">기술 연구개발</h3><p>현장 최적화를 위한 지속적인 R&D로 생산성과 안전성 향상</p></div>
+      <div class="biz-card anim anim-d3"><div class="biz-icon">🌍</div><h3 data-ko="납품 및 설치" data-en="Delivery &amp; Installation">납품 및 설치</h3><p>국내외 완성차 공장 및 자동차 부품사 생산라인 납품·시공</p></div>
+      <div class="biz-card anim anim-d4"><div class="biz-icon">🛡️</div><h3 data-ko="유지보수 서비스" data-en="Maintenance Service">유지보수 서비스</h3><p>설치 후 체계적인 A/S 및 정기점검으로 안정적인 생산라인 운영 지원</p></div>
     </div>
   </section>
 
@@ -527,7 +536,7 @@
   </section>
 
   <section class="section" style="background:#F5F7FA;">
-    <div class="section-tag">Notice</div><div class="section-title">공지사항</div>
+    <div class="section-tag">Notice</div><div class="section-title" data-ko="공지사항" data-en="Notice">공지사항</div>
     <div class="news-list">
       <div class="news-item" onclick="showPage('notice')"><span class="news-badge badge-notice">공지</span><span class="news-title">CEO 환경경영 방침 공표</span><span class="news-date">2026.04.09</span></div>
       <div class="news-item" onclick="showPage('notice')"><span class="news-badge badge-notice">공지</span><span class="news-title">인권경영 헌장</span><span class="news-date">2026.04.03</span></div>
@@ -566,13 +575,13 @@
 <!-- 회사소개 -->
 <!-- ══════════════════════════════════ -->
 <div class="page" id="page-company">
-  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>회사소개</span></div><h1>회사소개</h1></div>
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>회사소개</span></div><h1 data-ko="회사소개" data-en="About Us">회사소개</h1></div>
   <div class="sub-nav">
-    <a onclick="scrollToSection('ceo')" class="active">CEO 인사말</a>
-    <a onclick="scrollToSection('history')">회사연혁</a>
-    <a onclick="scrollToSection('org')">조직도</a>
-    <a onclick="scrollToSection('cert')">인증현황</a>
-    <a onclick="scrollToSection('location')">오시는길</a>
+    <a onclick="scrollToSection('ceo')" class="active" data-ko="CEO 인사말" data-en="CEO Message">CEO 인사말</a>
+    <a onclick="scrollToSection('history')" data-ko="회사연혁" data-en="History">회사연혁</a>
+    <a onclick="scrollToSection('org')" data-ko="조직도" data-en="Organization">조직도</a>
+    <a onclick="scrollToSection('cert')" data-ko="인증현황" data-en="Certifications">인증현황</a>
+    <a onclick="scrollToSection('location')" data-ko="오시는길" data-en="Location">오시는길</a>
   </div>
 
   <section class="section" id="ceo">
@@ -585,7 +594,7 @@
         <div class="ceo-sig"><div class="title">대표이사</div><div class="name">강 동 우</div></div>
       </div>
       <div class="motto-box">
-        <div class="motto-label-top">사훈 · 사시</div>
+        <div class="motto-label-top" data-ko="사훈 · 사시" data-en="Mission · Vision">사훈 · 사시</div>
         <div class="motto-item"><div class="motto-label">社訓</div><div class="motto-divider"></div><div class="motto-text">恒常 生覺하고 恒常 挑戰하며 恒常 變身하자</div></div>
         <div class="motto-item"><div class="motto-label">社是</div><div class="motto-divider"></div><div class="motto-text">健康하고 自主的인 理想追進</div></div>
       </div>
@@ -593,7 +602,7 @@
   </section>
 
   <section class="section bg-light" id="history">
-    <div class="section-tag">History</div><div class="section-title">회사연혁</div>
+    <div class="section-tag">History</div><div class="section-title" data-ko="회사연혁" data-en="History">회사연혁</div>
     <p class="history-intro">우수한 인력과 기술력을 갖춘 자동차 생산설비 전문업체 <strong>㈜동희산기</strong>의 연혁을 소개합니다.</p>
     <div class="timeline">
       <div class="timeline-group"><div class="timeline-year">2012</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">10.17</span><span class="t-content">㈜동희로파에서 ㈜동희산기로 회사상호 변경</span></div></div></div>
@@ -648,7 +657,7 @@
   </section>
 
   <section class="section bg-light" id="cert" style="">
-    <div class="section-tag">Certification</div><div class="section-title">인증현황</div>
+    <div class="section-tag">Certification</div><div class="section-title" data-ko="인증현황" data-en="Certifications">인증현황</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:1rem;">
       <div style="background:white;border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'" onmouseout="this.style.boxShadow='none'">
         <div style="padding:1.2rem 1.5rem;background:var(--navy);display:flex;justify-content:space-between;align-items:center;">
@@ -679,7 +688,7 @@
   </section>
 
   <section class="section" id="location">
-    <div class="section-tag">Location</div><div class="section-title">오시는길</div>
+    <div class="section-tag">Location</div><div class="section-title" data-ko="오시는길" data-en="Location">오시는길</div>
     <div style="width:100%;border:1px solid var(--border);margin-bottom:1rem;overflow:hidden;position:relative;">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.9711774248613!2d126.77430899999999!3d36.9627452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b02d62933b8af%3A0xa788743eeb3d9b78!2z7Lap7LKt64Ko64-EIOuLueynhOyLnCDshqHslYXsnY0g67aA6rOh6rO164uoNOq4uCA1My0zMw!5e0!3m2!1sko!2skr!4v1781067573626!5m2!1sko!2skr"
@@ -700,7 +709,7 @@
     </div>
     <div class="location-grid">
       <div class="loc-card accent-left"><div class="loc-tag">ADDRESS</div><div class="loc-addr">31721 충청남도 당진시 송악읍 한진리 408-29</div><div class="loc-sub">(부곡공단4길 53-33)</div></div>
-      <div class="loc-card navy-left"><div class="loc-tag navy">CONTACT</div><div class="loc-info">Tel. 041-351-2200<br>Fax. 041-357-8730<br>E-mail. affair@kbdh.co.kr</div></div>
+      <div class="loc-card navy-left"><div class="loc-tag navy">CONTACT</div><div class="loc-info">Tel. 041-351-2200<br>Fax. 041-357-8730<br><span data-ko="E-mail. affair@kbdh.co.kr" data-en="E-mail. affair@kbdh.co.kr">E-mail. affair@kbdh.co.kr</span></div></div>
       <div class="loc-card steel-left"><div class="loc-tag steel">DIRECTIONS</div><div class="loc-info">🚗 서해안고속도로 송악IC → 부곡공단 방면<br>🚌 당진버스터미널 → 부곡공단 버스 이용</div></div>
     </div>
   </section>
@@ -710,16 +719,16 @@
 <!-- 사업영역 -->
 <!-- ══════════════════════════════════ -->
 <div class="page" id="page-business">
-  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>사업영역</span></div><h1>사업영역</h1></div>
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>사업영역</span></div><h1 data-ko="사업영역" data-en="Business">사업영역</h1></div>
   <div class="sub-nav">
-    <a onclick="scrollToSection('biz-overview')" class="active">사업개요</a>
-    <a onclick="scrollToSection('biz-global')">글로벌 현황</a>
-    <a onclick="scrollToSection('biz-rd')">기술연구</a>
-    <a onclick="scrollToSection('biz-record')">납품현황</a>
+    <a onclick="scrollToSection('biz-overview')" class="active" data-ko="사업개요" data-en="Overview">사업개요</a>
+    <a onclick="scrollToSection('biz-global')" data-ko="글로벌 현황" data-en="Global">글로벌 현황</a>
+    <a onclick="scrollToSection('biz-rd')" data-ko="기술연구" data-en="R&amp;D">기술연구</a>
+    <a onclick="scrollToSection('biz-record')" data-ko="납품현황" data-en="Delivery Record">납품현황</a>
   </div>
 
   <section class="section bg-light" id="biz-overview">
-    <div class="section-tag">Business Overview</div><div class="section-title">사업개요</div>
+    <div class="section-tag">Business Overview</div><div class="section-title" data-ko="사업개요" data-en="Overview">사업개요</div>
     <p class="section-desc">㈜동희산기는 자동차 생산설비 전문기업으로 컨베이어 시스템의 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
     <!-- 사업전략 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:3rem;">
@@ -840,7 +849,7 @@
   </section>
 
   <section class="section" id="biz-rd">
-    <div class="section-tag">R&D</div><div class="section-title">기술연구</div>
+    <div class="section-tag">R&D</div><div class="section-title" data-ko="기술연구" data-en="R&amp;D">기술연구</div>
     <div class="biz-detail-grid">
       <div class="biz-detail-card"><div class="biz-icon">🔬</div><h3>시스템 R&D</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">차세대 컨베이어 시스템 연구 및 공장 자동화 기술 개발</p></div>
       <div class="biz-detail-card"><div class="biz-icon">📐</div><h3>기술 및 설계</h3><p style="font-size:0.85rem;color:var(--gray);line-height:1.8;margin-top:0.5rem;">고객 맞춤형 설계 서비스. 공장 레이아웃부터 개별 컨베이어 사양까지</p></div>
@@ -849,7 +858,7 @@
   </section>
 
   <section class="section bg-light" id="biz-record">
-    <div class="section-tag">Delivery Record</div><div class="section-title">납품현황</div>
+    <div class="section-tag">Delivery Record</div><div class="section-title" data-ko="납품현황" data-en="Delivery Record">납품현황</div>
 
     <!-- 의장공장 Turn-Key -->
     <div class="table-wrap"><div class="table-title">의장공장 (Assembly Shop) — Turn-Key (2005~2025)</div>
@@ -986,7 +995,7 @@
 <!-- 제품소개 -->
 <!-- ══════════════════════════════════ -->
 <div class="page" id="page-products">
-  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>제품소개</span></div><h1>제품소개</h1></div>
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>제품소개</span></div><h1 data-ko="제품소개" data-en="Products">제품소개</h1></div>
   <div class="sub-nav">
     <a onclick="scrollToSection('p01')" class="active">Roller Bar</a>
     <a onclick="scrollToSection('p02')">Power &amp; Free</a>
@@ -1084,14 +1093,14 @@
 <!-- 고객지원 -->
 <!-- ══════════════════════════════════ -->
 <div class="page" id="page-notice">
-  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>고객지원</span></div><h1>고객지원</h1></div>
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>고객지원</span></div><h1 data-ko="고객지원" data-en="Customer Support">고객지원</h1></div>
   <div class="sub-nav">
-    <a onclick="scrollToSection('notice-list')" class="active">공지사항</a>
-    <a onclick="scrollToSection('contact-us')">문의하기</a>
+    <a onclick="scrollToSection('notice-list')" class="active" data-ko="공지사항" data-en="Notice">공지사항</a>
+    <a onclick="scrollToSection('contact-us')" data-ko="문의하기" data-en="Contact">문의하기</a>
   </div>
 
   <section class="section" id="notice-list">
-    <div class="section-tag">Notice</div><div class="section-title">공지사항</div>
+    <div class="section-tag">Notice</div><div class="section-title" data-ko="공지사항" data-en="Notice">공지사항</div>
     <div class="notice-list-wrap">
       <div class="notice-row" onclick="openNotice('notice6')" style="cursor:pointer;"><span class="notice-num">6</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">CEO 환경경영 방침 공표</span><span class="notice-dt">2026.04.09</span></div>
       <div class="notice-row" onclick="openNotice('notice3')" style="cursor:pointer;"><span class="notice-num">5</span><span class="news-badge badge-notice">공지</span><span class="notice-ttl">인권경영 헌장</span><span class="notice-dt">2026.04.03</span></div>
@@ -1103,7 +1112,7 @@
   </section>
 
   <section class="section bg-light" id="contact-us">
-    <div class="section-tag">Contact Us</div><div class="section-title">문의하기</div>
+    <div class="section-tag">Contact Us</div><div class="section-title" data-ko="문의하기" data-en="Contact">문의하기</div>
     <div class="contact-cards">
       <div class="contact-card-item"><div class="ci">📞</div><h3>전화 문의</h3><p>영업일 오전 8시 ~ 오후 5시</p><div class="contact-val">Tel. 041-351-2200</div><div class="contact-val">Fax. 041-357-8730</div></div>
       <div class="contact-card-item"><div class="ci">✉️</div><h3>이메일 문의</h3><p>영업 문의</p><div class="contact-val">sales@kbdh.co.kr</div><p style="margin-top:0.8rem;">기술 문의</p><div class="contact-val">pm@kbdh.co.kr</div></div>
@@ -1117,7 +1126,7 @@
 <!-- 그룹사 -->
 <!-- ══════════════════════════════════ -->
 <div class="page" id="page-group">
-  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>그룹사소개</span></div><h1>그룹사소개</h1></div>
+  <div class="page-hero"><div class="breadcrumb">홈 &gt; <span>그룹사소개</span></div><h1 data-ko="그룹사소개" data-en="Group Companies">그룹사소개</h1></div>
 
   <section class="section">
     <div class="section-tag">Group</div><div class="section-title">동서알텍그룹</div>
@@ -1173,16 +1182,16 @@
         ㈜동희산기 | 대표이사 강동우, 함명규<br>
         충청남도 당진시 송악읍 한진리 408-29 (부곡공단4길 53-33)<br>
         Tel. 041-351-2200 | Fax. 041-357-8730<br>
-        E-mail. affair@kbdh.co.kr
+        <span data-ko="E-mail. affair@kbdh.co.kr" data-en="E-mail. affair@kbdh.co.kr">E-mail. affair@kbdh.co.kr</span>
       </div>
     </div>
     <div class="footer-links">
-      <a onclick="showPage('home')">홈</a>
-      <a onclick="showPage('company')">회사소개</a>
-      <a onclick="showPage('business')">사업영역</a>
-      <a onclick="showPage('products')">제품소개</a>
+      <a onclick="showPage('home')" data-ko="홈" data-en="Home">홈</a>
+      <a onclick="showPage('company')" data-ko="회사소개" data-en="About Us">회사소개</a>
+      <a onclick="showPage('business')" data-ko="사업영역" data-en="Business">사업영역</a>
+      <a onclick="showPage('products')" data-ko="제품소개" data-en="Products">제품소개</a>
       <a onclick="showPage('esg')">ESG 경영</a>
-      <a onclick="showPage('notice')">고객지원</a>
+      <a onclick="showPage('notice')" data-ko="고객지원" data-en="Support">고객지원</a>
     </div>
     <div class="footer-links">
       <a href="https://www.dsmt.co.kr" target="_blank">㈜동서기공</a>
@@ -1193,7 +1202,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    © 2025 ㈜동희산기 DONGHEE INDUSTRIES. All rights reserved.
+    <span data-ko="© 2025 ㈜동희산기 DONGHEE INDUSTRIES. All rights reserved." data-en="© 2025 Donghee Industries Co., Ltd. All rights reserved.">© 2025 ㈜동희산기 DONGHEE INDUSTRIES. All rights reserved.</span>
   </div>
 </footer>
 
@@ -1302,6 +1311,29 @@ function initAnimations() {
 const origShowPage = showPage;
 document.addEventListener('DOMContentLoaded', initAnimations);
 setTimeout(initAnimations, 200);
+
+// 언어 전환
+let currentLang = 'ko';
+
+function setLang(lang) {
+  currentLang = lang;
+  // 버튼 스타일
+  document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+  // data-ko / data-en 속성 가진 요소 전환
+  document.querySelectorAll('[data-ko][data-en]').forEach(function(el) {
+    const val = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-ko');
+    if (el.tagName === 'H1' || el.tagName === 'P') {
+      el.innerHTML = val;
+    } else {
+      el.textContent = val;
+    }
+  });
+
+  // html lang 속성
+  document.documentElement.lang = lang === 'en' ? 'en' : 'ko';
+}
 
 function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');

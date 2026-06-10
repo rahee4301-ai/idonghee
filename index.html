@@ -479,6 +479,11 @@
 
 <!-- 모바일 메뉴 -->
 <div class="mobile-menu" id="mobileMenu">
+  <!-- 모바일 언어 토글 -->
+  <div style="display:flex;gap:10px;padding:0.8rem 0;border-bottom:1px solid rgba(255,255,255,0.15);margin-bottom:0.5rem;">
+    <button onclick="setLang('ko')" id="btn-ko-m" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:6px 14px;font-size:0.85rem;font-weight:700;cursor:pointer;border-radius:3px;font-family:'Oswald',sans-serif;">KOR</button>
+    <button onclick="setLang('en')" id="btn-en-m" style="background:none;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.6);padding:6px 14px;font-size:0.85rem;font-weight:700;cursor:pointer;border-radius:3px;font-family:'Oswald',sans-serif;">ENG</button>
+  </div>
   <a onclick="showPage('home');toggleMenu()" data-ko="홈" data-en="Home">홈</a>
   <a onclick="showPage('company');toggleMenu()" data-ko="회사소개" data-en="About Us">회사소개</a>
   <a onclick="showPage('business');toggleMenu()" data-ko="사업영역" data-en="Business">사업영역</a>
@@ -588,10 +593,10 @@
     <div class="section-tag">CEO Message</div>
     <div class="ceo-wrap">
       <div>
-        <div class="ceo-quote">최고를 위한 도전, 고객을 생각하는 마음<br><span>㈜동희산기가 만들면 다릅니다.</em></div>
-        <p class="ceo-body">저희 ㈜동희산기는 우수한 인력과 기술력을 바탕으로 세계 자동차 공장의 자동차 생산설비 전문 업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질, 최고의 제품을 생산하기 위해 끊임없이 노력하고 있습니다.</p>
-        <p class="ceo-body">㈜동희산기는 타사에서 갖지 못하는 <strong>노하우와 우수한 인재</strong>를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, <strong>국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업</strong>으로 성장할 것입니다.</p>
-        <div class="ceo-sig"><div class="title">대표이사</div><div class="name">강 동 우</div></div>
+        <div class="ceo-quote"><span data-ko="최고를 위한 도전, 고객을 생각하는 마음<br>㈜동희산기가 만들면 다릅니다." data-en="Challenging for Excellence, Caring for Customers<br>Donghee Industries makes the difference.">최고를 위한 도전, 고객을 생각하는 마음<br><span>㈜동희산기가 만들면 다릅니다.</em></span></div>
+        <p class="ceo-body" data-ko="저희 ㈜동희산기는 우수한 인력과 기술력을 바탕으로 세계 자동차 공장의 자동차 생산설비 전문 업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질, 최고의 제품을 생산하기 위해 끊임없이 노력하고 있습니다." data-en="Donghee Industries is a specialized manufacturer of automotive production equipment with precision machining, automation facilities, and inspection systems, constantly striving to produce the highest quality products.">저희 ㈜동희산기는 우수한 인력과 기술력을 바탕으로 세계 자동차 공장의 자동차 생산설비 전문 업체로 정밀가공, 자동화시설, 검사시설을 갖추고 최고의 품질, 최고의 제품을 생산하기 위해 끊임없이 노력하고 있습니다.</p>
+        <p class="ceo-body" data-ko="㈜동희산기는 타사에서 갖지 못하는 노하우와 우수한 인재를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, 국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업으로 성장할 것입니다." data-en="With unmatched know-how and talented professionals, Donghee Industries delivers on time to domestic and overseas automotive markets, and will grow as a company that respects people and fulfills its responsibilities to society.">㈜동희산기는 타사에서 갖지 못하는 <strong>노하우와 우수한 인재</strong>를 바탕으로 국내 및 해외의 자동차 시장에 정확한 시간에 공급함은 물론, <strong>국가와 사회 발전에 책임과 의무를 짊어진 기업으로 인간을 존중하는 기업</strong>으로 성장할 것입니다.</p>
+        <div class="ceo-sig"><div class="title" data-ko="대표이사" data-en="CEO">대표이사</div><div class="name">강 동 우</div></div>
       </div>
       <div class="motto-box">
         <div class="motto-label-top" data-ko="사훈 · 사시" data-en="Mission · Vision">사훈 · 사시</div>
@@ -603,7 +608,7 @@
 
   <section class="section bg-light" id="history">
     <div class="section-tag">History</div><div class="section-title" data-ko="회사연혁" data-en="History">회사연혁</div>
-    <p class="history-intro">우수한 인력과 기술력을 갖춘 자동차 생산설비 전문업체 <strong>㈜동희산기</strong>의 연혁을 소개합니다.</p>
+    <p class="history-intro" data-ko="우수한 인력과 기술력을 갖춘 자동차 생산설비 전문업체 ㈜동희산기의 연혁을 소개합니다." data-en="Explore the history of Donghee Industries, a specialized automotive production equipment manufacturer with outstanding talent and technology.">우수한 인력과 기술력을 갖춘 자동차 생산설비 전문업체 <strong>㈜동희산기</strong>의 연혁을 소개합니다.</p>
     <div class="timeline">
       <div class="timeline-group"><div class="timeline-year">2012</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">10.17</span><span class="t-content">㈜동희로파에서 ㈜동희산기로 회사상호 변경</span></div></div></div>
       <div class="timeline-group"><div class="timeline-year">2005</div><div class="timeline-items"><div class="timeline-item"><span class="t-date">07.01</span><span class="t-content">부곡공단 이전 – 충청남도 당진군 한진리 408</span></div></div></div>
@@ -708,9 +713,9 @@
       </a>
     </div>
     <div class="location-grid">
-      <div class="loc-card accent-left"><div class="loc-tag">ADDRESS</div><div class="loc-addr">31721 충청남도 당진시 송악읍 한진리 408-29</div><div class="loc-sub">(부곡공단4길 53-33)</div></div>
+      <div class="loc-card accent-left"><div class="loc-tag">ADDRESS</div><div class="loc-addr" data-ko="31721 충청남도 당진시 송악읍 한진리 408-29" data-en="408-29 Hanji-ri, Songak-eup, Dangjin-si, Chungnam">31721 충청남도 당진시 송악읍 한진리 408-29</div><div class="loc-sub" data-ko="(부곡공단4길 53-33)" data-en="(Bugokgongdan 4-gil 53-33)">(부곡공단4길 53-33)</div></div>
       <div class="loc-card navy-left"><div class="loc-tag navy">CONTACT</div><div class="loc-info">Tel. 041-351-2200<br>Fax. 041-357-8730<br><span data-ko="E-mail. affair@kbdh.co.kr" data-en="E-mail. affair@kbdh.co.kr">E-mail. affair@kbdh.co.kr</span></div></div>
-      <div class="loc-card steel-left"><div class="loc-tag steel">DIRECTIONS</div><div class="loc-info">🚗 서해안고속도로 송악IC → 부곡공단 방면<br>🚌 당진버스터미널 → 부곡공단 버스 이용</div></div>
+      <div class="loc-card steel-left"><div class="loc-tag steel">DIRECTIONS</div><div class="loc-info" data-ko="🚗 서해안고속도로 송악IC → 부곡공단 방면&#10;🚌 당진버스터미널 → 부곡공단 버스 이용" data-en="🚗 West Coast Expressway Songak IC → Bugok Industrial Complex&#10;🚌 Dangjin Bus Terminal → Bugok Industrial Complex bus">🚗 서해안고속도로 송악IC → 부곡공단 방면<br>🚌 당진버스터미널 → 부곡공단 버스 이용</div></div>
     </div>
   </section>
 </div>
@@ -729,7 +734,7 @@
 
   <section class="section bg-light" id="biz-overview">
     <div class="section-tag">Business Overview</div><div class="section-title" data-ko="사업개요" data-en="Overview">사업개요</div>
-    <p class="section-desc">㈜동희산기는 자동차 생산설비 전문기업으로 컨베이어 시스템의 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
+    <p class="section-desc" data-ko="㈜동희산기는 자동차 생산설비 전문기업으로 컨베이어 시스템의 설계·제작·설치·유지보수를 일괄 제공합니다." data-en="Donghee Industries is a specialized automotive production equipment company providing integrated conveyor system design, manufacturing, installation, and maintenance.">㈜동희산기는 자동차 생산설비 전문기업으로 컨베이어 시스템의 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
     <!-- 사업전략 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:3rem;">
       <div style="background:var(--navy);color:white;padding:1.2rem 1.5rem;border-radius:2px;text-align:center;">
@@ -774,7 +779,7 @@
 
   <section class="section bg-light" id="biz-global">
     <div class="section-tag">Global Network</div><div class="section-title">글로벌 납품 현황</div>
-    <p class="section-desc">1987년 창립 이래 세계 16개국 이상 현대·기아·폭스바겐·GM 등 글로벌 완성차 메이커에 납품한 실적을 보유하고 있습니다.</p>
+    <p class="section-desc" data-ko="1987년 창립 이래 세계 16개국 이상 현대·기아·폭스바겐·GM 등 글로벌 완성차 메이커에 납품한 실적을 보유하고 있습니다." data-en="Since our founding in 1987, we have delivered to global automakers including Hyundai, Kia, Volkswagen, and GM in over 16 countries worldwide.">1987년 창립 이래 세계 16개국 이상 현대·기아·폭스바겐·GM 등 글로벌 완성차 메이커에 납품한 실적을 보유하고 있습니다.</p>
 
     <!-- 통계 카드 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:3rem;">
@@ -1035,11 +1040,11 @@
 
   <section class="section" id="esg-overview">
     <div class="section-tag green">ESG Overview</div><div class="section-title">ESG 경영 방침</div>
-    <p class="section-desc">㈜동희산기는 지속가능한 성장을 위해 환경 보호, 사회적 책임, 투명한 지배구조를 핵심 가치로 삼고 ESG 경영을 실천합니다.</p>
+    <p class="section-desc" data-ko="㈜동희산기는 지속가능한 성장을 위해 환경 보호, 사회적 책임, 투명한 지배구조를 핵심 가치로 삼고 ESG 경영을 실천합니다." data-en="Donghee Industries practices ESG management with environmental protection, social responsibility, and transparent governance as core values for sustainable growth.">㈜동희산기는 지속가능한 성장을 위해 환경 보호, 사회적 책임, 투명한 지배구조를 핵심 가치로 삼고 ESG 경영을 실천합니다.</p>
     <div class="esg-pillars">
-      <div class="pillar e"><div class="pillar-letter">E</div><h3>환경 (Environment)</h3><p>온실가스 감축, 에너지 절약, 폐기물 관리를 통해 환경 영향을 최소화합니다.</p></div>
-      <div class="pillar s"><div class="pillar-letter">S</div><h3>사회 (Social)</h3><p>임직원 안전·인권 보호, 협력사 상생, 지역사회 기여를 통해 사회적 책임을 다합니다.</p></div>
-      <div class="pillar g"><div class="pillar-letter">G</div><h3>지배구조 (Governance)</h3><p>투명한 경영, 윤리 준수, 반부패 정책으로 신뢰받는 기업을 만들어갑니다.</p></div>
+      <div class="pillar e"><div class="pillar-letter">E</div><h3 data-ko="환경 (Environment)" data-en="Environment">환경 (Environment)</h3><p>온실가스 감축, 에너지 절약, 폐기물 관리를 통해 환경 영향을 최소화합니다.</p></div>
+      <div class="pillar s"><div class="pillar-letter">S</div><h3 data-ko="사회 (Social)" data-en="Social">사회 (Social)</h3><p>임직원 안전·인권 보호, 협력사 상생, 지역사회 기여를 통해 사회적 책임을 다합니다.</p></div>
+      <div class="pillar g"><div class="pillar-letter">G</div><h3 data-ko="지배구조 (Governance)" data-en="Governance">지배구조 (Governance)</h3><p>투명한 경영, 윤리 준수, 반부패 정책으로 신뢰받는 기업을 만들어갑니다.</p></div>
     </div>
   </section>
 
@@ -1114,10 +1119,10 @@
   <section class="section bg-light" id="contact-us">
     <div class="section-tag">Contact Us</div><div class="section-title" data-ko="문의하기" data-en="Contact">문의하기</div>
     <div class="contact-cards">
-      <div class="contact-card-item"><div class="ci">📞</div><h3>전화 문의</h3><p>영업일 오전 8시 ~ 오후 5시</p><div class="contact-val">Tel. 041-351-2200</div><div class="contact-val">Fax. 041-357-8730</div></div>
-      <div class="contact-card-item"><div class="ci">✉️</div><h3>이메일 문의</h3><p>영업 문의</p><div class="contact-val">sales@kbdh.co.kr</div><p style="margin-top:0.8rem;">기술 문의</p><div class="contact-val">pm@kbdh.co.kr</div></div>
-      <div class="contact-card-item"><div class="ci">🏭</div><h3>방문 문의</h3><p>충청남도 당진시 송악읍<br>한진리 408-29<br>(부곡공단4길 53-33)</p></div>
-      <div class="contact-card-item"><div class="ci">🌐</div><h3>부서별 연락처</h3><p>영업부: sales@kbdh.co.kr · 041-351-2292<br>기술부: pm@kbdh.co.kr<br>전기부: 041-351-2281<br>총무부: affair@kbdh.co.kr · 041-351-2217<br>생산부: 041-351-2261<br>구매부: purchase@kbdh.co.kr · 041-351-2223<br>경리부: account@kbdh.co.kr · 041-351-2216</p></div>
+      <div class="contact-card-item"><div class="ci">📞</div><h3 data-ko="전화 문의" data-en="Phone Inquiry">전화 문의</h3><p data-ko="영업일 오전 8시 ~ 오후 5시" data-en="Weekdays 8:00 AM ~ 5:00 PM">영업일 오전 8시 ~ 오후 5시</p><div class="contact-val">Tel. 041-351-2200</div><div class="contact-val">Fax. 041-357-8730</div></div>
+      <div class="contact-card-item"><div class="ci">✉️</div><h3 data-ko="이메일 문의" data-en="Email Inquiry">이메일 문의</h3><p>영업 문의</p><div class="contact-val">sales@kbdh.co.kr</div><p style="margin-top:0.8rem;">기술 문의</p><div class="contact-val">pm@kbdh.co.kr</div></div>
+      <div class="contact-card-item"><div class="ci">🏭</div><h3 data-ko="방문 문의" data-en="Visit Us">방문 문의</h3><p>충청남도 당진시 송악읍<br>한진리 408-29<br>(부곡공단4길 53-33)</p></div>
+      <div class="contact-card-item"><div class="ci">🌐</div><h3 data-ko="부서별 연락처" data-en="Department Contacts">부서별 연락처</h3><p>영업부: sales@kbdh.co.kr · 041-351-2292<br>기술부: pm@kbdh.co.kr<br>전기부: 041-351-2281<br>총무부: affair@kbdh.co.kr · 041-351-2217<br>생산부: 041-351-2261<br>구매부: purchase@kbdh.co.kr · 041-351-2223<br>경리부: account@kbdh.co.kr · 041-351-2216</p></div>
     </div>
   </section>
 </div>
@@ -1130,7 +1135,7 @@
 
   <section class="section">
     <div class="section-tag">Group</div><div class="section-title">동서알텍그룹</div>
-    <p class="section-desc">동서알텍그룹은 자동차 생산설비, 부품 제조, 소재 분야의 전문 계열사들로 구성된 산업 그룹입니다.</p>
+    <p class="section-desc" data-ko="동서알텍그룹은 자동차 생산설비, 부품 제조, 소재 분야의 전문 계열사들로 구성된 산업 그룹입니다." data-en="Dongseо Altech Group is an industrial group comprised of specialized affiliates in automotive production equipment, parts manufacturing, and materials.">동서알텍그룹은 자동차 생산설비, 부품 제조, 소재 분야의 전문 계열사들로 구성된 산업 그룹입니다.</p>
     <div class="group-tree-wrap">
       <div class="g-top">동서알텍그룹</div>
       <div class="g-vline"></div>
@@ -1179,8 +1184,8 @@
         DONGHEE <span>INDUSTRIES</span>
       </div>
       <div class="footer-info">
-        ㈜동희산기 | 대표이사 강동우, 함명규<br>
-        충청남도 당진시 송악읍 한진리 408-29 (부곡공단4길 53-33)<br>
+        <span data-ko="㈜동희산기 | 대표이사 강동우, 함명규" data-en="Donghee Industries Co., Ltd. | CEO Kang Dong-woo, Ham Myeong-gyu">㈜동희산기 | 대표이사 강동우, 함명규</span><br>
+        <span data-ko="충청남도 당진시 송악읍 한진리 408-29 (부곡공단4길 53-33)" data-en="408-29 Hanji-ri, Songak-eup, Dangjin-si, Chungnam (Bugokgongdan 4-gil 53-33)">충청남도 당진시 송악읍 한진리 408-29 (부곡공단4길 53-33)</span><br>
         Tel. 041-351-2200 | Fax. 041-357-8730<br>
         <span data-ko="E-mail. affair@kbdh.co.kr" data-en="E-mail. affair@kbdh.co.kr">E-mail. affair@kbdh.co.kr</span>
       </div>
@@ -1320,6 +1325,11 @@ function setLang(lang) {
   // 버튼 스타일
   document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  // 모바일 버튼 스타일
+  var bkm = document.getElementById('btn-ko-m');
+  var bem = document.getElementById('btn-en-m');
+  if (bkm) { bkm.style.background = lang==='ko' ? 'rgba(255,255,255,0.15)' : 'none'; bkm.style.color = lang==='ko' ? 'white' : 'rgba(255,255,255,0.6)'; }
+  if (bem) { bem.style.background = lang==='en' ? 'rgba(255,255,255,0.15)' : 'none'; bem.style.color = lang==='en' ? 'white' : 'rgba(255,255,255,0.6)'; }
 
   // data-ko / data-en 속성 가진 요소 전환
   document.querySelectorAll('[data-ko][data-en]').forEach(function(el) {

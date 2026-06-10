@@ -1931,7 +1931,6 @@ function openNotice(id) {
   const lang = window.currentLang || 'ko';
   const enKey = id + '_en';
   const koKey = id + '_ko';
-  // 언어별 키 우선순위: en→_en, ko→_ko 또는 기본키
   const content = (lang === 'en' && noticeContents[enKey])
     ? noticeContents[enKey]
     : (noticeContents[koKey] || noticeContents[id]);
@@ -1951,7 +1950,6 @@ function openNotice(id) {
     notice6: 'CEO Environmental Policy'
   };
   const el = document.getElementById('noticeModalTitle');
-  const lang = window.currentLang || 'ko';
   if(el) el.textContent = (lang === 'en' ? titleMapEn[id] : titleMapKo[id]) || '공지사항';
   document.getElementById('noticeBody').innerHTML = '<div style="padding:2rem 2.4rem;font-family:Pretendard,sans-serif;font-size:0.92rem;line-height:2;color:#1a1a1a;">' + content + '</div>';
   document.getElementById('noticeModal').classList.add('open');

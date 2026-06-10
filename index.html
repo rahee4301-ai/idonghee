@@ -425,6 +425,7 @@
       .prod-wrap { grid-template-columns:1fr; gap:2rem; }
     }
     @media(max-width:768px) {
+      .global-map-grid { grid-template-columns:1fr !important; }
       .modal-overlay { padding:4px !important; }
       .modal-box { max-height:92vh; border-radius:8px; }
       .modal-header { padding:1rem 1.2rem; }
@@ -783,12 +784,12 @@
     </div>
 
     <!-- 지도 + 카드 2열 레이아웃 -->
-    <div style="display:grid;grid-template-columns:1fr 240px;gap:1.2rem;align-items:stretch;">
+    <div class="global-map-grid" style="display:grid;grid-template-columns:1fr 240px;gap:1.2rem;align-items:stretch;">
 
       <!-- 좌측: 지도 -->
       <div style="background:white;border:1px solid var(--border);padding:1.2rem;overflow:hidden;">
         <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;color:#0d9488;margin-bottom:0.8rem;">GLOBAL DELIVERY MAP</div>
-        <img src="images/world_map_pins.png" style="width:100%;height:auto;display:block;border-radius:4px;" alt="글로벌 납품 현황 지도">
+        <img src="images/world_map_pins.jpg" style="width:100%;height:auto;display:block;border-radius:4px;" alt="글로벌 납품 현황 지도">
         <div style="display:flex;gap:16px;margin-top:10px;">
           <div style="display:flex;align-items:center;gap:6px;font-size:0.78rem;color:var(--gray);">
             <span style="width:12px;height:12px;border-radius:50%;background:#1565c0;border:2px solid #3b9eff;display:inline-block;"></span>본사

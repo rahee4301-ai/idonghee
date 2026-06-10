@@ -14,6 +14,8 @@
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="shortcut icon" href="images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -782,75 +784,93 @@
       </div>
     </div>
 
-    <!-- 이미지 기반 세계지도 -->
+    <!-- 인터랙티브 세계지도 -->
     <div style="background:white;border:1px solid var(--border);padding:1.5rem;margin-bottom:2rem;overflow:hidden;">
       <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;color:#0d9488;margin-bottom:1rem;">GLOBAL DELIVERY MAP</div>
-      <div style="position:relative;width:100%;max-width:1000px;margin:0 auto;">
-        <img src="images/world_map.png" style="width:100%;height:auto;display:block;" alt="글로벌 납품 현황 지도">
-
-        <!-- 핀 스타일 공통 -->
-        <style>
-          .map-pin { position:absolute; transform:translate(-50%,-100%); text-align:center; }
-          .map-pin .dot { width:13px; height:13px; border:2.5px solid white; border-radius:50%; box-shadow:0 2px 6px rgba(0,0,0,0.35); margin:0 auto; }
-          .map-pin .label { color:white; font-size:10px; font-weight:700; padding:2px 6px; white-space:nowrap; margin-top:3px; display:inline-block; font-family:'Pretendard',sans-serif; }
-          .map-pin.hq .dot { width:16px; height:16px; background:#0B1D3A; }
-          .map-pin.hq .label { background:#0B1D3A; font-size:11px; }
-          .map-pin.delivery .dot { background:#0d9488; }
-          .map-pin.delivery .label { background:#0d9488; }
-        </style>
-
-        <!-- 한국(본사) -->
-        <div class="map-pin hq" style="left:85.5%;top:32%;">
-          <div class="dot"></div><div class="label">🇰🇷 한국(본사)</div>
+      <div id="globalMap" style="width:100%;height:500px;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.1);z-index:0;"></div>
+      <div style="display:flex;gap:24px;margin-top:14px;padding-left:4px;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--gray);">
+          <span style="width:13px;height:13px;border-radius:50%;background:#1565c0;border:2px solid #3b9eff;box-shadow:0 0 5px #3b9eff55;display:inline-block;flex-shrink:0;"></span>본사
         </div>
-        <!-- 중국 -->
-        <div class="map-pin delivery" style="left:81%;top:29%;">
-          <div class="dot"></div><div class="label">🇨🇳 중국</div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--gray);">
+          <span style="width:11px;height:11px;background:#e8342a;border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:inline-block;flex-shrink:0;"></span>납품국가
         </div>
-        <!-- 인도 -->
-        <div class="map-pin delivery" style="left:72%;top:42%;">
-          <div class="dot"></div><div class="label">🇮🇳 인도</div>
-        </div>
-        <!-- 인도네시아 -->
-        <div class="map-pin delivery" style="left:80%;top:57%;">
-          <div class="dot"></div><div class="label">🇮🇩 인도네시아</div>
-        </div>
-        <!-- 러시아 -->
-        <div class="map-pin delivery" style="left:62%;top:19%;">
-          <div class="dot"></div><div class="label">🇷🇺 러시아</div>
-        </div>
-        <!-- 체코 -->
-        <div class="map-pin delivery" style="left:53%;top:24%;">
-          <div class="dot"></div><div class="label">🇨🇿 체코</div>
-        </div>
-        <!-- 터키 -->
-        <div class="map-pin delivery" style="left:57%;top:31%;">
-          <div class="dot"></div><div class="label">🇹🇷 터키</div>
-        </div>
-        <!-- 우즈베키스탄 -->
-        <div class="map-pin delivery" style="left:66%;top:27%;">
-          <div class="dot"></div><div class="label">🇺🇿 우즈베키스탄</div>
-        </div>
-        <!-- 미국 -->
-        <div class="map-pin delivery" style="left:23%;top:30%;">
-          <div class="dot"></div><div class="label">🇺🇸 미국</div>
-        </div>
-        <!-- 멕시코 -->
-        <div class="map-pin delivery" style="left:19%;top:38%;">
-          <div class="dot"></div><div class="label">🇲🇽 멕시코</div>
-        </div>
-        <!-- 브라질 -->
-        <div class="map-pin delivery" style="left:30%;top:60%;">
-          <div class="dot"></div><div class="label">🇧🇷 브라질</div>
-        </div>
-
-        <!-- 범례 -->
-        <div style="position:absolute;bottom:8px;left:8px;background:rgba(255,255,255,0.95);padding:6px 12px;font-size:10px;display:flex;gap:14px;align-items:center;border:1px solid #E2E8F0;border-radius:2px;">
-          <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;background:#0B1D3A;border-radius:50%;display:inline-block;"></span>본사</span>
-          <span style="display:flex;align-items:center;gap:5px;"><span style="width:11px;height:11px;background:#0d9488;border-radius:50%;display:inline-block;"></span>납품국가</span>
+        <div style="display:flex;align-items:center;gap:8px;font-size:0.8rem;color:var(--gray);">
+          <span style="width:26px;height:2px;background:linear-gradient(90deg,#3b9eff,#e8342a);border-radius:1px;display:inline-block;flex-shrink:0;"></span>공급 루트
         </div>
       </div>
     </div>
+    <script>
+    (function() {
+      function initGlobalMap() {
+        if (!document.getElementById('globalMap') || typeof L === 'undefined') return;
+        if (document.getElementById('globalMap')._leaflet_id) return;
+
+        var map = L.map('globalMap', {
+          center: [30, 20], zoom: 2, minZoom: 2, maxZoom: 5,
+          scrollWheelZoom: false, zoomControl: false, worldCopyJump: false
+        });
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '', noWrap: true
+        }).addTo(map);
+
+        // 타일 회색처리 CSS
+        var style = document.createElement('style');
+        style.textContent = '.leaflet-tile{filter:grayscale(100%) brightness(105%) contrast(90%);} .leaflet-control-zoom,.leaflet-control-attribution{display:none!important;} .hq-marker{background:#1565c0;border:3px solid #3b9eff;border-radius:50%;animation:hqPulse 2s ease-in-out infinite;} @keyframes hqPulse{0%,100%{box-shadow:0 0 8px #3b9eff88,0 0 18px #3b9eff44;}50%{box-shadow:0 0 18px #3b9effcc,0 0 36px #3b9eff66;}} .partner-marker{background:#e8342a;border:2px solid #ff7b73;border-radius:50% 50% 50% 0;transform:rotate(-45deg);} .leaflet-popup-content-wrapper{border-radius:10px;box-shadow:0 4px 16px rgba(0,0,0,0.15);} .popup-inner{padding:14px 16px;min-width:180px;} .popup-code{font-size:10px;font-weight:700;color:#1565c0;letter-spacing:1px;margin-bottom:3px;} .popup-country{font-size:15px;font-weight:700;color:#1a2b4a;margin-bottom:6px;} .popup-partner{font-size:12px;color:#4a6080;line-height:1.6;}';
+        document.head.appendChild(style);
+
+        var HQ = { lat:37.5, lon:127.0, code:'KR', name:'한국 (본사)', partner:'HMC·KMC·KG Mobility' };
+        var partners = [
+          { lat:33.0,  lon:-84.4,  code:'US', name:'미국',         partner:'Kia Georgia · Hyundai Alabama',               dir:'left' },
+          { lat:25.7,  lon:-100.3, code:'MX', name:'멕시코',       partner:'Kia Monterrey',                               dir:'left' },
+          { lat:-22.9, lon:-47.0,  code:'BR', name:'브라질',       partner:'Hyundai Brazil',                              dir:'bottom' },
+          { lat:55.7,  lon:37.6,   code:'RU', name:'러시아',       partner:'Hyundai Russia · Izh-Avto · Renault Nissan',  dir:'bottom' },
+          { lat:50.0,  lon:14.4,   code:'CZ', name:'체코',         partner:'Hyundai Czech',                               dir:'left' },
+          { lat:39.9,  lon:32.8,   code:'TR', name:'터키',         partner:'Hyundai Turkey',                              dir:'bottom' },
+          { lat:41.3,  lon:69.2,   code:'UZ', name:'우즈베키스탄', partner:'GM Uzbekistan',                               dir:'bottom' },
+          { lat:20.6,  lon:78.0,   code:'IN', name:'인도',         partner:'Hyundai India · Kia India · VW India',        dir:'bottom' },
+          { lat:39.9,  lon:116.4,  code:'CN', name:'중국',         partner:'Beijing Hyundai · Dongfeng Kia · Audi',       dir:'left' },
+          { lat:-6.2,  lon:106.8,  code:'ID', name:'인도네시아',   partner:'Hyundai Indonesia',                           dir:'bottom' },
+        ];
+
+        // HQ 마커
+        var hqIcon = L.divIcon({
+          className: '',
+          html: '<div style="display:flex;flex-direction:row;align-items:center;gap:4px;"><div class="hq-marker" style="width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"></div><div style="background:rgba(21,101,192,0.9);color:#fff;font-size:10px;font-weight:700;font-family:Pretendard,sans-serif;padding:2px 7px;border-radius:4px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.2);">한국 (본사)</div></div>',
+          iconSize: [110, 26], iconAnchor: [11, 13]
+        });
+        L.marker([HQ.lat, HQ.lon], {icon: hqIcon}).addTo(map)
+          .bindPopup('<div class="popup-inner"><div class="popup-code">'+HQ.code+' · 본사</div><div class="popup-country">'+HQ.name+'</div><div class="popup-partner">'+HQ.partner+'</div></div>');
+
+        var labelStyle = 'background:rgba(255,255,255,0.92);color:#1a2b4a;font-size:10px;font-weight:700;font-family:Pretendard,sans-serif;padding:2px 6px;border-radius:4px;white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,0.15);';
+        var pinHtml = '<div class="partner-marker" style="width:14px;height:14px;flex-shrink:0;"></div>';
+
+        partners.forEach(function(p) {
+          L.polyline([[HQ.lat, HQ.lon],[p.lat, p.lon]], {color:'#3b9eff',weight:1.5,opacity:0.5,dashArray:'6 4'}).addTo(map);
+
+          var lblHtml = '<div style="'+labelStyle+'">'+p.name+'</div>';
+          var html, iconSize, iconAnchor;
+          if (p.dir === 'left') {
+            html = '<div style="display:flex;flex-direction:row;align-items:center;gap:4px;">'+lblHtml+pinHtml+'</div>';
+            iconSize = [90,20]; iconAnchor = [83,10];
+          } else {
+            html = '<div style="display:flex;flex-direction:column;align-items:center;gap:2px;">'+pinHtml+lblHtml+'</div>';
+            iconSize = [80,36]; iconAnchor = [40,14];
+          }
+          L.marker([p.lat, p.lon], {icon: L.divIcon({className:'',html:html,iconSize:iconSize,iconAnchor:iconAnchor})}).addTo(map)
+            .bindPopup('<div class="popup-inner"><div class="popup-code">'+p.code+'</div><div class="popup-country">'+p.name+'</div><div class="popup-partner">'+p.partner+'</div></div>');
+        });
+
+        var allPoints = [[HQ.lat, HQ.lon]].concat(partners.map(function(p){return [p.lat,p.lon];}));
+        map.fitBounds(allPoints, {padding:[30,30]});
+      }
+
+      // 페이지 로드 및 탭 전환 시 초기화
+      document.addEventListener('DOMContentLoaded', function(){ setTimeout(initGlobalMap, 300); });
+      window._initGlobalMap = initGlobalMap;
+    })();
+    </script>
 
     <!-- 지역별 고객사 카드 -->
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;">

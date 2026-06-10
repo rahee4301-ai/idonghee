@@ -1319,9 +1319,11 @@ setTimeout(initAnimations, 200);
 
 // 언어 전환
 let currentLang = 'ko';
+window.currentLang = 'ko';
 
 function setLang(lang) {
   currentLang = lang;
+  window.currentLang = lang;
   // 버튼 스타일
   document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');

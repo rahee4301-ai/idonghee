@@ -448,7 +448,43 @@
     @media(max-width:480px) {
       .products-grid { grid-template-columns:repeat(2,1fr); }
     }
+    /* ══ GHG·Energy 모달 ══ */
+    .esg-mo{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(11,29,58,.78);z-index:2000;align-items:center;justify-content:center;padding:12px;backdrop-filter:blur(3px);}
+    .esg-mo.open{display:flex;}
+    .esg-mb{background:#fff;width:100%;max-width:860px;max-height:92vh;overflow-y:auto;border-radius:4px;box-shadow:0 24px 80px rgba(0,0,0,.4);}
+    .esg-mh{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;border-bottom:3px solid #0d9488;position:sticky;top:0;background:#fff;z-index:1;}
+    .esg-mh h2{font-family:'Oswald',sans-serif;font-size:1.35rem;color:#0B1D3A;font-weight:600;}
+    .esg-mx{background:none;border:none;font-size:1.8rem;cursor:pointer;color:#64748B;padding:4px 8px;line-height:1;}
+    .esg-mx:hover{color:#0B1D3A;}
+    .esg-mc{padding:1.8rem;}
+    .kpi-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;margin-bottom:1.6rem;}
+    .kpi-c{background:#f8f9fc;border:1px solid #e2e8f0;border-radius:6px;padding:13px 10px;text-align:center;}
+    .kpi-yr{font-size:.72rem;font-weight:700;color:#64748B;margin-bottom:3px;}
+    .kpi-v{font-size:1.5rem;font-weight:700;color:#0B1D3A;}
+    .kpi-u{font-size:.7rem;color:#94a3b8;margin-top:1px;}
+    .kpi-ch{font-size:.75rem;font-weight:600;margin-top:3px;color:#16a34a;}
+    .mo-sec{font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:600;color:#0B1D3A;letter-spacing:.03em;margin:1.2rem 0 .7rem;border-left:3px solid #0d9488;padding-left:9px;}
+    .ch-row{display:grid;grid-template-columns:2fr 1fr;gap:1.2rem;margin-bottom:1.4rem;}
+    .ch-w{position:relative;height:240px;}
+    .do-w{height:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+    .mo-tbl{width:100%;border-collapse:collapse;font-size:.82rem;}
+    .mo-tbl thead th{background:#0B1D3A;color:#fff;padding:7px 9px;text-align:center;font-weight:600;white-space:nowrap;}
+    .mo-tbl thead th:first-child{text-align:left;}
+    .mo-tbl tbody tr:nth-child(even){background:#f8f9fc;}
+    .mo-tbl td{padding:6px 9px;border-bottom:1px solid #e2e8f0;text-align:center;}
+    .mo-tbl td:first-child{text-align:left;font-weight:600;color:#0B1D3A;}
+    .mo-tbl tr.tsub td{background:#dbeafe;font-weight:700;}
+    .mo-tbl tr.ttot td{background:#0B1D3A;color:#fff;font-weight:700;}
+    .s1b{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.7rem;font-weight:700;background:#dce6f1;color:#1e3a5f;margin-right:4px;}
+    .s2b{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.7rem;font-weight:700;background:#d1fae5;color:#065f46;margin-right:4px;}
+    .s3b{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.7rem;font-weight:700;background:#fef3c7;color:#92400e;border:1px solid #fcd34d;margin-right:4px;}
+    .goal-box{background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:1rem 1.2rem;font-size:.84rem;line-height:1.9;color:#14532d;margin-bottom:.8rem;}
+    .mo-note{font-size:.75rem;color:#94a3b8;margin-top:.8rem;line-height:1.7;}
+    .act-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px;}
+    .act-c{border-radius:6px;padding:.9rem;font-size:.82rem;}
+    @media(max-width:600px){.ch-row{grid-template-columns:1fr;}.kpi-g{grid-template-columns:repeat(3,1fr);}}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
@@ -1051,8 +1087,8 @@
   <section class="section bg-light" id="esg-env">
     <div class="section-tag green">Environment</div><div class="section-title" data-ko="환경 경영" data-en="Environmental Management">환경 경영</div>
     <div class="policy-grid">
-      <div class="policy-card"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">🌱</div><h3 data-ko="온실가스 관리" data-en="GHG Management">온실가스 관리</h3><p data-ko="사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리." data-en="Monitoring GHG emissions and setting reduction targets. Systematic management of Scope 1·2 emissions.">사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리.</p></div>
-      <div class="policy-card"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">⚡</div><h3 data-ko="에너지 절약" data-en="Energy Saving">에너지 절약</h3><p data-ko="에너지 효율 개선 설비 도입, 재생에너지 활용 검토, 에너지 사용량 정기 점검 실시." data-en="Introduction of energy efficiency equipment, review of renewable energy utilization, regular energy usage inspections.">에너지 효율 개선 설비 도입, 재생에너지 활용 검토, 에너지 사용량 정기 점검 실시.</p></div>
+      <div class="policy-card" style="cursor:pointer;" onclick="openEsgMo('ghg')"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">🌱</div><h3 data-ko="온실가스 관리" data-en="GHG Management">온실가스 관리</h3><p data-ko="사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리." data-en="Monitoring GHG emissions and setting reduction targets. Systematic management of Scope 1·2 emissions.">사업장 온실가스 배출량 모니터링 및 감축 목표 설정. Scope 1·2 배출량 체계적 관리.</p><div style="margin-top:1rem;"><span style="display:inline-flex;align-items:center;gap:6px;background:#16a34a;color:white;font-size:.78rem;font-weight:600;padding:8px 14px;letter-spacing:.05em;" data-ko="📊 배출량 현황 보기" data-en="📊 View Emissions Data">📊 배출량 현황 보기</span></div></div>
+      <div class="policy-card" style="cursor:pointer;" onclick="openEsgMo('energy')"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">⚡</div><h3 data-ko="에너지 절약" data-en="Energy Saving">에너지 절약</h3><p data-ko="에너지 효율 개선 설비 도입, 재생에너지 활용 검토, 에너지 사용량 정기 점검 실시." data-en="Introduction of energy efficiency equipment, review of renewable energy utilization, regular energy usage inspections.">에너지 효율 개선 설비 도입, 재생에너지 활용 검토, 에너지 사용량 정기 점검 실시.</p><div style="margin-top:1rem;"><span style="display:inline-flex;align-items:center;gap:6px;background:#0369a1;color:white;font-size:.78rem;font-weight:600;padding:8px 14px;letter-spacing:.05em;" data-ko="⚡ 에너지 현황 보기" data-en="⚡ View Energy Data">⚡ 에너지 현황 보기</span></div></div>
       <div class="policy-card"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">♻️</div><h3 data-ko="폐기물·화학물질 관리" data-en="Waste & Chemical Mgmt.">폐기물·화학물질 관리</h3><p data-ko="폐기물 발생 최소화 및 재활용 확대. 유해 화학물질 사용 저감 및 대체 추진." data-en="Minimizing waste generation and expanding recycling. Reducing and substituting hazardous chemical use.">폐기물 발생 최소화 및 재활용 확대. 유해 화학물질 사용 저감 및 대체 추진.</p></div>
       <div class="policy-card" style="cursor:pointer;" onclick="openNotice('notice6')"><span class="policy-badge badge-e" data-ko="환경" data-en="Environment">환경</span><div class="policy-icon">🌿</div><h3 data-ko="환경경영 방침" data-en="Environmental Policy">환경경영 방침</h3><p data-ko="사업장 주변 생태계 영향 평가 실시. 자연환경 훼손 방지 및 녹지 보전 노력." data-en="Conducting ecosystem impact assessments around business sites. Efforts to prevent environmental damage and preserve green spaces.">사업장 주변 생태계 영향 평가 실시. 자연환경 훼손 방지 및 녹지 보전 노력.</p><div style="margin-top:1rem;"><span style="display:inline-flex;align-items:center;gap:6px;background:#16a34a;color:white;font-size:0.78rem;font-weight:600;padding:8px 14px;letter-spacing:0.05em;" data-ko="📄 환경경영 방침 보기" data-en="📄 View Environmental Policy">📄 환경경영 방침 보기</span></div></div>
     </div>
@@ -1107,6 +1143,8 @@
   <section class="section" id="notice-list">
     <div class="section-tag">Notice</div><div class="section-title" data-ko="공지사항" data-en="Notice" data-ko="공지사항" data-en="Notice">공지사항</div>
     <div class="notice-list-wrap">
+      <div class="notice-row" onclick="openNotice('notice8')" style="cursor:pointer;"><span class="notice-num">8</span><span class="news-badge badge-esg" data-ko="ESG" data-en="ESG">ESG</span><span class="notice-ttl" data-ko="에너지 소비량 현황 (2023~2025)" data-en="Energy Consumption Report (2023~2025)">에너지 소비량 현황 (2023~2025)</span><span class="notice-dt">2026.05.31</span></div>
+      <div class="notice-row" onclick="openNotice('notice7')" style="cursor:pointer;"><span class="notice-num">7</span><span class="news-badge badge-esg" data-ko="ESG" data-en="ESG">ESG</span><span class="notice-ttl" data-ko="온실가스 배출량 현황 (2023~2025)" data-en="GHG Emissions Report (2023~2025)">온실가스 배출량 현황 (2023~2025)</span><span class="notice-dt">2026.05.31</span></div>
       <div class="notice-row" onclick="openNotice('notice6')" style="cursor:pointer;"><span class="notice-num">6</span><span class="news-badge badge-notice" data-ko="공지" data-en="Notice">공지</span><span class="notice-ttl" data-ko="CEO 환경경영 방침 공표" data-en="CEO Environmental Policy">CEO 환경경영 방침 공표</span><span class="notice-dt">2026.04.09</span></div>
       <div class="notice-row" onclick="openNotice('notice3')" style="cursor:pointer;"><span class="notice-num">5</span><span class="news-badge badge-notice" data-ko="공지" data-en="Notice">공지</span><span class="notice-ttl" data-ko="인권경영 헌장" data-en="Human Rights Charter">인권경영 헌장</span><span class="notice-dt">2026.04.03</span></div>
       <div class="notice-row" onclick="openNotice('notice5')" style="cursor:pointer;"><span class="notice-num">4</span><span class="news-badge badge-esg" data-ko="ESG" data-en="ESG">ESG</span><span class="notice-ttl" data-ko="ESG 헌장" data-en="ESG Charter">ESG 헌장</span><span class="notice-dt">2026.02.24</span></div>
@@ -1923,6 +1961,170 @@ const noticeContents = {
 </body>
 </html>
 `
+  notice7: `<div style="font-family:'Pretendard','맑은 고딕',sans-serif;">
+  <div style="background:#0d2e2e;padding:16px 20px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#4ade80;margin-bottom:4px;">ENVIRONMENT · GHG MANAGEMENT</div>
+    <div style="font-size:17px;font-weight:700;color:#fff;">🌱 온실가스 배출량 현황</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px;">2026.05.31 · 동희산기</div>
+  </div>
+  <div style="padding:18px 20px 6px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #2E5090;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">2023년 (기준연도)</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">534.06</div><div style="font-size:10px;color:#94a3b8;">tCO₂eq</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #2E5090;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">2024년</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">470.21</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼11.9%</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #16a34a;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">2025년</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">155.83</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼70.8%</div></div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:16px;">
+      <thead><tr style="background:#0B1D3A;color:#fff;">
+        <th style="padding:7px 9px;text-align:left;font-weight:600;">구분</th><th style="padding:7px 9px;text-align:center;">2023년</th><th style="padding:7px 9px;text-align:center;">2024년</th><th style="padding:7px 9px;text-align:center;">2025년</th><th style="padding:7px 9px;text-align:center;">전년대비</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;font-weight:600;"><span style="background:#dce6f1;color:#1e3a5f;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-right:4px;">S1</span>직접배출 합계</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">254.89</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">260.57</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">81.40</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-weight:700;">▼68.8%</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ 도시가스(LNG)</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">26.80</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">27.82</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">12.27</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼55.9%</td></tr>
+        <tr><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ 경유</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">82.06</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">106.33</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">46.65</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼56.1%</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ 휘발유</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">134.22</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">113.35</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">12.74</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼88.8%</td></tr>
+        <tr><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ 탄산가스(CO₂실린더)</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">7.65</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">9.95</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">7.65</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼23.1%</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;font-weight:600;"><span style="background:#d1fae5;color:#065f46;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-right:4px;">S2</span>간접배출 (전기)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">279.17</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">209.64</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">74.43</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-weight:700;">▼64.5%</td></tr>
+        <tr style="background:#dbeafe;"><td style="padding:7px 9px;border-bottom:1px solid #bfdbfe;font-weight:700;">Scope 1+2 합계</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">534.06</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">470.21</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">155.83</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;color:#16a34a;">▼66.9%</td></tr>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;font-weight:600;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;border:1px solid #fcd34d;margin-right:4px;">S3</span>항공 출장</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">미집계</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;font-weight:600;">2,474.22</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;font-weight:600;">565.32</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-weight:600;">▼77.1%</td></tr>
+        <tr style="background:#0B1D3A;"><td style="padding:7px 9px;font-weight:700;color:#fff;">Scope 1+2+3 합계</td><td style="padding:7px 9px;text-align:center;color:#94a3b8;">—</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">2,944.43</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">721.15</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#4ade80;">▼75.5%</td></tr>
+      </tbody>
+    </table>
+    <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.9;color:#14532d;margin-bottom:12px;">
+      <strong>📌 2023년 기준 2030년까지 Scope 1+2+3 30% 감축</strong><br>
+      534.06 tCO₂eq → 373.84 tCO₂eq | 감축량 160.22 tCO₂eq<br>
+      <span style="color:#64748B;font-size:11px;">· 산정 기준: GHG Protocol Corporate Standard · Scope 3: Category 6 항공 출장 (ICAO + RFI 2.0)<br>· 데이터 범위: 동희산기 당진 공장(사업장) 기준</span>
+    </div>
+    <div style="font-size:11px;color:#94a3b8;padding-bottom:14px;">※ 2025년은 12개월 완전집계 기준 / Scope 3 항공은 대한여행사 발권 내역 기준 산정</div>
+  </div>
+</div>`,
+  notice7_en: `<div style="font-family:'Pretendard','맑은 고딕',sans-serif;">
+  <div style="background:#0d2e2e;padding:16px 20px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#4ade80;margin-bottom:4px;">ENVIRONMENT · GHG MANAGEMENT</div>
+    <div style="font-size:17px;font-weight:700;color:#fff;">🌱 GHG Emissions Report</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px;">2026.05.31 · Donghee Industries</div>
+  </div>
+  <div style="padding:18px 20px 6px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #2E5090;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">FY2023 (Base Year)</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">534.06</div><div style="font-size:10px;color:#94a3b8;">tCO₂eq</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #2E5090;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">FY2024</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">470.21</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼11.9%</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #16a34a;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">FY2025</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">155.83</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼70.8%</div></div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:16px;">
+      <thead><tr style="background:#0B1D3A;color:#fff;">
+        <th style="padding:7px 9px;text-align:left;font-weight:600;">Category</th><th style="padding:7px 9px;text-align:center;">FY2023</th><th style="padding:7px 9px;text-align:center;">FY2024</th><th style="padding:7px 9px;text-align:center;">FY2025</th><th style="padding:7px 9px;text-align:center;">YoY</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;font-weight:600;"><span style="background:#dce6f1;color:#1e3a5f;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-right:4px;">S1</span>Direct Emissions Total</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">254.89</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">260.57</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">81.40</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-weight:700;">▼68.8%</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ City Gas (LNG)</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">26.80</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">27.82</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">12.27</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼55.9%</td></tr>
+        <tr><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ Diesel</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">82.06</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">106.33</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">46.65</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼56.1%</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ Gasoline</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">134.22</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">113.35</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">12.74</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼88.8%</td></tr>
+        <tr><td style="padding:5px 9px 5px 22px;color:#475569;border-bottom:1px solid #e2e8f0;font-size:11px;">└ CO₂ Cylinders</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">7.65</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">9.95</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">7.65</td><td style="padding:5px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-size:11px;">▼23.1%</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;font-weight:600;"><span style="background:#d1fae5;color:#065f46;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;margin-right:4px;">S2</span>Indirect Emissions (Electricity)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">279.17</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">209.64</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">74.43</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-weight:700;">▼64.5%</td></tr>
+        <tr style="background:#dbeafe;"><td style="padding:7px 9px;border-bottom:1px solid #bfdbfe;font-weight:700;">Scope 1+2 Total</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">534.06</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">470.21</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">155.83</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;color:#16a34a;">▼66.9%</td></tr>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;font-weight:600;"><span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;border:1px solid #fcd34d;margin-right:4px;">S3</span>Business Travel (Aviation)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">N/A</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;font-weight:600;">2,474.22</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;font-weight:600;">565.32</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#16a34a;font-weight:600;">▼77.1%</td></tr>
+        <tr style="background:#0B1D3A;"><td style="padding:7px 9px;font-weight:700;color:#fff;">Scope 1+2+3 Total</td><td style="padding:7px 9px;text-align:center;color:#94a3b8;">—</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">2,944.43</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">721.15</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#4ade80;">▼75.5%</td></tr>
+      </tbody>
+    </table>
+    <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:12px 14px;font-size:12px;line-height:1.9;color:#14532d;margin-bottom:12px;">
+      <strong>📌 30% Reduction in Scope 1+2+3 by 2030 (Base Year: 2023)</strong><br>
+      534.06 tCO₂eq → 373.84 tCO₂eq | Reduction: 160.22 tCO₂eq<br>
+      <span style="color:#64748B;font-size:11px;">· Standard: GHG Protocol Corporate Standard · Scope 3: Cat.6 Business Travel (ICAO + RFI 2.0)<br>· Boundary: Donghee Industries Dangjin Plant</span>
+    </div>
+    <div style="font-size:11px;color:#94a3b8;padding-bottom:14px;">※ FY2025: full 12-month data / Scope 3 aviation based on travel agency records</div>
+  </div>
+</div>`,
+  notice8: `<div style="font-family:'Pretendard','맑은 고딕',sans-serif;">
+  <div style="background:#0c1a2e;padding:16px 20px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#93c5fd;margin-bottom:4px;">ENVIRONMENT · ENERGY MANAGEMENT</div>
+    <div style="font-size:17px;font-weight:700;color:#fff;">⚡ 에너지 소비량 현황</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px;">2026.05.31 · 동희산기</div>
+  </div>
+  <div style="padding:18px 20px 6px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #0369a1;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">2023년</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">1,651.7</div><div style="font-size:10px;color:#94a3b8;">MWh</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #0369a1;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">2024년</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">1,510.3</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼8.6%</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #16a34a;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">2025년</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">472.8</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼68.7%</div></div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:16px;">
+      <thead><tr style="background:#0B1D3A;color:#fff;">
+        <th style="padding:7px 9px;text-align:left;font-weight:600;">구분 (Category)</th><th style="padding:7px 9px;text-align:center;">에너지원</th><th style="padding:7px 9px;text-align:center;">FY2023</th><th style="padding:7px 9px;text-align:center;">FY2024</th><th style="padding:7px 9px;text-align:center;">FY2025</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">전력(비재생)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">한전 구매 전력</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">611.3</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">459.0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">163.0</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">전력(재생)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">해당없음</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td></tr>
+        <tr style="background:#dbeafe;"><td style="padding:7px 9px;font-weight:700;border-bottom:1px solid #bfdbfe;" colspan="2">전력 소계</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">611.3</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">459.0</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">163.0</td></tr>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">연료(비재생)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">LNG·경유·휘발유·등유</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">1,040.4</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">1,051.3</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">309.8</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">연료(재생)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">바이오매스 등</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td></tr>
+        <tr style="background:#fef3c7;"><td style="padding:7px 9px;font-weight:700;border-bottom:1px solid #fcd34d;" colspan="2">연료 소계</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #fcd34d;">1,040.4</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #fcd34d;">1,051.3</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #fcd34d;">309.8</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">스팀(비재생)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">화석연료 기반</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td></tr>
+        <tr style="background:#0B1D3A;"><td style="padding:7px 9px;font-weight:700;color:#fff;" colspan="2">총 에너지 합계</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">1,651.7</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">1,510.3</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">472.8</td></tr>
+        <tr><td colspan="5" style="font-size:11px;color:#64748B;text-align:left;padding:6px 9px;">데이터 산정 범위: 동희산기 당진 공장(사업장) 기준</td></tr>
+      </tbody>
+    </table>
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:700;color:#1e40af;margin-bottom:8px;">⚡ 에너지 절감 이행 현황</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;">
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">💡 <strong>LED 조명 교체</strong><br><span style="color:#475569;font-size:11px;">노후 형광등 LED 전환으로 전력 절감</span></div>
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">🔧 <strong>고효율 설비 도입</strong><br><span style="color:#475569;font-size:11px;">압축기·설비 고효율 교체 및 인버터 적용</span></div>
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">📊 <strong>에너지 모니터링</strong><br><span style="color:#475569;font-size:11px;">월별 사용량 추적 및 이상 즉시 대응</span></div>
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">📋 <strong>정기 점검</strong><br><span style="color:#475569;font-size:11px;">분기별 에너지 절감 계획 수립·실행</span></div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:#94a3b8;padding-bottom:14px;">※ 단위 변환: 전력 kWh÷1,000=MWh / 연료 TJ×277.778=MWh · 2025년은 12개월 완전집계 기준</div>
+  </div>
+</div>`,
+  notice8_en: `<div style="font-family:'Pretendard','맑은 고딕',sans-serif;">
+  <div style="background:#0c1a2e;padding:16px 20px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#93c5fd;margin-bottom:4px;">ENVIRONMENT · ENERGY MANAGEMENT</div>
+    <div style="font-size:17px;font-weight:700;color:#fff;">⚡ Energy Consumption Report</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:3px;">2026.05.31 · Donghee Industries</div>
+  </div>
+  <div style="padding:18px 20px 6px;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #0369a1;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">FY2023</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">1,651.7</div><div style="font-size:10px;color:#94a3b8;">MWh</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #0369a1;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">FY2024</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">1,510.3</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼8.6%</div></div>
+      <div style="background:#f8f9fc;border:1px solid #e2e8f0;border-top:3px solid #16a34a;border-radius:6px;padding:12px;text-align:center;">
+        <div style="font-size:10px;font-weight:700;color:#64748B;margin-bottom:3px;">FY2025</div><div style="font-size:19px;font-weight:700;color:#0B1D3A;">472.8</div><div style="font-size:10px;color:#16a34a;font-weight:600;">▼68.7%</div></div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:16px;">
+      <thead><tr style="background:#0B1D3A;color:#fff;">
+        <th style="padding:7px 9px;text-align:left;font-weight:600;">Category</th><th style="padding:7px 9px;text-align:center;">Source</th><th style="padding:7px 9px;text-align:center;">FY2023</th><th style="padding:7px 9px;text-align:center;">FY2024</th><th style="padding:7px 9px;text-align:center;">FY2025</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">Electricity (Non-renewable)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">KEPCO Grid Power</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">611.3</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">459.0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">163.0</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">Electricity (Renewable)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">N/A</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td></tr>
+        <tr style="background:#dbeafe;"><td style="padding:7px 9px;font-weight:700;border-bottom:1px solid #bfdbfe;" colspan="2">Electricity Subtotal</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">611.3</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">459.0</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #bfdbfe;">163.0</td></tr>
+        <tr><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">Fuel (Non-renewable)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">LNG·Diesel·Gasoline·Kerosene</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">1,040.4</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">1,051.3</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;">309.8</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">Fuel (Renewable)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">Biomass etc.</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td></tr>
+        <tr style="background:#fef3c7;"><td style="padding:7px 9px;font-weight:700;border-bottom:1px solid #fcd34d;" colspan="2">Fuel Subtotal</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #fcd34d;">1,040.4</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #fcd34d;">1,051.3</td><td style="padding:7px 9px;text-align:center;font-weight:700;border-bottom:1px solid #fcd34d;">309.8</td></tr>
+        <tr style="background:#f8f9fc;"><td style="padding:6px 9px;border-bottom:1px solid #e2e8f0;">Steam (Non-renewable)</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#475569;font-size:11px;">Fossil-fuel Steam</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td><td style="padding:6px 9px;text-align:center;border-bottom:1px solid #e2e8f0;color:#94a3b8;">0</td></tr>
+        <tr style="background:#0B1D3A;"><td style="padding:7px 9px;font-weight:700;color:#fff;" colspan="2">Total Energy</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">1,651.7</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">1,510.3</td><td style="padding:7px 9px;text-align:center;font-weight:700;color:#fff;">472.8</td></tr>
+        <tr><td colspan="5" style="font-size:11px;color:#64748B;text-align:left;padding:6px 9px;">Boundary: Donghee Industries Dangjin Plant</td></tr>
+      </tbody>
+    </table>
+    <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:12px 14px;margin-bottom:12px;">
+      <div style="font-size:11px;font-weight:700;color:#1e40af;margin-bottom:8px;">⚡ Energy Reduction Initiatives</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;">
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">💡 <strong>LED Lighting Upgrade</strong><br><span style="color:#475569;font-size:11px;">Replacing fluorescent lights with LEDs to cut power use</span></div>
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">🔧 <strong>High-Efficiency Equipment</strong><br><span style="color:#475569;font-size:11px;">Replacing aging compressors with inverter-driven equipment</span></div>
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">📊 <strong>Energy Monitoring</strong><br><span style="color:#475569;font-size:11px;">Monthly tracking with immediate response to anomalies</span></div>
+        <div style="background:#fff;border-radius:5px;padding:9px;border:1px solid #dbeafe;">📋 <strong>Regular Inspections</strong><br><span style="color:#475569;font-size:11px;">Quarterly energy reduction planning and execution</span></div>
+      </div>
+    </div>
+    <div style="font-size:11px;color:#94a3b8;padding-bottom:14px;">※ Conversion: Electricity kWh÷1,000=MWh / Fuel TJ×277.778=MWh · FY2025: full 12-month data</div>
+  </div>
+</div>`,
 };
 
 function openNotice(id) {
@@ -1942,14 +2144,18 @@ function openNotice(id) {
     notice3: '인권경영 헌장',
     notice4: '윤리강령',
     notice5: 'ESG 헌장',
-    notice6: 'CEO 환경경영 방침'
+    notice6: 'CEO 환경경영 방침',
+    notice7: '온실가스 배출량 현황',
+    notice8: '에너지 소비량 현황'
   };
   const titleMapEn = {
     notice2: 'Ethics Charter',
     notice3: 'Human Rights Charter',
     notice4: 'Code of Ethics',
     notice5: 'ESG Charter',
-    notice6: 'CEO Environmental Policy'
+    notice6: 'CEO Environmental Policy',
+    notice7: 'GHG Emissions Report',
+    notice8: 'Energy Consumption Report'
   };
   const el = document.getElementById('noticeModalTitle');
   if(el) el.textContent = (lang === 'en' ? titleMapEn[id] : titleMapKo[id]) || '공지사항';
@@ -1978,5 +2184,213 @@ function closeModal(e) {
         <img src="images/cert_iso9001.png" style="width:100%;border-radius:4px;max-height:80vh;object-fit:contain;">
       </div>
     </div>
+
+<!-- ══ 온실가스 모달 ══ -->
+<div class="esg-mo" id="ghgMo" onclick="if(event.target===this)closeEsgMo('ghg')">
+  <div class="esg-mb" onclick="event.stopPropagation()">
+    <div class="esg-mh">
+      <h2 id="ghgMoTitle">🌱 온실가스 배출량 현황</h2>
+      <button class="esg-mx" onclick="closeEsgMo('ghg')">✕</button>
+    </div>
+    <div class="esg-mc">
+      <div class="kpi-g" id="ghgKpi"></div>
+      <div class="ch-row">
+        <div><div class="mo-sec" id="ghgChartTitle">연도별 Scope 1+2 배출량 추이</div><div class="ch-w"><canvas id="ghgChart"></canvas></div></div>
+        <div><div class="mo-sec" id="ghgDonutTitle">2025년 Scope 구성</div><div class="do-w"><canvas id="ghgDonut" style="max-width:170px;max-height:170px;"></canvas><div id="ghgLeg" style="font-size:.76rem;text-align:center;line-height:1.9;"></div></div></div>
+      </div>
+      <div class="mo-sec" id="ghgTblTitle">Scope별 배출량 상세 (tCO₂eq)</div>
+      <div id="ghgTblWrap"></div>
+      <div class="mo-sec" id="ghgGoalTitle">온실가스 감축 목표</div>
+      <div id="ghgGoalWrap"></div>
+      <p class="mo-note" id="ghgNote"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 에너지 모달 ══ -->
+<div class="esg-mo" id="energyMo" onclick="if(event.target===this)closeEsgMo('energy')">
+  <div class="esg-mb" onclick="event.stopPropagation()">
+    <div class="esg-mh">
+      <h2 id="enMoTitle">⚡ 에너지 사용량 현황</h2>
+      <button class="esg-mx" onclick="closeEsgMo('energy')">✕</button>
+    </div>
+    <div class="esg-mc">
+      <div class="kpi-g" id="enKpi"></div>
+      <div class="ch-row">
+        <div><div class="mo-sec" id="enChartTitle">연도별 에너지 사용량 추이 (MWh)</div><div class="ch-w"><canvas id="enChart"></canvas></div></div>
+        <div><div class="mo-sec" id="enDonutTitle">2025년 에너지원 구성</div><div class="do-w"><canvas id="enDonut" style="max-width:170px;max-height:170px;"></canvas><div id="enLeg" style="font-size:.76rem;text-align:center;line-height:1.9;"></div></div></div>
+      </div>
+      <div class="mo-sec" id="enTblTitle">ESG Q6.7 에너지 소비량 (MWh)</div>
+      <div id="enTblWrap"></div>
+      <div class="mo-sec" id="enActTitle">에너지 절감 이행 현황</div>
+      <div id="enActWrap"></div>
+      <p class="mo-note" id="enNote"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── ESG 모달 데이터 (한/영) ────────────────────────────────────────────────
+var ESG_DATA = {
+  ko: {
+    ghgTitle: '🌱 온실가스 배출량 현황',
+    ghgChartTitle: '연도별 Scope 1+2 배출량 추이',
+    ghgDonutTitle: '2025년 Scope 구성',
+    ghgTblTitle: 'Scope별 배출량 상세 (tCO₂eq)',
+    ghgGoalTitle: '온실가스 감축 목표',
+    ghgNote: '※ 2025년은 12개월 완전집계 기준 / Scope 3 항공은 대한여행사 발권 내역 기준 산정',
+    ghgKpi: [
+      {yr:'2023년 (기준연도)', v:'534.06', u:'tCO₂eq (S1+2)', ch:'기준연도', chc:'#94a3b8', bc:'#2E5090'},
+      {yr:'2024년', v:'470.21', u:'tCO₂eq (S1+2)', ch:'▼11.9%', chc:'#16a34a', bc:'#2E5090'},
+      {yr:'2025년', v:'155.83', u:'tCO₂eq (S1+2)', ch:'▼70.8%', chc:'#16a34a', bc:'#16a34a'},
+      {yr:'2030년 목표', v:'373.84', u:'tCO₂eq (S1+2+3)', ch:'▼30% 감축', chc:'#16a34a', bc:'#D4A017'},
+    ],
+    ghgTbl: '<table class="mo-tbl"><thead><tr><th>구분</th><th>2023년</th><th>2024년</th><th>2025년</th><th>전년대비</th></tr></thead><tbody><tr><td><span class="s1b">S1</span>직접배출 합계</td><td>254.89</td><td>260.57</td><td>81.40</td><td style="color:#16a34a;font-weight:700;">▼68.8%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ 도시가스(LNG)</td><td>26.80</td><td>27.82</td><td>12.27</td><td style="color:#16a34a;">▼55.9%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ 경유</td><td>82.06</td><td>106.33</td><td>46.65</td><td style="color:#16a34a;">▼56.1%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ 휘발유</td><td>134.22</td><td>113.35</td><td>12.74</td><td style="color:#16a34a;">▼88.8%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ 탄산가스(CO₂실린더)</td><td>7.65</td><td>9.95</td><td>7.65</td><td style="color:#16a34a;">▼23.1%</td></tr><tr><td><span class="s2b">S2</span>간접배출 (전기)</td><td>279.17</td><td>209.64</td><td>74.43</td><td style="color:#16a34a;font-weight:700;">▼64.5%</td></tr><tr class="tsub"><td>Scope 1+2 합계</td><td>534.06</td><td>470.21</td><td>155.83</td><td style="color:#16a34a;font-weight:700;">▼66.9%</td></tr><tr><td><span class="s3b">S3</span>항공 출장</td><td style="color:#94a3b8;">미집계</td><td>2,474.22</td><td>565.32</td><td style="color:#16a34a;">▼77.1%</td></tr><tr class="ttot"><td>Scope 1+2+3 합계</td><td>—</td><td>2,944.43</td><td>721.15</td><td style="color:#4ade80;font-weight:700;">▼75.5%</td></tr></tbody></table>',
+    ghgGoal: '<div class="goal-box"><strong>📌 2023년 기준 2030년까지 Scope 1+2+3 30% 감축</strong><br>534.06 tCO₂eq → 373.84 tCO₂eq | 감축량 160.22 tCO₂eq<br><span style="color:#64748B;font-size:.8rem;">· 산정 기준: GHG Protocol Corporate Standard · Scope 3: Category 6 항공 출장 (ICAO + RFI 2.0)<br>· 데이터 범위: 동희산기 당진 공장(사업장) 기준</span></div>',
+    enTitle: '⚡ 에너지 사용량 현황',
+    enChartTitle: '연도별 에너지 사용량 추이 (MWh)',
+    enDonutTitle: '2025년 에너지원 구성',
+    enTblTitle: 'ESG Q6.7 에너지 소비량 (MWh, 현대·기아 평가 기준)',
+    enActTitle: '에너지 절감 이행 현황',
+    enNote: '※ 단위 변환: 전력 kWh÷1,000=MWh / 연료 TJ×277.778=MWh · 2025년은 12개월 완전집계 기준',
+    enKpi: [
+      {yr:'2023년', v:'1,651.7', u:'MWh (총 에너지)', ch:'기준', chc:'#94a3b8', bc:'#0369a1'},
+      {yr:'2024년', v:'1,510.3', u:'MWh (총 에너지)', ch:'▼8.6%', chc:'#16a34a', bc:'#0369a1'},
+      {yr:'2025년', v:'472.8', u:'MWh (총 에너지)', ch:'▼68.7%', chc:'#16a34a', bc:'#16a34a'},
+      {yr:'전기 사용량', v:'162,980', u:'kWh (2025년)', ch:'▼73.3%', chc:'#16a34a', bc:'#7c3aed'},
+    ],
+    enTbl: '<table class="mo-tbl"><thead><tr><th>구분 (Category)</th><th>에너지원</th><th>FY2023</th><th>FY2024</th><th>FY2025</th></tr></thead><tbody><tr><td>전력(비재생)</td><td style="color:#475569;font-size:.78rem;">한전 구매 전력</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>전력(재생)</td><td style="color:#475569;font-size:.78rem;">해당없음</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">전력 소계</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>연료(비재생)</td><td style="color:#475569;font-size:.78rem;">LNG·경유·휘발유·등유</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>연료(재생)</td><td style="color:#475569;font-size:.78rem;">바이오매스 등</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">연료 소계</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>스팀(비재생)</td><td style="color:#475569;font-size:.78rem;">화석연료 기반</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="ttot"><td colspan="2">총 에너지 합계</td><td>1,651.7</td><td>1,510.3</td><td>472.8</td></tr></tbody></table>',
+    enAct: '<div class="act-grid"><div class="act-c" style="background:#eff6ff;border:1px solid #bfdbfe;">💡 <strong style="color:#1e3a5f;">LED 조명 교체</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">노후 형광등 LED 전환으로 전력 소비 절감</p></div><div class="act-c" style="background:#fefce8;border:1px solid #fde68a;">🔧 <strong style="color:#78350f;">고효율 설비 도입</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">압축기·설비 고효율 교체 및 인버터 적용</p></div><div class="act-c" style="background:#fdf4ff;border:1px solid #e9d5ff;">📊 <strong style="color:#581c87;">에너지 모니터링</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">월별 사용량 추적 및 이상 즉시 대응</p></div><div class="act-c" style="background:#f0fdf4;border:1px solid #bbf7d0;">📋 <strong style="color:#14532d;">정기 점검</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">분기별 에너지 절감 계획 수립·실행</p></div></div>',
+  },
+  en: {
+    ghgTitle: '🌱 GHG Emissions Report',
+    ghgChartTitle: 'Annual Scope 1+2 Emissions Trend',
+    ghgDonutTitle: 'FY2025 Scope Breakdown',
+    ghgTblTitle: 'Detailed Emissions by Scope (tCO₂eq)',
+    ghgGoalTitle: 'GHG Reduction Target',
+    ghgNote: '※ FY2025: full 12-month data / Scope 3 aviation based on travel agency records',
+    ghgKpi: [
+      {yr:'FY2023 (Base Year)', v:'534.06', u:'tCO₂eq (S1+2)', ch:'Base Year', chc:'#94a3b8', bc:'#2E5090'},
+      {yr:'FY2024', v:'470.21', u:'tCO₂eq (S1+2)', ch:'▼11.9%', chc:'#16a34a', bc:'#2E5090'},
+      {yr:'FY2025', v:'155.83', u:'tCO₂eq (S1+2)', ch:'▼70.8%', chc:'#16a34a', bc:'#16a34a'},
+      {yr:'2030 Target', v:'373.84', u:'tCO₂eq (S1+2+3)', ch:'▼30% Reduction', chc:'#16a34a', bc:'#D4A017'},
+    ],
+    ghgTbl: '<table class="mo-tbl"><thead><tr><th>Category</th><th>FY2023</th><th>FY2024</th><th>FY2025</th><th>YoY</th></tr></thead><tbody><tr><td><span class="s1b">S1</span>Direct Emissions Total</td><td>254.89</td><td>260.57</td><td>81.40</td><td style="color:#16a34a;font-weight:700;">▼68.8%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ City Gas (LNG)</td><td>26.80</td><td>27.82</td><td>12.27</td><td style="color:#16a34a;">▼55.9%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ Diesel</td><td>82.06</td><td>106.33</td><td>46.65</td><td style="color:#16a34a;">▼56.1%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ Gasoline</td><td>134.22</td><td>113.35</td><td>12.74</td><td style="color:#16a34a;">▼88.8%</td></tr><tr><td style="padding-left:18px;color:#475569;font-weight:400;">└ CO₂ Cylinders</td><td>7.65</td><td>9.95</td><td>7.65</td><td style="color:#16a34a;">▼23.1%</td></tr><tr><td><span class="s2b">S2</span>Indirect Emissions (Electricity)</td><td>279.17</td><td>209.64</td><td>74.43</td><td style="color:#16a34a;font-weight:700;">▼64.5%</td></tr><tr class="tsub"><td>Scope 1+2 Total</td><td>534.06</td><td>470.21</td><td>155.83</td><td style="color:#16a34a;font-weight:700;">▼66.9%</td></tr><tr><td><span class="s3b">S3</span>Business Travel (Aviation)</td><td style="color:#94a3b8;">N/A</td><td>2,474.22</td><td>565.32</td><td style="color:#16a34a;">▼77.1%</td></tr><tr class="ttot"><td>Scope 1+2+3 Total</td><td>—</td><td>2,944.43</td><td>721.15</td><td style="color:#4ade80;font-weight:700;">▼75.5%</td></tr></tbody></table>',
+    ghgGoal: '<div class="goal-box"><strong>📌 30% Reduction in Scope 1+2+3 by 2030 (Base Year: 2023)</strong><br>534.06 tCO₂eq → 373.84 tCO₂eq | Reduction: 160.22 tCO₂eq<br><span style="color:#64748B;font-size:.8rem;">· Standard: GHG Protocol Corporate Standard · Scope 3: Cat.6 Business Travel (ICAO + RFI 2.0)<br>· Boundary: Donghee Industries Dangjin Plant</span></div>',
+    enTitle: '⚡ Energy Consumption Report',
+    enChartTitle: 'Annual Energy Consumption Trend (MWh)',
+    enDonutTitle: 'FY2025 Energy Source Breakdown',
+    enTblTitle: 'ESG Q6.7 Energy Consumption (MWh, Hyundai·Kia Evaluation)',
+    enActTitle: 'Energy Reduction Initiatives',
+    enNote: '※ Conversion: Electricity kWh÷1,000=MWh / Fuel TJ×277.778=MWh · FY2025: full 12-month data',
+    enKpi: [
+      {yr:'FY2023', v:'1,651.7', u:'MWh (Total Energy)', ch:'Base', chc:'#94a3b8', bc:'#0369a1'},
+      {yr:'FY2024', v:'1,510.3', u:'MWh (Total Energy)', ch:'▼8.6%', chc:'#16a34a', bc:'#0369a1'},
+      {yr:'FY2025', v:'472.8', u:'MWh (Total Energy)', ch:'▼68.7%', chc:'#16a34a', bc:'#16a34a'},
+      {yr:'Electricity Used', v:'162,980', u:'kWh (FY2025)', ch:'▼73.3%', chc:'#16a34a', bc:'#7c3aed'},
+    ],
+    enTbl: '<table class="mo-tbl"><thead><tr><th>Category</th><th>Source</th><th>FY2023</th><th>FY2024</th><th>FY2025</th></tr></thead><tbody><tr><td>Electricity (Non-renewable)</td><td style="color:#475569;font-size:.78rem;">KEPCO Grid Power</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>Electricity (Renewable)</td><td style="color:#475569;font-size:.78rem;">N/A</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">Electricity Subtotal</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>Fuel (Non-renewable)</td><td style="color:#475569;font-size:.78rem;">LNG·Diesel·Gasoline·Kerosene</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>Fuel (Renewable)</td><td style="color:#475569;font-size:.78rem;">Biomass etc.</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">Fuel Subtotal</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>Steam (Non-renewable)</td><td style="color:#475569;font-size:.78rem;">Fossil-fuel Steam</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="ttot"><td colspan="2">Total Energy</td><td>1,651.7</td><td>1,510.3</td><td>472.8</td></tr></tbody></table>',
+    enAct: '<div class="act-grid"><div class="act-c" style="background:#eff6ff;border:1px solid #bfdbfe;">💡 <strong style="color:#1e3a5f;">LED Lighting Upgrade</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Replacing fluorescent lights with LEDs to cut power use</p></div><div class="act-c" style="background:#fefce8;border:1px solid #fde68a;">🔧 <strong style="color:#78350f;">High-Efficiency Equipment</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Replacing aging compressors with inverter-driven equipment</p></div><div class="act-c" style="background:#fdf4ff;border:1px solid #e9d5ff;">📊 <strong style="color:#581c87;">Energy Monitoring</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Monthly tracking with immediate response to anomalies</p></div><div class="act-c" style="background:#f0fdf4;border:1px solid #bbf7d0;">📋 <strong style="color:#14532d;">Regular Inspections</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Quarterly energy reduction planning and execution</p></div></div>',
+  }
+};
+
+function renderKpi(containerId, kpiArr) {
+  var el = document.getElementById(containerId);
+  if (!el) return;
+  el.innerHTML = kpiArr.map(function(k) {
+    return '<div class="kpi-c" style="border-top:3px solid '+k.bc+'">'
+      +'<div class="kpi-yr">'+k.yr+'</div>'
+      +'<div class="kpi-v">'+k.v+'</div>'
+      +'<div class="kpi-u">'+k.u+'</div>'
+      +'<div class="kpi-ch" style="color:'+k.chc+'">'+k.ch+'</div>'
+      +'</div>';
+  }).join('');
+}
+
+function renderMo(type) {
+  var lang = window.currentLang || 'ko';
+  var d = ESG_DATA[lang];
+  if (type === 'ghg') {
+    document.getElementById('ghgMoTitle').textContent = d.ghgTitle;
+    document.getElementById('ghgChartTitle').textContent = d.ghgChartTitle;
+    document.getElementById('ghgDonutTitle').textContent = d.ghgDonutTitle;
+    document.getElementById('ghgTblTitle').textContent = d.ghgTblTitle;
+    document.getElementById('ghgGoalTitle').textContent = d.ghgGoalTitle;
+    document.getElementById('ghgNote').textContent = d.ghgNote;
+    renderKpi('ghgKpi', d.ghgKpi);
+    document.getElementById('ghgTblWrap').innerHTML = d.ghgTbl;
+    document.getElementById('ghgGoalWrap').innerHTML = d.ghgGoal;
+  } else {
+    document.getElementById('enMoTitle').textContent = d.enTitle;
+    document.getElementById('enChartTitle').textContent = d.enChartTitle;
+    document.getElementById('enDonutTitle').textContent = d.enDonutTitle;
+    document.getElementById('enTblTitle').textContent = d.enTblTitle;
+    document.getElementById('enActTitle').textContent = d.enActTitle;
+    document.getElementById('enNote').textContent = d.enNote;
+    renderKpi('enKpi', d.enKpi);
+    document.getElementById('enTblWrap').innerHTML = d.enTbl;
+    document.getElementById('enActWrap').innerHTML = d.enAct;
+  }
+}
+
+var _ghgChart=null, _enChart=null;
+function mkBar(id,labels,ds,yLabel,existing){
+  if(existing){existing.destroy();}
+  var ctx=document.getElementById(id); if(!ctx||!window.Chart) return null;
+  return new Chart(ctx,{type:'bar',data:{labels:labels,datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'top',labels:{font:{family:'Pretendard',size:10},usePointStyle:true,boxWidth:8}}},
+      scales:{x:{stacked:true,ticks:{font:{family:'Pretendard',size:10}}},
+              y:{stacked:true,title:{display:true,text:yLabel,font:{family:'Pretendard',size:9}},
+                 ticks:{font:{family:'Pretendard',size:10}},grid:{color:'rgba(0,0,0,.05)'}}}}});
+}
+function mkDonut(id,labels,vals,colors,legId,unit){
+  var ctx=document.getElementById(id); if(!ctx||!window.Chart) return;
+  var tot=vals.reduce(function(a,b){return a+b;},0);
+  new Chart(ctx,{type:'doughnut',data:{labels:labels,datasets:[{data:vals,backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]},
+    options:{responsive:true,cutout:'65%',plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:function(x){return x.label+': '+x.parsed.toFixed(1)+' '+unit+' ('+(x.parsed/tot*100).toFixed(1)+'%)';}}}}}});
+  var leg=document.getElementById(legId);
+  if(leg)leg.innerHTML=labels.map(function(l,i){
+    return '<span style="display:flex;align-items:center;gap:4px;justify-content:center;">'
+      +'<span style="width:9px;height:9px;background:'+colors[i]+';border-radius:2px;display:inline-block;"></span>'
+      +l+': <b>'+vals[i].toFixed(1)+'</b> '+unit+'</span>';
+  }).join('');
+}
+
+function openEsgMo(t) {
+  renderMo(t);
+  document.getElementById(t==='ghg'?'ghgMo':'energyMo').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){
+    if(t==='ghg'){
+      _ghgChart=mkBar('ghgChart',['2023','2024','2025'],[
+        {label:'Scope 1',data:[254.89,260.57,81.40],backgroundColor:'#2E5090',stack:'a'},
+        {label:'Scope 2',data:[279.17,209.64,74.43],backgroundColor:'#1A7A7A',stack:'a'}
+      ],'tCO₂eq',_ghgChart);
+      mkDonut('ghgDonut',['Scope 1','Scope 2','Scope 3'],[81.40,74.43,565.32],['#2E5090','#1A7A7A','#D4A017'],'ghgLeg','t');
+    } else {
+      _enChart=mkBar('enChart',['2023','2024','2025'],[
+        {label:'Electricity',data:[611.3,459.0,163.0],backgroundColor:'#7c3aed',stack:'a'},
+        {label:'Fuel',data:[1040.4,1051.3,309.8],backgroundColor:'#D4A017',stack:'a'}
+      ],'MWh',_enChart);
+      mkDonut('enDonut',['Electricity','Fuel'],[163.0,309.8],['#7c3aed','#D4A017'],'enLeg','MWh');
+    }
+  }, 60);
+}
+function closeEsgMo(t) {
+  document.getElementById(t==='ghg'?'ghgMo':'energyMo').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// setLang 후 열린 모달 갱신
+var _origSetLang = window.setLang;
+window.setLang = function(lang) {
+  _origSetLang(lang);
+  if(document.getElementById('ghgMo').classList.contains('open')) renderMo('ghg');
+  if(document.getElementById('energyMo').classList.contains('open')) renderMo('energy');
+};
+</script>
+
 </body>
 </html>

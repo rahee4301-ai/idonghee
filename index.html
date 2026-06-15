@@ -572,7 +572,7 @@
       <div class="product-item anim anim-d3" onclick="showPage('products');setTimeout(function(){scrollToSection('p07')},100)"><img class="prod-img" src="images/slat.jpg" alt="Slat Conveyor"><span class="prod-label">Slat Conveyor</span></div>
       <div class="product-item anim anim-d4" onclick="showPage('products');setTimeout(function(){scrollToSection('p08')},100)"><img class="prod-img" src="images/freeflow.jpg" alt="Free Flow"><span class="prod-label">Free Flow</span></div>
       <div class="product-item anim anim-d1" onclick="showPage('products');setTimeout(function(){scrollToSection('p09')},100)"><img class="prod-img" src="images/plastic.jpg" alt="Plastic Conveyor"><span class="prod-label">Plastic Conveyor</span></div>
-      <div class="product-item anim anim-d2" onclick="showPage('products');setTimeout(function(){scrollToSection('p10')},100)"><img src="images/belt.png" alt="Belt Conveyor" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"><span class="prod-label">Belt Conveyor</span></div>
+      <div class="product-item anim anim-d2" onclick="showPage('products');setTimeout(function(){scrollToSection('p10')},100)"><img class="prod-img" src="images/belt.png" alt="Belt Conveyor"><span class="prod-label">Belt Conveyor</span></div>
     </div>
   </section>
 
@@ -2598,28 +2598,10 @@ var PDF_DOCS = {
 function openPdfMo(docKey) {
   var lang = window.currentLang || 'ko';
   var doc = PDF_DOCS[docKey][lang] || PDF_DOCS[docKey]['ko'];
-  document.getElementById('pdfMoTitle').textContent = doc.title;
-  document.getElementById('pdfMoLink').href = doc.path;
-  document.getElementById('pdfMoLink').setAttribute('data-ko', '↗ 새 탭에서 열기');
-  document.getElementById('pdfMoLink').setAttribute('data-en', '↗ Open in new tab');
-  // iframe 로드
-  var frame = document.getElementById('pdfMoFrame');
-  frame.src = doc.path;
-  document.getElementById('pdfMo').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  window.open(doc.path, '_blank');
 }
 
-function closePdfMo() {
-  document.getElementById('pdfMo').classList.remove('open');
-  document.body.style.overflow = '';
-  // iframe src 초기화 (메모리 해제)
-  setTimeout(function(){ document.getElementById('pdfMoFrame').src = ''; }, 300);
-}
-
-// ESC 키로 닫기
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closePdfMo();
-});
+function closePdfMo() {}
 </script>
 
 </body>

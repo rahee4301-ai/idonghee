@@ -1387,6 +1387,11 @@ function setLang(lang) {
   // 페이지 타이틀 전환
   var titleEl = document.getElementById('page-title');
   if (titleEl) titleEl.textContent = lang === 'en' ? 'Donghee Industries' : '동희산기 DONGHEE INDUSTRIES';
+  // 열린 ESG 모달 언어 갱신
+  if (typeof renderMo === 'function') {
+    if (document.getElementById('ghgMo') && document.getElementById('ghgMo').classList.contains('open')) renderMo('ghg');
+    if (document.getElementById('energyMo') && document.getElementById('energyMo').classList.contains('open')) renderMo('energy');
+  }
 }
 
 function toggleMenu() {
@@ -1960,7 +1965,7 @@ const noticeContents = {
     </div>
 </body>
 </html>
-`
+`,
   notice7: `<div style="font-family:'Pretendard','맑은 고딕',sans-serif;">
   <div style="background:#0d2e2e;padding:16px 20px;">
     <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:#4ade80;margin-bottom:4px;">ENVIRONMENT · GHG MANAGEMENT</div>
@@ -2383,13 +2388,7 @@ function closeEsgMo(t) {
   document.body.style.overflow='';
 }
 
-// setLang 후 열린 모달 갱신
-var _origSetLang = window.setLang;
-window.setLang = function(lang) {
-  _origSetLang(lang);
-  if(document.getElementById('ghgMo').classList.contains('open')) renderMo('ghg');
-  if(document.getElementById('energyMo').classList.contains('open')) renderMo('energy');
-};
+// ESG 모달 언어 갱신은 setLang 함수 내부에서 처리됨
 </script>
 
 </body>

@@ -158,21 +158,38 @@
       transition: opacity 1.2s ease;
     }
     .hero-slide.active { opacity: 1; }
+
+    /* 켄번스 애니메이션 */
+    @keyframes kb1 {
+      from { transform: scale(1.08) translate(-1.5%, -1.5%); }
+      to   { transform: scale(1.0)  translate(0%, 0%); }
+    }
+    @keyframes kb2 {
+      from { transform: scale(1.08) translate(1.5%, -1.5%); }
+      to   { transform: scale(1.0)  translate(0%, 0%); }
+    }
+    @keyframes kb3 {
+      from { transform: scale(1.1)  translate(0%, 0%); }
+      to   { transform: scale(1.0)  translate(0%, 0%); }
+    }
+    .hero-slide:nth-child(1).active { animation: kb1 6s ease-out forwards; }
+    .hero-slide:nth-child(2).active { animation: kb2 6s ease-out forwards; }
+    .hero-slide:nth-child(3).active { animation: kb3 6s ease-out forwards; }
     .hero-slide:nth-child(1) { background-image: url('images/company.png'); }
     .hero-slide:nth-child(2) { background-image: url('images/ems.jpg'); }
     .hero-slide:nth-child(3) { background-image: url('images/agv.jpg'); }
 
-    /* 모든 슬라이드 공통 흰색 오버레이 — PC에서 빠르게 투명 */
+    /* 모든 슬라이드 공통 흰색 오버레이 — 대각선, PC에서 빠르게 투명 */
     .hero-slide::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(248,249,250,0.97) 0%, rgba(245,247,249,0.85) 35%, rgba(240,244,248,0.3) 55%, rgba(230,235,240,0.0) 70%);
+      background: linear-gradient(105deg, rgba(248,249,250,0.97) 0%, rgba(245,247,249,0.85) 35%, rgba(240,244,248,0.25) 52%, rgba(230,235,240,0.0) 65%);
     }
 
     /* 제품 사진 2·3번 오른쪽에 딥골드+딥블루 틴트 */
     .hero-slide:nth-child(2)::before,
     .hero-slide:nth-child(3)::before {
       content: ''; position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(to right, transparent 50%, rgba(42, 28, 58, 0.55) 100%);
+      background: linear-gradient(105deg, transparent 45%, rgba(42, 28, 58, 0.55) 100%);
     }
 
     /* 슬라이드 오버레이 — 왼쪽만 밝게, 오른쪽 완전 투명 */

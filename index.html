@@ -3028,6 +3028,10 @@ function closePdfMo() {}
     slides[cur].classList.remove('active');
     dots[cur].classList.remove('active');
     cur = n;
+    // 켄번스 재시작 — animation 리셋
+    slides[cur].style.animation = 'none';
+    slides[cur].offsetHeight; // reflow 강제
+    slides[cur].style.animation = '';
     slides[cur].classList.add('active');
     dots[cur].classList.add('active');
     clearInterval(timer);

@@ -140,16 +140,51 @@
     /* ══ 홈 ══ */
     .hero {
       height: calc(100vh - 64px); min-height: 500px;
-      background: url('images/company.png') center/cover no-repeat;
       display: flex; align-items: center; padding: 0 8%;
       position: relative; overflow: hidden;
+      background: #0B1D3A;
     }
+
+    /* 슬라이드 배경 */
+    .hero-slides {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide:nth-child(1) { background-image: url('images/company.png'); }
+    .hero-slide:nth-child(2) { background-image: url('images/ems.jpg'); }
+    .hero-slide:nth-child(3) { background-image: url('images/agv.jpg'); }
+
+    /* 슬라이드 오버레이 — 왼쪽만 밝게, 오른쪽 완전 투명 */
     .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(105deg, rgba(248,249,250,0.95) 0%, rgba(240,242,245,0.75) 45%, rgba(230,235,240,0.05) 72%);
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(105deg, rgba(248,249,250,0.95) 0%, rgba(240,242,245,0.72) 42%, rgba(230,235,240,0.0) 65%);
     }
     .hero::after { display: none; }
-    .hero-text { position: relative; z-index: 1; max-width: 600px; }
+
+    /* 텍스트 색상 — 기존 네이비 유지 */
+    .hero .hero-tag { color: #0B1D3A; border-bottom-color: var(--accent); }
+    .hero h1 { color: #0B1D3A; }
+    .hero h1 em { color: var(--navy); border-bottom-color: var(--accent); }
+    .hero p { color: #0f2d4a; font-weight: 600; }
+    .hero .btn-outline { border-color: #0B1D3A; color: #0B1D3A; background: rgba(255,255,255,0.4); backdrop-filter: blur(4px); }
+
+    /* 슬라이드 인디케이터 */
+    .hero-dots {
+      position: absolute; bottom: 2rem; right: 8%; z-index: 3;
+      display: flex; gap: 0.5rem; align-items: center;
+    }
+    .hero-dot {
+      width: 24px; height: 2px; background: rgba(11,29,58,0.25);
+      cursor: pointer; transition: all .3s;
+    }
+    .hero-dot.active { background: var(--accent); width: 40px; }
+    .hero-text { position: relative; z-index: 2; max-width: 600px; }
     .hero-tag { display: inline-block; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.2em; color: #0B1D3A; text-transform: uppercase; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 1.8rem; }
     .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem,5vw,3.6rem); font-weight: 600; line-height: 1.15; color: #0B1D3A; margin-bottom: 1.2rem; }
     .hero h1 em { color: var(--navy); font-style: normal; border-bottom: 3px solid var(--accent); padding-bottom: 2px; }
@@ -499,8 +534,8 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    z-index: 0;
-    opacity: 0.18;
+    z-index: 1;
+    opacity: 0.10;
   }
   .hero-text { z-index: 2; }
 
@@ -686,6 +721,16 @@
 <div class="page active" id="page-home">
   <div class="hero">
     <canvas id="hero-canvas"></canvas>
+    <div class="hero-slides">
+      <div class="hero-slide active"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
+    <div class="hero-dots">
+      <div class="hero-dot active" onclick="goSlide(0)"></div>
+      <div class="hero-dot" onclick="goSlide(1)"></div>
+      <div class="hero-dot" onclick="goSlide(2)"></div>
+    </div>
     <div class="hero-text">
       <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
       <h1 data-ko="자동화의 흐름을<br>설계합니다<br>㈜동희산기" data-en="Designing the Flow<br>of Automation<br>Donghee Industries">자동화의 흐름을<br>설계합니다<br><span data-ko="㈜동희산기" data-en="Donghee Industries">㈜동희산기</em></h1>
@@ -2955,7 +3000,32 @@ function closePdfMo() {}
 </script>
 
 <script>
-/* ══ 히어로 파티클 캔버스 ══ */
+/* ══ 히어로 슬라이드 ══ */
+(function() {
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots   = document.querySelectorAll('.hero-dot');
+  var cur = 0;
+  var timer;
+
+  window.goSlide = function(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    clearInterval(timer);
+    timer = setInterval(nextSlide, 5000);
+  };
+
+  function nextSlide() {
+    goSlide((cur + 1) % slides.length);
+  }
+
+  // 첫 슬라이드는 이미 active, 5초 후 다음으로
+  timer = setInterval(nextSlide, 5000);
+})();
+
+/* ══ 카운트업 (슬라이드 다음에 실행) ══ */
 (function() {
   var canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
@@ -3036,8 +3106,8 @@ function runCountUp() {
   });
 }
 
-// 홈 페이지 로드 시 카운트업 실행
-setTimeout(runCountUp, 700);
+// 홈 페이지 로드 시 카운트업 실행 (슬라이드 JS 완료 후)
+setTimeout(runCountUp, 1200);
 
 // showPage('home') 호출 시도 카운트업 재실행
 var _origShowPage = window.showPage || showPage;

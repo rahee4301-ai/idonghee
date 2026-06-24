@@ -140,10 +140,12 @@
     /* ══ 홈 ══ */
     .hero {
       height: calc(100vh - 64px); min-height: 500px;
-      display: flex; align-items: center; padding: 0 8%;
+      display: flex; align-items: flex-end; padding: 0 8% 5rem;
       position: relative; overflow: hidden;
       background: url('images/company.png') center/cover no-repeat;
     }
+
+    .hero-text { position: relative; z-index: 2; max-width: 520px; padding-bottom: 2rem; }
 
     /* 슬라이드 배경 */
     .hero-slides {
@@ -160,21 +162,17 @@
     .hero-slide:nth-child(2) { background-image: url('images/ems.jpg'); }
     .hero-slide:nth-child(3) { background-image: url('images/agv.jpg'); }
 
-    /* 모든 슬라이드 공통 — 왼쪽 흰색 오버레이 동일 강도 */
+    /* 모든 슬라이드 공통 흰색 오버레이 — PC에서 빠르게 투명 */
     .hero-slide::after {
       content: ''; position: absolute; inset: 0;
-      background: linear-gradient(105deg, rgba(248,249,250,0.97) 0%, rgba(245,247,249,0.88) 50%, rgba(240,244,248,0.45) 72%, rgba(230,235,240,0.0) 88%);
+      background: linear-gradient(to right, rgba(248,249,250,0.97) 0%, rgba(245,247,249,0.85) 35%, rgba(240,244,248,0.3) 55%, rgba(230,235,240,0.0) 70%);
     }
 
-    /* 제품 사진 2·3번 — 오른쪽에 딥골드+딥블루 중간 틴트 추가 */
-    .hero-slide:nth-child(2),
-    .hero-slide:nth-child(3) {
-      background-blend-mode: normal;
-    }
+    /* 제품 사진 2·3번 오른쪽에 딥골드+딥블루 틴트 */
     .hero-slide:nth-child(2)::before,
     .hero-slide:nth-child(3)::before {
       content: ''; position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(105deg, transparent 40%, rgba(42, 28, 58, 0.55) 100%);
+      background: linear-gradient(to right, transparent 50%, rgba(42, 28, 58, 0.55) 100%);
     }
 
     /* 슬라이드 오버레이 — 왼쪽만 밝게, 오른쪽 완전 투명 */
@@ -198,7 +196,7 @@
       cursor: pointer; transition: all .3s;
     }
     .hero-dot.active { background: var(--accent); width: 40px; }
-    .hero-text { position: relative; z-index: 2; max-width: 600px; }
+    .hero-text { position: relative; z-index: 2; max-width: 520px; padding-bottom: 2rem; }
     .hero-tag { display: inline-block; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.2em; color: #0B1D3A; text-transform: uppercase; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 1.8rem; }
     .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem,5vw,3.6rem); font-weight: 600; line-height: 1.15; color: #0B1D3A; margin-bottom: 1.2rem; }
     .hero h1 em { color: var(--navy); font-style: normal; border-bottom: 3px solid var(--accent); padding-bottom: 2px; }
@@ -748,7 +746,7 @@
     <div class="hero-text">
       <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
       <h1 data-ko="자동화의 흐름을<br>설계합니다<br>㈜동희산기" data-en="Designing the Flow<br>of Automation<br>Donghee Industries">자동화의 흐름을<br>설계합니다<br><span data-ko="㈜동희산기" data-en="Donghee Industries">㈜동희산기</em></h1>
-      <p data-ko="현대·기아·GM 등 글로벌 완성차 메이커에 납품하는 컨베이어 시스템 전문기업입니다." data-en="A specialized conveyor system manufacturer supplying to global automakers including Hyundai, Kia, and GM.">현대·기아·GM 등 글로벌 완성차 메이커에 납품하는 컨베이어 시스템 전문기업입니다.</p>
+      <p data-ko="현대·기아·GM 등 글로벌 완성차 메이커에 납품하는<br>컨베이어 시스템 전문기업입니다." data-en="A specialized conveyor system manufacturer supplying to global automakers including Hyundai, Kia, and GM.">현대·기아·GM 등 글로벌 완성차 메이커에 납품하는<br>컨베이어 시스템 전문기업입니다.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('products')" data-ko="제품 보기" data-en="View Products">제품 보기</button>
         <button class="btn-outline" onclick="showPage('company')" data-ko="회사 소개" data-en="About Us">회사 소개</button>

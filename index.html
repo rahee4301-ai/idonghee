@@ -651,6 +651,7 @@
     <a onclick="showPage('esg')" data-ko="ESG" data-en="ESG">ESG</a>
     <a onclick="showPage('notice')" data-ko="고객지원" data-en="Support" data-ko="고객지원" data-en="Support">고객지원</a>
     <a onclick="showPage('group')" data-ko="그룹사" data-en="Group">그룹사</a>
+    <a onclick="showPage('recruit')" data-ko="채용" data-en="Careers">채용</a>
     <div class="lang-toggle">
       <button onclick="setLang('ko')" id="btn-ko" class="lang-btn active">KOR</button>
       <span style="color:#CBD5E0;font-size:0.8rem;">|</span>
@@ -676,6 +677,7 @@
   <a onclick="showPage('esg');toggleMenu()" data-ko="ESG 경영" data-en="ESG" data-ko="ESG 경영" data-en="ESG">ESG 경영</a>
   <a onclick="showPage('notice');toggleMenu()" data-ko="고객지원" data-en="Support" data-ko="고객지원" data-en="Support">고객지원</a>
   <a onclick="showPage('group');toggleMenu()" data-ko="그룹사소개" data-en="Group" data-ko="그룹사소개" data-en="Group">그룹사소개</a>
+  <a onclick="showPage('recruit');toggleMenu()" data-ko="채용정보" data-en="Careers">채용정보</a>
 </div>
 
 <!-- ══════════════════════════════════ -->
@@ -695,15 +697,15 @@
       <!-- 히어로 카운터 통계 -->
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="hero-stat-num"><span class="count-up" data-target="16">0</span><span class="suffix">+</span></div>
+          <div class="hero-stat-num"><span class="count-up" data-target="16">0</span><span class="suffix" data-ko="+" data-en="+">+</span></div>
           <div class="hero-stat-label" data-ko="납품 국가" data-en="Countries">납품 국가</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num"><span class="count-up" data-target="88">0</span><span class="suffix">+</span></div>
+          <div class="hero-stat-num"><span class="count-up" data-target="88">0</span><span class="suffix" data-ko="+" data-en="+">+</span></div>
           <div class="hero-stat-label" data-ko="프로젝트 수행" data-en="Projects">프로젝트 수행</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num"><span class="count-up" data-target="37">0</span><span class="suffix">년</span></div>
+          <div class="hero-stat-num"><span class="count-up" data-target="37">0</span><span class="suffix" data-ko="년" data-en="yrs">년</span></div>
           <div class="hero-stat-label" data-ko="업력" data-en="Years of Experience">업력</div>
         </div>
       </div>
@@ -1380,6 +1382,195 @@
 <!-- ══════════════════════════════════ -->
 <!-- 공통 푸터 — 여기만 수정하면 전체 반영! -->
 <!-- ══════════════════════════════════ -->
+<!-- ══════════════════════════════════ -->
+<!-- 채용 -->
+<!-- ══════════════════════════════════ -->
+<div class="page" id="page-recruit">
+
+  <div class="page-hero">
+    <div class="breadcrumb">홈 &gt; <span data-ko="채용정보" data-en="Careers">채용정보</span></div>
+    <h1 data-ko="채용정보" data-en="Careers">채용정보</h1>
+  </div>
+  <div class="sub-nav">
+    <a onclick="scrollToSection('rc-talent')" class="active" data-ko="인재상" data-en="Talent">인재상</a>
+    <a onclick="scrollToSection('rc-welfare')" data-ko="복리후생" data-en="Benefits">복리후생</a>
+    <a onclick="scrollToSection('rc-process')" data-ko="채용절차" data-en="Process">채용절차</a>
+    <a onclick="scrollToSection('rc-apply')" data-ko="지원안내" data-en="Apply">지원안내</a>
+  </div>
+
+  <!-- 인재상 -->
+  <section class="section" id="rc-talent">
+    <div class="section-tag">Talent</div>
+    <div class="section-title" data-ko="인재상" data-en="Our Ideal Candidate">인재상</div>
+    <p class="section-desc" data-ko="㈜동희산기와 함께 글로벌 자동차 생산설비 산업을 이끌어갈 인재를 찾습니다." data-en="We are looking for talented individuals to lead the global automotive production equipment industry with Donghee Industries.">㈜동희산기와 함께 글로벌 자동차 생산설비 산업을 이끌어갈 인재를 찾습니다.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem;">
+      <div class="biz-card reveal reveal-d1" style="border-top:4px solid var(--accent);text-align:center;padding:2.5rem 1.8rem;">
+        <div style="font-size:2.8rem;margin-bottom:1rem;">🔥</div>
+        <h3 style="font-family:'Oswald',sans-serif;font-size:1.35rem;color:var(--navy);margin-bottom:0.6rem;" data-ko="도전하는 인재" data-en="Challenger">도전하는 인재</h3>
+        <p style="font-size:0.92rem;color:var(--gray);line-height:1.8;" data-ko="새로운 기술과 환경 변화에 능동적으로 대응하며 끊임없이 도전하는 사람" data-en="Someone who proactively responds to new technologies and environmental changes with relentless drive">새로운 기술과 환경 변화에 능동적으로 대응하며 끊임없이 도전하는 사람</p>
+      </div>
+      <div class="biz-card reveal reveal-d2" style="border-top:4px solid #0d9488;text-align:center;padding:2.5rem 1.8rem;">
+        <div style="font-size:2.8rem;margin-bottom:1rem;">🤝</div>
+        <h3 style="font-family:'Oswald',sans-serif;font-size:1.35rem;color:var(--navy);margin-bottom:0.6rem;" data-ko="협력하는 인재" data-en="Team Player">협력하는 인재</h3>
+        <p style="font-size:0.92rem;color:var(--gray);line-height:1.8;" data-ko="동료와 신뢰를 바탕으로 소통하고 조직의 목표를 함께 달성하는 사람" data-en="Someone who communicates with trust and achieves organizational goals together with colleagues">동료와 신뢰를 바탕으로 소통하고 조직의 목표를 함께 달성하는 사람</p>
+      </div>
+      <div class="biz-card reveal reveal-d3" style="border-top:4px solid var(--steel);text-align:center;padding:2.5rem 1.8rem;">
+        <div style="font-size:2.8rem;margin-bottom:1rem;">🌍</div>
+        <h3 style="font-family:'Oswald',sans-serif;font-size:1.35rem;color:var(--navy);margin-bottom:0.6rem;" data-ko="글로벌 인재" data-en="Global Talent">글로벌 인재</h3>
+        <p style="font-size:0.92rem;color:var(--gray);line-height:1.8;" data-ko="세계 16개국 납품 경험을 바탕으로 글로벌 현장에서 활약할 수 있는 사람" data-en="Someone who can work across global sites based on our experience supplying to 16+ countries">세계 16개국 납품 경험을 바탕으로 글로벌 현장에서 활약할 수 있는 사람</p>
+      </div>
+      <div class="biz-card reveal reveal-d4" style="border-top:4px solid #16a34a;text-align:center;padding:2.5rem 1.8rem;">
+        <div style="font-size:2.8rem;margin-bottom:1rem;">⚙️</div>
+        <h3 style="font-family:'Oswald',sans-serif;font-size:1.35rem;color:var(--navy);margin-bottom:0.6rem;" data-ko="전문성을 갖춘 인재" data-en="Expert">전문성을 갖춘 인재</h3>
+        <p style="font-size:0.92rem;color:var(--gray);line-height:1.8;" data-ko="자신의 분야에서 깊은 전문성을 쌓고 지속적으로 성장하는 사람" data-en="Someone who continuously grows by building deep expertise in their field">자신의 분야에서 깊은 전문성을 쌓고 지속적으로 성장하는 사람</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 복리후생 -->
+  <section class="section bg-light" id="rc-welfare">
+    <div class="section-tag">Benefits</div>
+    <div class="section-title" data-ko="복리후생" data-en="Employee Benefits">복리후생</div>
+    <p class="section-desc" data-ko="임직원이 최고의 역량을 발휘할 수 있도록 다양한 복지 제도를 운영합니다." data-en="We operate various welfare programs to help employees perform at their best.">임직원이 최고의 역량을 발휘할 수 있도록 다양한 복지 제도를 운영합니다.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem;margin-top:2rem;">
+
+      <div class="reveal reveal-d1" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">💰</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="퇴직금" data-en="Retirement Pay">퇴직금</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="법정 퇴직금 전액 지급" data-en="Full statutory retirement pay">법정 퇴직금 전액 지급</div>
+      </div>
+
+      <div class="reveal reveal-d2" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">🏥</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="4대보험" data-en="4 Major Insurances">4대보험</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="국민·건강·고용·산재보험 전액 지원" data-en="National pension, health, employment & industrial accident insurance">국민·건강·고용·산재보험 전액 지원</div>
+      </div>
+
+      <div class="reveal reveal-d3" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid #0d9488;">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">🏖️</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="자유로운 연차 사용" data-en="Flexible Annual Leave">자유로운 연차 사용</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="눈치 없이 자유롭게 사용 가능한 연차 문화" data-en="Annual leave culture free from peer pressure">눈치 없이 자유롭게 사용 가능한 연차 문화</div>
+      </div>
+
+      <div class="reveal reveal-d4" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid #0d9488;">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">📅</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="주 5일 근무" data-en="5-Day Work Week">주 5일 근무</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="토·일 정기휴무 보장" data-en="Guaranteed Saturday & Sunday off">토·일 정기휴무 보장</div>
+      </div>
+
+      <div class="reveal reveal-d1" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">🎁</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="명절 상여금" data-en="Holiday Bonus">명절 상여금</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="설·추석 명절 상여금 지급" data-en="Lunar New Year & Chuseok bonuses">설·추석 명절 상여금 지급</div>
+      </div>
+
+      <div class="reveal reveal-d2" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">🍱</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="식대 지원" data-en="Meal Allowance">식대 지원</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="중식 제공 및 식대 지원" data-en="Lunch provided and meal allowance">중식 제공 및 식대 지원</div>
+      </div>
+
+      <div class="reveal reveal-d3" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid #0d9488;">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">💐</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="경조사비 지원" data-en="Family Event Support">경조사비 지원</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="결혼·출산·상조 등 경조사비 지원" data-en="Support for weddings, births, and funerals">결혼·출산·상조 등 경조사비 지원</div>
+      </div>
+
+      <div class="reveal reveal-d4" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid #0d9488;">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">🩺</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="건강검진" data-en="Health Checkup">건강검진</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="정기 건강검진 지원" data-en="Annual health checkup support">정기 건강검진 지원</div>
+      </div>
+
+      <div class="reveal reveal-d1" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid var(--accent);">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">🏆</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="장기근속 포상" data-en="Long-Service Award">장기근속 포상</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="장기근속 임직원 특별 포상 및 포상금 지급" data-en="Special awards and bonuses for long-serving employees">장기근속 임직원 특별 포상 및 포상금 지급</div>
+      </div>
+
+      <div class="reveal reveal-d2" style="background:white;border:1px solid var(--border);padding:1.6rem 1.4rem;border-radius:4px;border-left:3px solid #16a34a;">
+        <div style="font-size:1.8rem;margin-bottom:0.6rem;">✈️</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="해외 프로젝트 경험" data-en="Global Project Experience">해외 프로젝트 경험</div>
+        <div style="font-size:0.85rem;color:var(--gray);line-height:1.6;" data-ko="인도·미국·인도네시아 등 16개국 현장 파견 기회" data-en="On-site deployment opportunities across 16+ countries including India, USA, Indonesia">인도·미국·인도네시아 등 16개국 현장 파견 기회</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 채용 절차 -->
+  <section class="section" id="rc-process">
+    <div class="section-tag">Process</div>
+    <div class="section-title" data-ko="채용절차" data-en="Hiring Process">채용절차</div>
+    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:0;margin-top:2.5rem;">
+
+      <div class="reveal reveal-d1" style="flex:1;min-width:140px;text-align:center;padding:2rem 1rem;position:relative;">
+        <div style="width:52px;height:52px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--accent);font-weight:700;">01</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="서류전형" data-en="Document Review">서류전형</div>
+        <div style="font-size:0.82rem;color:var(--gray);line-height:1.6;" data-ko="이력서·자기소개서 제출" data-en="Submit resume & cover letter">이력서·자기소개서 제출</div>
+      </div>
+      <div style="font-size:1.5rem;color:var(--border);flex-shrink:0;">›</div>
+
+      <div class="reveal reveal-d2" style="flex:1;min-width:140px;text-align:center;padding:2rem 1rem;">
+        <div style="width:52px;height:52px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--accent);font-weight:700;">02</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="1차 면접" data-en="1st Interview">1차 면접</div>
+        <div style="font-size:0.82rem;color:var(--gray);line-height:1.6;" data-ko="실무진 면접" data-en="Practical interview">실무진 면접</div>
+      </div>
+      <div style="font-size:1.5rem;color:var(--border);flex-shrink:0;">›</div>
+
+      <div class="reveal reveal-d3" style="flex:1;min-width:140px;text-align:center;padding:2rem 1rem;">
+        <div style="width:52px;height:52px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--accent);font-weight:700;">03</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="2차 면접" data-en="2nd Interview">2차 면접</div>
+        <div style="font-size:0.82rem;color:var(--gray);line-height:1.6;" data-ko="임원 면접" data-en="Executive interview">임원 면접</div>
+      </div>
+      <div style="font-size:1.5rem;color:var(--border);flex-shrink:0;">›</div>
+
+      <div class="reveal reveal-d4" style="flex:1;min-width:140px;text-align:center;padding:2rem 1rem;">
+        <div style="width:52px;height:52px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-family:'Oswald',sans-serif;font-size:1.3rem;color:var(--navy);font-weight:700;">04</div>
+        <div style="font-weight:700;color:var(--navy);font-size:1rem;margin-bottom:0.3rem;" data-ko="최종 합격" data-en="Final Offer">최종 합격</div>
+        <div style="font-size:0.82rem;color:var(--gray);line-height:1.6;" data-ko="처우 협의 및 입사" data-en="Offer negotiation & onboarding">처우 협의 및 입사</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 지원 안내 -->
+  <section class="section bg-light" id="rc-apply">
+    <div class="section-tag">Apply</div>
+    <div class="section-title" data-ko="지원안내" data-en="How to Apply">지원안내</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;">
+
+      <div class="reveal reveal-d1" style="background:var(--navy);padding:2.5rem 2rem;border-radius:4px;">
+        <div style="font-size:2rem;margin-bottom:1rem;">💼</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:1.2rem;color:var(--accent);font-weight:600;margin-bottom:0.5rem;" data-ko="채용 공고 보기" data-en="View Job Postings">채용 공고 보기</div>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:1.5rem;" data-ko="사람인·잡코리아에서 현재 채용 중인 포지션을 확인하세요." data-en="Check current openings on Saramin and JobKorea.">사람인·잡코리아에서 현재 채용 중인 포지션을 확인하세요.</p>
+        <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+          <a href="https://www.saramin.co.kr/zf_user/search?searchword=동희산기" target="_blank" style="display:inline-block;background:var(--accent);color:var(--navy);padding:10px 20px;font-size:0.85rem;font-weight:700;text-decoration:none;letter-spacing:0.05em;" data-ko="사람인" data-en="Saramin">사람인</a>
+          <a href="https://www.jobkorea.co.kr/Search/?stext=동희산기" target="_blank" style="display:inline-block;border:1px solid rgba(255,255,255,0.4);color:white;padding:10px 20px;font-size:0.85rem;font-weight:600;text-decoration:none;letter-spacing:0.05em;" data-ko="잡코리아" data-en="JobKorea">잡코리아</a>
+        </div>
+      </div>
+
+      <div class="reveal reveal-d2" style="background:white;border:1px solid var(--border);padding:2.5rem 2rem;border-radius:4px;">
+        <div style="font-size:2rem;margin-bottom:1rem;">✉️</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:1.2rem;color:var(--navy);font-weight:600;margin-bottom:0.5rem;" data-ko="이메일 지원" data-en="Email Application">이메일 지원</div>
+        <p style="font-size:0.88rem;color:var(--gray);line-height:1.8;margin-bottom:1.2rem;" data-ko="이력서 및 자기소개서를 이메일로 제출해 주세요. 검토 후 개별 연락드립니다." data-en="Submit your resume and cover letter by email. We will contact you individually after review.">이력서 및 자기소개서를 이메일로 제출해 주세요. 검토 후 개별 연락드립니다.</p>
+        <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--navy);font-weight:600;">affair@kbdh.co.kr</div>
+        <div style="font-size:0.82rem;color:var(--gray);margin-top:0.4rem;" data-ko="인사총무팀 담당자 수신" data-en="Attn: HR & General Affairs Team">인사총무팀 담당자 수신</div>
+      </div>
+
+      <div class="reveal reveal-d3" style="background:white;border:1px solid var(--border);padding:2.5rem 2rem;border-radius:4px;">
+        <div style="font-size:2rem;margin-bottom:1rem;">📞</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:1.2rem;color:var(--navy);font-weight:600;margin-bottom:0.5rem;" data-ko="채용 문의" data-en="Recruitment Inquiry">채용 문의</div>
+        <p style="font-size:0.88rem;color:var(--gray);line-height:1.8;margin-bottom:1.2rem;" data-ko="채용 관련 문의는 인사총무팀으로 연락 주세요." data-en="For recruitment inquiries, please contact our HR & General Affairs Team.">채용 관련 문의는 인사총무팀으로 연락 주세요.</p>
+        <div style="font-family:'Oswald',sans-serif;font-size:1rem;color:var(--navy);font-weight:600;">041-351-2200</div>
+        <div style="font-size:0.82rem;color:var(--gray);margin-top:0.4rem;" data-ko="평일 08:00 ~ 17:00" data-en="Weekdays 08:00 ~ 17:00">평일 08:00 ~ 17:00</div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+<!-- /채용 -->
+
 <footer>
   <div class="footer-top">
     <div>
@@ -1401,6 +1592,7 @@
       <a onclick="showPage('products')" data-ko="제품소개" data-en="Products" data-ko="제품소개" data-en="Products">제품소개</a>
       <a onclick="showPage('esg')" data-ko="ESG 경영" data-en="ESG">ESG 경영</a>
       <a onclick="showPage('notice')" data-ko="고객지원" data-en="Support" data-ko="고객지원" data-en="Support">고객지원</a>
+      <a onclick="showPage('recruit')" data-ko="채용정보" data-en="Careers">채용정보</a>
     </div>
     <div class="footer-links">
       <a href="https://www.dsmt.co.kr" target="_blank" data-ko="㈜동서기공" data-en="DongSeo Machine &amp; Tools">㈜동서기공</a>

@@ -159,6 +159,12 @@
     .hero-slide:nth-child(1) { background-image: url('images/company.png'); }
     .hero-slide:nth-child(2) { background-image: url('images/ems.jpg'); }
     .hero-slide:nth-child(3) { background-image: url('images/agv.jpg'); }
+    /* 제품 사진 2·3번 — 왼쪽 강하게, 오른쪽 더 멀리서 투명 */
+    .hero-slide:nth-child(2)::after,
+    .hero-slide:nth-child(3)::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(248,249,250,0.97) 0%, rgba(245,247,249,0.88) 50%, rgba(240,244,248,0.45) 72%, rgba(230,235,240,0.0) 88%);
+    }
 
     /* 슬라이드 오버레이 — 왼쪽만 밝게, 오른쪽 완전 투명 */
     .hero::before {

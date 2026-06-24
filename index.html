@@ -140,51 +140,16 @@
     /* ══ 홈 ══ */
     .hero {
       height: calc(100vh - 64px); min-height: 500px;
+      background: url('images/company.png') center/cover no-repeat;
       display: flex; align-items: center; padding: 0 8%;
       position: relative; overflow: hidden;
     }
-    .hero-bg-wrap {
-      position: absolute; inset: 0; z-index: 0; overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: url('images/company.png') center/cover no-repeat;
-      animation: heroZoom 24s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-    @keyframes heroZoom {
-      0%   { transform: scale(1); }
-      100% { transform: scale(1.13); }
-    }
-    .hero-shine {
-      position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(112deg, transparent 42%, rgba(255,255,255,0.32) 50%, transparent 58%);
-      transform: translateX(-130%) skewX(-12deg);
-      animation: heroShine 8s ease-in-out infinite;
-    }
-    @keyframes heroShine {
-      0%   { transform: translateX(-130%) skewX(-12deg); opacity: 0; }
-      4%   { opacity: 1; }
-      24%  { transform: translateX(130%) skewX(-12deg); opacity: 0; }
-      100% { transform: translateX(130%) skewX(-12deg); opacity: 0; }
-    }
     .hero::before {
-      content: ''; position: absolute; inset: 0; z-index: 1;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(105deg, rgba(248,249,250,0.95) 0%, rgba(240,242,245,0.75) 45%, rgba(230,235,240,0.05) 72%);
     }
     .hero::after { display: none; }
-    .hero-text { position: relative; z-index: 2; max-width: 600px; }
-    .hero-text > * { opacity: 0; transform: translateY(18px); animation: heroFadeUp .8s ease forwards; }
-    .hero-text .hero-tag { animation-delay: .15s; }
-    .hero-text h1 { animation-delay: .32s; }
-    .hero-text p { animation-delay: .5s; }
-    .hero-text .hero-btns { animation-delay: .68s; }
-    @keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-bg { animation: none; }
-      .hero-shine { display: none; }
-      .hero-text > * { animation: none; opacity: 1; transform: none; }
-    }
+    .hero-text { position: relative; z-index: 1; max-width: 600px; }
     .hero-tag { display: inline-block; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.2em; color: #0B1D3A; text-transform: uppercase; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 1.8rem; }
     .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem,5vw,3.6rem); font-weight: 600; line-height: 1.15; color: #0B1D3A; margin-bottom: 1.2rem; }
     .hero h1 em { color: var(--navy); font-style: normal; border-bottom: 3px solid var(--accent); padding-bottom: 2px; }
@@ -522,6 +487,153 @@
     @media(max-width:600px){.ch-row{grid-template-columns:1fr;}.kpi-g{grid-template-columns:repeat(3,1fr);}}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <style>
+  /* ══ 히어로 고도화 ══ */
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+  /* 배경 파티클 캔버스 */
+  #hero-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+  }
+  .hero-text { z-index: 2; }
+
+  /* 히어로 통계 카운터 배너 */
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 1rem;
+  }
+  .hero-stat::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 4px; bottom: 4px;
+    width: 2px;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+  .hero-stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #0B1D3A;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .hero-stat-num .suffix {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-left: 1px;
+  }
+  .hero-stat-label {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #64748B;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* ══ 섹션 진입 애니메이션 강화 ══ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.65s cubic-bezier(.22,.61,.36,1), transform 0.65s cubic-bezier(.22,.61,.36,1);
+  }
+  .reveal.r-left {
+    transform: translateX(-28px);
+  }
+  .reveal.r-scale {
+    transform: scale(0.96) translateY(16px);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-d1 { transition-delay: 0.05s; }
+  .reveal-d2 { transition-delay: 0.13s; }
+  .reveal-d3 { transition-delay: 0.21s; }
+  .reveal-d4 { transition-delay: 0.29s; }
+  .reveal-d5 { transition-delay: 0.37s; }
+
+  /* ══ 카드 hover 세밀화 ══ */
+  .biz-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease !important;
+  }
+  .biz-card:hover {
+    border-top-color: #0d9488 !important;
+  }
+  .biz-card:hover .biz-icon {
+    transform: scale(1.15) rotate(-4deg);
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .biz-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+  .product-item {
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s !important;
+  }
+  .product-item:hover .prod-label {
+    color: #0d9488;
+    transition: color 0.2s;
+  }
+  .g-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease !important;
+  }
+  .policy-card {
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease !important;
+  }
+
+  /* ══ 섹션 구분 강화 ══ */
+  .section-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #0d9488);
+    margin-bottom: 2rem;
+    border-radius: 2px;
+  }
+  .section-title-wrap {
+    margin-bottom: 2.5rem;
+  }
+
+  /* ══ 히어로 텍스트 등장 애니메이션 ══ */
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-tag    { animation: heroFadeUp 0.7s ease both; animation-delay: 0.1s; }
+  .hero h1     { animation: heroFadeUp 0.7s ease both; animation-delay: 0.25s; }
+  .hero p      { animation: heroFadeUp 0.7s ease both; animation-delay: 0.4s; }
+  .hero-btns   { animation: heroFadeUp 0.7s ease both; animation-delay: 0.52s; }
+  .hero-stats  { animation: heroFadeUp 0.7s ease both; animation-delay: 0.65s; }
+
+  @media (max-width: 768px) {
+    .hero-stats { gap: 1.5rem; }
+    .hero-stat-num { font-size: 1.6rem; }
+    #hero-canvas { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .hero-tag, .hero h1, .hero p, .hero-btns, .hero-stats {
+      animation: none; opacity: 1; transform: none; transition: none;
+    }
+  }
+  </style>
 </head>
 <body>
 
@@ -571,10 +683,7 @@
 <!-- ══════════════════════════════════ -->
 <div class="page active" id="page-home">
   <div class="hero">
-    <div class="hero-bg-wrap" id="heroBgWrap">
-      <div class="hero-bg"></div>
-      <div class="hero-shine"></div>
-    </div>
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-text">
       <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
       <h1 data-ko="자동화의 흐름을<br>설계합니다<br>㈜동희산기" data-en="Designing the Flow<br>of Automation<br>Donghee Industries">자동화의 흐름을<br>설계합니다<br><span data-ko="㈜동희산기" data-en="Donghee Industries">㈜동희산기</em></h1>
@@ -582,6 +691,21 @@
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('products')" data-ko="제품 보기" data-en="View Products">제품 보기</button>
         <button class="btn-outline" onclick="showPage('company')" data-ko="회사 소개" data-en="About Us">회사 소개</button>
+      </div>
+      <!-- 히어로 카운터 통계 -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count-up" data-target="16">0</span><span class="suffix">+</span></div>
+          <div class="hero-stat-label" data-ko="납품 국가" data-en="Countries">납품 국가</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count-up" data-target="88">0</span><span class="suffix">+</span></div>
+          <div class="hero-stat-label" data-ko="프로젝트 수행" data-en="Projects">프로젝트 수행</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="count-up" data-target="37">0</span><span class="suffix">년</span></div>
+          <div class="hero-stat-label" data-ko="업력" data-en="Years of Experience">업력</div>
+        </div>
       </div>
     </div>
   </div>
@@ -591,10 +715,10 @@
     <div class="section-title" data-ko="핵심 사업영역" data-en="Core Business">핵심 사업영역</div>
     <p class="section-desc" data-ko="자동차 생산라인에 최적화된 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공합니다." data-en="Integrated conveyor system design, manufacturing, installation and maintenance for automotive production lines.">자동차 생산라인에 최적화된 컨베이어 시스템 설계·제작·설치·유지보수를 일괄 제공합니다.</p>
     <div class="biz-grid">
-      <div class="biz-card anim anim-d1"><div class="biz-icon">🏭</div><h3 data-ko="컨베이어 시스템 제조" data-en="Conveyor System Mfg.">컨베이어 시스템 제조</h3><p data-ko="Roller Bar, Power &amp; Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작" data-en="Design and manufacturing of automated conveyors including Roller Bar, Power &amp; Free, and EMS">Roller Bar, Power & Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작</p></div>
-      <div class="biz-card anim anim-d2"><div class="biz-icon">🔬</div><h3 data-ko="기술 연구개발" data-en="R&amp;D">기술 연구개발</h3><p data-ko="현장 최적화를 위한 지속적인 R&amp;D로 생산성과 안전성 향상" data-en="Continuous R&amp;D for on-site optimization to improve productivity and safety">현장 최적화를 위한 지속적인 R&D로 생산성과 안전성 향상</p></div>
-      <div class="biz-card anim anim-d3"><div class="biz-icon">🌍</div><h3 data-ko="납품 및 설치" data-en="Delivery &amp; Installation">납품 및 설치</h3><p data-ko="국내외 완성차 공장 및 자동차 부품사 생산라인 납품·시공" data-en="Delivery and installation for domestic and overseas automakers and parts manufacturers">국내외 완성차 공장 및 자동차 부품사 생산라인 납품·시공</p></div>
-      <div class="biz-card anim anim-d4"><div class="biz-icon">🛡️</div><h3 data-ko="유지보수 서비스" data-en="Maintenance Service">유지보수 서비스</h3><p data-ko="설치 후 체계적인 A/S 및 정기점검으로 안정적인 생산라인 운영 지원" data-en="Systematic after-sales service and regular inspections for stable production line operation">설치 후 체계적인 A/S 및 정기점검으로 안정적인 생산라인 운영 지원</p></div>
+      <div class="biz-card anim anim-d1 reveal reveal-d1"><div class="biz-icon">🏭</div><h3 data-ko="컨베이어 시스템 제조" data-en="Conveyor System Mfg.">컨베이어 시스템 제조</h3><p data-ko="Roller Bar, Power &amp; Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작" data-en="Design and manufacturing of automated conveyors including Roller Bar, Power &amp; Free, and EMS">Roller Bar, Power & Free, EMS 등 다양한 방식의 자동화 컨베이어 설계·제작</p></div>
+      <div class="biz-card anim anim-d2 reveal reveal-d2"><div class="biz-icon">🔬</div><h3 data-ko="기술 연구개발" data-en="R&amp;D">기술 연구개발</h3><p data-ko="현장 최적화를 위한 지속적인 R&amp;D로 생산성과 안전성 향상" data-en="Continuous R&amp;D for on-site optimization to improve productivity and safety">현장 최적화를 위한 지속적인 R&D로 생산성과 안전성 향상</p></div>
+      <div class="biz-card anim anim-d3 reveal reveal-d3"><div class="biz-icon">🌍</div><h3 data-ko="납품 및 설치" data-en="Delivery &amp; Installation">납품 및 설치</h3><p data-ko="국내외 완성차 공장 및 자동차 부품사 생산라인 납품·시공" data-en="Delivery and installation for domestic and overseas automakers and parts manufacturers">국내외 완성차 공장 및 자동차 부품사 생산라인 납품·시공</p></div>
+      <div class="biz-card anim anim-d4 reveal reveal-d4"><div class="biz-icon">🛡️</div><h3 data-ko="유지보수 서비스" data-en="Maintenance Service">유지보수 서비스</h3><p data-ko="설치 후 체계적인 A/S 및 정기점검으로 안정적인 생산라인 운영 지원" data-en="Systematic after-sales service and regular inspections for stable production line operation">설치 후 체계적인 A/S 및 정기점검으로 안정적인 생산라인 운영 지원</p></div>
     </div>
   </section>
 
@@ -1296,8 +1420,11 @@
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    const navMap = { home:'홈', company:'회사소개', business:'사업영역', products:'제품소개', esg:'ESG', notice:'고객지원', group:'그룹사' };
-    document.querySelectorAll('nav a').forEach(a => { if(a.textContent.trim() === navMap[id]) a.classList.add('active'); });
+    // data-page 속성 기반으로 active 처리 (언어와 무관하게 동작)
+    document.querySelectorAll('nav a').forEach(a => {
+      var onclick = a.getAttribute('onclick') || '';
+      if (onclick.indexOf("showPage('" + id + "')") >= 0) a.classList.add('active');
+    });
     window.scrollTo(0, 0);
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
@@ -1441,7 +1568,10 @@ function toggleMenu() {
   }
 
   // 초기 active 설정
-  document.querySelectorAll('nav a').forEach(a => { if(a.textContent.trim()==='홈') a.classList.add('active'); });
+  document.querySelectorAll('nav a').forEach(a => {
+    var onclick = a.getAttribute('onclick') || '';
+    if (onclick.indexOf("showPage('home')") >= 0) a.classList.add('active');
+  });
 </script>
 
 <!-- 공지 모달 -->
@@ -2633,24 +2763,129 @@ function closePdfMo() {}
 </script>
 
 <script>
-// 전경사진 패럴랙스 (스크롤 시 배경이 본문보다 느리게 움직여 깊이감 부여)
-(function () {
-  var heroBgWrap = document.getElementById('heroBgWrap');
-  if (!heroBgWrap) return;
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
-  var ticking = false;
-  function updateParallax() {
-    var offset = Math.min(window.scrollY * 0.18, 70);
-    heroBgWrap.style.transform = 'translateY(' + offset + 'px)';
-    ticking = false;
-  }
-  window.addEventListener('scroll', function () {
-    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
-  }, { passive: true });
-  updateParallax();
-})();
-</script>
+/* ══ 히어로 파티클 캔버스 ══ */
+(function() {
+  var canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var W, H;
 
-</body>
+  function resize() {
+    W = canvas.width = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for (var i = 0; i < 38; i++) {
+    particles.push({
+      x: Math.random() * 1200,
+      y: Math.random() * 700,
+      r: Math.random() * 2.2 + 0.6,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      a: Math.random() * 0.5 + 0.2
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(function(p) {
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(11,29,58,' + p.a + ')';
+      ctx.fill();
+    });
+    // 선 연결
+    for (var i = 0; i < particles.length; i++) {
+      for (var j = i + 1; j < particles.length; j++) {
+        var dx = particles[i].x - particles[j].x;
+        var dy = particles[i].y - particles[j].y;
+        var d = Math.sqrt(dx*dx + dy*dy);
+        if (d < 130) {
+          ctx.beginPath();
+          ctx.strokeStyle = 'rgba(11,29,58,' + (0.08 * (1 - d/130)) + ')';
+          ctx.lineWidth = 0.6;
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  // 히어로가 보일 때만 실행
+  var heroPage = document.getElementById('page-home');
+  if (heroPage) draw();
+})();
+
+/* ══ 카운트업 애니메이션 ══ */
+function runCountUp() {
+  document.querySelectorAll('.count-up').forEach(function(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    var target = parseInt(el.dataset.target, 10);
+    var duration = 1400;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      // easeOutQuart
+      var eased = 1 - Math.pow(1 - progress, 4);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+// 홈 페이지 로드 시 카운트업 실행
+setTimeout(runCountUp, 700);
+
+// showPage('home') 호출 시도 카운트업 재실행
+var _origShowPage = window.showPage || showPage;
+// showPage는 이미 정의되어 있으므로, 페이지 전환 후 home일 때 재실행
+document.addEventListener('click', function(e) {
+  var t = e.target;
+  // 홈 버튼 클릭 감지
+  if (t && (t.getAttribute('onclick')||'').indexOf("showPage('home')") >= 0) {
+    setTimeout(function() {
+      document.querySelectorAll('.count-up').forEach(function(el) { delete el.dataset.done; });
+      runCountUp();
+    }, 400);
+  }
+});
+
+/* ══ Reveal 스크롤 애니메이션 ══ */
+var revealObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+function initReveal() {
+  document.querySelectorAll('.reveal').forEach(function(el) {
+    el.classList.remove('in');
+    revealObserver.observe(el);
+  });
+}
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(initReveal, 150);
+});
+setTimeout(initReveal, 300);
+
+// 페이지 전환 시 reveal 재초기화
+var _pageLinks = document.querySelectorAll('[onclick*="showPage"]');
+document.addEventListener('click', function() {
+  setTimeout(initReveal, 200);
+});
+</script>
 </html>

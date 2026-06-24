@@ -156,20 +156,29 @@
       transition: opacity 1.2s ease;
     }
     .hero-slide.active { opacity: 1; }
-    .hero-slide:nth-child(1) { background-image: url('images/ems.jpg'); }
-    .hero-slide:nth-child(2) { background-image: url('images/agv.jpg'); }
-    /* 제품 사진 — 왼쪽 강하게, 오른쪽 더 멀리서 투명 */
-    .hero-slide:nth-child(1)::after,
-    .hero-slide:nth-child(2)::after {
+    .hero-slide:nth-child(1) { background-image: url('images/company.png'); }
+    .hero-slide:nth-child(2) { background-image: url('images/ems.jpg'); }
+    .hero-slide:nth-child(3) { background-image: url('images/agv.jpg'); }
+
+    /* 모든 슬라이드 공통 — 왼쪽 흰색 오버레이 동일 강도 */
+    .hero-slide::after {
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(105deg, rgba(248,249,250,0.97) 0%, rgba(245,247,249,0.88) 50%, rgba(240,244,248,0.45) 72%, rgba(230,235,240,0.0) 88%);
     }
 
-    /* 슬라이드 오버레이 — 왼쪽만 밝게, 오른쪽 완전 투명 */
-    .hero::before {
-      content: ''; position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(105deg, rgba(248,249,250,0.95) 0%, rgba(240,242,245,0.72) 42%, rgba(230,235,240,0.0) 65%);
+    /* 제품 사진 2·3번 — 오른쪽에 딥골드+딥블루 중간 틴트 추가 */
+    .hero-slide:nth-child(2),
+    .hero-slide:nth-child(3) {
+      background-blend-mode: normal;
     }
+    .hero-slide:nth-child(2)::before,
+    .hero-slide:nth-child(3)::before {
+      content: ''; position: absolute; inset: 0; z-index: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(42, 28, 58, 0.55) 100%);
+    }
+
+    /* 슬라이드 오버레이 — 왼쪽만 밝게, 오른쪽 완전 투명 */
+    .hero::before { display: none; }
     .hero::after { display: none; }
 
     /* 텍스트 색상 — 기존 네이비 유지 */
@@ -729,10 +738,12 @@
     <div class="hero-slides">
       <div class="hero-slide active"></div>
       <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
     </div>
     <div class="hero-dots">
       <div class="hero-dot active" onclick="goSlide(0)"></div>
       <div class="hero-dot" onclick="goSlide(1)"></div>
+      <div class="hero-dot" onclick="goSlide(2)"></div>
     </div>
     <div class="hero-text">
       <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
@@ -3007,14 +3018,12 @@ function closePdfMo() {}
 (function() {
   var slides = document.querySelectorAll('.hero-slide');
   var dots   = document.querySelectorAll('.hero-dot');
-  var cur = -1; // 처음엔 모두 숨김 → company.png 배경 보임
+  var cur = 0;
   var timer;
 
   window.goSlide = function(n) {
-    if (cur >= 0) {
-      slides[cur].classList.remove('active');
-      dots[cur].classList.remove('active');
-    }
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
     cur = n;
     slides[cur].classList.add('active');
     dots[cur].classList.add('active');
@@ -3026,10 +3035,7 @@ function closePdfMo() {}
     goSlide((cur + 1) % slides.length);
   }
 
-  // 처음엔 company.png 보이다가 5초 후 ems.jpg로 전환
-  // 슬라이드 첫번째는 active 제거
-  slides[0].classList.remove('active');
-  timer = setInterval(function() { goSlide(0); }, 5000);
+  timer = setInterval(nextSlide, 5000);
 })();
 
 /* ══ 카운트업 (슬라이드 다음에 실행) ══ */

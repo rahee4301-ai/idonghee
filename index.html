@@ -142,7 +142,7 @@
       height: calc(100vh - 64px); min-height: 500px;
       display: flex; align-items: center; padding: 0 8%;
       position: relative; overflow: hidden;
-      background: #0B1D3A;
+      background: url('images/company.png') center/cover no-repeat;
     }
 
     /* 슬라이드 배경 */
@@ -156,12 +156,11 @@
       transition: opacity 1.2s ease;
     }
     .hero-slide.active { opacity: 1; }
-    .hero-slide:nth-child(1) { background-image: url('images/company.png'); }
-    .hero-slide:nth-child(2) { background-image: url('images/ems.jpg'); }
-    .hero-slide:nth-child(3) { background-image: url('images/agv.jpg'); }
-    /* 제품 사진 2·3번 — 왼쪽 강하게, 오른쪽 더 멀리서 투명 */
-    .hero-slide:nth-child(2)::after,
-    .hero-slide:nth-child(3)::after {
+    .hero-slide:nth-child(1) { background-image: url('images/ems.jpg'); }
+    .hero-slide:nth-child(2) { background-image: url('images/agv.jpg'); }
+    /* 제품 사진 — 왼쪽 강하게, 오른쪽 더 멀리서 투명 */
+    .hero-slide:nth-child(1)::after,
+    .hero-slide:nth-child(2)::after {
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(105deg, rgba(248,249,250,0.97) 0%, rgba(245,247,249,0.88) 50%, rgba(240,244,248,0.45) 72%, rgba(230,235,240,0.0) 88%);
     }
@@ -730,12 +729,10 @@
     <div class="hero-slides">
       <div class="hero-slide active"></div>
       <div class="hero-slide"></div>
-      <div class="hero-slide"></div>
     </div>
     <div class="hero-dots">
       <div class="hero-dot active" onclick="goSlide(0)"></div>
       <div class="hero-dot" onclick="goSlide(1)"></div>
-      <div class="hero-dot" onclick="goSlide(2)"></div>
     </div>
     <div class="hero-text">
       <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
@@ -3010,12 +3007,14 @@ function closePdfMo() {}
 (function() {
   var slides = document.querySelectorAll('.hero-slide');
   var dots   = document.querySelectorAll('.hero-dot');
-  var cur = 0;
+  var cur = -1; // 처음엔 모두 숨김 → company.png 배경 보임
   var timer;
 
   window.goSlide = function(n) {
-    slides[cur].classList.remove('active');
-    dots[cur].classList.remove('active');
+    if (cur >= 0) {
+      slides[cur].classList.remove('active');
+      dots[cur].classList.remove('active');
+    }
     cur = n;
     slides[cur].classList.add('active');
     dots[cur].classList.add('active');
@@ -3027,8 +3026,10 @@ function closePdfMo() {}
     goSlide((cur + 1) % slides.length);
   }
 
-  // 첫 슬라이드는 이미 active, 5초 후 다음으로
-  timer = setInterval(nextSlide, 5000);
+  // 처음엔 company.png 보이다가 5초 후 ems.jpg로 전환
+  // 슬라이드 첫번째는 active 제거
+  slides[0].classList.remove('active');
+  timer = setInterval(function() { goSlide(0); }, 5000);
 })();
 
 /* ══ 카운트업 (슬라이드 다음에 실행) ══ */

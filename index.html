@@ -46,7 +46,7 @@
     nav a {
       color: #0B1D3A; text-decoration: none;
       font-size: 1.05rem; font-weight: 600; padding: 0 1.1rem;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.03em; white-space: nowrap;
       transition: color .2s; cursor: pointer; line-height: 68px;
       position: relative;
     }
@@ -215,7 +215,7 @@
     .hero-dot.active { background: var(--accent); width: 40px; }
     .hero-text { position: relative; z-index: 2; max-width: 520px; padding-bottom: 2rem; }
     .hero-tag { display: inline-block; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.2em; color: #0B1D3A; text-transform: uppercase; border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin-bottom: 1.8rem; }
-    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(2rem,5vw,3.6rem); font-weight: 600; line-height: 1.15; color: #0B1D3A; margin-bottom: 1.2rem; }
+    .hero h1 { font-family: 'Oswald', sans-serif; font-size: clamp(1.6rem,4vw,3.6rem); font-weight: 600; line-height: 1.2; color: #0B1D3A; margin-bottom: 1.2rem; }
     .hero h1 em { color: var(--navy); font-style: normal; border-bottom: 3px solid var(--accent); padding-bottom: 2px; }
     .hero p { font-size: clamp(0.9rem,1.5vw,1.05rem); color: #0f2d4a; line-height: 1.8; margin-bottom: 2rem; max-width: 480px; font-weight: 600; }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -750,7 +750,7 @@
     </div>
     <div class="hero-text">
       <div class="hero-tag">Since 1987 · Conveyor System Specialist</div>
-      <h1 data-ko="자동화의 흐름을<br>설계합니다<br>㈜동희산기" data-en="Designing the Flow<br>of Automation<br>Donghee Industries">자동화의 흐름을<br>설계합니다<br><span data-ko="㈜동희산기" data-en="Donghee Industries">㈜동희산기</em></h1>
+      <h1 data-ko="자동화의 흐름을 설계합니다 ㈜동희산기" data-en="Designing the Flow of Automation — Donghee Industries">자동화의 흐름을<br>설계합니다<br>㈜동희산기</h1>
       <p data-ko="현대·기아·GM 등 글로벌 완성차 메이커에 납품하는<br>컨베이어 시스템 전문기업입니다." data-en="A specialized conveyor system manufacturer supplying to global automakers including Hyundai, Kia, and GM.">현대·기아·GM 등 글로벌 완성차 메이커에 납품하는<br>컨베이어 시스템 전문기업입니다.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="showPage('products')" data-ko="제품 보기" data-en="View Products">제품 보기</button>

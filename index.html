@@ -161,15 +161,15 @@
 
     /* 켄번스 애니메이션 */
     @keyframes kb1 {
-      from { transform: scale(1.08) translate(-1.5%, -1.5%); }
+      from { transform: scale(1.04) translate(-1%, -1%); }
       to   { transform: scale(1.0)  translate(0%, 0%); }
     }
     @keyframes kb2 {
-      from { transform: scale(1.08) translate(1.5%, -1.5%); }
+      from { transform: scale(1.04) translate(1%, -1%); }
       to   { transform: scale(1.0)  translate(0%, 0%); }
     }
     @keyframes kb3 {
-      from { transform: scale(1.1)  translate(0%, 0%); }
+      from { transform: scale(1.05) translate(0%, 0%); }
       to   { transform: scale(1.0)  translate(0%, 0%); }
     }
     .hero-slide:nth-child(1).active { animation: kb1 6s ease-out forwards; }
@@ -495,7 +495,7 @@
       .ceo-wrap { grid-template-columns:1fr; gap:2.5rem; }
       .prod-wrap { grid-template-columns:1fr; gap:2rem; }
     }
-    @media(max-width:768px) {
+    @media(max-width:900px) {
       .global-map-grid { grid-template-columns:1fr !important; }
       .modal-overlay { padding:4px !important; }
       .modal-box { max-height:92vh; border-radius:8px; }

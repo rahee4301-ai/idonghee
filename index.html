@@ -2841,9 +2841,8 @@ function closeModal(e) {
     </div>
     <div class="esg-mc">
       <div class="kpi-g" id="wasteKpi"></div>
-      <div class="ch-row">
-        <div><div class="mo-sec" id="wasteChartTitle">연도별 폐기물 발생량 추이 (ton)</div><div class="ch-w"><canvas id="wasteChart"></canvas></div></div>
-        <div><div class="mo-sec" id="wasteDonutTitle">2025년 재활용 현황</div><div class="do-w"><canvas id="wasteDonut" style="max-width:170px;max-height:170px;"></canvas><div id="wasteLeg" style="font-size:.76rem;text-align:center;line-height:1.9;"></div></div></div>
+      <div style="display:flex;justify-content:center;margin:1rem 0;">
+        <div><div class="mo-sec" id="wasteDonutTitle" style="text-align:center;">2025년 재활용 현황</div><div class="do-w"><canvas id="wasteDonut" style="max-width:200px;max-height:200px;"></canvas><div id="wasteLeg" style="font-size:.76rem;text-align:center;line-height:1.9;"></div></div></div>
       </div>
       <div class="mo-sec" id="wasteTblTitle">폐기물 발생 및 처리 현황 (ton)</div>
       <div id="wasteTblWrap"></div>
@@ -2906,16 +2905,15 @@ var ESG_DATA = {
     enTbl: '<table class="mo-tbl"><thead><tr><th>구분 (Category)</th><th>에너지원</th><th>FY2023</th><th>FY2024</th><th>FY2025</th></tr></thead><tbody><tr><td>전력(비재생)</td><td style="color:#475569;font-size:.78rem;">한전 구매 전력</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>전력(재생)</td><td style="color:#475569;font-size:.78rem;">해당없음</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">전력 소계</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>연료(비재생)</td><td style="color:#475569;font-size:.78rem;">LNG·경유·휘발유·등유</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>연료(재생)</td><td style="color:#475569;font-size:.78rem;">바이오매스 등</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">연료 소계</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>스팀(비재생)</td><td style="color:#475569;font-size:.78rem;">화석연료 기반</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="ttot"><td colspan="2">총 에너지 합계</td><td>1,651.7</td><td>1,510.3</td><td>472.8</td></tr></tbody></table>',
     enAct: '<div class="act-grid"><div class="act-c" style="background:#eff6ff;border:1px solid #bfdbfe;">💡 <strong style="color:#1e3a5f;">LED 조명 교체</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">노후 형광등 LED 전환으로 전력 소비 절감</p></div><div class="act-c" style="background:#fefce8;border:1px solid #fde68a;">🔧 <strong style="color:#78350f;">고효율 설비 도입</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">압축기·설비 고효율 교체 및 인버터 적용</p></div><div class="act-c" style="background:#fdf4ff;border:1px solid #e9d5ff;">📊 <strong style="color:#581c87;">에너지 모니터링</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">월별 사용량 추적 및 이상 즉시 대응</p></div><div class="act-c" style="background:#f0fdf4;border:1px solid #bbf7d0;">📋 <strong style="color:#14532d;">정기 점검</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">분기별 에너지 절감 계획 수립·실행</p></div></div>',
     wasteTitle: '🗑️ 폐기물 발생 현황',
-    wasteChartTitle: '연도별 폐기물 발생량 추이 (ton)',
     wasteDonutTitle: '2025년 재활용 현황',
     wasteTblTitle: '폐기물 발생 및 처리 현황 (ton)',
     wasteNote: '※ 2025년 실적 기준 / 재활용률 = 재활용량 ÷ 폐기물 발생량 / 지정폐기물 발생 없음',
     wasteKpi: [
-      {yr:'2023',v:'13.83',u:'ton',ch:'기준연도',bc:'#16a34a',chc:'#64748b'},
-      {yr:'2025',v:'13.83',u:'ton',ch:'±0%',bc:'#16a34a',chc:'#64748b'},
+      {yr:'2025',v:'13.83',u:'ton',ch:'일반폐기물',bc:'#16a34a',chc:'#64748b'},
+      {yr:'재활용량',v:'9.33',u:'ton',ch:'',bc:'#D4A017',chc:'#64748b'},
       {yr:'재활용률',v:'67.5',u:'%',ch:'목표 70%+',bc:'#D4A017',chc:'#16a34a'}
     ],
-    wasteTbl: '<table class="esg-tbl"><thead><tr><th>구분</th><th>2023</th><th>2025</th><th>단위</th></tr></thead><tbody><tr><td>폐기물 발생량 합계</td><td>13.83</td><td>13.83</td><td>ton</td></tr><tr><td>일반폐기물</td><td>13.83</td><td>13.83</td><td>ton</td></tr><tr><td>지정폐기물</td><td>0</td><td>0</td><td>ton</td></tr><tr><td>재활용량</td><td>9.33</td><td>9.33</td><td>ton</td></tr><tr><td>재활용률</td><td>67.5%</td><td>67.5%</td><td>%</td></tr><tr><td>법규위반</td><td>0</td><td>0</td><td>건</td></tr></tbody></table>',
+    wasteTbl: '<table class="esg-tbl"><thead><tr><th>구분</th><th>2025</th><th>단위</th></tr></thead><tbody><tr><td>폐기물 발생량 합계</td><td>13.83</td><td>ton</td></tr><tr><td>일반폐기물</td><td>13.83</td><td>ton</td></tr><tr><td>지정폐기물</td><td>0</td><td>ton</td></tr><tr><td>재활용량</td><td>9.33</td><td>ton</td></tr><tr><td>재활용률</td><td>67.5%</td><td>%</td></tr><tr><td>법규위반</td><td>0</td><td>건</td></tr></tbody></table>',
   },
   en: {
     ghgTitle: '🌱 GHG Emissions Report',
@@ -2947,16 +2945,15 @@ var ESG_DATA = {
     enTbl: '<table class="mo-tbl"><thead><tr><th>Category</th><th>Source</th><th>FY2023</th><th>FY2024</th><th>FY2025</th></tr></thead><tbody><tr><td>Electricity (Non-renewable)</td><td style="color:#475569;font-size:.78rem;">KEPCO Grid Power</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>Electricity (Renewable)</td><td style="color:#475569;font-size:.78rem;">N/A</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">Electricity Subtotal</td><td>611.3</td><td>459.0</td><td>163.0</td></tr><tr><td>Fuel (Non-renewable)</td><td style="color:#475569;font-size:.78rem;">LNG·Diesel·Gasoline·Kerosene</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>Fuel (Renewable)</td><td style="color:#475569;font-size:.78rem;">Biomass etc.</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="tsub"><td colspan="2">Fuel Subtotal</td><td>1,040.4</td><td>1,051.3</td><td>309.8</td></tr><tr><td>Steam (Non-renewable)</td><td style="color:#475569;font-size:.78rem;">Fossil-fuel Steam</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td><td style="color:#94a3b8;">0</td></tr><tr class="ttot"><td colspan="2">Total Energy</td><td>1,651.7</td><td>1,510.3</td><td>472.8</td></tr></tbody></table>',
     enAct: '<div class="act-grid"><div class="act-c" style="background:#eff6ff;border:1px solid #bfdbfe;">💡 <strong style="color:#1e3a5f;">LED Lighting Upgrade</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Replacing fluorescent lights with LEDs to cut power use</p></div><div class="act-c" style="background:#fefce8;border:1px solid #fde68a;">🔧 <strong style="color:#78350f;">High-Efficiency Equipment</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Replacing aging compressors with inverter-driven equipment</p></div><div class="act-c" style="background:#fdf4ff;border:1px solid #e9d5ff;">📊 <strong style="color:#581c87;">Energy Monitoring</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Monthly tracking with immediate response to anomalies</p></div><div class="act-c" style="background:#f0fdf4;border:1px solid #bbf7d0;">📋 <strong style="color:#14532d;">Regular Inspections</strong><p style="color:#475569;margin-top:4px;font-size:.8rem;line-height:1.6;">Quarterly energy reduction planning and execution</p></div></div>',
     wasteTitle: '🗑️ Waste Management Report',
-    wasteChartTitle: 'Annual Waste Generation Trend (ton)',
     wasteDonutTitle: 'FY2025 Recycling Status',
     wasteTblTitle: 'Waste Generation & Treatment (ton)',
     wasteNote: '※ FY2025 data based on waste disposal records / Recycling rate: recycled qty ÷ total waste',
     wasteKpi: [
-      {yr:'2023',v:'13.83',u:'ton',ch:'Baseline',bc:'#16a34a',chc:'#64748b'},
-      {yr:'2025',v:'13.83',u:'ton',ch:'±0%',bc:'#16a34a',chc:'#64748b'},
-      {yr:'Recycling',v:'67.5',u:'%',ch:'Target: 70%+',bc:'#D4A017',chc:'#16a34a'}
+      {yr:'2025',v:'13.83',u:'ton',ch:'General Waste',bc:'#16a34a',chc:'#64748b'},
+      {yr:'Recycled',v:'9.33',u:'ton',ch:'',bc:'#D4A017',chc:'#64748b'},
+      {yr:'Recycling Rate',v:'67.5',u:'%',ch:'Target: 70%+',bc:'#D4A017',chc:'#16a34a'}
     ],
-    wasteTbl: '<table class="esg-tbl"><thead><tr><th>구분</th><th>2023</th><th>2025</th><th>단위</th></tr></thead><tbody><tr><td>폐기물 발생량 합계</td><td>13.83</td><td>13.83</td><td>ton</td></tr><tr><td>일반폐기물</td><td>13.83</td><td>13.83</td><td>ton</td></tr><tr><td>재활용량</td><td>9.33</td><td>9.33</td><td>ton</td></tr><tr><td>재활용률</td><td>67.5%</td><td>67.5%</td><td>%</td></tr><tr><td>법규위반</td><td>0</td><td>0</td><td>건</td></tr></tbody></table>',
+    wasteTbl: '<table class="esg-tbl"><thead><tr><th>Category</th><th>2025</th><th>Unit</th></tr></thead><tbody><tr><td>Total Waste Generated</td><td>13.83</td><td>ton</td></tr><tr><td>General Waste</td><td>13.83</td><td>ton</td></tr><tr><td>Hazardous Waste</td><td>0</td><td>ton</td></tr><tr><td>Recycled Amount</td><td>9.33</td><td>ton</td></tr><tr><td>Recycling Rate</td><td>67.5%</td><td>%</td></tr><tr><td>Regulatory Violations</td><td>0</td><td>cases</td></tr></tbody></table>',
   }
 };
 
@@ -2998,7 +2995,6 @@ function renderMo(type) {
     document.getElementById('enActWrap').innerHTML = d.enAct;
   } else if (type === 'waste') {
     document.getElementById('wasteMoTitle').textContent = d.wasteTitle;
-    document.getElementById('wasteChartTitle').textContent = d.wasteChartTitle;
     document.getElementById('wasteDonutTitle').textContent = d.wasteDonutTitle;
     document.getElementById('wasteTblTitle').textContent = d.wasteTblTitle;
     document.getElementById('wasteNote').textContent = d.wasteNote;
@@ -3051,9 +3047,6 @@ function openEsgMo(t) {
       ],'MWh',_enChart);
       mkDonut('enDonut',['Electricity','Fuel'],[163.0,309.8],['#7c3aed','#D4A017'],'enLeg','MWh');
     } else if(t==='waste') {
-      mkBar('wasteChart',['2023','2024','2025'],[
-        {label:'일반폐기물',data:[13.83,13.83,13.83],backgroundColor:'#16a34a',stack:'a'}
-      ],'ton',null);
       mkDonut('wasteDonut',['재활용','미재활용'],[9.33,4.50],['#16a34a','#d1d5db'],'wasteLeg','ton');
     }
   }, 60);

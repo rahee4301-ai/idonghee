@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>내·외부 부정행위 신고센터 - 동희산기</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js?hl=ko" async defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --navy:#0D1F3C; --accent:#C8860A; --green:#16a34a; --light:#F5F7FA; --gray:#6B7280; --border:#E2E8F0; }
@@ -161,6 +162,9 @@
         <label id="label-file">증빙자료 첨부 <span style="color:var(--gray);font-weight:400;" id="label-file-opt">(선택)</span></label>
         <input type="file" name="file">
         <p class="hint" id="hint-file">사진, 녹취, 문자, 이메일, 문서 등 첨부 가능</p>
+      </div>
+      <div style="margin-bottom:1.2rem;">
+        <div class="g-recaptcha" data-sitekey="6LdquGItAAAAAJOH1D0vrp43RVGBHEvNPWwZEvW3"></div>
       </div>
       <button type="submit" class="submit-btn" id="submit-btn">🔒 신고 접수하기</button>
     </form>

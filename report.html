@@ -61,6 +61,7 @@
     .submit-btn:hover { background: var(--accent); }
     .anon-notice { text-align: center; font-size: 0.78rem; color: var(--gray); margin-top: 1rem; }
     .footer { background: #0f2a4a; padding: 24px 5%; text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+    .hp-field { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
   </style>
 </head>
 <body>
@@ -134,6 +135,7 @@
       <div style="font-size:0.78rem;color:#166534;margin-top:0.6rem;">신고자 신원은 철저히 보호되며 어떠한 불이익도 발생하지 않습니다.</div>
     </div>
     <form action="http://168.107.38.162:5001/report" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+      <div class="hp-field"><label>홈페이지(입력하지 마세요)</label><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
       <div class="form-group">
         <label id="label-type">신고 유형 <span style="color:red">*</span></label>
         <select name="type" required id="select-type">
